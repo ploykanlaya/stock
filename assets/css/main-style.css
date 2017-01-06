@@ -60,7 +60,7 @@ color: #FFFFFF;
 padding: 20px 15px;
 }
 #side-menu {
-    background-color:#04B173;
+    background-color:#00FFFF;
 }
 
  #side-menu a {
@@ -92,7 +92,8 @@ padding: 20px 15px;
 /* tap nvbar Section */
 
 #navbar {
-    background-color:rgb(83, 163, 163);
+    background-color:rgb(255, 209, 220);
+
 }
 
 .navbar-brand {
@@ -122,7 +123,7 @@ margin-right: -24px;
     margin:5px;
 }
 .navbar-default {
-border-color: #27A6BE;
+border-color: ;
 }
 /*media queries*/
 
