@@ -4,7 +4,7 @@ $username=$_POST["user"];
 $password=$_POST["pass"];
 
 
-$hostname_connectDB = "localhost";
+			$hostname_connectDB = "localhost";
 			$database_connectDB = "stock";
 		    $username_connectDB = "root";
 		    $password_connectDB = "";
@@ -15,12 +15,15 @@ $hostname_connectDB = "localhost";
 $sql = "SELECT Position, Username, Password FROM user" ;
 $result = $conn->query($sql);
 
- 
-while($row = $result->fetch_assoc()){
-	
+echo "<script>alert('".$username."')</script>";
+echo "<script>alert('".$password."')</script>";
+
+while($row = $result->fetch_assoc()){///////////////////////////////////error user
+
 	if($row['Username']==$username && $row['Password']==$password){
-		
-		if($row['position']==0){
+		echo "<script>alert('".$row['Username']."')</script>";
+		echo "<script>alert('".$row['Password']."')</script>";
+		if($row['Position']==0){
 			echo "<script> window.location='index_manager.html'; </script>";
 		}
 		else{
