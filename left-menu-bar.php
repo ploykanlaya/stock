@@ -25,6 +25,20 @@
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
+                    <li class="header">Manager Views</li>
+                    <li>
+                        <a href="request_list.php"
+                            <i class="fa fa-paste" style="font-size:24px"></i><span>รายการเบิกสินค้า</span>
+                        </a>
+                    </li>
+                    <li class="header">Employee Views</li>
+                    <li>
+                        <a href="">
+                            <i class="material-icons">home</i>
+                            <span>หน้าหลัก</span>
+                        </a>
+                    </li>
+
                     <li class="header">MAIN NAVIGATION</li>           
                     
 
@@ -59,7 +73,7 @@
                              </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        <a href="create_po.html">สร้างรายการสั่งซื้อ</a>
+                                        <a href="create_po.php">สร้างรายการสั่งซื้อ</a>
                                     </li>
                                     <li>
                                         <a href="look_po.html">ดูรายการสั่งซื้อ</a>
@@ -130,29 +144,6 @@
                                     
                                 </ul>
                         </li>
-                   
-        
-           
-                    
-                    <li class="header">LABELS</li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-red">donut_large</i>
-                            <span>Important</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-amber">donut_large</i>
-                            <span>Warning</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-light-blue">donut_large</i>
-                            <span>Information</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
             <!-- #Menu -->
