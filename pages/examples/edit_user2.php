@@ -31,6 +31,28 @@
     <link href="../../css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
+
+<?php
+      
+        $hostname_connectDB = "localhost";
+            $database_connectDB = "stock";
+            $username_connectDB = "root";
+            $password_connectDB = "";
+            // Create connection
+            $conn = new mysqli($hostname_connectDB, $username_connectDB,$password_connectDB, $database_connectDB);
+            mysqli_set_charset($conn,"utf8");
+       
+        $query = "SELECT * FROM user";
+        $result = mysqli_query($conn,$query);
+       
+        $UserID=$_POST['UserID'];
+        $Name=$_POST["Name"];
+        $Telephone=$_POST["Telephone"];
+        $Address=$_POST["Address"];
+        $Username=$_POST["Username"];
+      
+    ?>
+ 
 <body class="theme-red">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
@@ -791,20 +813,23 @@
         <!-- #END# Right Sidebar -->
     </section>
 
-    <section class="content">
+
+  
+
+   <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>
-                    ข้อมูลส่วนตัว
-            
-                </h2>
+                <h2>ข้อมูลผู้ใช้งาน</h2>
             </div>
-            <!-- Basic Validation -->
+
+            <!-- Horizontal Layout -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>แก้ไขข้อมูลผู้ใช้งาน</h2>
+                            <h2>
+                                แก้ไขข้อมูลผู้ใช้งาน
+                            </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -819,63 +844,76 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form id="form_validation" method="POST">
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="name" required>
-                                        <label class="form-label">ชือ-นามสกุล</label>
+                            <form class="form-horizontal" method="POST" action="../../EditUserControl.php"> 
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="Name">ชื่อ-สกุล</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                 <input type="text" class="form-control" name="Name" placeholder="ชื่อ-สกุล" value='<?php echo $Name ?>' required autofocus/>
+                             <input type="hidden" name="UserID" value='<?php echo $UserID ?>'/>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="Telephone">เบอร์โทรศัพท์</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" name="Telephone" placeholder="เบอร์โทรศัพท์" value='<?php echo $Telephone ?>' />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="Address">ที่อยู่</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                 <input type="text" class="form-control" name="Address" placeholder="ที่อยู่" value='<?php echo $Address ?>'>
                             
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="email" class="form-control" name="email" required>
-                                        <label class="form-label">เบอร์โทรศัพท์</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- <div class="form-group">
-                                    <input type="radio" name="gender" id="male" class="with-gap">
-                                    <label for="male">Male</label>
-
-                                    <input type="radio" name="gender" id="female" class="with-gap">
-                                    <label for="female" class="m-l-20">Female</label>
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="Username">ชื่อผู้ใช้</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                               <input type="text" class="form-control" name="Username" placeholder="ชื่อผู้ใช้งาน" value='<?php echo $Username ?>'>
+                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                           <!--      <div class="row clearfix">
+                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+                                        <input type="checkbox" id="remember_me_3" class="filled-in">
+                                        <label for="remember_me_3">แก้ไขเรียบร้อยแล้ว</label>
+                                    </div>
                                 </div> -->
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <textarea name="description" cols="30" rows="5" class="form-control no-resize" required></textarea>
-                                        <label class="form-label">ที่อยู่</label>
+                                <div class="row clearfix">
+                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">ยืนยัน</button>
                                     </div>
                                 </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="password" class="form-control" name="password" required>
-                                        <label class="form-label">ชื่อผู้ใช้งาน</label>
-                                    </div>
-                                </div>
-                                  <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="password" class="form-control" name="password" required>
-                                        <label class="form-label">รหัสผ่าน</label>
-                                    </div>
-                                </div>
-                                  <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="password" class="form-control" name="password" required>
-                                        <label class="form-label">ยืนยันรหัสผ่าน</label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="checkbox" name="checkbox">
-                                    <label for="checkbox">I have read and accept the terms</label>
-                                </div>
-                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- #END# Basic Validation -->
-           
+            <!-- #END# Horizontal Layout -->
+         
         </div>
     </section>
 

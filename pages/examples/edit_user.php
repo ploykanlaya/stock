@@ -24,23 +24,45 @@
     <!-- Custom Css -->
     <link href="../../css/style.css" rel="stylesheet">
 </head>
-
+<?php
+      
+        $hostname_connectDB = "localhost";
+            $database_connectDB = "stock";
+            $username_connectDB = "root";
+            $password_connectDB = "";
+            // Create connection
+            $conn = new mysqli($hostname_connectDB, $username_connectDB,$password_connectDB, $database_connectDB);
+            mysqli_set_charset($conn,"utf8");
+       
+        $query = "SELECT * FROM user";
+        $result = mysqli_query($conn,$query);
+       
+        $UserID=$_POST['UserID'];
+        $Name=$_POST["Name"];
+        $Telephone=$_POST["Telephone"];
+        $Address=$_POST["Address"];
+        $Username=$_POST["Username"];
+      
+    ?>
+ 
 <body class="signup-page">
     <div class="signup-box">
         <div class="logo">
-            <a href="javascript:void(0);">Add<b>User</b></a>
+            <a href="javascript:void(0);">Edit<b>User</b></a>
             <small>Convenience Store’s Online Inventory Management System</small>
         </div>
         <div class="card">
             <div class="body">
-                <form id="sign_up" method="POST" action="../../AddUserControl.php">
-                    <div class="msg">Add a new User</div>
+                <form  method="POST"  action="../../EditUserControl.php">
+                    <div class="msg">Edit User</div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="namesurname" placeholder="Name Surname" required autofocus>
+                        <div class="form-line"> 
+                       
+                            <input type="text" class="form-control" name="Name" placeholder="Name Surname" value='<?php echo $Name ?>' required autofocus/>
+                             <input type="hidden" name="UserID" value='<?php echo $UserID ?>'/>
                         </div>
                     </div>
                     <div class="input-group">
@@ -48,7 +70,7 @@
                            <i class="material-icons">call</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="Telephone" placeholder="Telephone" required>
+                            <input type="text" class="form-control" name="Telephone" placeholder="Telephone" value='<?php echo $Telephone ?>' />
                         </div>
                     </div>
                     <div class="input-group">
@@ -56,7 +78,7 @@
                             <i class="material-icons">home</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="Address" placeholder="Address" required>
+                            <input type="text" class="form-control" name="Address" placeholder="Address" value='<?php echo $Address ?>'>
                         </div>
                     </div>
 
@@ -66,18 +88,18 @@
                             <i class="material-icons">account_circle</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="Username" placeholder="Username" required>
+                            <input type="text" class="form-control" name="Username" placeholder="Username" value='<?php echo $Username ?>'>
                         </div>
                     </div>
-                    <div class="input-group">
+                   <!--  <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">lock</i>
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" minlength="6" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" minlength="6" placeholder="Password" value='<?php echo $Username ?>'>
                         </div>
-                    </div>
-                    <div class="input-group">
+                    </div> -->
+                   <!--  <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">lock</i>
                         </span>
@@ -91,15 +113,16 @@
                         <label for="pos0">Manager</label>
                         <input type="radio" name="position" id="pos1" class="filled-in chk-col-pink" value="พนักงาน">
                         <label for="pos1">Employee</label>
-                    </div>
+                    </div> -->
 
 
                 
 
-                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
+                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">EDIT</button>
 
-                  
-             
+                    <div class="m-t-25 m-b--5 align-center">
+                        <a href="pages/examples/sign-up.php">You already have a membership?</a>
+                    </div>
                 </form>
             </div>
         </div>
