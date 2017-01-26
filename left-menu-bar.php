@@ -27,7 +27,7 @@
                 <ul class="list">
                     <li class="header">Manager Views</li>
                     <li>
-                        <a href="request_list.php"
+                        <a href="requisition_list.php"
                             <i class="fa fa-paste" style="font-size:24px"></i><span>รายการเบิกสินค้า</span>
                         </a>
                     </li>
