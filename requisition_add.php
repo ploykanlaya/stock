@@ -854,7 +854,7 @@
 
 
                            <!--  <div class="row clearfix"> -->
-                              <div class="col-md-6">
+                            <div class="col-md-6">
                                   
                                     <div class="form-group">
 
@@ -875,21 +875,54 @@
                                     </div>
                             </div> 
 
-                               <div class="row clearfix">
-                                    <div class="col-lg-offset-4 col-md-offset-4 col-sm-offset-6 col-xs-offset-5">
-                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">ยืนยัน</button>
-                                    </div>
-                                </div>
                                 </form>
                                </div> 
+      
+
+      <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                        <th>รหัส</th>
+                                        <th>ชื่อสินค้า</th>
+                                        <th>จำนวน</th>
+                                        <th>ราคาราม</th>
+                                        <th>เลือกสินค้า</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td> <input type="text" class="form-control" id="usr"></td>
+                                <td><input type="text" class="form-control" id="usr"></td>
+                                <td><input type="text" class="form-control" id="usr"></td>
+                                <td><input type="text" class="form-control" id="usr"></td>
+                                <td><button type="button" class="btn btn-primary">เลือก</button></td>
+                              </tr>
+                             
+                            </tbody>
+                          </table>
+                        </div>
+
+                    <button type="button" class="btn btn-primary btn-lg btn-block">บันทึก</button>
+
+
+                       
+
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- #END# Multi Column -->
+
+
         </div>
     </section>
+
+
 
 
    <!-- Jquery Core Js -->
