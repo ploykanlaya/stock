@@ -1,10 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Form Validation | Bootstrap Based Admin Template - Material Design</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Info_user | Convenience Store’s Online Inventory Management System</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -21,8 +24,8 @@
     <!-- Animation Css -->
     <link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
 
-    <!-- Sweet Alert Css -->
-    <link href="../../plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <!-- JQuery DataTable Css -->
+    <link href="../../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- Custom Css -->
     <link href="../../css/style.css" rel="stylesheet">
@@ -30,7 +33,32 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../../css/themes/all-themes.css" rel="stylesheet" />
 </head>
-
+     <?php
+        
+          $hostname_connectDB = "localhost";
+            $database_connectDB = "stock";
+            $username_connectDB = "root";
+            $password_connectDB = "";
+            // Create connection
+            $conn = new mysqli($hostname_connectDB, $username_connectDB,$password_connectDB, $database_connectDB);
+            mysqli_set_charset($conn,"utf8");
+       
+        $query = "SELECT * FROM Product";
+        $result = mysqli_query($conn,$query);
+       
+       
+        $Product_ID=$_POST['Product_ID'];
+        $Product_Name=$_POST["Product_Name"];
+        $Price=$_POST["Price"];
+        $Unit=$_POST["Unit"];
+        $Numstock=$_POST["Numstock"];
+        $SafetyStock=$_POST["SafetyStock"];
+        $ExpDate=$_POST["ExpDate"];
+        $Wholesalers_ID=$_POST["Wholesalers_ID"];
+        $ProductType_ID=$_POST["ProductType_ID"];
+        
+        
+    ?>       
 <body class="theme-red">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
@@ -69,7 +97,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="../../index.html">ADMINBSB - MATERIAL DESIGN</a>
+                <a class="navbar-brand" href="../../index.html">Convenience Store’s Online Inventory Management System</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -128,7 +156,7 @@
                                     <li>
                                         <a href="javascript:void(0);">
                                             <div class="icon-circle bg-orange">
-                                                <i class="material-icons">mode_edit</i>
+                                                <i class="material-icons">mode_d</i>
                                             </div>
                                             <div class="menu-info">
                                                 <h4><b>Nancy</b> changed name</h4>
@@ -295,323 +323,120 @@
                 </div>
             </div>
             <!-- #User Info -->
-            <!-- Menu -->
+           <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header">MAIN NAVIGATION</li>
-                    <li>
+                    <li class="header">MAIN NAVIGATION</li>           
+                     
+                    <li class="active">
                         <a href="../../index.html">
                             <i class="material-icons">home</i>
-                            <span>Home</span>
+                            <span>หน้าหลัก</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="../../pages/typography.html">
-                            <i class="material-icons">text_fields</i>
-                            <span>Typography</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../../pages/helper-classes.html">
-                            <i class="material-icons">layers</i>
-                            <span>Helper Classes</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">widgets</i>
-                            <span>Widgets</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Cards</span>
-                                </a>
+
+                        <li>
+                            <a href="javascript:void(0);" class="menu-toggle">
+                                 <i class="fa fa-line-chart" style="font-size:24px"></i></i><span>รายงาน</span>
+                             </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        <a href="../../pages/widgets/cards/basic.html">Basic</a>
+
+                                        <a href="../../report_all.html">ภาพรวม</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/cards/colored.html">Colored</a>
+                                        <a href="../../report_requests.html">ยอดเบิก</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/cards/no-header.html">No Header</a>
+                                        <a href="../../report_po.html">ยอดสั่งซื้อ</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../report_return.html">ยอดคืนสินค้า</a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Infobox</span>
-                                </a>
+                        </li>
+                        
+                        <li>
+                          <a href="javascript:void(0);" class="menu-toggle">
+                                 <i class="fa fa-cart-arrow-down" style="font-size:24px"></i><span>การสั่งซื้อ</span>
+                             </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        <a href="../../pages/widgets/infobox/infobox-1.html">Infobox-1</a>
+                                        <a href="../../create_po.html">สร้างรายการสั่งซื้อ</a>
                                     </li>
                                     <li>
-                                        <a href="../../pages/widgets/infobox/infobox-2.html">Infobox-2</a>
+                                        <a href="../../look_po.html">ดูรายการสั่งซื้อ</a>
                                     </li>
-                                    <li>
-                                        <a href="../../pages/widgets/infobox/infobox-3.html">Infobox-3</a>
-                                    </li>
-                                    <li>
-                                        <a href="../../pages/widgets/infobox/infobox-4.html">Infobox-4</a>
-                                    </li>
-                                    <li>
-                                        <a href="../../pages/widgets/infobox/infobox-5.html">Infobox-5</a>
-                                    </li>
+                                    
                                 </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">swap_calls</i>
-                            <span>User Interface (UI)</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="../../pages/ui/alerts.html">Alerts</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/animations.html">Animations</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/badges.html">Badges</a>
-                            </li>
+                        </li>
+                   
+                       <li>
+                          <a href="javascript:void(0);" class="menu-toggle">
+                                 <i class="fa fa-paste" style="font-size:24px"></i><span>การเบิกสินค้า</span>
+                             </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="../../create_requests.html">สร้างรายการเบิก</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../look_requests.html">ดูรายการเบิก</a>
+                                    </li>
+                                    
+                                </ul>
+                        </li>
 
                             <li>
-                                <a href="../../pages/ui/breadcrumbs.html">Breadcrumbs</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/buttons.html">Buttons</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/collapse.html">Collapse</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/colors.html">Colors</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/dialogs.html">Dialogs</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/icons.html">Icons</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/labels.html">Labels</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/list-group.html">List Group</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/media-object.html">Media Object</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/modals.html">Modals</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/notifications.html">Notifications</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/pagination.html">Pagination</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/preloaders.html">Preloaders</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/progressbars.html">Progress Bars</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/range-sliders.html">Range Sliders</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/sortable-nestable.html">Sortable & Nestable</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/tabs.html">Tabs</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/thumbnails.html">Thumbnails</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/tooltips-popovers.html">Tooltips & Popovers</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/ui/waves.html">Waves</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="active">
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
-                            <span>Forms</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="../../pages/forms/basic-form-elements.html">Basic Form Elements</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/forms/advanced-form-elements.html">Advanced Form Elements</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/forms/form-examples.html">Form Examples</a>
-                            </li>
-                            <li class="active">
-                                <a href="../../pages/forms/form-validation.html">Form Validation</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/forms/form-wizard.html">Form Wizard</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/forms/editors.html">Editors</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>Tables</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="../../pages/tables/normal-tables.html">Normal Tables</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/tables/jquery-datatable.html">Jquery Datatables</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/tables/editable-table.html">Editable Tables</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">perm_media</i>
-                            <span>Medias</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="../../pages/medias/image-gallery.html">Image Gallery</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/medias/carousel.html">Carousel</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">pie_chart</i>
-                            <span>Charts</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="../../pages/charts/morris.html">Morris</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/charts/flot.html">Flot</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/charts/chartjs.html">ChartJS</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/charts/sparkline.html">Sparkline</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/charts/jquery-knob.html">Jquery Knob</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">content_copy</i>
-                            <span>Example Pages</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="../../pages/examples/sign-in.html">Sign In</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/examples/sign-up.html">Sign Up</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/examples/forgot-password.html">Forgot Password</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/examples/blank.html">Blank Page</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/examples/404.html">404 - Not Found</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/examples/500.html">500 - Server Error</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">map</i>
-                            <span>Maps</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="../../pages/maps/google.html">Google Map</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/maps/yandex.html">YandexMap</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/maps/jvectormap.html">jVectorMap</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">trending_down</i>
-                            <span>Multi Level Menu</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <span>Menu Item</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <span>Menu Item - 2</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Level - 2</span>
-                                </a>
+                          <a href="javascript:void(0);" class="menu-toggle">
+                                 <i class="fa fa-repeat" style="font-size:24px"></i><span>การคืนสินค้า</span>
+                             </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        <a href="javascript:void(0);">
-                                            <span>Menu Item</span>
-                                        </a>
+                                        <a href="../../create_return.html">สร้างรายการคืน</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0);" class="menu-toggle">
-                                            <span>Level - 3</span>
-                                        </a>
-                                        <ul class="ml-menu">
-                                            <li>
-                                                <a href="javascript:void(0);">
-                                                    <span>Level - 4</span>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                        <a href="../../look_return.html">ดูรายการคืน</a>
                                     </li>
+                                    
                                 </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="../changelogs.html">
-                            <i class="material-icons">update</i>
-                            <span>Changelogs</span>
-                        </a>
-                    </li>
+                        </li>
+                   
+                        <li>
+                          <a href="javascript:void(0);" class="menu-toggle">
+                                 <i class="fa fa-cubes" style="font-size:24px"></i><span>สินค้า</span>
+                             </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="../../info_product.html">รายการสินค้า</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../stock.html">คลังสินค้า</a>
+                                    </li>
+                                    
+                                </ul>
+                        </li>
+                   
+                        <li>
+                          <a href="javascript:void(0);" class="menu-toggle">
+                                 <i class="fa fa-address-card-o" style="font-size:24px"></i><span>ผู้ใช้งาน</span>
+                             </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="../../pages/examples/sign-up.html">เพิ่มผู้ใช้งาน</a>
+                                    </li>
+                                    <li>
+                                        <a href="info_user.php">รายชื่อผู้ใช้งาน</a>
+                                    </li>
+                                    <li>
+                                        <a href="info_user.php">สิทธิ์การใช้งาน</a>
+                                    </li>
+                                    
+                                </ul>
+                        </li>
+                   
+        
+           
+                    
                     <li class="header">LABELS</li>
                     <li>
                         <a href="javascript:void(0);">
@@ -634,16 +459,7 @@
                 </ul>
             </div>
             <!-- #Menu -->
-            <!-- Footer -->
-            <div class="legal">
-                <div class="copyright">
-                    &copy; 2016 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
-                </div>
-                <div class="version">
-                    <b>Version: </b> 1.0.4
-                </div>
-            </div>
-            <!-- #Footer -->
+       
         </aside>
         <!-- #END# Left Sidebar -->
         <!-- Right Sidebar -->
@@ -794,157 +610,16 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>
-                    FORM VALIDATION
-                    <small>Taken from <a href="https://jqueryvalidation.org/" target="_blank">jqueryvalidation.org</a></small>
-                </h2>
+                <h2>ข้อมูลสินค้า</h2>
             </div>
-            <!-- Basic Validation -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>BASIC VALIDATION</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <form id="form_validation" method="POST">
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="name" required>
-                                        <label class="form-label">Name</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="surname" required>
-                                        <label class="form-label">Surname</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="email" class="form-control" name="email" required>
-                                        <label class="form-label">Email</label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="radio" name="gender" id="male" class="with-gap">
-                                    <label for="male">Male</label>
 
-                                    <input type="radio" name="gender" id="female" class="with-gap">
-                                    <label for="female" class="m-l-20">Female</label>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <textarea name="description" cols="30" rows="5" class="form-control no-resize" required></textarea>
-                                        <label class="form-label">Description</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="password" class="form-control" name="password" required>
-                                        <label class="form-label">Password</label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="checkbox" name="checkbox">
-                                    <label for="checkbox">I have read and accept the terms</label>
-                                </div>
-                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# Basic Validation -->
-            <!-- Advanced Validation -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>ADVANCED VALIDATION</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <form id="form_advanced_validation" method="POST">
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="minmaxlength" maxlength="10" minlength="3" required>
-                                        <label class="form-label">Min/Max Length</label>
-                                    </div>
-                                    <div class="help-info">Min. 3, Max. 10 characters</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="minmaxvalue" min="10" max="200" required>
-                                        <label class="form-label">Min/Max Value</label>
-                                    </div>
-                                    <div class="help-info">Min. Value: 10, Max. Value: 200</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="url" class="form-control" name="url" required>
-                                        <label class="form-label">Url</label>
-                                    </div>
-                                    <div class="help-info">Starts with http://, https://, ftp:// etc</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="date" required>
-                                        <label class="form-label">Date</label>
-                                    </div>
-                                    <div class="help-info">YYYY-MM-DD format</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="number" class="form-control" name="number" required>
-                                        <label class="form-label">Number</label>
-                                    </div>
-                                    <div class="help-info">Numbers only</div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="creditcard" pattern="[0-9]{13,16}" required>
-                                        <label class="form-label">Credit Card</label>
-                                    </div>
-                                    <div class="help-info">Ex: 1234-5678-9012-3456</div>
-                                </div>
-                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# Advanced Validation -->
-            <!-- Validation Stats -->
+            <!-- Horizontal Layout -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
-                                VALIDATION STATS
+                                แก้ไขข้อมูลสินค้า
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -960,23 +635,121 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form id="form_validation_stats">
-                                <div class="form-group form-float">
-                                    <div class="form-line focused warning">
-                                        <input type="text" class="form-control" name="warning" value="Warning" required>
-                                        <label class="form-label">Form Validation - Warning</label>
+                            <form class="form-horizontal" method="POST" action="../../EditProductControl.php"> 
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="Product_Name">ชื่อสินค้า</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                             <input type="text" class="form-control" name="Product_Name" placeholder="ชื่อ-สกุล" value='<?php echo $Product_Name ?>' required autofocus/>
+                         <input type="hidden" name="Product_ID" value='<?php echo $Product_ID ?>'/>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line focused error">
-                                        <input type="text" class="form-control" name="error" value="Error" required>
-                                        <label class="form-label">Form Validation - Error</label>
+                            
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="Price">Price</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                 <input type="text" class="form-control" name="Price" placeholder="Price" value='<?php echo $Price ?>'>
+                            
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line focused success">
-                                        <input type="email" class="form-control" name="success" value="Success" required>
-                                        <label class="form-label">Form Validation - Success</label>
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="Username">Unit</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                               <input type="text" class="form-control" name="Unit" placeholder="Unit" value='<?php echo $Unit ?>'>
+                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                     <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="Username">Numstock</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                               <input type="text" class="form-control" name="Numstock" placeholder="Numstock" value='<?php echo $Numstock ?>'>
+                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                     <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="SafetyStock">SafetyStock</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                               <input type="text" class="form-control" name="SafetyStock" placeholder="SafetyStock" value='<?php echo $SafetyStock ?>'>
+                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                     <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="Username">ExpDate</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                               <input type="text" class="form-control" name="ExpDate" placeholder="ExpDate" value='<?php echo $ExpDate ?>'>
+                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                     <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="Username">Wholesalers_ID</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                               <input type="text" class="form-control" name="Wholesalers_ID" placeholder="Wholesalers_ID" value='<?php echo $Wholesalers_ID ?>'>
+                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="Username">ProductType_ID</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                               <input type="text" class="form-control" name="ProductType_ID" placeholder="ProductType_ID" value='<?php echo $ProductType_ID ?>'>
+                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                           <!--      <div class="row clearfix">
+                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+                                        <input type="checkbox" id="remember_me_3" class="filled-in">
+                                        <label for="remember_me_3">แก้ไขเรียบร้อยแล้ว</label>
+                                    </div>
+                                </div> -->
+                                <div class="row clearfix">
+                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">ยืนยัน</button>
                                     </div>
                                 </div>
                             </form>
@@ -984,11 +757,11 @@
                     </div>
                 </div>
             </div>
-            <!-- #END# Validation Stats -->
+            <!-- #END# Horizontal Layout -->
+         
         </div>
     </section>
-
-    <!-- Jquery Core Js -->
+ <!-- Jquery Core Js -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->

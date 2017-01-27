@@ -43,7 +43,7 @@
                     
 
                     <li class="active">
-                        <a href="index.php">
+                        <a href="index_manager.php">
                             <i class="material-icons">home</i>
                             <span>หน้าหลัก</span>
                         </a>
@@ -54,7 +54,7 @@
                                  <i class="fa fa-line-chart" style="font-size:24px"></i></i><span>รายงาน</span>
                              </a>
                                 <ul class="ml-menu">
-                                   
+
                                     <li>
                                         <a href="report_requests.html">ยอดเบิก</a>
                                     </li>
@@ -117,8 +117,11 @@
                                  <i class="fa fa-cubes" style="font-size:24px"></i><span>สินค้า</span>
                              </a>
                                 <ul class="ml-menu">
+                                     <li>
+                                        <a href="pages/forms/add_product.php">เพิ่มสินค้าใหม่</a>
+                                    </li>
                                     <li>
-                                        <a href="info_product.html">รายการสินค้า</a>
+                                        <a href="pages/tables/info_product2.php">รายการสินค้า</a>
                                     </li>
                                     <li>
                                         <a href="stock.html">คลังสินค้า</a>
@@ -129,14 +132,17 @@
                    
                         <li>
                           <a href="javascript:void(0);" class="menu-toggle">
-                                 <i class="fa fa-address-card-o" style="font-size:24px"></i><span>ผู้ใช้งาน</span>
+                                 <i class="fa fa-address-card-o" style="font-size:24px"></i><span>จัดการผู้ใช้งาน</span>
                              </a>
                                 <ul class="ml-menu">
                                     <li>
                                         <a href="pages/examples/sign-up.html">เพิ่มผู้ใช้งาน</a>
                                     </li>
                                     <li>
-                                        <a href="pages/tables/info_user.php">รายชื่อผู้ใช้งาน</a>
+                                        <a href="pages/tables/info_user.php">ลบ/แก้ไขข้อมูล</a>
+                                    </li>
+                                    <li>
+                                        <a href="pages/tables/info_user_look.php">ดูรายชื่อผู้ใช้งาน</a>
                                     </li>
                                     <li>
                                         <a href="pages/tables/info_user.php">สิทธิ์การใช้งาน</a>

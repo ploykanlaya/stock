@@ -852,8 +852,8 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                 <input type="text" class="form-control" name="Name" placeholder="ชื่อ-สกุล" value='<?php echo $Name ?>' required autofocus/>
-                             <input type="hidden" name="UserID" value='<?php echo $UserID ?>'/>
+                                             <input type="text" class="form-control" name="Name" placeholder="ชื่อ-สกุล" value='<?php echo $Name ?>' required autofocus/>
+                         <input type="hidden" name="UserID" value='<?php echo $UserID ?>'/>
                                             </div>
                                         </div>
                                     </div>

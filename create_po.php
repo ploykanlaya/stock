@@ -2,14 +2,14 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+    <title>Basic Form Elements | Bootstrap Based Admin Template - Material Design</title>
     <!-- Favicon-->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -24,14 +24,21 @@
     <!-- Animation Css -->
     <link href="plugins/animate-css/animate.css" rel="stylesheet" />
 
-    <!-- Morris Chart Css-->
-    <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+
+    <!-- Wait Me Css -->
+    <link href="plugins/waitme/waitMe.css" rel="stylesheet" />
+
+    <!-- Bootstrap Select Css -->
+    <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
     <!-- Custom Css -->
     <link href="css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="css/themes/all-themes.css" rel="stylesheet" />
+
 </head>
 
 
@@ -222,347 +229,95 @@
         <!-- #END# Right Sidebar -->
     </section>
 
-    <section class="content">
+
+
+
+
+
+</style>
+    <section class="content" class = col-md-4>
         <div class="container-fluid">
             <div class="block-header">
-                <h2>รายงานภาพรวม</h2>
+                <h2>สร้างรายการซื้อ</h2>
             </div>
 
-            <!-- Widgets -->
+
+  <!--DateTime Picker -->
             <div class="row clearfix">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-pink hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">playlist_add_check</i>
-                        </div>
-                        <div class="content">
-                            <div class="text">การเบิกสินค้า</div>
-                            <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-cyan hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">shopping_cart</i>
-                        </div>
-                        <div class="content">
-                            <div class="text">การสั่งซื้อ</div>
-                            <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-light-green hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">favorite</i>
-                        </div>
-                        <div class="content">
-                            <div class="text">หมวดหมู่ขายดี</div>
-                            <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-orange hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">person_add</i>
-                        </div>
-                        <div class="content">
-                            <div class="text">ผู้ใช้งานใหม่</div>
-                            <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# Widgets -->
-
-
-            <!-- Line Chart -->
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>LINE CHART</h2>
-                             <h6>กราฟการเคลื่อนไหวคลังสินค้า(เบิก-สั่งซื้อ)</h6>
+                            <h2>
+                                DATETIME PICKER
+                                <small>Taken from <a href="https://github.com/T00rk/bootstrap-material-datetimepicker" target="_blank">github.com/T00rk/bootstrap-material-datetimepicker</a> with <a href="http://momentjs.com/" target="_blank">momentjs.com</a></small>
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                        <h5>รายการ</h5>
+                                               <input type="text" id="Requisition_ID" class="form-control" placeholder="กรอกรายการเบิก">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                        <h5>วันที่ทำราการ</h5>
+                                            <input type="text" class="datepicker form-control" placeholder="เลือกวันที่ทำรายการ">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
                             
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div id="line_chart" class="graph"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- #END# Line Chart -->
-			
+                    <div class="row clearfix">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                        <h5>ชื่อผู้ใช้</h5>
+                                            <input type="text" id="Name" class="form-control" placeholder="กรอกชื่อผู้ใช้">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                        <h5>เบอร์โทรศัพท์</h5>
+                                             <input type="text" id="    Telephone   " class="form-control" placeholder="กรอกเบอร์โทรศัพท์ผู้ใช้">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
 
-<div class="row clearfix">
-                <!-- Pie Chart -->
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>PIE CHART</h2>
-                            <h6>กราฟวงแสดงกลมมูลค่าสินค้าคงเหลือ</h6>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div id="pie_chart" class="flot-chart"></div>
+
+
+
                         </div>
                     </div>
                 </div>
-                <!-- #END# Pie Chart -->
-          
-            <div class="row clearfix">
-                <!-- Visitors -->
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="card">
-                        <div class="body bg-pink">
-                            <div class="sparkline" data-type="line" data-spot-Radius="4" data-highlight-Spot-Color="rgb(233, 30, 99)" data-highlight-Line-Color="#fff"
-                                 data-min-Spot-Color="rgb(255,255,255)" data-max-Spot-Color="rgb(255,255,255)" data-spot-Color="rgb(255,255,255)"
-                                 data-offset="90" data-width="100%" data-height="92px" data-line-Width="2" data-line-Color="rgba(255,255,255,0.7)"
-                                 data-fill-Color="rgba(0, 188, 212, 0)">
-                                12,10,9,6,5,6,10,5,7,5,12,13,7,12,11
-                            </div>
-                            <ul class="dashboard-stat-list">
-                                <li>
-                                    TODAY
-                                    <span class="pull-right"><b>1 200</b> <small>USERS</small></span>
-                                </li>
-                                <li>
-                                    YESTERDAY
-                                    <span class="pull-right"><b>3 872</b> <small>USERS</small></span>
-                                </li>
-                                <li>
-                                    LAST WEEK
-                                    <span class="pull-right"><b>26 582</b> <small>USERS</small></span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- #END# Visitors -->
-                <!-- Latest Social Trends -->
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="card">
-                        <div class="body bg-cyan">
-                            <div class="m-b--35 font-bold">LATEST SOCIAL TRENDS</div>
-                            <ul class="dashboard-stat-list">
-                                <li>
-                                    #socialtrends
-                                    <span class="pull-right">
-                                        <i class="material-icons">trending_up</i>
-                                    </span>
-                                </li>
-                                <li>
-                                    #materialdesign
-                                    <span class="pull-right">
-                                        <i class="material-icons">trending_up</i>
-                                    </span>
-                                </li>
-                                <li>#adminbsb</li>
-                                <li>#freeadmintemplate</li>
-                                <li>#bootstraptemplate</li>
-                                <li>
-                                    #freehtmltemplate
-                                    <span class="pull-right">
-                                        <i class="material-icons">trending_up</i>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- #END# Latest Social Trends -->
-                <!-- Answered Tickets -->
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="card">
-                        <div class="body bg-teal">
-                            <div class="font-bold m-b--35">ANSWERED TICKETS</div>
-                            <ul class="dashboard-stat-list">
-                                <li>
-                                    TODAY
-                                    <span class="pull-right"><b>12</b> <small>TICKETS</small></span>
-                                </li>
-                                <li>
-                                    YESTERDAY
-                                    <span class="pull-right"><b>15</b> <small>TICKETS</small></span>
-                                </li>
-                                <li>
-                                    LAST WEEK
-                                    <span class="pull-right"><b>90</b> <small>TICKETS</small></span>
-                                </li>
-                                <li>
-                                    LAST MONTH
-                                    <span class="pull-right"><b>342</b> <small>TICKETS</small></span>
-                                </li>
-                                <li>
-                                    LAST YEAR
-                                    <span class="pull-right"><b>4 225</b> <small>TICKETS</small></span>
-                                </li>
-                                <li>
-                                    ALL
-                                    <span class="pull-right"><b>8 752</b> <small>TICKETS</small></span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- #END# Answered Tickets -->
             </div>
+            <!--#END# DateTime Picker -->
+</div></section>
 
-            <div class="row clearfix">
-                <!-- Task Info -->
-                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                    <div class="card">
-                        <div class="header">
-                            <h2>TASK INFOS</h2>
-                           <h6>สินค้าเคลื่อนไหวย้อนหลัง</h6>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-hover dashboard-task-infos">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>ชื่อสินค้า</th>
-                                            <th>เข้า</th>
-                                            <th>ออก</th>
-                                            <th>เปลี่ยนแปลง</th>
-                                            <th>คงเหลือ</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Task A</td>
-                                            <td><span class="label bg-green">Doing</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div>
-                                                </div>
-                                            </td>
-                                            <td>10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Task B</td>
-                                            <td><span class="label bg-blue">To Do</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-                                                </div>
-                                            </td>
-                                            <td>4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Task C</td>
-                                            <td><span class="label bg-light-blue">On Hold</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-light-blue" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%"></div>
-                                                </div>
-                                            </td>
-                                            <td>5</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Task D</td>
-                                            <td><span class="label bg-orange">Wait Approvel</span></td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
-                                                </div>
-                                            </td>
-                                            <td>5</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Task E</td>
-                                            <td>
-                                                <span class="label bg-red">Suspended</span>
-                                            </td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-red" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"></div>
-                                                </div>
-                                            </td>
-                                            <td>5</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- #END# Task Info -->
-                <!-- Browser Usage -->
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="card">
-                        <div class="header">
-                            <h2>BROWSER USAGE</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div id="donut_chart" class="dashboard-donut-chart"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- #END# Browser Usage -->
-            </div>
-        </div>
-    </section>
 
-    <!-- Jquery Core Js -->
+                       
+       
+
+     <!-- Jquery Core Js -->
     <script src="plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->
@@ -577,29 +332,18 @@
     <!-- Waves Effect Plugin Js -->
     <script src="plugins/node-waves/waves.js"></script>
 
-    <!-- Jquery CountTo Plugin Js -->
-    <script src="plugins/jquery-countto/jquery.countTo.js"></script>
+    <!-- Autosize Plugin Js -->
+    <script src="plugins/autosize/autosize.js"></script>
 
-    <!-- Morris Plugin Js -->
-    <script src="plugins/raphael/raphael.min.js"></script>
-    <script src="plugins/morrisjs/morris.js"></script>
+    <!-- Moment Plugin Js -->
+    <script src="plugins/momentjs/moment.js"></script>
 
-    <!-- ChartJs -->
-    <script src="plugins/chartjs/Chart.bundle.js"></script>
-
-    <!-- Flot Charts Plugin Js -->
-    <script src="plugins/flot-charts/jquery.flot.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.resize.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.pie.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.time.js"></script>
-
-    <!-- Sparkline Chart Plugin Js -->
-    <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
-    <script src="js/pages/index.js"></script>
+    <script src="js/pages/forms/basic-form-elements.js"></script>
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
