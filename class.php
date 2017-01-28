@@ -13,7 +13,7 @@ class User{
 					$_SESSION["user"]=$memberlogin->username;
 
 					mysqli_close($conn);
-					echo "<script>window.location='../../index.html';</script>";
+					echo "<script>window.location='index_manager.php';</script>";
 
 					$_status=1;
 					break;
@@ -26,7 +26,7 @@ class User{
 				echo "<script type='text/javascript'>alert('$message');</script>";
 
 				mysqli_close($conn);
-				echo "<script>window.location='sign-in.html';</script>";
+				echo "<script>window.location='sign-in.php';</script>";
 			}
 	}
 
@@ -38,12 +38,12 @@ class User{
 					{
 
 							$sql = "INSERT INTO user (Name,Address,Telephone,Username,Password,Position)
-VALUES ('".$adduser->namesurname."','".$adduser->Address."','".$adduser->Telephone."','".$adduser->Username."','".$adduser->password."','".$adduser->position."')" ;
+VALUES ('".$adduser->Name."','".$adduser->Address."','".$adduser->Telephone."','".$adduser->Username."','".$adduser->password."','".$adduser->position."')" ;
 							if ($conn->query($sql) === TRUE)	{
 							$message = "Insert User success!";
 							echo "<script type='text/javascript'>alert('$message');</script>";
 							mysqli_close($conn);
-							echo "<script>window.location='pages/tables/info_user.php';</script>"; }
+							echo "<script>window.location='info_user.php';</script>"; }
 			
 
 			
@@ -51,7 +51,7 @@ VALUES ('".$adduser->namesurname."','".$adduser->Address."','".$adduser->Telepho
 
 if ($conn->query($sql) === TRUE){
 	//echo "eieieieiei";
-echo "<script>window.location='../tables/info_user.php';</script>";
+echo "<script>window.location='info_user.php';</script>";
 	}	
 else
 	echo "error" . $conn->error;
@@ -70,7 +70,7 @@ else
 							$message = "Delete success!";
 							echo "<script type='text/javascript'>alert('$message');</script>";
 							mysqli_close($conn);
-							echo "<script>window.location='pages/tables/info_user.php';</script>"; }
+							echo "<script>window.location='info_user.php';</script>"; }
 							
 						}
 						else
@@ -99,7 +99,7 @@ else
 					alert("Success");
 					</script> 
 					<script>
-					window.location="pages/tables/info_user.php";
+					window.location="info_user.php";
 					</script>
 					<?php
 				}
@@ -111,7 +111,7 @@ else
 					alert("Error");
 					</script> 
 					<script>
-					window.location="../../edit_user2.php";
+					window.location="edit_user2.php";
 					</script>
 					<?php
 				}
@@ -132,7 +132,7 @@ else
 							$message = "Delete success!";
 							echo "<script type='text/javascript'>alert('$message');</script>";
 							mysqli_close($conn);
-							echo "<script>window.location='pages/tables/info_product2.php';</script>"; }
+							echo "<script>window.location='info_product2.php';</script>"; }
 							
 						}
 						else
@@ -161,7 +161,7 @@ else
 					alert("Success");
 					</script> 
 					<script>
-					window.location="pages/tables/info_product2.php";
+					window.location="info_product2.php";
 					</script>
 					<?php
 				}
@@ -173,7 +173,7 @@ else
 					alert("Error");
 					</script> 
 					<script>
-					window.location="pages/examples/edit_product.php";
+					window.location="edit_product.php";
 					</script>
 					<?php
 				}
@@ -189,7 +189,7 @@ else
 											$message = "Insert New Product success!";
 											echo "<script type='text/javascript'>alert('$message');</script>";
 											mysqli_close($conn);
-											echo "<script>window.location='pages/tables/info_product2.php';</script>"; }
+											echo "<script>window.location='info_product2.php';</script>"; }
 							
 
 							
@@ -197,7 +197,7 @@ else
 
 				if ($conn->query($sql) === TRUE){
 					//echo "eieieieiei";
-				echo "<script>window.location='../tables/info_product2.php';</script>";
+				echo "<script>window.location='info_product2.php';</script>";
 					}	
 				else
 					echo "error" . $conn->error;

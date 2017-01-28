@@ -1,7 +1,7 @@
 <?php
 			require("Class.php");
 
-			$adduser = new user;
+			$adduser = new User;
 
 			$servername = "localhost";
 			$username = "root";
@@ -12,7 +12,7 @@
 			mysqli_set_charset($conn,"utf8");
 
 		    	
-		    	$adduser->namesurname=$_POST["namesurname"];
+		    	$adduser->Name=$_POST["Name"];
 		    	$adduser->Telephone=$_POST["Telephone"];
 		    	$adduser->Address=$_POST["Address"];
 		    	$adduser->Username=$_POST["Username"];

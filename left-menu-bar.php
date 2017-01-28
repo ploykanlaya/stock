@@ -117,10 +117,10 @@
                              </a>
                                 <ul class="ml-menu">
                                      <li>
-                                        <a href="pages/forms/add_product.php">เพิ่มสินค้าใหม่</a>
+                                        <a href="add_product.php">เพิ่มสินค้าใหม่</a>
                                     </li>
                                     <li>
-                                        <a href="pages/tables/info_product2.php">รายการสินค้า</a>
+                                        <a href="info_product2.php">รายการสินค้า</a>
                                     </li>
                                     <li>
                                         <a href="stock.html">คลังสินค้า</a>
@@ -135,16 +135,16 @@
                              </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        <a href="pages/examples/sign-up.html">เพิ่มผู้ใช้งาน</a>
+                                        <a href="sign-up.php">เพิ่มผู้ใช้งาน</a>
                                     </li>
                                     <li>
-                                        <a href="pages/tables/info_user.php">ลบ/แก้ไขข้อมูล</a>
+                                        <a href="info_user.php">ลบ/แก้ไขข้อมูล</a>
                                     </li>
                                     <li>
-                                        <a href="pages/tables/info_user_look.php">ดูรายชื่อผู้ใช้งาน</a>
+                                        <a href="info_user_look.php">ดูรายชื่อผู้ใช้งาน</a>
                                     </li>
                                     <li>
-                                        <a href="pages/tables/info_user.php">สิทธิ์การใช้งาน</a>
+                                        <a href="info_user.php">สิทธิ์การใช้งาน</a>
                                     </li>
                                     
                                 </ul>

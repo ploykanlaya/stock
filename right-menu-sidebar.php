@@ -27,6 +27,7 @@
                             <div class="indigo"></div>
                             <span>Indigo</span>
                         </li>
+         
                         <li data-theme="blue">
                             <div class="blue"></div>
                             <span>Blue</span>

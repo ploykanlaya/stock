@@ -8,7 +8,10 @@
     <?php include 'top-bar.php'; ?>  
 <!-- #Top Bar -->
 <!-- Left Sidebar -->
-    <?php include 'left-menu.php'; ?>  
+    <?php include 'left-menu-bar.php'; ?>  
+<!-- #END# Left Sidebar -->
+<!-- Left Sidebar -->
+    <?php include 'right-menu-sidebar.php'; ?>  
 <!-- #END# Left Sidebar -->
 
 <!-- Content -->

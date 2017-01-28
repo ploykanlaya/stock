@@ -17,16 +17,16 @@ class DB {
     public $charset   = 'utf8';
      
     public function __construct() {
-        $this->connect  = mysql_connect( $this->server, $this->username, $this->password )
+        $this->connect = mysqli_connect( $this->server, $this->username, $this->password )
             or die( "Error Connect to Database" );
-        mysql_select_db( $this->dbname, $this->connect ) or die( "Error Connect to Table" );
-        mysql_query( "SET NAMES UTF8" );
+        mysqli_select_db( $this->connect, $this->dbname) or die( "Error Connect to Table" );
+        mysqli_query( $this->connect, "SET NAMES UTF8" );
     }
      
     // ประมวลผลคำสั่ง SQL
     public function query($txtSQL = ''){
         if(!empty($txtSQL)){
-            $this->result = mysql_query( $txtSQL , $this->connect );
+            $this->result = mysqli_query(  $this->connect, $txtSQL);
             return $this;
         }else{
             return false;
@@ -47,7 +47,7 @@ class DB {
     // รายการเดียว
     public function find(){
         if(!empty($this->result)){
-            $this->recode   = mysql_fetch_object( $this->result );
+            $this->recode   = mysqli_fetch_object( $this->result );
             return $this->recode;
         }else{
             return false;
@@ -58,7 +58,7 @@ class DB {
     public function findAll(){
         if(!empty($this->result)){
             $record = array();
-            while ($row = mysql_fetch_array( $this->result , MYSQL_ASSOC)) {
+            while ($row = mysqli_fetch_array( $this->result , MYSQLI_ASSOC)) {
                 $record[] = (object) $row;
             }
             return $record;
@@ -70,7 +70,7 @@ class DB {
     // จำนวน Record
     public function count(){
         if(!empty($this->result)){
-            return mysql_num_rows( $this->result );
+            return mysqli_num_rows( $this->result );
         }else{
             return false;
         }
