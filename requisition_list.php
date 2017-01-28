@@ -92,7 +92,7 @@ $result =  $database->query("SELECT * FROM requisition")->findAll();
 
 	                                <?php 
 	                            			}
-	                            			$index++;
+	                            			$index=$index+1;
 	                            		}
 	                                ?>
 	                            </tbody>
