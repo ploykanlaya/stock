@@ -27,15 +27,14 @@
                 <ul class="list">
                     <li class="header">Manager Views</li>
                     <li>
-                        <a href="requisition_list.php"
+                        <a href="requisition_list.php">
                             <i class="fa fa-paste" style="font-size:24px"></i><span>รายการเบิกสินค้า</span>
                         </a>
                     </li>
                     <li class="header">Employee Views</li>
                     <li>
-                        <a href="">
-                            <i class="material-icons">home</i>
-                            <span>หน้าหลัก</span>
+                        <a href="requisition_add.php">
+                            <i class="fa fa-plus" style="font-size:24px"></i><span>เพิ่มใบเบิกสินค้า</span>
                         </a>
                     </li>
 

@@ -35,8 +35,8 @@
 
         <li class="header">Employee Views</li>
         <li>
-            <a href="">
-                <i class="material-icons">home</i><span>หน้าหลัก</span>
+            <a href="requisition_add.php">
+                <i class="fa fa-plus" style="font-size:24px"></i><span>เพิ่มใบเบิกสินค้า</span>
             </a>
         </li>
     </ul>
