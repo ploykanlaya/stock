@@ -25,7 +25,7 @@
                         <h4>เพิ่มใบเบิกสินค้า</h4>
                     </div>
                     <div class="body">
-                        <form id="addproduct" method="POST" action="../../AddProductControl.php">
+                        <form method="POST" action="AddProductControl.php">
                             <div class="row clearfix">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -69,16 +69,16 @@
                                                 <th>รหัส</th>
                                                 <th>ชื่อสินค้า</th>
                                                 <th>จำนวน</th>
-                                                <th>ราคาราม</th>
+                                                <th>ราคารวม</th>
                                                 <th>เลือกสินค้า</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                <td> <input type="text" class="form-control" id="usr"></td>
-                                                <td><input type="text" class="form-control" id="usr"></td>
-                                                <td><input type="text" class="form-control" id="usr"></td>
-                                                <td><input type="text" class="form-control" id="usr"></td>
+                                                <td><input type="text" class="form-control" name="pID"></td>
+                                                <td><input type="text" class="form-control" name="pName"></td>
+                                                <td><input type="text" class="form-control" name="pAmount"></td>
+                                                <td><input type="text" class="form-control" name="pTotal"></td>
                                                 <td><button type="button" class="btn btn-danger">เลือก</button></td>
                                                 </tr>
                                             </tbody>
@@ -86,8 +86,8 @@
                                     </div>
                                 </div>
                             </div>    
+                             <button type="submit" class="btn btn-danger btn-lg btn-block">บันทึก</button>
                         </form>
-                        <button type="button" class="btn btn-danger btn-lg btn-block">บันทึก</button>
                     </div>
                 </div>
             </div>
@@ -100,5 +100,8 @@
 <!-- Script Sidebar -->
     <?php include 'script.php'; ?>  
 <!-- #END# Script Sidebar -->
+<script type="text/javascript">
+   
+</script>
 </body>
 </html>
