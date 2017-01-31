@@ -53,6 +53,9 @@
                                  <i class="fa fa-line-chart" style="font-size:24px"></i></i><span>รายงาน</span>
                              </a>
                                 <ul class="ml-menu">
+                                 <li>
+                                        <a href="stock.html">คลังสินค้า</a>
+                                    </li>
 
                                     <li>
                                         <a href="report_requests.html">ยอดเบิก</a>
@@ -122,9 +125,7 @@
                                     <li>
                                         <a href="info_product2.php">รายการสินค้า</a>
                                     </li>
-                                    <li>
-                                        <a href="stock.html">คลังสินค้า</a>
-                                    </li>
+                                
                                     
                                 </ul>
                         </li>
@@ -143,9 +144,7 @@
                                     <li>
                                         <a href="info_user_look.php">ดูรายชื่อผู้ใช้งาน</a>
                                     </li>
-                                    <li>
-                                        <a href="info_user.php">สิทธิ์การใช้งาน</a>
-                                    </li>
+                                  
                                     
                                 </ul>
                         </li>

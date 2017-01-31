@@ -207,24 +207,24 @@ else
  }
 
 
-// class Requisition{	
-// 		   public $Requisition_ID;
+class Requisition{	
+		   public $Requisition_ID;
 
-// public function Requisition($conn,$addReq)
-// 									{
+public function Requisition($conn,$addReq)
+									{
 
-// 											$sql = "INSERT INTO Requisition (Requisition_ID,Requisition_Date,Status,UserID,Name)
-// 				VALUES ('".$addReq->Requisition_ID."','".$addReq->Requisition_Date."','".$addReq->Status."','".$addReq->UserID."','".$addReq->Name."')" ;
-// 											if ($conn->query($sql) === TRUE)	{
-// 											$message = "Insert New Requisition success!";
-// 											echo "<script type='text/javascript'>alert('$message');</script>";
-// 											mysqli_close($conn);
-// 											echo "<script>window.location='requisition_list.php';</script>"; }
-
-
+											$sql = "INSERT INTO Requisition (Requisition_ID,Requisition_Date,Status,UserID,Name)
+				VALUES ('".$addReq->Requisition_ID."','".$addReq->Requisition_Date."','".$addReq->Status."','".$addReq->UserID."','".$addReq->Name."')" ;
+											if ($conn->query($sql) === TRUE)	{
+											$message = "Insert New Requisition success!";
+											echo "<script type='text/javascript'>alert('$message');</script>";
+											mysqli_close($conn);
+											echo "<script>window.location='requisition_list.php';</script>"; }
 
 
-// }
+
+
+}
 }
 
 

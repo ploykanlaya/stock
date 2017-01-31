@@ -38,7 +38,7 @@
           {
              echo "Failed to connect to MySQL: " . mysqli_connect_error($conn);
           }
-        $query = "SELECT * FROM Product";
+        $query = "SELECT * FROM Product" ;
         $result = mysqli_query($conn,$query)
          
         
