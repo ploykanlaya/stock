@@ -26,7 +26,11 @@
                         <h4>สร้างรายการเบิก</h4>
                     </div>
                     <div class="body">
+<<<<<<< HEAD
                         <form id="addproduct" method="POST" action="AddRequisitionControl.php">
+=======
+                        <form method="POST" action="AddProductControl.php">
+>>>>>>> origin/master
                             <div class="row clearfix">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -71,13 +75,18 @@
                                                 <th>รหัส</th>
                                                 <th>ชื่อสินค้า</th>
                                                 <th>จำนวน</th>
+<<<<<<< HEAD
                                                 <th>มูลค่าต่อหน่วย</th>
                                                 <th>ราคาราม</th>
+=======
+                                                <th>ราคารวม</th>
+>>>>>>> origin/master
                                                 <th>เลือกสินค้า</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
+<<<<<<< HEAD
                                                 <td> <input type="text" class="form-control" id="usr"></td>
                                                 <td><input type="text" class="form-control" id="usr"></td>
                                                 <td><input type="text" class="form-control" id="usr"></td>
@@ -102,6 +111,14 @@
                                    </td>      
 
                                            </tr>
+=======
+                                                <td><input type="text" class="form-control" name="pID"></td>
+                                                <td><input type="text" class="form-control" name="pName"></td>
+                                                <td><input type="text" class="form-control" name="pAmount"></td>
+                                                <td><input type="text" class="form-control" name="pTotal"></td>
+                                                <td><button type="button" class="btn btn-danger">เลือก</button></td>
+                                                </tr>
+>>>>>>> origin/master
                                             </tbody>
                                         </table>  
 
@@ -117,8 +134,8 @@
                                      </div>
                                 </div>
                             </div>    
+                             <button type="submit" class="btn btn-danger btn-lg btn-block">บันทึก</button>
                         </form>
-                        <button type="button" class="btn btn-danger btn-lg btn-block">บันทึก</button>
                     </div>
 
                 </div>
@@ -132,5 +149,8 @@
 <!-- Script Sidebar -->
     <?php include 'script.php'; ?>  
 <!-- #END# Script Sidebar -->
+<script type="text/javascript">
+   
+</script>
 </body>
 </html>
