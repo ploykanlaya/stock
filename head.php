@@ -21,6 +21,11 @@
 <!-- Animation Css -->
 <link href="plugins/animate-css/animate.css" rel="stylesheet" />
 
+
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+
+
 <!-- Custom Css -->
 <link href="css/style.css" rel="stylesheet">
 

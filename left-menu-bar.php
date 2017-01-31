@@ -22,7 +22,7 @@
                 </div>
             </div>
             <!-- #User Info -->
-            <!-- Menu -->
+          <!--   <!-- Menu -->
             <div class="menu">
                 <ul class="list">
                     <li class="header">Manager Views</li>
@@ -87,10 +87,10 @@
                              </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        <a href="create_requests.html">สร้างรายการเบิก</a>
+                                        <a href="requisition_add.php">สร้างรายการเบิก</a>
                                     </li>
                                     <li>
-                                        <a href="look_requests.html">ดูรายการเบิก</a>
+                                        <a href="requisition_list.php">ดูรายการเบิก</a>
                                     </li>
                                     
                                 </ul>
@@ -149,6 +149,26 @@
                                     
                                 </ul>
                         </li>
+
+                                <li class="header">LABELS</li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons col-red">donut_large</i>
+                            <span>Important</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons col-amber">donut_large</i>
+                            <span>Warning</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons col-light-blue">donut_large</i>
+                            <span>Information</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- #Menu -->

@@ -207,12 +207,24 @@ else
  }
 
 
+class Requisition{	
+		   public $Requisition_ID;
+
+public function Requisition($conn,$addReq)
+									{
+
+											$sql = "INSERT INTO Product (Product_Name,Price,Unit,Numstock,SafetyStock,ExpDate,Wholesalers_ID,ProductType_ID)
+				VALUES ('".$addReq->Product_Name."','".$addReq->Price."')" ;
+											if ($conn->query($sql) === TRUE)	{
+											$message = "Insert New Product success!";
+											echo "<script type='text/javascript'>alert('$message');</script>";
+											mysqli_close($conn);
+											echo "<script>window.location='requisition_list.php';</script>"; }
 
 
 
 
-
-
+}
 
 
 

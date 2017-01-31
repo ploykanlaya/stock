@@ -55,7 +55,7 @@ $result =  $database->query("SELECT * FROM requisition")->findAll();
 	                                    <th>วันที่เบิก</th>
 	                                    <th>วันที่ส่ง</th>
 	                                    <th>ชื่อพนักงาน</th>
-	                                    <th>การอนุมัติ</th>
+	                                    <th>สถานะการอนุมัติ</th>
 	                                </tr>
 	                            </thead>
 	                            <tbody>
@@ -130,7 +130,7 @@ $result =  $database->query("SELECT * FROM requisition")->findAll();
 <!-- Script Sidebar -->
 	<?php include 'script.php'; ?>  
 <!-- #END# Script Sidebar -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$(".btn-confirm").on('click',function(){
 		var id = $(this).attr("data-id");
 		$.ajax({ 
@@ -162,6 +162,6 @@ $result =  $database->query("SELECT * FROM requisition")->findAll();
 		    }
 		});
 	});
-</script>
+</script> -->
 </body>
 </html>
