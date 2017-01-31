@@ -26,7 +26,7 @@
                         <h4>สร้างรายการเบิก</h4>
                     </div>
                     <div class="body">
-                        <form id="addproduct" method="POST" action="AddRequisitionControl.php">
+                        <!-- <form id="addproduct" method="POST" action="AddRequisitionControl.php"> -->
                         <form method="POST" action="AddProductControl.php">
                             <div class="row clearfix">
                                 <div class="col-md-12">

@@ -21,19 +21,17 @@
 // $addpro->ProductType_ID=$_POST["ProductType_ID"];
 // $addpro->addproduct($conn,$addpro); 
 
-include_once '/class/db.class.php';
+include_once 'class/db.class.php';
 
 $database = new DB();
 
-print_r($_POST); exit; //เอาไว้ดูว่ามันส่งค่าอะไรมา
+//print_r($_POST); exit; //เอาไว้ดูว่ามันส่งค่าอะไรมา
 
-$sql = "INSERT INTO Product_ID (Product_ID,Product_Name,Price,Unit)
-				VALUES ('".$_POST['Product_ID']."','".$_POST['Product_Name']."','".$_POST['Price']."','".$_POST['Unit']."')" ;
+$sql = "INSERT INTO requisition (Requisition_ID,Requisition_Date,UserID,Name,DeliveryDate) VALUES ('".$_POST["Requisition_ID"]."','".$_POST["Requisition_Date"]."','".$_POST["UserID"]."','".$_POST["Name"]."','".""."')" ;
 
 
-$sql = "INSERT INTO Product (Requisition_ID,Price,Unit,Numstock,SafetyStock,ExpDate,Wholesalers_ID,ProductType_ID)
-				VALUES ('".$_POST['Requisition_ID']."','".$addpro->Price."','".$addpro->Unit."','".$addpro->Numstock."','".$addpro->SafetyStock."','".$addpro->ExpDate."','".$addpro->Wholesalers_ID."','".$addpro->ProductType_ID."')" ;
- 
 $database->query($sql);
 
 header( "Location: /stock/requisition_list.php" );
+
+echo $sql; exit;
