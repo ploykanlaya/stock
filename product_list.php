@@ -117,7 +117,7 @@
                                     
 
 
-                                     <button class="btn btn-primary waves-effect"   data-type="confirm">Edit</button>
+                                     <button class="btn btn-primary waves-effect"   data-type="confirm">เลือก</button>
                                                
                                    </form> </td>
 

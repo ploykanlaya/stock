@@ -73,7 +73,7 @@ $result =  $database->query("SELECT * FROM requisition")->findAll();
 		                                    <td><?=$field->Requisition_ID;?></td>
 		                                    <td><?=date('d/m/Y', strtotime($field->Requisition_Date));?></td>
 		                                    <td><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td>
-		                                    <td>ไม่ได้ระบุ</td>
+		                                    <td><?=$field->Name;?></td>
 		                                    <?php
 			                                    if ($field->Status == 0) {
 			                                    	echo '<td>

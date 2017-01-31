@@ -213,10 +213,10 @@ class Requisition{
 public function Requisition($conn,$addReq)
 									{
 
-											$sql = "INSERT INTO Product (Product_Name,Price,Unit,Numstock,SafetyStock,ExpDate,Wholesalers_ID,ProductType_ID)
-				VALUES ('".$addReq->Product_Name."','".$addReq->Price."')" ;
+											$sql = "INSERT INTO Requisition (Requisition_ID,Requisition_Date,Status,UserID,Name)
+				VALUES ('".$addReq->Requisition_ID."','".$addReq->Requisition_Date."','".$addReq->Status."','".$addReq->UserID."','".$addReq->Name."')" ;
 											if ($conn->query($sql) === TRUE)	{
-											$message = "Insert New Product success!";
+											$message = "Insert New Requisition success!";
 											echo "<script type='text/javascript'>alert('$message');</script>";
 											mysqli_close($conn);
 											echo "<script>window.location='requisition_list.php';</script>"; }
@@ -224,6 +224,7 @@ public function Requisition($conn,$addReq)
 
 
 
+}
 }
 
 

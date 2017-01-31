@@ -26,11 +26,8 @@
                         <h4>สร้างรายการเบิก</h4>
                     </div>
                     <div class="body">
-<<<<<<< HEAD
                         <form id="addproduct" method="POST" action="AddRequisitionControl.php">
-=======
                         <form method="POST" action="AddProductControl.php">
->>>>>>> origin/master
                             <div class="row clearfix">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -75,50 +72,22 @@
                                                 <th>รหัส</th>
                                                 <th>ชื่อสินค้า</th>
                                                 <th>จำนวน</th>
-<<<<<<< HEAD
                                                 <th>มูลค่าต่อหน่วย</th>
-                                                <th>ราคาราม</th>
-=======
                                                 <th>ราคารวม</th>
->>>>>>> origin/master
                                                 <th>เลือกสินค้า</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-<<<<<<< HEAD
-                                                <td> <input type="text" class="form-control" id="usr"></td>
-                                                <td><input type="text" class="form-control" id="usr"></td>
-                                                <td><input type="text" class="form-control" id="usr"></td>
-                                                <td><input type="text" class="form-control" id="usr"></td>
-                                                 <td><input type="text" class="form-control" id="usr"></td>
+                                                <td><input type="text" class="form-control" id="pID" name="Product_ID"></td>
+                                                <td><input type="text" class="form-control" id="pName" name="Product_Name"></td>
+                                                <td><input type="text" class="form-control" id="pAmount" name="Price"></td>
+                                                <td><input type="text" class="form-control" id="pUnit" name="Unit"></td>
+                                                 <td><input type="text" class="form-control" id="pTotal" ></td>
+                                                 <td><button type="button" class="btn btn-danger">เลือก</button></td>
                             
-                                    <td> 
-                                    
-                                    <form name="sentMessage1" id="contactForm" novalidate role="form" method="POST" action="requisition_list.php">
-
-                                    <input type="hidden" name="Product_ID" value="<?php echo $rows['Product_ID']; ?>">
-                                    <input type="hidden" name="Product_Name" value="<?php echo $rows['Product_Name']; ?>">
-                                    <input type="hidden" name="Price" value="<?php echo $rows['Price']; ?>">
-                                    <input type="hidden" name="Unit" value="<?php echo $rows['Unit']; ?>">
-                                 <!--     <input type="hidden" name="Unit" value="<?php echo $rows['Unit']; ?>"   เเพิ่มราคารวม ยังไมได่ทำ>
- -->
-
-                                     <button class="btn btn-primary waves-effect"   data-type="confirm">เลือก</button>
-                                               
-                                   </form> 
-
-                                   </td>      
-
+                                   
                                            </tr>
-=======
-                                                <td><input type="text" class="form-control" name="pID"></td>
-                                                <td><input type="text" class="form-control" name="pName"></td>
-                                                <td><input type="text" class="form-control" name="pAmount"></td>
-                                                <td><input type="text" class="form-control" name="pTotal"></td>
-                                                <td><button type="button" class="btn btn-danger">เลือก</button></td>
-                                                </tr>
->>>>>>> origin/master
                                             </tbody>
                                         </table>  
 
@@ -137,7 +106,6 @@
                              <button type="submit" class="btn btn-danger btn-lg btn-block">บันทึก</button>
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>
