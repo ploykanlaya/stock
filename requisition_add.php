@@ -66,6 +66,9 @@
                             <div class="row clearfix">
                                 <div class="col-lg-12">
                                     <div class="card">
+                                       <div class="header">
+                                             <h4>เลือกสินค้า</h4>
+                                         </div>
                                         <table class="table table-hover">
                                             <thead>
                                             <tr>
