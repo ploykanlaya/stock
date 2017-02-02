@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<?php
+
+include_once 'class/db.class.php';
+
+$database = new DB();
+ 
+/*====================================================
+ * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
+ ===================================================== */
+$result =  $database->query(" SELECT * FROM requisition_detail ORDER BY Requisition_ID ")->findAll();
+$result2 = $database->query("SELECT Product_Name,Price,Numstock FROM Product ");
+
+
+?>
+
+      
+
+
+<!-- Top Bar -->
+    <?php include 'head.php'; ?>  
+<!-- #Top Bar --> 
+<body class="theme-red">
+<!-- Top Bar -->
+    <?php include 'top-bar.php'; ?>  
+<!-- #Top Bar -->
+<!-- Left Sidebar -->
+	<?php include 'left-menu-bar.php'; ?>  
+<!-- #END# Left Sidebar -->
+
+
+<?php
+        
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "stock";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password,$database);
+        mysqli_set_charset($conn,"utf8");
+        // Check connection
+        if (mysqli_connect_errno($conn))
+          {
+             echo "Failed to connect to MySQL: " . mysqli_connect_error($conn);
+          }
+        $query = "SELECT Product_Name,Price,Numstock FROM 
+          Product INNER JOIN requisition_detail 
+           ON  Product.Product_ID = requisition_detail.Product_ID";
+        $result = mysqli_query($conn,$query)
+         
+        
+    ?> 
+<!-- Content -->
+<section class="content">
+    <div class="container-fluid">
+    	<div class="row clearfix">
+	        <!-- Task Info -->
+	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	            <div class="card">
+	                <div class="header">
+	                    <h2>รายละเอียดรายการเบิก</h2>
+	                    <ul class="header-dropdown m-r--5">
+	                        <li class="dropdown">
+	                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	                                <i class="material-icons">more_vert</i>
+	                            </a>
+	                            <ul class="dropdown-menu pull-right">
+	                                <li><a href="javascript:void(0);">Action</a></li>
+	                                <li><a href="javascript:void(0);">Another action</a></li>
+	                                <li><a href="javascript:void(0);">Something else here</a></li>
+	                            </ul>
+	                        </li>
+	                    </ul>
+	                </div>
+	                <div class="body">
+	                    <div class="table-responsive">
+	                        <table class="table table-hover dashboard-task-infos">
+	                            <thead>
+	                                <tr>
+	                                    <th>#</th>
+	                                    <th>รหัสใบเบิก</th>
+	                                    <th>รหัสสินค้า</th>
+	                                    <th>ชื่อสินค้า</th>
+	                                    <th>จำนวนที่เบิก</th>
+	                                    <th>คงเหลือ</th>
+	                                    <th>ราคาต่อหน่วย</th>
+	                                    <th>ราคารวม</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+
+	                            	<?php 
+	                            		$index = 1;
+		                            	// ตรวจสอบ
+										if(!empty($result)){
+										    // พบข้อมูล
+										    foreach ($result as $field) {
+									?>
+
+
+                        <?php
+                            while($rows=mysqli_fetch_array($result)){ 
+                        ?> 
+
+		                                <tr>
+		                                    <td><?=$index;?></td>
+		                                    <td><?=$field->Requisition_ID;?></td>
+		                                    <td><?=$field->Product_ID;?></td>
+		                                   
+		                                       <td><?php echo $rows['Product_Name']; ?></td>
+		                                    <td><?=$field->Number_Req;?></td>
+		                                    
+		                                       <td><?php echo $rows['Numstock']; ?></td>
+		                                    
+		                                       <td><?php echo $rows['Price']; ?></td>
+		                                   	<td><?=$field->TotalPay;?></td>
+
+		                     
+		                                </tr>
+
+	                                <?php 
+	                            			}
+	                            			$index=$index+1;
+	                            		}
+	                                ?>
+	                            </tbody>
+	                            <?php } ?>
+	                        </table>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <!-- #END# Task Info -->
+	     
+	      </div>
+    </div>
+</section>
+<!-- #END# Content -->
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">ยืนยันการทำรายการ</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+        <button type="button" class="btn btn-primary">ตกลง</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- Script Sidebar -->
+	<?php include 'script.php'; ?>  
+<!-- #END# Script Sidebar -->
+<!-- <script type="text/javascript">
+	$(".btn-confirm").on('click',function(){
+		var id = $(this).attr("data-id");
+		$.ajax({ 
+		    url: "/stock/action_requisition.php",
+		    type: "POST",
+		    data: {
+		    	'method': 'update',
+		        'id': id,
+		        'status': 1
+		    },
+		    success: function () {
+		        location.reload();
+		    }
+		});
+	});
+
+	$(".btn-cancle").on('click',function(){
+		var id = $(this).attr("data-id");
+		$.ajax({ 
+		    url: "/stock/action_requisition.php",
+		    type: "POST",
+		    data: {
+		    	'method': 'update',
+		        'id': id,
+		        'status': 2
+		    },
+		    success: function () {
+		        location.reload();
+		    }
+		});
+	});
+</script> -->
+</body>
+</html>

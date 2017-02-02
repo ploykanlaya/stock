@@ -72,21 +72,25 @@
                                         <table class="table table-hover">
                                             <thead>
                                             <tr>
-                                                <th>รหัส</th>
-                                                <th>ชื่อสินค้า</th>
+                                                <th>รหัสใบเบิก</th>
+                                                <th>รหัสสินค้า</th>
+                                               <!--  <th>ชื่อสินค้า</th> -->
                                                 <th>จำนวน</th>
-                                                <th>มูลค่าต่อหน่วย</th>
+                                               <!--  <th>มูลค่าต่อหน่วย</th> -->
+                                               <!-- <th>หน่วยสินค้า</th> -->
                                                 <th>ราคารวม</th>
                                                 <th>เลือกสินค้า</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
+                                                <td><input type="text" class="form-control" id="pName" name="Requisition_ID"></td>
                                                 <td><input type="text" class="form-control" id="pID" name="Product_ID"></td>
-                                                <td><input type="text" class="form-control" id="pName" name="Product_Name"></td>
-                                                <td><input type="text" class="form-control" id="pAmount" name="Price"></td>
-                                                <td><input type="text" class="form-control" id="pUnit" name="Unit"></td>
-                                                 <td><input type="text" class="form-control" id="pTotal" ></td>
+                                               <!--  <td><input type="text" class="form-control" id="pName" name="Product_Name"></td> -->
+                                                <td><input type="text" class="form-control" id="pAmount" name="Number_Req"></td>
+                                             <!--    <td><input type="text" class="form-control" id="pAmount" name="Price"></td> -->
+                                               <!--  <td><input type="text" class="form-control" id="pUnit" name="Unit"></td> -->
+                                                 <td><input type="text" class="form-control" id="pTotal" name="TotalPay" ></td>
                                                  <td><button type="button" class="btn btn-danger">เลือก</button></td>
                             
                                    
@@ -97,12 +101,7 @@
                                         <br>
                                         <button class="btn btn-primary waves-effect"   data-type="confirm">เลือกสินค้าเพิ่ม</button><br>
                                         
-                                                        มูลค่ารวมก่อนภาษี  <br>
-                                                        0.00  <br>
-                                                        ภาษีมูลค่าเพิ่ม (7%)  <br>
-                                                        0.00  <br>
-                                                        มูลค่ารวมสุทธิ  <br>
-                                                        0.00  <br>
+                                                   <label class="form-label">  มูลค่ารวมสุทธิ  0.00 </label>
                                      </div>
                                 </div>
                             </div>    
