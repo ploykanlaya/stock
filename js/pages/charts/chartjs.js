@@ -92,7 +92,7 @@ function getChartJs(type) {
             type: 'pie',
             data: {
                 datasets: [{
-                    data: [225, 50, 100, 40],
+                    data: [123, 34, 56, 87],
                     backgroundColor: [
                         "rgb(233, 30, 99)",
                         "rgb(255, 193, 7)",
