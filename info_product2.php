@@ -2,7 +2,7 @@
 <html>
 
 <!-- Top Bar -->
-    <?php include 'head.php'; ?>  
+    <?php  include 'head.php'; ?>  
 <!-- #Top Bar --> 
 <body class="theme-red">
 <!-- Top Bar -->
@@ -39,6 +39,7 @@
              echo "Failed to connect to MySQL: " . mysqli_connect_error($conn);
           }
         $query = "SELECT * FROM Product";
+       
         $result = mysqli_query($conn,$query)
          
         
@@ -103,8 +104,22 @@
                                         <td><?php echo $rows['SafetyStock']; ?></td>
                                         <td><?php echo $rows['ExpDate']; ?></td>
 
-                                        <td><?php echo $rows['Wholesalers_ID']; ?></td>
-                                        <td><?php echo $rows['ProductType_ID']; ?></td>
+                                    <?php 
+                                    $query1 = "SELECT Wholesalers_Name FROM wholesalers where Wholesalers_ID='".$rows['Wholesalers_ID']."'";
+                                    $query2 = "SELECT ProductType_Name FROM product_type where ProductType_ID= '".$rows['ProductType_ID']."'"; 
+                                    $result1 = mysqli_query($conn,$query1);
+                                    $result2 = mysqli_query($conn,$query2);
+
+                                    while($rows1=mysqli_fetch_array($result1)){ ?>
+                                        <td><?php echo $rows1['Wholesalers_Name']; ?></td>
+                                        <?php
+                                    }
+                                    while($rows2=mysqli_fetch_array($result2)){ ?>
+                                        <td><?php echo $rows2['ProductType_Name']; ?></td>
+                                        <?php
+                                    }
+?>
+               
                                         <td>
                                              
                                     <form  name="sentMessage1" id="contactForm" novalidate role="form" method="POST" action="DeleteProductControl.php">    
@@ -124,8 +139,8 @@
                                     <input type="hidden" name="Numstock" value="<?php echo $rows['Numstock']; ?>">
                                     <input type="hidden" name="SafetyStock" value="<?php echo $rows['SafetyStock']; ?>">
                                     <input type="hidden" name="ExpDate" value="<?php echo $rows['ExpDate']; ?>">
-                                    <input type="hidden" name="Wholesalers_ID" value="<?php echo $rows['Wholesalers_ID']; ?>">
-                                    <input type="hidden" name="ProductType_ID" value="<?php echo $rows['ProductType_ID']; ?>">
+                                    <input type="hidden" name="Wholesalers_Name" value="<?php echo $rows['Wholesalers_Name']; ?>">
+                                    <input type="hidden" name="ProductType_Name" value="<?php echo $rows['ProductType_Name']; ?>">
                                     
 
 

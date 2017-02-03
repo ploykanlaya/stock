@@ -9,7 +9,7 @@ $database = new DB();
 /*====================================================
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
-$result =  $database->query("SELECT R.Number_Req, R.TotalPay, R.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock  FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID")->findAll();
+$result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock  FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID")->findAll();
 ?>
 
       

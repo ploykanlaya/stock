@@ -5,6 +5,29 @@
 <!-- Top Bar -->
     <?php include 'head.php'; ?>  
 <!-- #Top Bar --> 
+
+
+<?php
+        require("Class.php");
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "stock";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password,$database);
+        mysqli_set_charset($conn,"utf8");
+        // Check connection
+        if (mysqli_connect_errno($conn))
+          {
+             echo "Failed to connect to MySQL: " . mysqli_connect_error($conn);
+          }
+    
+
+
+        
+       
+    ?>
 <body class="theme-red">
 <!-- Top Bar -->
     <?php include 'top-bar.php'; ?>  
@@ -44,7 +67,7 @@
                             </ul>
                         </div>
                         <div class="body">
-                         <form id="addproduct" method="POST" action="AddProductControl.php">
+                         <form id="addproduct" method="POST" action="AddProductControlCopy.php">
                               
                             <div class="row clearfix">
                                 <div class="col-md-12">
@@ -103,32 +126,89 @@
 
                                      <label class="form-label">วันหมดอายุ</label>
                                         <div class="form-line">
-                                           <input type="text" class="datepicker form-control" name="ExpDate" placeholder="Please choose a date...">
+                                           <input type="date" class="datepicker form-control" name="ExpDate" placeholder="Please choose a date...">
                                             </div>
                                         </div>
                                     
                                 </div>
                             </div>
 
-                            <div class="row clearfix">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                     <label class="form-label">ร้านค้าส่ง/ปุ่มเลือก</label>
-                                        <div class="form-line">
-                                             <input type="text" class="form-control" name="Wholesalers_ID" placeholder="Wholesalers_ID" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                     <label class="form-label">ประเภทสินค้า/dropdown</label>
-                                        <div class="form-line">
-                                              <input type="text" class="form-control" name="ProductType_ID" placeholder="ProductType_ID" required>
-                                        </div>
-                                    </div>
-                                </div>
+                                   
+
                              
-                            </div>
+
+                            <div class="row clearfix">
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                     <label class="form-label">ร้านค้าส่ง</label>
+                                       
+
+
+                                        <select name="Wholesalers_ID" class="form-control" >
+                                                   <option>เลือกร้านค้าส่ง</option>
+                                                 
+                                                  <?php
+                                                    
+                                                    $sqli = "SELECT Wholesalers_ID,Wholesalers_Name FROM Wholesalers ";
+                                                    $result = $conn->query($sqli);
+
+
+                                                    while($row1 = mysqli_fetch_array($result)){
+                                                      
+                                                            ?>
+                                                                
+                                                                <option value="<?php echo $row1['Wholesalers_ID']; ?>" >
+
+                                                                <?php echo $row1['Wholesalers_Name']; ?> </option>
+
+                                                                  <?php } 
+
+                                                   
+                                                ?>
+                                                
+                                              </select>
+
+                                    
+                                    </div>
+                                </div>
+
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                     <label class="form-label">ประเภทสินค้า</label>
+                                       
+
+
+                                        <select name="ProductType_ID" class="form-control" >
+                                                   <option>เลือกประเภทสินค้า</option>
+                                                 
+                                                  <?php
+                                                    
+                                                    $sql1 = "SELECT ProductType_ID,ProductType_Name FROM product_type ";
+                                                    $result1 = $conn->query($sql1);
+
+
+                                                    while($row2 = mysqli_fetch_array($result1)){
+                                                      
+                                                            ?>
+                                                                
+                                                                <option value="<?php echo $row2['ProductType_ID']; ?>" >
+
+                                                                <?php echo $row2['ProductType_Name']; ?> </option>
+
+                                                                  <?php } 
+
+                                                   
+                                                ?>
+                                                
+                                              </select>
+<!-- 
+                                    <?php echo $sql1; ?>  -->
+                                    </div>
+                                </div>
+
+
+                               
+                      
 
                                <div class="row clearfix">
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
