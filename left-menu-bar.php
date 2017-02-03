@@ -31,6 +31,11 @@
                             <i class="fa fa-paste" style="font-size:24px"></i><span>รายการเบิกสินค้า</span>
                         </a>
                     </li>
+                       <li>
+                        <a href="requisition_detail.php">
+                            <i class="fa fa-paste" style="font-size:24px"></i><span>รายละเอียดรายการเบิก</span>
+                        </a>
+                    </li>
                     <li class="header">Employee Views</li>
                     <li>
                         <a href="requisition_add.php">
@@ -75,10 +80,10 @@
                              </a>
                                 <ul class="ml-menu">
                                     <li>
-                                        <a href="create_po.php">สร้างรายการสั่งซื้อ</a>
+                                        <a href="po_add.php">สร้างรายการสั่งซื้อ</a>
                                     </li>
                                     <li>
-                                        <a href="look_po.html">ดูรายการสั่งซื้อ</a>
+                                        <a href="po_list.html">ดูรายการสั่งซื้อ</a>
                                     </li>
                                     
                                 </ul>

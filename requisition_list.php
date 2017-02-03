@@ -51,9 +51,10 @@ $result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date
 	                            <thead>
 	                                <tr>
 	                                    <th>#</th>
-	                                    <th>รายการ</th>
+	                                    <th>รหัสใบเบิก</th>
 	                                    <th>วันที่เบิก</th>
 	                                    <th>วันที่ส่ง</th>
+	                                     <th>รหัสพนักงาน</th>
 	                                    <th>ชื่อพนักงาน</th>
 	                                    <th>สถานะการอนุมัติ</th>
 	                                </tr>
@@ -73,6 +74,7 @@ $result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date
 		                                    <td><?=$field->Requisition_ID;?></td>
 		                                    <td><?=date('d/m/Y', strtotime($field->Requisition_Date));?></td>
 		                                    <td><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td>
+		                                     <td><?=$field->UserID;?></td>
 		                                    <td><?=$field->Name;?></td>
 		                                    <?php
 			                                    if ($field->Status == 0) {

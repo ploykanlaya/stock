@@ -9,10 +9,7 @@ $database = new DB();
 /*====================================================
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
-$result =  $database->query(" SELECT * FROM requisition_detail ORDER BY Requisition_ID ")->findAll();
-$result2 = $database->query("SELECT Product_Name,Price,Numstock FROM Product ");
-
-
+$result =  $database->query("SELECT R.Number_Req, R.TotalPay, R.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock  FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID")->findAll();
 ?>
 
       
@@ -30,28 +27,7 @@ $result2 = $database->query("SELECT Product_Name,Price,Numstock FROM Product ");
 <!-- #END# Left Sidebar -->
 
 
-<?php
-        
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $database = "stock";
 
-        // Create connection
-        $conn = new mysqli($servername, $username, $password,$database);
-        mysqli_set_charset($conn,"utf8");
-        // Check connection
-        if (mysqli_connect_errno($conn))
-          {
-             echo "Failed to connect to MySQL: " . mysqli_connect_error($conn);
-          }
-        $query = "SELECT Product_Name,Price,Numstock FROM 
-          Product INNER JOIN requisition_detail 
-           ON  Product.Product_ID = requisition_detail.Product_ID";
-        $result = mysqli_query($conn,$query)
-         
-        
-    ?> 
 <!-- Content -->
 <section class="content">
     <div class="container-fluid">
@@ -100,21 +76,18 @@ $result2 = $database->query("SELECT Product_Name,Price,Numstock FROM Product ");
 									?>
 
 
-                        <?php
-                            while($rows=mysqli_fetch_array($result)){ 
-                        ?> 
 
 		                                <tr>
 		                                    <td><?=$index;?></td>
 		                                    <td><?=$field->Requisition_ID;?></td>
 		                                    <td><?=$field->Product_ID;?></td>
-		                                   
-		                                       <td><?php echo $rows['Product_Name']; ?></td>
+		                                   <td><?=$field->Product_Name;?></td>
+		                                 
 		                                    <td><?=$field->Number_Req;?></td>
-		                                    
-		                                       <td><?php echo $rows['Numstock']; ?></td>
-		                                    
-		                                       <td><?php echo $rows['Price']; ?></td>
+		                                    <td><?=$field->Numstock;?></td>
+		                                       
+		                                    <td><?=$field->Price;?></td>
+		                                       
 		                                   	<td><?=$field->TotalPay;?></td>
 
 		                     
@@ -126,7 +99,7 @@ $result2 = $database->query("SELECT Product_Name,Price,Numstock FROM Product ");
 	                            		}
 	                                ?>
 	                            </tbody>
-	                            <?php } ?>
+	                            
 	                        </table>
 	                    </div>
 	                </div>

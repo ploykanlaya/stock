@@ -35,7 +35,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
             <div class="col-lg-12">
                 <div class="card">
                     <div class="header">
-                        <h4>สร้างรายการเบิก</h4>
+                        <h4>สร้างรายการสั่งซื้อ</h4>
                     </div>
                     <div class="body">
                         <!-- <form id="addproduct" method="POST" action="AddRequisitionControl.php"> -->
@@ -43,7 +43,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                             <div class="row clearfix">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                         <label class="form-label">รายการ</label>
+                                         <label class="form-label">รหัสใบวั่งซื้อ</label>
                                          <div class="form-line">                                       
                                            <input type="text" class="form-control" name="Requisition_ID" placeholder="Requisition_ID" required>
                                         </div>
@@ -51,7 +51,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                 </div>  
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                         <label class="form-label">รหัสพนักงาน</label>
+                                         <label class="form-label">รหัสผู้จัดการ</label>
                                          <div class="form-line">
                                              <input type="text" class="form-control" name="UserID" placeholder="UserID" required>
                                         </div>
@@ -59,7 +59,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                         <label class="form-label">ชื่อพนักงาน</label>
+                                         <label class="form-label">ชื่อผู้จัดการ</label>
                                          <div class="form-line">                                       
                                            <input type="text" class="form-control" name="Name" placeholder="Name" required>
                                         </div>
@@ -84,12 +84,12 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                         <table class="table table-hover">
                                             <thead>
                                             <tr>
-                                                <th>รหัสใบเบิก</th>
+                                               
                                                 <th>รหัสสินค้า</th>
-                                               <!--  <th>ชื่อสินค้า</th> -->
+                                                <th>ชื่อสินค้า</th>
                                                 <th>จำนวน</th>
-                                               <!--  <th>มูลค่าต่อหน่วย</th> -->
-                                               <!-- <th>หน่วยสินค้า</th> -->
+                                                <th>มูลค่าต่อหน่วย</th>
+                                               <th>หน่วยสินค้า</th>
                                                 <th>ราคารวม</th>
                                                 <th>เลือกสินค้า</th>
                                             </tr>
@@ -97,12 +97,12 @@ $product =  $database->query("SELECT * FROM product")->findAll();
 <<<<<<< HEAD
                                             <tbody>
                                                 <tr>
-                                                <td><input type="text" class="form-control" id="pName" name="Requisition_ID"></td>
+                                                
                                                 <td><input type="text" class="form-control" id="pID" name="Product_ID"></td>
-                                               <!--  <td><input type="text" class="form-control" id="pName" name="Product_Name"></td> -->
+                                                <td><input type="text" class="form-control" id="pName" name="Product_Name"></td>
                                                 <td><input type="text" class="form-control" id="pAmount" name="Number_Req"></td>
-                                             <!--    <td><input type="text" class="form-control" id="pAmount" name="Price"></td> -->
-                                               <!--  <td><input type="text" class="form-control" id="pUnit" name="Unit"></td> -->
+                                                <td><input type="text" class="form-control" id="pAmount" name="Price"></td>
+                                                <td><input type="text" class="form-control" id="pUnit" name="Unit"></td>
                                                  <td><input type="text" class="form-control" id="pTotal" name="TotalPay" ></td>
                                                  <td><button type="button" class="btn btn-danger">เลือก</button></td>
 =======
@@ -112,6 +112,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                                 <td><input type="text" class="form-control" id="pName" name="Product_Name[]"></td>
                                                 <td><input type="text" class="form-control amount" id="pAmount" name="Price[]"></td>
                                                 <td><input type="text" class="form-control unit" id="pUnit" name="Unit[]"></td>
+                                                <td><input type="text" class="form-control unit" id="pUnit" name="Number_Req[]"></td>
                                                  <td><input type="text" class="form-control" id="pTotal" name="Total[]"></td>
                                                  <td><button type="button" class="btn btn-danger select-modal">เลือก</button></td>
 >>>>>>> origin/master
