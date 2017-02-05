@@ -9,7 +9,9 @@ $database = new DB();
 /*====================================================
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
-$result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock  FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID")->findAll();
+$result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,Re.Status  FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID")->findAll();
+
+// print_r($result);exit;
 ?>
 
       
@@ -63,6 +65,7 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 	                                    <th>คงเหลือ</th>
 	                                    <th>ราคาต่อหน่วย</th>
 	                                    <th>ราคารวม</th>
+	                                         <th>สถานะการอนุมัติ</th>
 	                                </tr>
 	                            </thead>
 	                            <tbody>
@@ -89,8 +92,24 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 		                                    <td><?=$field->Price;?></td>
 		                                       
 		                                   	<td><?=$field->TotalPay;?></td>
+		                           
 
-		                     
+		                        <?php
+			                                    if ($field->Status == 0) {
+			                                    	echo '<td>
+			                                    			<button type="button" class="btn btn-default btn-confirm" data-toggle="modal" data-target="#myModal" data-id="'.$field->Requisition_ID.'">อนุมัติ</button>
+		                                    				<button type="button" class="btn btn-danger btn-cancle" data-id="'.$field->Requisition_ID.'">ไม่อนุมัติ</button>
+		                                    			</td>';
+			                                    }
+			                                    if ($field->Status == 1) {
+			                                    	echo '<td class="text-success"><b>อนุมัติ</b></td>';
+			                                    }
+			                                    if ($field->Status == 2) {
+			                                    	echo '<td class="text-danger"><i>ไม่อนุมัติ</i></td>';
+			                                    }
+		                                    ?>
+		                                    </td>
+
 		                                </tr>
 
 	                                <?php 
@@ -167,5 +186,39 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 		});
 	});
 </script> -->
+    <script type="text/javascript">
+	$(".btn-confirm").on('click',function(){
+		var id = $(this).attr("data-id");
+		$.ajax({ 
+		    url: "/stock/action_requisition.php",
+		    type: "POST",
+		    data: {
+		    	'method': 'update',
+		        'id': id,
+		        'status': 1
+		    },
+		    success: function () {
+		        location.reload();
+		    }
+		});
+	});
+
+	$(".btn-cancle").on('click',function(){
+		var id = $(this).attr("data-id");
+		$.ajax({ 
+		    url: "/stock/action_requisition.php",
+		    type: "POST",
+		    data: {
+		    	'method': 'update',
+		        'id': id,
+		        'status': 2
+		    },
+		    success: function () {
+		        location.reload();
+		    }
+		});
+	});
+</script>
+
 </body>
 </html>

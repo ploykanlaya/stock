@@ -9,8 +9,8 @@ $database = new DB();
 /*====================================================
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
-$result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date where employee = $session['Username']")->findAll();
-
+$result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date ")->findAll();
+// where employee = $session['Username']
 ?>
 <!-- Top Bar -->
     <?php include 'head.php'; ?>  
@@ -56,6 +56,7 @@ $result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date
 	                                    <th>วันที่ส่ง</th>
 	                                     <th>รหัสพนักงาน</th>
 	                                    <th>ชื่อพนักงาน</th>
+	                                     
 	                                    <th>สถานะการอนุมัติ</th>
 	                                </tr>
 	                            </thead>
@@ -75,7 +76,10 @@ $result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date
 		                                    <td><?=date('d/m/Y', strtotime($field->Requisition_Date));?></td>
 		                                    <td><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td>
 		                                     <td><?=$field->UserID;?></td>
-		                                    <td><?=$field->Name;?></td>
+
+		                               
+
+
 		                                    <?php
 			                                    if ($field->Status == 0) {
 			                                    	echo '<td>

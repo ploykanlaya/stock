@@ -56,8 +56,9 @@ $result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date
 	                                    <th>วันที่ส่ง</th>
 	                                     <th>รหัสพนักงาน</th>
 	                                    <th>ชื่อพนักงาน</th>
-	                                    <th>สถานะการอนุมัติ</th>
-	                                </tr>
+	                                    <th>ดูรายละเอียด</th>
+	                             
+	                              </tr>
 	                            </thead>
 	                            <tbody>
 	                            	<?php 
@@ -76,20 +77,11 @@ $result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date
 		                                    <td><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td>
 		                                     <td><?=$field->UserID;?></td>
 		                                    <td><?=$field->Name;?></td>
-		                                    <?php
-			                                    if ($field->Status == 0) {
-			                                    	echo '<td>
-			                                    			<button type="button" class="btn btn-default btn-confirm" data-toggle="modal" data-target="#myModal" data-id="'.$field->Requisition_ID.'">อนุมัติ</button>
-		                                    				<button type="button" class="btn btn-danger btn-cancle" data-id="'.$field->Requisition_ID.'">ไม่อนุมัติ</button>
-		                                    			</td>';
-			                                    }
-			                                    if ($field->Status == 1) {
-			                                    	echo '<td class="text-success"><b>อนุมัติ</b></td>';
-			                                    }
-			                                    if ($field->Status == 2) {
-			                                    	echo '<td class="text-danger"><i>ไม่อนุมัติ</i></td>';
-			                                    }
-		                                    ?>
+		                                        <td><?=$field->Name;?></td>
+		                                    <td><a href="requisition_detail.php" class="btn btn-danger select-modal">คลิก</a></td>
+
+
+		                                   
 		                                </tr>
 
 	                                <?php 
