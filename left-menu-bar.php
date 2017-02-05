@@ -36,10 +36,32 @@
                             <i class="fa fa-paste" style="font-size:24px"></i><span>รายละเอียดรายการเบิก</span>
                         </a>
                     </li>
+
+                    <li>
+                                        <a href="po_add.php">สร้างรายการสั่งซื้อ</a>
+                                    </li>
+                                    <li>
+                                        <a href="po_list.php">ดูรายการสั่งซื้อ</a>
+                                    </li>
+                                       <li>
+                                        <a href="po_detail.php">รายละเอียดรายการซื้อ</a>
+                                    </li>
                     <li class="header">Employee Views</li>
                     <li>
                         <a href="requisition_add.php">
                             <i class="fa fa-file-text" style="font-size:24px"></i><span>เพิ่มใบเบิกสินค้า</span>
+                        </a>
+                        
+                    </li>
+
+                    <li>
+                        <a href="requisition_list_employee.php">
+                            <i class="fa fa-paste" style="font-size:24px"></i><span>รายการเบิกสินค้า</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="requisition_detail_employee.php">
+                            <i class="fa fa-paste" style="font-size:24px"></i><span>รายละเอียดรายการเบิก</span>
                         </a>
                     </li>
 
@@ -83,8 +105,12 @@
                                         <a href="po_add.php">สร้างรายการสั่งซื้อ</a>
                                     </li>
                                     <li>
-                                        <a href="po_list.html">ดูรายการสั่งซื้อ</a>
+                                        <a href="po_list.php">ดูรายการสั่งซื้อ</a>
                                     </li>
+                                       <li>
+                                        <a href="po_detail.php">รายละเอียดรายการซื้อ</a>
+                                    </li>
+                                    
                                     
                                 </ul>
                         </li>

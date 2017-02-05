@@ -77,7 +77,7 @@ $result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date
 		                                    <td><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td>
 		                                     <td><?=$field->UserID;?></td>
 		                                    <td><?=$field->Name;?></td>
-		                                        <td><?=$field->Name;?></td>
+		                                        
 		                                    <td><a href="requisition_detail.php" class="btn btn-danger select-modal">คลิก</a></td>
 
 

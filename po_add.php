@@ -49,22 +49,8 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                         </div>
                                     </div>
                                 </div>  
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                         <label class="form-label">รหัสผู้จัดการ</label>
-                                         <div class="form-line">
-                                             <input type="text" class="form-control" name="UserID" placeholder="UserID" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                         <label class="form-label">ชื่อผู้จัดการ</label>
-                                         <div class="form-line">                                       
-                                           <input type="text" class="form-control" name="Name" placeholder="Name" required>
-                                        </div>
-                                    </div>
-                                </div>      
+                            
+                                  
                               
                                 <div class="col-md-6">                              
                                     <div class="form-group">
@@ -87,24 +73,16 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                                
                                                 <th>รหัสสินค้า</th>
                                                 <th>ชื่อสินค้า</th>
-                                                <th>จำนวน</th>
+                                                  <th>จำนวน</th>
                                                 <th>มูลค่าต่อหน่วย</th>
                                                <th>หน่วยสินค้า</th>
                                                 <th>ราคารวม</th>
+                                              
                                                 <th>เลือกสินค้า</th>
                                             </tr>
                                             </thead>
 <<<<<<< HEAD
-                                            <tbody>
-                                                <tr>
-                                                
-                                                <td><input type="text" class="form-control" id="pID" name="Product_ID"></td>
-                                                <td><input type="text" class="form-control" id="pName" name="Product_Name"></td>
-                                                <td><input type="text" class="form-control" id="pAmount" name="Number_Req"></td>
-                                                <td><input type="text" class="form-control" id="pAmount" name="Price"></td>
-                                                <td><input type="text" class="form-control" id="pUnit" name="Unit"></td>
-                                                 <td><input type="text" class="form-control" id="pTotal" name="TotalPay" ></td>
-                                                 <td><button type="button" class="btn btn-danger">เลือก</button></td>
+
 =======
                                             <tbody id="tableToModify">
                                                 <tr id="rowToClone">

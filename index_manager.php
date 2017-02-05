@@ -41,6 +41,7 @@ $orders = count($result);
                         </div>
                         <div class="content">
                             <div class="text">รายการเบิก</div>
+
                             <?php 
                                 echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$allowed."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
                             ?>
@@ -54,6 +55,7 @@ $orders = count($result);
                         </div>
                         <div class="content">
                             <div class="text">รายการสั่งซื้อ</div>
+
                             <?php 
                                 echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$orders."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
                             ?>
@@ -67,7 +69,9 @@ $orders = count($result);
                         </div>
                         <div class="content">
                             <div class="text">รายการคืน</div>
-                            <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>
+                             <?php 
+                                echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$orders."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -78,7 +82,9 @@ $orders = count($result);
                         </div>
                         <div class="content">
                             <div class="text">สินค้าใหม่</div>
-                            <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20"></div>
+                             <?php 
+                                echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$orders."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -89,7 +95,9 @@ $orders = count($result);
                         </div>
                         <div class="content">
                             <div class="text">พนักงานใหม่</div>
-                            <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20"></div>
+                            <?php 
+                                echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$orders."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -100,7 +108,9 @@ $orders = count($result);
                         </div>
                         <div class="content">
                             <div class="text">หมวดหมู่ขายดี</div>
-                            <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20"></div>
+                            <?php 
+                                echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$orders."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -192,7 +202,7 @@ $orders = count($result);
                                             <th>#</th>
                                             <th>ชื่อสินค้า</th>
                                             <th>เข้า</th>
-                                            <th>ออก</th>
+                                            <th>เบิกออก</th>
                                             <th>เปลี่ยนแปลง</th>
                                             <th>คงเหลือ</th>
                                         </tr>

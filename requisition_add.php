@@ -86,10 +86,10 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                             <tr>
                                                
                                                 <th>รหัสสินค้า</th>
-                                                <th>ชื่อสินค้า</th>
+                                                <th>ชื่อสินค้า</th> 
                                                 <th>จำนวน</th>
                                                 <th>มูลค่าต่อหน่วย</th>
-                                               <th>หน่วยสินค้า</th>
+                                               <th>หน่วยสินค้า</th> 
                                                 <th>ราคารวม</th>
                                                 <th>เลือกสินค้า</th>
                                             </tr>
@@ -99,11 +99,12 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                                 <tr id="rowToClone">
                                                     
                                                 <td><input type="text" class="form-control" id="pID" name="Product_ID"></td>
-                                                <td><input type="text" class="form-control" id="pName" name="Product_Name"></td>
+                                                <td><input type="text" class="form-control" id="pName" name="Product_Name"></td>  
+                                                <td><input type="text" class="form-control" id="pTotal" name="Number_Req"></td>
                                                 <td><input type="text" class="form-control amount" id="pAmount" name="Price"></td>
                                                 <td><input type="text" class="form-control unit" id="pUnit" name="Unit"></td>
-                                                 <td><input type="text" class="form-control" id="pTotal" name="Number_Req"></td>
-                                                 <td><input type="text" class="form-control" id="pTotal" name="Total"></td>
+                    
+                                                 <td><input type="text" class="form-control" id="pTotal" name="TotalPay"></td>
                                                  <td><button type="button" class="btn btn-danger select-modal">เลือก</button></td>
                             
                                    
