@@ -94,18 +94,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                                 <th>เลือกสินค้า</th>
                                             </tr>
                                             </thead>
-<<<<<<< HEAD
-                                            <tbody>
-                                                <tr>
-                                              
-                                                <td><input type="text" class="form-control" id="pID" name="Product_ID"></td>
-                                                <td><input type="text" class="form-control" id="pName" name="Product_Name"></td>
-                                                <td><input type="text" class="form-control" id="pAmount" name="Number_Req"></td>
-                                                <td><input type="text" class="form-control" id="pAmount" name="Price"></td>
-                                                <td><input type="text" class="form-control" id="pUnit" name="Unit"></td>
-                                                 <td><input type="text" class="form-control" id="pTotal" name="TotalPay" ></td>
-                                                 <td><button type="button" class="btn btn-danger">เลือก</button></td>
-=======
+
                                             <tbody id="tableToModify">
                                                 <tr id="rowToClone">
                                                     
@@ -116,7 +105,6 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                                  <td><input type="text" class="form-control" id="pTotal" name="Number_Req[]"></td>
                                                  <td><input type="text" class="form-control" id="pTotal" name="Total[]"></td>
                                                  <td><button type="button" class="btn btn-danger select-modal">เลือก</button></td>
->>>>>>> origin/master
                             
                                    
                                            </tr>
@@ -124,12 +112,6 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                         </table>  
 
                                         <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="cloneRow()" value="Clone Row">เลือกสินค้าเพิ่ม</button></div>
-                                        
-<<<<<<< HEAD
-                                                  
-=======
-                                          
->>>>>>> origin/master
                                      </div>
                                 </div>
                             </div>    
