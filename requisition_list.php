@@ -132,7 +132,7 @@ $result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date
 <!-- Script Sidebar -->
 	<?php include 'script.php'; ?>  
 <!-- #END# Script Sidebar -->
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 	$(".btn-confirm").on('click',function(){
 		var id = $(this).attr("data-id");
 		$.ajax({ 
@@ -164,6 +164,6 @@ $result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date
 		    }
 		});
 	});
-</script> -->
+</script>
 </body>
 </html>
