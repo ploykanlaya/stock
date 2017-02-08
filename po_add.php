@@ -43,7 +43,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                             <div class="row clearfix">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                         <label class="form-label">รหัสใบวั่งซื้อ</label>
+                                         <label class="form-label">รหัสใบสั่งซื้อ</label>
                                          <div class="form-line">                                       
                                            <input type="text" class="form-control" name="Requisition_ID" placeholder="Requisition_ID" required>
                                         </div>
