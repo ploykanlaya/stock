@@ -98,13 +98,13 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                             <tbody id="tableToModify">
                                                 <tr id="rowToClone">
                                                     
-                                                <td><input type="text" class="form-control" id="pID" name="Product_ID"></td>
-                                                <td><input type="text" class="form-control" id="pName" name="Product_Name"></td>  
-                                                <td><input type="text" class="form-control" id="pTotal" name="Number_Req"></td>
-                                                <td><input type="text" class="form-control amount" id="pAmount" name="Price"></td>
-                                                <td><input type="text" class="form-control unit" id="pUnit" name="Unit"></td>
+                                                <td><input type="text" class="form-control" id="pID" name="Product_ID" readonly="true"></td>
+                                                <td><input type="text" class="form-control" id="pName" name="Product_Name" readonly="true"></td>  
+                                                <td><input type="text" class="form-control numb-request" id="pTotal" name="Number_Req"></td>
+                                                <td><input type="text" class="form-control" id="pAmount" name="Price" readonly="true"></td>
+                                                <td><input type="text" class="form-control" id="pUnit" name="Unit" readonly="true"></td>
                     
-                                                 <td><input type="text" class="form-control" id="pTotal" name="TotalPay"></td>
+                                                 <td><input type="text" class="form-control" id="pTotal" name="TotalPay" readonly="true"></td>
                                                  <td><button type="button" class="btn btn-danger select-modal">เลือก</button></td>
                             
                                    
@@ -156,7 +156,12 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                     <td>'.$data->Product_Brand.'</td>
                     <td>'.$data->Price.'</td>
                     <td>'.$data->Numstock.'</td>
-                    <td><button type="button" class="btn btn-danger btn-lg btn-block select-product" data="'.$data->Product_ID.'" data-dismiss="modal">เลือก</button></td>
+                    <td><button type="button" class="btn btn-danger btn-lg btn-block select-product" 
+                        data-id="'.$data->Product_ID.'"
+                        data-name="'.$data->Product_Name.'" 
+                        data-unit="'.$data->Unit.'"
+                        data-price="'.$data->Price.'"
+                        data data-dismiss="modal">เลือก</button></td>
                     </tr>';
                 }
                 ?>
@@ -182,13 +187,30 @@ $product =  $database->query("SELECT * FROM product")->findAll();
     }
 
     $( document ).ready(function() {
-         $("#pAmount").change(function () {
-            var unit = $(this).closest(".unit").value();
-            alert('ddsdsd');
+        $('.select-modal').click(function(){
+
+            var _this = this;
+
+            $('#myModal').modal('show');
+
+            $('.select-product').click(function(){
+                var id = $(this).data("id");
+                var name = $(this).data("name");
+                var unit = $(this).data("unit");
+                var price = $(this).data("price");
+                $(_this).parent().parent().find("input[name=Product_ID]").val(id);
+                $(_this).parent().parent().find("input[name=Product_Name]").val(name);
+                $(_this).parent().parent().find("input[name=Unit]").val(unit);
+                $(_this).parent().parent().find("input[name=Price]").val(price);
+            });
+            
         });
 
-         $('.select-modal').click(function(){
-            $('#myModal').modal('show');
+        $(".numb-request").change(function() { 
+            var _this = this;
+            var value = $(this).val();
+            var price = $(_this).parent().parent().find("input[name=Price]").val();
+            $(_this).parent().parent().find("input[name=TotalPay]").val(value*price);
         });
     });
    
