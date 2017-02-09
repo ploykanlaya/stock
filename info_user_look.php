@@ -67,7 +67,7 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                            <table class="table table-bordered table-striped table-hover" id="user-data-table"> 
                                 <thead>
                                     <tr>
                                         <th>รหัสผู้ใช้งาน</th>
@@ -144,10 +144,14 @@
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
-    <script src="js/pages/tables/jquery-datatable.js"></script>
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $('#user-data-table').DataTable();
+        });
+    </script>
 </body>
 
 </html>
