@@ -31,7 +31,7 @@ $result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	            <div class="card">
 	                <div class="header">
-	                    <h2>รายการเบิกสินค้า 1</h2>
+	                    <h2>รายการเบิกสินค้า </h2>
 	                    <ul class="header-dropdown m-r--5">
 	                        <li class="dropdown">
 	                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -73,10 +73,9 @@ $result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date
 		                                    <td><?=$field->Requisition_ID;?></td>
 		                                    <td><?=date('d/m/Y', strtotime($field->Requisition_Date));?></td>
 		                                    <td><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td>
-		                                    <td><a href="requisition_detail_employee.php" class="btn btn-danger select-modal">คลิก</a></td>
-		                                
-
+		                                     <td><a href="requisition_detail_employee.php" class="btn btn-danger select-modal">คลิก</a></td> 
 		                               
+
 
 
 		                                    <?php

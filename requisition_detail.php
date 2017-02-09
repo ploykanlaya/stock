@@ -12,7 +12,7 @@ $database = new DB();
  ===================================================== */
 $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,Re.Status FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID where Re.Requisition_ID='".$_GET['id']."'" )->findAll();
 
-// print_r($result);exit;
+ //print_r($result);exit;
 ?>
 
       

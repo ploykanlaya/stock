@@ -37,15 +37,7 @@
                         </a>
                     </li>
 
-                    <li>
-                                        <a href="po_add.php">สร้างรายการสั่งซื้อ</a>
-                                    </li>
-                                    <li>
-                                        <a href="po_list.php">ดูรายการสั่งซื้อ</a>
-                                    </li>
-                                       <li>
-                                        <a href="po_detail.php">รายละเอียดรายการซื้อ</a>
-                                    </li>
+                    
                     <li class="header">Employee Views</li>
                     <li>
                         <a href="requisition_add.php">

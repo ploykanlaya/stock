@@ -123,7 +123,7 @@ $orders = count($result);
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>LINE CHART</h2>
+                            <h2></h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -149,8 +149,8 @@ $orders = count($result);
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>PIE CHART</h2>
-                            <h6>กราฟวงแสดงกลมมูลค่าสินค้าคงเหลือ</h6>
+                            <h2>มูลค่าสินค้าคงเหลือแต่ละรายการ</h2>
+                           
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -179,8 +179,8 @@ $orders = count($result);
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2>TASK INFOS</h2>
-                           <h6>สินค้าเคลื่อนไหวย้อนหลัง</h6>
+                            <h2>สินค้าเคลื่อนไหวย้อนหลัง 3 เดือน</h2>
+                          
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -211,65 +211,56 @@ $orders = count($result);
                                         <tr>
                                             <td>1</td>
                                             <td>Task A</td>
-                                            <td><span class="label bg-green">Doing</span></td>
-                                            <td>John Doe</td>
+                                            <td>24</td>
+                                            <td>53</td> 
+                                            <td>10</td>
                                             <td>
                                                 <div class="progress">
                                                     <div class="progress-bar bg-green" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div>
                                                 </div>
                                             </td>
-                                            <td>10</td>
+                                           
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>Task B</td>
-                                            <td><span class="label bg-blue">To Do</span></td>
-                                            <td>John Doe</td>
+                                            <td>43</td>
+                                            <td>76</td> 
+                                             <td>4</td>
                                             <td>
                                                 <div class="progress">
                                                     <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
                                                 </div>
                                             </td>
-                                            <td>4</td>
+                                          
                                         </tr>
                                         <tr>
                                             <td>3</td>
                                             <td>Task C</td>
-                                            <td><span class="label bg-light-blue">On Hold</span></td>
-                                            <td>John Doe</td>
+                                            <td>23</td>
+                                            <td>10</td>
+                                            <td>5</td>
                                             <td>
                                                 <div class="progress">
                                                     <div class="progress-bar bg-light-blue" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%"></div>
                                                 </div>
                                             </td>
-                                            <td>5</td>
+                                            
                                         </tr>
                                         <tr>
                                             <td>4</td>
-                                            <td>Task D</td>
-                                            <td><span class="label bg-orange">Wait Approvel</span></td>
-                                            <td>John Doe</td>
+                                            <td>43</td>
+                                            <td>54</td>
+                                            <td>22</td> 
+                                            <td>5</td>
                                             <td>
                                                 <div class="progress">
                                                     <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
                                                 </div>
                                             </td>
-                                            <td>5</td>
+                                           
                                         </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Task E</td>
-                                            <td>
-                                                <span class="label bg-red">Suspended</span>
-                                            </td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar bg-red" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"></div>
-                                                </div>
-                                            </td>
-                                            <td>5</td>
-                                        </tr>
+                                      
                                     </tbody>
                                 </table>
                             </div>
