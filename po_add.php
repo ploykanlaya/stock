@@ -73,11 +73,10 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                                
                                                 <th>รหัสสินค้า</th>
                                                 <th>ชื่อสินค้า</th>
-                                                  <th>จำนวน</th>
+                                                <th>จำนวน</th>
                                                 <th>มูลค่าต่อหน่วย</th>
-                                               <th>หน่วยสินค้า</th>
+                                                <th>หน่วยสินค้า</th>
                                                 <th>ราคารวม</th>
-                                              
                                                 <th>เลือกสินค้า</th>
                                             </tr>
                                             </thead>
