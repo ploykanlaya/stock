@@ -1,29 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Sign Up | Bootstrap Based Admin Template - Material Design</title>
-    <!-- Favicon-->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-
-    <!-- Bootstrap Core Css -->
-    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Waves Effect Css -->
-    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
-
-    <!-- Animation Css -->
-    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
-
-    <!-- Custom Css -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
 <!-- Head -->
     <?php include 'head.php'; ?>  
 <!-- #Head --> 
@@ -55,7 +32,7 @@
                             <!-- <i class="material-icons">person</i> -->ชื่อ-สกุล
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="Name" placeholder="Name Surname" required autofocus>
+                            <input type="text" class="form-control" name="Name" placeholder="กรอกชื่อ-นามสกุล" required autofocus>
                         </div>
                     </div>
                     <div class="input-group">
@@ -63,7 +40,7 @@
                            <!-- <i class="material-icons">call</i> -->เบอร์โทรศัพท์
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="Telephone" placeholder="Telephone" required>
+                            <input type="text" class="form-control" name="Telephone" placeholder="กรอกเบอร์โทรศัพท์" required>
                         </div>
                     </div>
                     <div class="input-group">
@@ -71,7 +48,7 @@
                             <!-- <i class="material-icons">home</i> -->ที่อยู่
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="Address" placeholder="Address" required>
+                            <input type="text" class="form-control" name="Address" placeholder="กรอกที่อยู่" required>
                         </div>
                     </div>
 
@@ -81,7 +58,7 @@
                             <!-- <i class="material-icons">account_circle</i> -->ชื่อผู้ใช้งาน
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="Username" placeholder="Username" required>
+                            <input type="text" class="form-control" name="Username" placeholder="กรอกชื่อผู้ใช้" required>
                         </div>
                     </div>
                     <div class="input-group">
@@ -89,7 +66,7 @@
                            <!--  <i class="material-icons">lock</i> -->รหัสผ่าน
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" minlength="6" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" minlength="6" placeholder="กรอกรหัสผ่าน" required>
                         </div>
                     </div>
                     <div class="input-group">
@@ -97,7 +74,7 @@
                             <!-- <i class="material-icons">lock</i> -->ยืนยันรหัสผ่าน
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="confirm" minlength="6" placeholder="Confirm Password" required>
+                            <input type="password" class="form-control" name="confirm" minlength="6" placeholder="ยืนยันรหัสผ่าน" required>
                         </div>
                     </div>
 
@@ -126,9 +103,7 @@
     </div>
     </section>
 
-<!-- Script Sidebar -->
-    <?php include 'script.php'; ?>  
-<!-- #END# Script Sidebar -->
+
 <!-- Jquery Core Js -->
     <script src="plugins/jquery/jquery.min.js"></script>
 
