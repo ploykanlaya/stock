@@ -126,11 +126,9 @@
                                         <label for="remember_me_3">แก้ไขเรียบร้อยแล้ว</label>
                                     </div>
                                 </div> -->
-                                <div class="row clearfix">
-                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">ยืนยัน</button>
-                                    </div>
-                                </div>
+                               
+                                        <button type="submit" class="btn btn-danger btn-lg btn-block">ยืนยัน</button>
+                          
                             </form>
                         </div>
                     </div>

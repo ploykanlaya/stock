@@ -41,9 +41,7 @@
 
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-                <h2>FORM EXAMPLES</h2>
-            </div>
+           
 
             <!-- Multi Column -->
             <div class="row clearfix">
@@ -51,7 +49,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                MULTI COLUMN
+                                เพิ่มสินค้าใหม่
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -210,11 +208,9 @@
                                
                       
 
-                               <div class="row clearfix">
-                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">ยืนยัน</button>
-                                    </div>
-                                </div>
+                           
+                                       <button type="submit" class="btn btn-danger btn-lg btn-block">ยันยืน</button>
+                                  
                                 </form>
                                 
                             </div>
