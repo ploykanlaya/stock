@@ -55,7 +55,7 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 	                </div>
 	                <div class="body">
 	                    <div class="table-responsive">
-	                        <table class="table table-hover dashboard-task-infos">
+	                        <table class="table table-hover dashboard-task-infos" id="requisition-table">
 	                            <thead>
 	                                <tr>
 	                                    <th>#</th>
@@ -187,7 +187,12 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 		});
 	});
 </script> -->
-    <script type="text/javascript">
+<script type="text/javascript">
+
+$( document ).ready(function() {
+
+    $('#requisition-table').DataTable();
+
 	$(".btn-confirm").on('click',function(){
 		var id = $(this).attr("data-id");
 		$.ajax({ 
@@ -219,6 +224,8 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 		    }
 		});
 	});
+
+});
 </script>
 
 </body>

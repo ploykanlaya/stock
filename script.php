@@ -33,13 +33,6 @@
 <!-- Sparkline Chart Plugin Js -->
 <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
 
-<!-- Custom Js -->
-<!-- <script src="js/admin.js"></script>
-<script src="js/pages/index.js"></script> -->
-
-<!-- Demo Js -->
-<!-- <script src="js/demo.js"></script> -->
-
 <!-- Jquery Core Js -->
 <script src="plugins/jquery/jquery.min.js"></script>
 
@@ -67,3 +60,6 @@
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
 <script src="js/pages/forms/basic-form-elements.js"></script>
+
+<!-- DataTable -->
+<script src="plugins/DataTables-1.10.13/media/js/jquery.dataTables.min.js"></script>
