@@ -28,7 +28,7 @@
                     <li class="header">Manager Views</li>
                     <li>
                         <a href="requisition_list.php">
-                            <i class="fa fa-paste" style="font-size:24px"></i><span>รายการเบิกสินค้า</span>
+                            <i class="fa fa-paste" style="font-size:24px"></i><span>รายการเบิก-อนุมัติการเบิก</span>
                         </a>
                     </li>
                        <li>
@@ -97,7 +97,7 @@
                                         <a href="po_add.php">สร้างรายการสั่งซื้อ</a>
                                     </li>
                                     <li>
-                                        <a href="po_list.php">ดูรายการสั่งซื้อ</a>
+                                        <a href="po_list.php">ดูรายการสั่งซื้อ-รับสินค้า</a>
                                     </li>
                                        <li>
                                         <a href="po_detail.php">รายละเอียดรายการซื้อ</a>

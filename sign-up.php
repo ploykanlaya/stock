@@ -32,7 +32,7 @@
                             <!-- <i class="material-icons">person</i> -->ชื่อ-สกุล
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="Name" placeholder="กรอกชื่อ-นามสกุล" required autofocus>
+                            <input type="text" class="form-control" name="Name"  required autofocus>
                         </div>
                     </div>
                     <div class="input-group">
@@ -40,7 +40,7 @@
                            <!-- <i class="material-icons">call</i> -->เบอร์โทรศัพท์
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="Telephone" placeholder="กรอกเบอร์โทรศัพท์" required>
+                            <input type="text" class="form-control" name="Telephone"  required>
                         </div>
                     </div>
                     <div class="input-group">
@@ -48,7 +48,7 @@
                             <!-- <i class="material-icons">home</i> -->ที่อยู่
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="Address" placeholder="กรอกที่อยู่" required>
+                            <input type="text" class="form-control" name="Address"  required>
                         </div>
                     </div>
 
@@ -58,7 +58,7 @@
                             <!-- <i class="material-icons">account_circle</i> -->ชื่อผู้ใช้งาน
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="Username" placeholder="กรอกชื่อผู้ใช้" required>
+                            <input type="text" class="form-control" name="Username"  required>
                         </div>
                     </div>
                     <div class="input-group">
@@ -66,7 +66,7 @@
                            <!--  <i class="material-icons">lock</i> -->รหัสผ่าน
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" minlength="6" placeholder="กรอกรหัสผ่าน" required>
+                            <input type="password" class="form-control" name="password" minlength="6"  required>
                         </div>
                     </div>
                     <div class="input-group">
@@ -74,11 +74,12 @@
                             <!-- <i class="material-icons">lock</i> -->ยืนยันรหัสผ่าน
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="confirm" minlength="6" placeholder="ยืนยันรหัสผ่าน" required>
+                            <input type="password" class="form-control" name="confirm" minlength="6"  required>
                         </div>
                     </div>
 
                      <div class="form-group">
+                    
                         <input type="radio" name="position" id="pos0" class="filled-in chk-col-pink" value="ผู้จัดการ">
                         <label for="pos0">ผู้จัดการ</label>
                         <input type="radio" name="position" id="pos1" class="filled-in chk-col-pink" value="พนักงาน">
@@ -88,9 +89,9 @@
 
 
 
-                
+                  <button type="submit" class="btn btn-danger btn-lg btn-block">บันทึก</button>
 
-                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">ยืนยัน</button>
+                    
 
                   
              

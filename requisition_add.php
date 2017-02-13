@@ -45,7 +45,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                     <div class="form-group">
                                          <label class="form-label">รายการ</label>
                                          <div class="form-line">                                       
-                                           <input type="text" class="form-control" name="Requisition_ID" placeholder="Requisition_ID" required>
+                                           <input type="text" class="form-control" name="Requisition_ID"  required>
                                         </div>
                                     </div>
                                 </div>  
@@ -53,7 +53,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                     <div class="form-group">
                                          <label class="form-label">รหัสพนักงาน</label>
                                          <div class="form-line">
-                                             <input type="text" class="form-control" name="UserID" placeholder="UserID" required>
+                                             <input type="text" class="form-control" name="UserID"  required>
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                     <div class="form-group">
                                          <label class="form-label">ชื่อพนักงาน</label>
                                          <div class="form-line">                                       
-                                           <input type="text" class="form-control" name="Name" placeholder="Name" required>
+                                           <input type="text" class="form-control" name="Name"  required>
                                         </div>
                                     </div>
                                 </div>      
@@ -70,7 +70,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                     <div class="form-group">
                                         <label class="form-label">วันทำการ</label>
                                         <div class="form-line">
-                                           <input type="text" class="datepicker form-control" name="Requisition_Date" placeholder="Please choose a date...">
+                                           <input type="text" class="datepicker form-control" name="Requisition_Date" choose a date...">
                                         </div>
                                     </div>
                                 </div>
