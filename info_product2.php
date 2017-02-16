@@ -78,11 +78,12 @@
                                     </tr>
                                 </thead>
                                
-                        <?php
-                            while($rows=mysqli_fetch_array($result)){ 
-                        ?> 
 
                         <tbody>
+
+                         <?php
+                            while($rows=mysqli_fetch_array($result)){ 
+                        ?> 
                                     <tr>
                                         <td><?php echo $rows['Product_ID']; ?></td>
                                         <td><?php echo $rows['Product_Name']; ?></td>  
@@ -142,9 +143,9 @@
                                     
 
                                        
-                                    </tr>        
+                                    </tr>       
+                                    <?php } ?> 
                         </tbody>
-                        <?php } ?>
                             </table>
                         </div>
                     </div>
