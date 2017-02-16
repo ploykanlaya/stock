@@ -55,7 +55,7 @@
                            
                         </div>
                         <div class="body">
-                            <table class="table table-hover dashboard-task-infos">
+                            <table class="table table-hover dashboard-task-infos" id="user-table">
                                 <thead>
                                     <tr>
                                         <th>รหัสผู้ใช้งาน</th>
@@ -65,15 +65,16 @@
                                         <th>ชื่อผู้ใช้งาน</th>
                                         <th>ตำแหน่ง</th>
                                         <th></th>
+                                        <th></th>
                                    
                                     </tr>
                                 </thead>
-                               
+                        <tbody>       
                         <?php
                             while($rows=mysqli_fetch_array($result)){ 
                         ?> 
 
-                        <tbody>
+                        
                                     <tr>
                                         <td><?php echo $rows['UserID']; ?></td>
                                         <td><?php echo $rows['Name']; ?></td>  
@@ -108,9 +109,10 @@
                                     
 
                                        
-                                    </tr>        
+                                    </tr>  
+                                    <?php } ?>       
                         </tbody>
-                        <?php } ?>
+                       
                             </table>
                         </div>
                     </div>
@@ -159,6 +161,12 @@
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
+
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $('#user-table').DataTable();
+        });
+    </script>
 </body>
 
 </html>

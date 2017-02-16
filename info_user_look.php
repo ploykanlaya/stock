@@ -69,12 +69,15 @@
                                     </tr>
                                 </thead>
                                
-                        <?php
-                            while($rows=mysqli_fetch_array($result)){ 
-                        ?> 
+                        
 
                         <tbody>
-                                    <tr>
+                                   
+                                   <?php
+                            while($rows=mysqli_fetch_array($result)){ 
+                        ?>  
+
+                        <tr>
                                         <td><?php echo $rows['UserID']; ?></td>
                                         <td><?php echo $rows['Name']; ?></td>  
                                         <td><?php echo $rows['Telephone']; ?></td> 
@@ -86,9 +89,10 @@
                                     
 
                                        
-                                    </tr>        
+                                    </tr>  
+                                    <?php } ?>      
                         </tbody>
-                        <?php } ?>
+                        
                             </table>
                         </div>
                     </div>
