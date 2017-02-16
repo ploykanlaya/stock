@@ -70,7 +70,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                     <div class="form-group">
                                         <label class="form-label">วันทำการ</label>
                                         <div class="form-line">
-                                           <input type="text" class="datepicker form-control" name="Requisition_Date" choose a date...">
+                                           <input type="text" class="datepicker form-control" name="Requisition_Date">
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                                     
                                                 <td><input type="text" class="form-control" id="pID" name="Product_ID" readonly="true"></td>
                                                 <td><input type="text" class="form-control" id="pName" name="Product_Name" readonly="true"></td>  
-                                                <td><input type="text" class="form-control numb-request" id="pTotal" name="Number_Req"></td>
+                                                <td><input type="number" class="form-control numb-request" id="pTotal" name="Number_Req" min="0" text="1"></td>
                                                 <td><input type="text" class="form-control" id="pAmount" name="Price" readonly="true"></td>
                                                 <td><input type="text" class="form-control" id="pUnit" name="Unit" readonly="true"></td>
                     
