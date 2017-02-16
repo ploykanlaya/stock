@@ -33,7 +33,7 @@
         <div class="card">
             <div class="body">
 
-                <form action="sign-in.php" id="sign_in" method="POST">
+                <form action="checkuser.php" id="sign_in" method="POST">
                     <div class="msg">Put your Username and Password to Login</div>
                     <div class="input-group">
                         <span class="input-group-addon">
@@ -72,7 +72,6 @@
             </div>
         </div>
     </div>
-
     <!-- Jquery Core Js -->
     <script src="plugins/jquery/jquery.min.js"></script>
 
