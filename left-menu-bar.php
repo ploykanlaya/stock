@@ -31,12 +31,7 @@
                             <i class="fa fa-paste" style="font-size:24px"></i><span>รายการเบิก-อนุมัติการเบิก</span>
                         </a>
                     </li>
-                       <li>
-                        <a href="requisition_detail.php">
-                            <i class="fa fa-paste" style="font-size:24px"></i><span>รายละเอียดรายการเบิก</span>
-                        </a>
-                    </li>
-
+                       
                     
                     <li class="header">Employee Views</li>
                     <li>
@@ -51,11 +46,7 @@
                             <i class="fa fa-paste" style="font-size:24px"></i><span>รายการเบิกสินค้า</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="requisition_detail_employee.php">
-                            <i class="fa fa-paste" style="font-size:24px"></i><span>รายละเอียดรายการเบิก</span>
-                        </a>
-                    </li>
+                  
 
                     <li class="header">MAIN NAVIGATION</li>           
                     

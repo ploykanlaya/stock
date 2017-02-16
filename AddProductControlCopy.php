@@ -2,6 +2,7 @@
 // print_r($_POST);exit(); 
  require("Class.php");
 
+$time = strtotime($_POST["ExpDate"]);//;วันที่
  $addpro = new Product;
 
 $servername = "localhost";
@@ -18,7 +19,7 @@ $addpro->Price=$_POST["Price"];
 $addpro->Unit=$_POST["Unit"];
 $addpro->Numstock=$_POST["Numstock"];
 $addpro->SafetyStock=$_POST["SafetyStock"];
-$addpro->ExpDate=$_POST["ExpDate"];echo $_POST["ExpDate"];
+$addpro->ExpDate=date('Y-m-d', $time);echo date('Y-m-d', $time);
 $addpro->Wholesalers_ID=$_POST["Wholesalers_ID"];
 $addpro->ProductType_ID=$_POST["ProductType_ID"];
 $addpro->addproduct($conn,$addpro); 

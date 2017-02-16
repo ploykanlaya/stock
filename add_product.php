@@ -51,18 +51,7 @@
                             <h2>
                                 เพิ่มสินค้าใหม่
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                         
                         </div>
                         <div class="body">
                          <form id="addproduct" method="POST" action="AddProductControlCopy.php">
@@ -84,7 +73,7 @@
                                     <div class="form-group">
                                          <label class="form-label">ราคาขายสินค้า</label>
                                          <div class="form-line">
-                                             <input type="text" class="form-control" name="Price" placeholder="Price" required>
+                                             <input type="number" class="form-control numb-request" id="Price" name="Price" placeholder="Price" min="0" text="1">
                                         </div>
                                     </div>
                                 </div>
@@ -104,7 +93,7 @@
                                     <div class="form-group">
                                      <label class="form-label">จำนวนยกยอดมา</label>
                                         <div class="form-line">
-                                             <input type="text" class="form-control" name="Numstock" placeholder="Numstock" required>
+                                             <input type="number" class="form-control numb-request" id="Numstock" name="Numstock" placeholder="Numstock" min="0" text="1" >
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +101,7 @@
                                     <div class="form-group">
                                      <label class="form-label">จุดสั่งซื้อสินค้าใหม่</label>
                                         <div class="form-line">
-                                              <input type="text" class="form-control" name="SafetyStock" placeholder="SafetyStock" required>
+                                              <input type="number" class="form-control numb-request" id="SafetyStock" name="SafetyStock" placeholder="SafetyStock" min="0" text="1">
                                         </div>
                                     </div>
                                 </div>
@@ -124,7 +113,7 @@
 
                                      <label class="form-label">วันหมดอายุ</label>
                                         <div class="form-line">
-                                           <input type="date" class="datepicker form-control" name="ExpDate" placeholder="Please choose a date...">
+                                           <input type="text" class="datepicker form-control" name="ExpDate" placeholder="Please choose a date...">
                                             </div>
                                         </div>
                                     

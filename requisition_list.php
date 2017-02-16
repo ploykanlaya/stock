@@ -9,7 +9,7 @@ $database = new DB();
 /*====================================================
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
-$result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date")->findAll();
+$result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date DESC ")->findAll();
 
 ?>
 <!-- Top Bar -->
