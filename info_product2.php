@@ -57,6 +57,7 @@
                         </div>
                         <div class="body">
                             <table class="table table-hover dashboard-task-infos" id="requisition-table">
+
                                 <thead>
                                     <tr>
                                         <th>รหัส</th>
@@ -71,6 +72,7 @@
                                         <th>วันหมดอายุ</th>
                                         <th>ร้านค้าส่ง</th>
                                         <th>ประเภท</th>
+                                        <th></th>
                                         <th></th>
                                    
                                     </tr>
@@ -136,7 +138,7 @@
                                      <button class="btn btn-primary waves-effect"   data-type="confirm">แก้ไข</button>
                                                
                                    </form> </td>
-
+                                
                                     
 
                                        
