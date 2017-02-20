@@ -32,13 +32,13 @@ class User{
 
 
 
-				public $UserID;
+				public $UserID,$Name,$Address,$Telephone,$Username,$Password,$Position,$Image;
 
 				public function adduser($conn,$adduser)
 					{
 
-							$sql = "INSERT INTO user (Name,Address,Telephone,Username,Password,Position)
-VALUES ('".$adduser->Name."','".$adduser->Address."','".$adduser->Telephone."','".$adduser->Username."','".$adduser->password."','".$adduser->position."')" ;
+							$sql = "INSERT INTO user (Name,Address,Telephone,Username,Password,Position,Image)
+VALUES ('$adduser->Name','$adduser->Address','$adduser->Telephone','$adduser->Username','$adduser->password','$adduser->position','$adduser->Image')" ;
 							if ($conn->query($sql) === TRUE)	{
 							$message = "Insert User success!";
 							echo "<script type='text/javascript'>alert('$message');</script>";

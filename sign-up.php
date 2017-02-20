@@ -35,6 +35,11 @@
                             <input type="text" class="form-control" name="Name"  required autofocus>
                         </div>
                     </div>
+
+                 
+
+
+
                     <div class="input-group">
                         <span class="input-group-addon">
                            <!-- <i class="material-icons">call</i> -->เบอร์โทรศัพท์
@@ -86,7 +91,14 @@
                         <label for="pos1">พนักงาน</label>
                     </div>
 
-
+     <div class="input-group">
+                     <!--   <span class="input-group-addon">
+                            <i class="material-icons">person</i>รูปภาพประจำตัว
+                            </span> -->
+                            <input type="file"  name="Image"  >
+                                  
+                   
+                    </div>
 
 
                   <button type="submit" class="btn btn-danger btn-lg btn-block">บันทึก</button>
