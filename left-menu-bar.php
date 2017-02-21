@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
             <div class="user-info">
@@ -25,14 +28,22 @@
           <!--   <!-- Menu -->
             <div class="menu">
                 <ul class="list">
+                <?php
+                if($_SESSION['Position'] == "ผู้จัดการ"){
+                    ?>
                     <li class="header">Manager Views</li>
                     <li>
                         <a href="requisition_list.php">
                             <i class="fa fa-paste" style="font-size:24px"></i><span>รายการเบิก-อนุมัติการเบิก</span>
                         </a>
                     </li>
-                       
+                    <?php
+                }
                     
+                ?>       
+                <?php
+                if($_SESSION['Position'] == "พนักงาน"){
+                    ?>
                     <li class="header">Employee Views</li>
                     <li>
                         <a href="requisition_add.php">
@@ -40,6 +51,9 @@
                         </a>
                         
                     </li>
+                    <?php
+                }
+                ?>
 
                     <li>
                         <a href="requisition_list_employee.php">

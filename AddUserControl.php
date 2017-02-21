@@ -19,7 +19,7 @@
 		    	$adduser->Username=$_POST["Username"];
 		    	$adduser->password=$_POST["password"];
 				$adduser->position=$_POST["position"];
-			 	 $adduser->Image=$_FILES['Image']['name'];
+			 	$adduser->Image=$_FILES['Image']['name'];
 		    	$adduser->adduser($conn,$adduser);
 
 
