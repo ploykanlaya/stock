@@ -25,7 +25,7 @@
                         <h4>เพิ่มผู้ใช้งานระบบ</h4>
                     </div>
             <div class="body">
-                <form id="sign_up" method="POST" action="AddUserControl.php">
+                <form id="sign_up" method="POST" action="AddUserControl.php" enctype="multipart/form-data">
                     
                     <div class="input-group">
                         <span class="input-group-addon">
@@ -91,14 +91,12 @@
                         <label for="pos1">พนักงาน</label>
                     </div>
 
-     <div class="input-group">
-                     <!--   <span class="input-group-addon">
+                <div class="input-group">
+                       <!-- <span class="input-group-addon">
                             <i class="material-icons">person</i>รูปภาพประจำตัว
                             </span> -->
-                            <input type="file"  name="Image"  >
-                                  
-                   
-                    </div>
+                        <input type="file"  name="Image" id="Image">
+                </div>
 
 
                   <button type="submit" class="btn btn-danger btn-lg btn-block">บันทึก</button>
