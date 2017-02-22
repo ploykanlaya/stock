@@ -61,9 +61,6 @@
                         </div>
                     </div>
                     <div class="row m-t-15 m-b--20">
-                        <!-- <div class="col-xs-6">
-                            <a href="sign-up.html">Register Now!</a>
-                        </div> -->
                         <div class="col-xs-6 ">
                             <a href="forgot-password.html">Forgot Password?</a>
                         </div>
@@ -72,21 +69,9 @@
             </div>
         </div>
     </div>
-    <!-- Jquery Core Js -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core Js -->
-    <script src="plugins/bootstrap/js/bootstrap.js"></script>
-
-    <!-- Waves Effect Plugin Js -->
-    <script src="plugins/node-waves/waves.js"></script>
-
-    <!-- Validation Plugin Js -->
-    <script src="plugins/jquery-validation/jquery.validate.js"></script>
-
-    <!-- Custom Js -->
-    <script src="js/admin.js"></script>
-    <script src="js/pages/examples/sign-in.js"></script>
+<!-- Script Sidebar -->
+    <?php include 'script.php'; ?>  
+<!-- #END# Script Sidebar -->
 </body>
 
 </html>

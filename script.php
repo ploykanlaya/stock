@@ -63,3 +63,10 @@
 
 <!-- DataTable -->
 <script src="plugins/DataTables-1.10.13/media/js/jquery.dataTables.min.js"></script>
+
+<!-- Validation Plugin Js -->
+<script src="plugins/jquery-validation/jquery.validate.js"></script>
+
+<!-- Custom Js -->
+<script src="js/admin.js"></script>
+<script src="js/pages/examples/sign-in.js"></script>

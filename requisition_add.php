@@ -96,19 +96,6 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                             </thead>
 
                                             <tbody id="tableToModify">
-                                                <tr id="rowToClone">
-                                                    
-                                                <td><input type="text" class="form-control" id="pID" name="Product_ID" readonly="true"></td>
-                                                <td><input type="text" class="form-control" id="pName" name="Product_Name" readonly="true"></td>  
-                                                <td><input type="number" class="form-control numb-request" id="pTotal" name="Number_Req" min="1" text="1"></td>
-                                                <td><input type="text" class="form-control" id="pAmount" name="Price" readonly="true"></td>
-                                                <td><input type="text" class="form-control" id="pUnit" name="Unit" readonly="true"></td>
-                    
-                                                 <td><input type="text" class="form-control" id="pTotal" name="TotalPay" readonly="true"></td>
-                                                 <td><button type="button" class="btn btn-danger select-modal">เลือก</button></td>
-                            
-                                   
-                                           </tr>
                                             </tbody>
                                         </table>  
 
@@ -126,7 +113,18 @@ $product =  $database->query("SELECT * FROM product")->findAll();
     </div>
 </section>
 <!-- #END# Content -->
+<template>
+  <tr>                                               
+        <td><input type="text" class="form-control" id="pID" name="Product_ID" readonly="true"></td>
+        <td><input type="text" class="form-control" id="pName" name="Product_Name" readonly="true"></td>  
+        <td><input type="number" class="form-control numb-request" id="pTotal" name="Number_Req" min="1" text="1"></td>
+        <td><input type="text" class="form-control" id="pAmount" name="Price" readonly="true"></td>
+        <td><input type="text" class="form-control" id="pUnit" name="Unit" readonly="true"></td>
 
+         <td><input type="text" class="form-control" id="pTotal" name="TotalPay" readonly="true"></td>
+         <td><button type="button" class="btn btn-danger" onclick="selectProduct()">เลือก</button></td>
+   </tr>
+</template>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -174,44 +172,51 @@ $product =  $database->query("SELECT * FROM product")->findAll();
   </div>
 </div>
 
+
 <!-- Script Sidebar -->
     <?php include 'script.php'; ?>  
 <!-- #END# Script Sidebar -->
 <script type="text/javascript">
     function cloneRow() {
-      var row = document.getElementById("rowToClone"); // find row to copy
-      var table = document.getElementById("tableToModify"); // find table to append to
-      var clone = row.cloneNode(true); // copy children too
-      clone.id = "newID"; // change id or other attributes/contents
-      table.appendChild(clone); // add new row to end of table
+        var content = document.querySelector('template').content;
+        document.querySelector('#tableToModify').appendChild(
+        document.importNode(content, true));
+
+    }
+
+    function selectProduct(a) {
+        $('#myModal').modal('show');
     }
 
     $( document ).ready(function() {
-        $('.select-modal').click(function(){
 
-            var _this = this;
+        cloneRow();
 
-            $('#myModal').modal('show');
+        // $('.select-modal').click(function(){
 
-            $('.select-product').click(function(){
-                var id = $(this).data("id");
-                var name = $(this).data("name");
-                var unit = $(this).data("unit");
-                var price = $(this).data("price");
-                $(_this).parent().parent().find("input[name=Product_ID]").val(id);
-                $(_this).parent().parent().find("input[name=Product_Name]").val(name);
-                $(_this).parent().parent().find("input[name=Unit]").val(unit);
-                $(_this).parent().parent().find("input[name=Price]").val(price);
-            });
+        //     var _this = this;
+
+        //     $('#myModal').modal('show');
+
+        //     $('.select-product').click(function(){
+        //         var id = $(this).data("id");
+        //         var name = $(this).data("name");
+        //         var unit = $(this).data("unit");
+        //         var price = $(this).data("price");
+        //         $(_this).parent().parent().find("input[name=Product_ID]").val(id);
+        //         $(_this).parent().parent().find("input[name=Product_Name]").val(name);
+        //         $(_this).parent().parent().find("input[name=Unit]").val(unit);
+        //         $(_this).parent().parent().find("input[name=Price]").val(price);
+        //     });
             
-        });
+        // });
 
-        $(".numb-request").change(function() { 
-            var _this = this;
-            var value = $(this).val();
-            var price = $(_this).parent().parent().find("input[name=Price]").val();
-            $(_this).parent().parent().find("input[name=TotalPay]").val(value*price);
-        });
+        // $(".numb-request").change(function() { 
+        //     var _this = this;
+        //     var value = $(this).val();
+        //     var price = $(_this).parent().parent().find("input[name=Price]").val();
+        //     $(_this).parent().parent().find("input[name=TotalPay]").val(value*price);
+        // });
     });
    
 </script>

@@ -8,8 +8,8 @@ session_start();
                     <img src="images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                    <div class="email">john.doe@example.com</div>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=$_SESSION['Username'];?></div>
+                    <div class=""><b>ตำแหน่ง</b> <?=$_SESSION['Position'];?></div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -19,7 +19,7 @@ session_start();
                             <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                             <li role="seperator" class="divider"></li>
-                            <li><a href="pages/examples/sign-in.html"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="sign-out.php"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -29,7 +29,7 @@ session_start();
             <div class="menu">
                 <ul class="list">
                 <?php
-                if($_SESSION['Position'] == "ผู้จัดการ"){
+                if(isset($_SESSION['Position']) && $_SESSION['Position'] == "ผู้จัดการ"){
                     ?>
                     <li class="header">Manager Views</li>
                     <li>
@@ -42,7 +42,7 @@ session_start();
                     
                 ?>       
                 <?php
-                if($_SESSION['Position'] == "พนักงาน"){
+                if(isset($_SESSION['Position']) && $_SESSION['Position'] == "พนักงาน"){
                     ?>
                     <li class="header">Employee Views</li>
                     <li>
@@ -51,16 +51,41 @@ session_start();
                         </a>
                         
                     </li>
-                    <?php
-                }
-                ?>
 
                     <li>
                         <a href="requisition_list_employee.php">
                             <i class="fa fa-paste" style="font-size:24px"></i><span>รายการเบิกสินค้า</span>
                         </a>
                     </li>
-                  
+                    <?php
+                }
+                ?>
+                <?php
+                if(isset($_SESSION['Position']) && $_SESSION['Position'] == "admin"){
+                    ?>
+                    <li class="header">Manager Views</li>
+                    <li>
+                        <a href="requisition_list.php">
+                            <i class="fa fa-paste" style="font-size:24px"></i><span>รายการเบิก-อนุมัติการเบิก</span>
+                        </a>
+                    </li>
+                     <li class="header">Employee Views</li>
+                    <li>
+                        <a href="requisition_add.php">
+                            <i class="fa fa-file-text" style="font-size:24px"></i><span>เพิ่มใบเบิกสินค้า</span>
+                        </a>
+                        
+                    </li>
+
+                    <li>
+                        <a href="requisition_list_employee.php">
+                            <i class="fa fa-paste" style="font-size:24px"></i><span>รายการเบิกสินค้า</span>
+                        </a>
+                    </li>
+                    <?php
+                }
+                    
+                ?>      
 
                     <li class="header">MAIN NAVIGATION</li>           
                     
@@ -176,26 +201,6 @@ session_start();
                                     
                                 </ul>
                         </li>
-
-                                <li class="header">LABELS</li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-red">donut_large</i>
-                            <span>Important</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-amber">donut_large</i>
-                            <span>Warning</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-light-blue">donut_large</i>
-                            <span>Information</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
             <!-- #Menu -->

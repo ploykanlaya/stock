@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['Position'])){
+    header( "Location: /stock/sign-in.php" );
+}
+?>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
