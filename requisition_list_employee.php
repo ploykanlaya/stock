@@ -62,7 +62,7 @@ $result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date
 		                                    <td><?=$field->Requisition_ID;?></td>
 		                                    <td><?=date('d/m/Y', strtotime($field->Requisition_Date));?></td>
 		                                    <td><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td>
-		                                      <td><a href="requisition_detail.php?id=<?=$field->Requisition_ID;?>" class="btn btn-danger select-modal">คลิก</a></td> 
+		                                      <td><a href="requisition_detail_employee.php?id=<?=$field->Requisition_ID;?>" class="btn btn-danger select-modal">คลิก</a></td> 
 		                               
 
 

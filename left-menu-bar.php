@@ -145,14 +145,10 @@ session_start();
                                     
                                 </ul>
                         </li>
-
+<?php } 
                       
-                    <?php
-                }
-                    
-                ?>       
-                <?php
-                else if($_SESSION['Position'] == "พนักงาน"){
+
+                  else if($_SESSION['Position'] == "พนักงาน"){
                     ?>
                     <li class="header">Employee Views</li>
                <li class="header">MAIN NAVIGATION</li>           
@@ -202,165 +198,7 @@ session_start();
 
                 ?>
 
-                <?php
-                    if($_SESSION['Position'] == "แอดมิน"){
-                        ?>
-                    <li class="header">Manager Views</li>
-                    <li class="header">MAIN NAVIGATION</li>           
-                    
-
-                    <li class="active">
-                        <a href="index_manager.php">
-                            <i class="material-icons">home</i>
-                            <span>หน้าหลัก</span>
-                        </a>
-                    </li>
-
-                        <li>
-                            <a href="javascript:void(0);" class="menu-toggle">
-                                 <i class="fa fa-line-chart" style="font-size:24px"></i><span>รายงาน</span>
-                             </a>
-                                <ul class="ml-menu">
-                                 <li>
-                                        <a href="stock.html">คลังสินค้า</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="report_requests.html">ยอดเบิก</a>
-                                    </li>
-                                    <li>
-                                        <a href="report_po.html">ยอดสั่งซื้อ</a>
-                                    </li>
-                                    <li>
-                                        <a href="report_return.html">ยอดคืนสินค้า</a>
-                                    </li>
-                                </ul>
-                        </li>
-                        
-                        <li>
-                          <a href="javascript:void(0);" class="menu-toggle">
-                                 <i class="fa fa-cart-arrow-down" style="font-size:24px"></i><span>การสั่งซื้อ</span>
-                             </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="po_add.php">สร้างรายการสั่งซื้อ</a>
-                                    </li>
-                                    <li>
-                                        <a href="po_list.php">ดูรายการสั่งซื้อ-รับสินค้า</a>
-                                    </li>
-                                       <li>
-                                        <a href="po_detail.php">รายละเอียดรายการซื้อ</a>
-                                    </li>
-                                    
-                                    
-                                </ul>
-                        </li>
-                   
-                       <li>
-                          <a href="javascript:void(0);" class="menu-toggle">
-                                 <i class="fa fa-paste" style="font-size:24px"></i><span>การเบิกสินค้า</span>
-                             </a>
-                                <ul class="ml-menu">      
-                                    <li>
-                                        <a href="requisition_list.php">ดูรายการเบิก</a>
-                                    </li>
-                                    
-                                </ul>
-                        </li>
-
-                            <li>
-                          <a href="javascript:void(0);" class="menu-toggle">
-                                 <i class="fa fa-repeat" style="font-size:24px"></i><span>การคืนสินค้า</span>
-                             </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="return_add.php">สร้างรายการคืน</a>
-                                    </li>
-                                    <li>
-                                        <a href="return_list.php">ดูรายการคืน</a>
-                                    </li>
-                                    
-                                </ul>
-                        </li>
-                   
-                        <li>
-                          <a href="javascript:void(0);" class="menu-toggle">
-                                 <i class="fa fa-cubes" style="font-size:24px"></i><span>สินค้า</span>
-                             </a>
-                                <ul class="ml-menu">
-                                     <li>
-                                        <a href="add_product.php">เพิ่มสินค้าใหม่</a>
-                                    </li>
-                                    <li>
-                                        <a href="info_product2.php">รายการสินค้า</a>
-                                    </li>
-                                
-                                    
-                                </ul>
-                        </li>
-                   
-                        <li>
-                          <a href="javascript:void(0);" class="menu-toggle">
-                                 <i class="fa fa-address-card-o" style="font-size:24px"></i><span>จัดการผู้ใช้งาน</span>
-                             </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="sign-up.php">เพิ่มผู้ใช้งาน</a>
-                                    </li>
-                                    <li>
-                                        <a href="info_user.php">ลบ/แก้ไขข้อมูล</a>
-                                    </li>
-                                    <li>
-                                        <a href="info_user_look.php">ดูรายชื่อผู้ใช้งาน</a>
-                                    </li>
-                                  
-                                    
-                                </ul>
-                        </li>
-<li class="header">Employee Views</li>
-               <li class="header">MAIN NAVIGATION</li>           
-                    
-
-                    <li class="active">
-                        <a href="index_manager.php">
-                            <i class="material-icons">home</i>
-                            <span>หน้าหลัก</span>
-                        </a>
-                    </li>
-
-                   
-                       <li>
-                          <a href="javascript:void(0);" class="menu-toggle">
-                                 <i class="fa fa-paste" style="font-size:24px"></i><span>การเบิกสินค้า</span>
-                             </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="requisition_add.php">สร้างรายการเบิก</a>
-                                    </li>
-                                    <li>
-                                        <a href="requisition_list_employee.php">ดูรายการเบิก</a>
-                                    </li>
-                                    
-                                </ul>
-                        </li>
-
-                    <li>
-                          <a href="javascript:void(0);" class="menu-toggle">
-                                 <i class="fa fa-repeat" style="font-size:24px"></i><span>การคืนสินค้า</span>
-                             </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="return_add.php">สร้างรายการคืน</a>
-                                    </li>
-                                    <li>
-                                        <a href="return_list.php">ดูรายการคืน</a>
-                                    </li>
-                                    
-                                </ul>
-                        </li>
-                    }
-                ?>
-
+                
                 <li class="header">LABELS</li>
                     <li>
                         <a href="javascript:void(0);">

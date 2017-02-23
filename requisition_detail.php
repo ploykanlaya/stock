@@ -10,7 +10,7 @@ $database = new DB();
 /*====================================================
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
-$result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,Re.Status FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID where Re.Requisition_ID='".$_GET['id']."'" )->findAll();
+$result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,R.Status FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID where Re.Requisition_ID='".$_GET['id']."'" )->findAll();
 
  //print_r($result);exit;
 ?>
@@ -98,8 +98,8 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 		                        <?php
 			                                    if ($field->Status == 0) {
 			                                    	echo '<td>
-			                                    			<button type="button" class="btn btn-default btn-confirm" data-toggle="modal" data-target="#myModal" data-id="'.$field->Requisition_ID.'">อนุมัติ</button>
-		                                    				<button type="button" class="btn btn-danger btn-cancle" data-id="'.$field->Requisition_ID.'">ไม่อนุมัติ</button>
+			                                    			<button type="button" class="btn btn-default btn-confirm" data-toggle="modal" data-target="#myModal" data-id="'.$field->Product_ID.'">อนุมัติ</button>
+		                                    				<button type="button" class="btn btn-danger btn-cancle" data-id="'.$field->Product_ID.'">ไม่อนุมัติ</button>
 		                                    			</td>';
 			                                    }
 			                                    if ($field->Status == 1) {
@@ -109,7 +109,7 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 			                                    	echo '<td class="text-danger"><i>ไม่อนุมัติ</i></td>';
 			                                    }
 		                                    ?>
-		                                    </td>
+		                                    
 
 		                                </tr>
 
@@ -152,7 +152,11 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 </div> -->
 
 <!-- Script Sidebar -->
-	<?php include 'script.php'; ?>  
+	 <!-- Jquery Core Js -->
+    
+
+    <!-- Demo Js -->
+       <?php include 'script.php'; ?>  
 <!-- #END# Script Sidebar -->
 <!-- <script type="text/javascript">
 	$(".btn-confirm").on('click',function(){
@@ -196,7 +200,7 @@ $( document ).ready(function() {
 	$(".btn-confirm").on('click',function(){
 		var id = $(this).attr("data-id");
 		$.ajax({ 
-		    url: "/stock/action_requisition.php",
+		    url: "../stock/action_requisition.php",
 		    type: "POST",
 		    data: {
 		    	'method': 'update',
@@ -212,7 +216,7 @@ $( document ).ready(function() {
 	$(".btn-cancle").on('click',function(){
 		var id = $(this).attr("data-id");
 		$.ajax({ 
-		    url: "/stock/action_requisition.php",
+		    url: "../stock/action_requisition.php",
 		    type: "POST",
 		    data: {
 		    	'method': 'update',

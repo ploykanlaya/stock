@@ -2,14 +2,14 @@
 
 session_start();
 
-include_once '/class/db.class.php';
+include_once 'class/db.class.php';
 
 $database = new DB();
  
 $result =  $database->query("SELECT * From user WHERE Username ='".$_POST['user']."' && Password ='".$_POST['pass']."'")->find();
 
 if(!empty($result->Name)){
-
+	
 	$_SESSION['Username'] = $result->Name;
 	$_SESSION['Position'] = $result->Position;
 
@@ -18,3 +18,4 @@ if(!empty($result->Name)){
 else{
 	header( "Location: /stock/sign-up.php" );
 }
+?>

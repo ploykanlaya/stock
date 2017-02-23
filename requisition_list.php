@@ -121,7 +121,7 @@ $( document ).ready(function() {
 	$(".btn-confirm").on('click',function(){
 		var id = $(this).attr("data-id");
 		$.ajax({ 
-		    url: "/stock/action_requisition.php",
+		    url: "../stock/action_requisition.php",
 		    type: "POST",
 		    data: {
 		    	'method': 'update',
@@ -137,7 +137,7 @@ $( document ).ready(function() {
 	$(".btn-cancle").on('click',function(){
 		var id = $(this).attr("data-id");
 		$.ajax({ 
-		    url: "/stock/action_requisition.php",
+		    url: "../stock/action_requisition.php",
 		    type: "POST",
 		    data: {
 		    	'method': 'update',
@@ -151,5 +151,7 @@ $( document ).ready(function() {
 	});
 });
 </script>
+
+
 </body>
 </html>

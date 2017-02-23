@@ -44,8 +44,11 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                 <div class="col-md-12">
                                     <div class="form-group">
                                          <label class="form-label">รายการ</label>
-                                         <div class="form-line">                                       
-                                           <input type="text" class="form-control" name="Requisition_ID"  required>
+                                         <div class="form-line">                  
+                                         <?php $recent_ID =  $database->query("SELECT Requisition_ID FROM requisition ORDER BY Requisition_ID DESC limit 1")->findAll();
+
+                                                  ?>
+                                           <input type="text" class="form-control" name="Requisition_ID" readonly value="<?php echo $recent_ID[0]->Requisition_ID+1; ?>">
                                         </div>
                                     </div>
                                 </div>   

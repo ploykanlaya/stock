@@ -75,5 +75,15 @@ class DB {
             return false;
         }
     }
+
+    public function testGet(){
+    if(!empty($this->result)){
+            
+           
+            return $this->result_array();
+        }else{
+            return false;
+        }
+    }
      
 }
