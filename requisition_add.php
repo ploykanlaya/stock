@@ -122,7 +122,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
         <td><input type="text" class="form-control" id="pUnit" name="Unit" readonly="true"></td>
 
          <td><input type="text" class="form-control" id="pTotal" name="TotalPay" readonly="true"></td>
-         <td><button type="button" class="btn btn-danger" onclick="selectProduct()">เลือก</button></td>
+         <td><button type="button" class="btn btn-danger select-modal">เลือก</button></td>
    </tr>
 </template>
 <!-- Modal -->
@@ -184,39 +184,39 @@ $product =  $database->query("SELECT * FROM product")->findAll();
 
     }
 
-    function selectProduct(a) {
-        $('#myModal').modal('show');
-    }
+    // function selectProduct(a) {
+    //     $('#myModal').modal('show');
+    // }
 
     $( document ).ready(function() {
 
         cloneRow();
 
-        // $('.select-modal').click(function(){
+        $('.select-modal').click(function(){
 
-        //     var _this = this;
+            var _this = this;
 
-        //     $('#myModal').modal('show');
+            $('#myModal').modal('show');
 
-        //     $('.select-product').click(function(){
-        //         var id = $(this).data("id");
-        //         var name = $(this).data("name");
-        //         var unit = $(this).data("unit");
-        //         var price = $(this).data("price");
-        //         $(_this).parent().parent().find("input[name=Product_ID]").val(id);
-        //         $(_this).parent().parent().find("input[name=Product_Name]").val(name);
-        //         $(_this).parent().parent().find("input[name=Unit]").val(unit);
-        //         $(_this).parent().parent().find("input[name=Price]").val(price);
-        //     });
+            $('.select-product').click(function(){
+                var id = $(this).data("id");
+                var name = $(this).data("name");
+                var unit = $(this).data("unit");
+                var price = $(this).data("price");
+                $(_this).parent().parent().find("input[name=Product_ID]").val(id);
+                $(_this).parent().parent().find("input[name=Product_Name]").val(name);
+                $(_this).parent().parent().find("input[name=Unit]").val(unit);
+                $(_this).parent().parent().find("input[name=Price]").val(price);
+            });
             
-        // });
+        });
 
-        // $(".numb-request").change(function() { 
-        //     var _this = this;
-        //     var value = $(this).val();
-        //     var price = $(_this).parent().parent().find("input[name=Price]").val();
-        //     $(_this).parent().parent().find("input[name=TotalPay]").val(value*price);
-        // });
+        $(".numb-request").change(function() { 
+            var _this = this;
+            var value = $(this).val();
+            var price = $(_this).parent().parent().find("input[name=Price]").val();
+            $(_this).parent().parent().find("input[name=TotalPay]").val(value*price);
+        });
     });
    
 </script>
