@@ -17,8 +17,6 @@ session_start();
                 <ul class="dropdown-menu pull-right">
                 <li><a href=""><i class="material-icons">person</i>Profile</a></li>
                 <li role="seperator" class="divider"></li>
-
-                <li role="seperator" class="divider"></li>
                 <li><a href="sign-in.php"><i class="material-icons">input</i>Sign Out</a></li>
                 </ul>
             </div>

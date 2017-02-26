@@ -16,6 +16,6 @@ if(!empty($result->Name)){
 	header( "Location: /stock/index.php" );
 }
 else{
-	header( "Location: /stock/sign-up.php" );
+	header( "Location: /stock/sign-in.php" );
 }
 ?>
