@@ -84,7 +84,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                        <div class="header">
                                              <h4>เลือกสินค้า</h4>
                                          </div>
-                                        <table class="table table-hover">
+                                        <table class="table table-hover" id="select-product-list">
                                             <thead>
                                             <tr>
                                                
@@ -94,7 +94,6 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                                 <th>มูลค่าต่อหน่วย</th>
                                                <th>หน่วยสินค้า</th> 
                                                 <th>ราคารวม</th>
-                                                <th>เลือกสินค้า</th>
                                             </tr>
                                             </thead>
 
@@ -102,7 +101,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                             </tbody>
                                         </table>  
 
-                                        <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="cloneRow()" value="Clone Row">เลือกสินค้าเพิ่ม</button></div>
+                                        <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">เลือกสินค้า</button></div>
                                      </div>
                                 </div>
                             </div>    
@@ -116,28 +115,16 @@ $product =  $database->query("SELECT * FROM product")->findAll();
     </div>
 </section>
 <!-- #END# Content -->
-<template>
-  <tr>                                               
-        <td><input type="text" class="form-control" id="pID" name="Product_ID" readonly="true"></td>
-        <td><input type="text" class="form-control" id="pName" name="Product_Name" readonly="true"></td>  
-        <td><input type="number" class="form-control numb-request" id="pTotal" name="Number_Req" min="1" text="1"></td>
-        <td><input type="text" class="form-control" id="pAmount" name="Price" readonly="true"></td>
-        <td><input type="text" class="form-control" id="pUnit" name="Unit" readonly="true"></td>
-
-         <td><input type="text" class="form-control" id="pTotal" name="TotalPay" readonly="true"></td>
-         <td><button type="button" class="btn btn-danger select-modal">เลือก</button></td>
-   </tr>
-</template>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">เลือกสินค้า</h4>
       </div>
       <div class="modal-body">
-        <table class="table table-hover">
+        <table class="table table-hover" id="product-table">
             <thead>
               <tr>
                 <th>รหัส</th>
@@ -145,31 +132,30 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                 <th>ยี่ห้อ</th>
                 <th>ราคา</th>
                 <th>คงเหลือในคลัง</th>
-                <th></th>
+                <th>จำนวน</th>
               </tr>
             </thead>
             <tbody>
                 <?php 
-                foreach ($product as $data) {
-                    echo '<tr>
-                    <td>'.$data->Product_ID.'</td>
-                    <td>'.$data->Product_Name.'</td>
-                    <td>'.$data->Product_Brand.'</td>
-                    <td>'.$data->Price.'</td>
-                    <td>'.$data->Numstock.'</td>
-                    <td><button type="button" class="btn btn-danger btn-lg btn-block select-product" 
-                        data-id="'.$data->Product_ID.'"
-                        data-name="'.$data->Product_Name.'" 
-                        data-unit="'.$data->Unit.'"
-                        data-price="'.$data->Price.'"
-                        data data-dismiss="modal">เลือก</button></td>
-                    </tr>';
-                }
+                    foreach ($product as $data) {
+                        echo '<tr>
+                        <td>'.$data->Product_ID.'</td>
+                        <td>'.$data->Product_Name.'</td>
+                        <td>'.$data->Product_Brand.'</td>
+                        <td>'.$data->Price.'</td>
+                        <td>'.$data->Numstock.'</td>
+                        <td><input type="input" class="form-control" name="amount" 
+                            data-id="'.$data->Product_ID.'"
+                            data-name="'.$data->Product_Name.'" 
+                            data-unit="'.$data->Unit.'"
+                            data-price="'.$data->Price.'"></td></tr>';
+                    }
                 ?>
             </tbody>
           </table>
       </div>
       <div class="modal-footer">
+            <button type="button" class="btn btn-danger btn-lg btn-block" id="confirm">ยืนยัน</button>
       </div>
     </div>
   </div>
@@ -180,38 +166,51 @@ $product =  $database->query("SELECT * FROM product")->findAll();
     <?php include 'script.php'; ?>  
 <!-- #END# Script Sidebar -->
 <script type="text/javascript">
-    function cloneRow() {
-        var content = document.querySelector('template').content;
-        document.querySelector('#tableToModify').appendChild(
-        document.importNode(content, true));
+    // function cloneRow() {
+    //     var content = document.querySelector('template').content;
+    //     document.querySelector('#tableToModify').appendChild(
+    //     document.importNode(content, true));
+    //     var rowCount = $('#select-product-list tbody > tr').length-1;
+    //     var i = rowCount+1;
 
+    //     var last = $('#select-product-list tbody > tr:last');
+    //     last.attr('id','tr-'+i);
+    //     last.find("button").attr('id','btn-'+i);
+    // }    
+
+    function selectModal(){
+        $("#myModal").modal("show");
     }
 
-    // function selectProduct(a) {
-    //     $('#myModal').modal('show');
+    // function getSecondPart(str) {
+    //     return str.split('-')[1];
     // }
 
     $( document ).ready(function() {
 
-        cloneRow();
+        $('#product-table').dataTable();
 
-        $('.select-modal').click(function(){
-
-            var _this = this;
-
-            $('#myModal').modal('show');
-
-            $('.select-product').click(function(){
-                var id = $(this).data("id");
-                var name = $(this).data("name");
-                var unit = $(this).data("unit");
-                var price = $(this).data("price");
-                $(_this).parent().parent().find("input[name=Product_ID]").val(id);
-                $(_this).parent().parent().find("input[name=Product_Name]").val(name);
-                $(_this).parent().parent().find("input[name=Unit]").val(unit);
-                $(_this).parent().parent().find("input[name=Price]").val(price);
+        $('#confirm').click(function(){
+            var tbody= "";
+            $('#product-table > tbody  > tr').each(function() {
+                var id = $(this).find('input[name="amount"]').data('id');
+                var name = $(this).find('input[name="amount"]').data("name");
+                var unit = $(this).find('input[name="amount"]').data("unit");
+                var price = $(this).find('input[name="amount"]').data("price");
+                var amount = $(this).find('input[name="amount"]').val();
+                if(amount > 0){
+                    tbody = tbody+'<tr>'+                                     
+                        '<td><input value="'+id+'" type="text" class="form-control" name="Product_ID[]" readonly="true"></td>'+
+                        '<td><input value="'+name+'" type="text" class="form-control" name="Product_Name[]" readonly="true"></td>'+  
+                        '<td><input value="'+amount+'" type="number" class="form-control" name="Number_Req[]" min="1" text="1"></td>'+
+                        '<td><input value="'+price+'" type="text" class="form-control" name="Price[]" readonly="true"></td>'+
+                        '<td><input value="'+unit+'" type="text" class="form-control" name="Unit[]" readonly="true"></td>'+
+                        '<td><input value="'+(price*amount)+'" type="text" class="form-control" name="TotalPay[]" readonly="true"></td>'+
+                        '</tr>';
+                }
             });
-            
+            $('#tableToModify').html(tbody);
+            $("#myModal").modal("hide");
         });
 
         $(".numb-request").change(function() { 
