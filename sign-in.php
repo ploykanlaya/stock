@@ -27,7 +27,7 @@
 <body class="login-page">
     <div class="login-box">
         <div class="logo">
-            <a href="javascript:void(0);">User<b>Login</b></a>
+            <a href="javascript:void(0);">Login<b> เข้าสู่ระบบ</b></a>
             <small>Convenience Store’s Online Inventory Management System</small>
         </div>
         <div class="card">
