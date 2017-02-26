@@ -4,7 +4,7 @@
 <!-- Head -->
     <?php include 'head.php'; ?>  
 <!-- #Head --> 
-<body class="theme-red">
+<body class="theme-blue">
 <!-- Top Bar -->
     <?php include 'top-bar.php'; ?>  
 <!-- #Top Bar -->

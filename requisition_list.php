@@ -15,7 +15,7 @@ $result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date
 <!-- Top Bar -->
     <?php include 'head.php'; ?>  
 <!-- #Top Bar --> 
-<body class="theme-red">
+<body class="theme-blue">
 <!-- Top Bar -->
     <?php include 'top-bar.php'; ?>  
 <!-- #Top Bar -->

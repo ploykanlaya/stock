@@ -21,7 +21,7 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 <!-- Top Bar -->
     <?php include 'head.php'; ?>  
 <!-- #Top Bar --> 
-<body class="theme-red">
+<body class="theme-blue">
 <!-- Top Bar -->
     <?php include 'top-bar.php'; ?>  
 <!-- #Top Bar -->

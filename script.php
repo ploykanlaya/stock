@@ -55,3 +55,9 @@
 <script src="plugins/jquery-validation/jquery.validate.js"></script>
 
 
+<script src="js/pages/index.js"></script>
+
+<!-- Demo Js -->
+<script src="js/demo.js"></script>
+
+
