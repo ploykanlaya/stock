@@ -10,7 +10,7 @@ $result =  $database->query("SELECT * From user WHERE Username ='".$_POST['user'
 
 if(!empty($result->Name)){
 	
-	$_SESSION['Username'] = $result->Name;
+	$_SESSION['Name'] = $result->Name;
 	$_SESSION['Position'] = $result->Position;
 
 	header( "Location: /stock/index.php" );
