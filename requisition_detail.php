@@ -10,11 +10,7 @@ $database = new DB();
 /*====================================================
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
-$result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,Re.Status 
-FROM requisition_detail AS R
-JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID
-JOIN product AS P ON R.Product_ID= P.Product_ID
-where Re.Requisition_ID='".$_GET['id']."' ORDER BY Status ASC")->findAll();
+$result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,R.Status FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID where Re.Requisition_ID='".$_GET['id']."'" )->findAll();
 
 
 // "SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,R.Status FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID where Re.Requisition_ID='".$_GET['id']."'"
@@ -108,6 +104,9 @@ where Re.Requisition_ID='".$_GET['id']."' ORDER BY Status ASC")->findAll();
 		                           
 
 		                        <?php
+
+		         if($_SESSION['Position'] == "ผู้จัดการ" || $_SESSION['Position'] == "admin")
+
 			                                    if ($field->Status == 0) {
 			                                    	echo '<td>
 			                                    			<button type="button" class="btn btn-default btn-confirm" data-toggle="modal" data-target="#myModal" data-id="'.$field->Product_ID.'">อนุมัติ</button>
@@ -121,9 +120,29 @@ where Re.Requisition_ID='".$_GET['id']."' ORDER BY Status ASC")->findAll();
 			                                    	echo '<td class="text-danger"><i>ไม่อนุมัติ</i></td>';
 			                                    }
 		                                    ?>
-		                                    
+		                                      
+
+		                                      <?php    
+       if($_SESSION['Position'] == "พนักงาน" || $_SESSION['Position'] == "admin")
+
+		                        
+			                                    if ($field->Status == 0) {
+			                                    	echo '<td>
+			                                    			รอการอนุมัติ
+		                                    			</td>';
+			                                    }
+			                                    if ($field->Status == 1) {
+			                                    	echo '<td class="text-success"><b>อนุมัติ</b></td>';
+			                                    }
+			                                    if ($field->Status == 2) {
+			                                    	echo '<td class="text-danger"><i>ไม่อนุมัติ</i></td>';
+			                                    }
+		                                    ?>
+		                             
 
 		                                </tr>
+
+
 
 	                                <?php 
 	                            			}

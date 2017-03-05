@@ -158,7 +158,7 @@ session_start();
                 <a href="requisition_add.php">สร้างรายการเบิก</a>
                 </li>
                 <li>
-                <a href="requisition_list_employee.php">ดูรายการเบิก</a>
+                <a href="requisition_list.php">ดูรายการเบิก</a>
                 </li>
                 </ul>
             </li>
