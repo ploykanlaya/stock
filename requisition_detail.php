@@ -10,6 +10,10 @@ $database = new DB();
 /*====================================================
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
+$result1 =  $database->query("SELECT * From requisition where Requisition_ID='".$_GET['id']."'" )->find();
+// print_r($result1);exit();
+
+
 $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,R.Status FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID where Re.Requisition_ID='".$_GET['id']."'" )->findAll();
 
 
@@ -47,7 +51,8 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	            <div class="card">
 	                <div class="header">
-	                    <h2>รายละเอียดรายการเบิก</h2>
+	                    <h2>รายละเอียดรายการเบิก เลขที่<?=$result1->Requisition_ID;?></h2>
+	                    
 	                    <ul class="header-dropdown m-r--5">
 	                        <li class="dropdown">
 	                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -63,18 +68,23 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 	                </div>
 	                <div class="body">
 	                    <div class="table-responsive">
+	                    <h5>วันที่เบิก <?=$result1->Requisition_Date;?></h5>
+	                    <div class="card">
+	                     <div class="body">
 	                        <table class="table table-hover dashboard-task-infos" id="requisition-table">
+
+
 	                            <thead>
 	                                <tr>
 	                                    <th>#</th>
-	                                    <th>รหัสใบเบิก</th>
+	                                    
 	                                    <th>รหัสสินค้า</th>
 	                                    <th>ชื่อสินค้า</th>
 	                                    <th>จำนวนที่เบิก</th>
 	                                    <th>คงเหลือ</th>
 	                                    <th>ราคาต่อหน่วย</th>
 	                                    <th>ราคารวม</th>
-	                                         <th>สถานะการอนุมัติ</th>
+	                                    <!--      <th>สถานะการอนุมัติ</th> -->
 	                                </tr>
 	                            </thead>
 	                            <tbody>
@@ -84,26 +94,35 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 		                            	// ตรวจสอบ
 										if(!empty($result)){
 										    // พบข้อมูล
+										   $count=0;
+										    $TotalPrice=0;
+										   
 										    foreach ($result as $field) {
+
+										    	$TotalPrice+=$field->TotalPay;
+										    	if ($field->Numstock<$field->Number_Req) {
+										    		$count++;
+										    	}
+
 									?>
 
 
 
 		                                <tr>
 		                                    <td><?=$index;?></td>
-		                                    <td><?=$field->Requisition_ID;?></td>
+		                                    
 		                                    <td><?=$field->Product_ID;?></td>
 		                                   <td><?=$field->Product_Name;?></td>
-		                                 
-		                                    <td><?=$field->Number_Req;?></td>
-		                                    <td><?=$field->Numstock;?></td>
+		                                 	<td><?=$field->Numstock;?></td>
+		                                    <td><?=$field->Numstock>=$field->Number_Req?$field->Number_Req:'<font color="red">'.$field->Number_Req.'</font>';?></td>
+		                                    
 		                                       
 		                                    <td><?=$field->Price;?></td>
 		                                       
 		                                   	<td><?=$field->TotalPay;?></td>
 		                           
 
-		                        <?php
+		                       <!--  <?php
 
 		         if($_SESSION['Position'] == "ผู้จัดการ" || $_SESSION['Position'] == "admin")
 
@@ -137,7 +156,7 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 			                                    if ($field->Status == 2) {
 			                                    	echo '<td class="text-danger"><i>ไม่อนุมัติ</i></td>';
 			                                    }
-		                                    ?>
+		                                    ?> -->
 		                             
 
 		                                </tr>
@@ -150,8 +169,61 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 	                            		}
 	                                ?>
 	                            </tbody>
+
 	                            
 	                        </table>
+	                        </div>
+	                        </div>
+	                        <h1>ราคารวมสุทธิ <?=$TotalPrice;?> บาท</h1>
+	                        <div class="col-md-12" > 
+	                    <?php
+
+		          if($_SESSION['Position'] == "ผู้จัดการ")
+
+			                                    if ($result1->Status == 0) {
+			                                    	if($count>0){
+														echo '<button type="button" class="btn btn-default btn-confirm" data-toggle="modal" data-target="#myModal" 
+															data-id="'.$result1->Requisition_ID.'" disabled>อนุมัติ</button>';
+
+													}
+													else{
+														echo '
+			                                    			<button type="button" class="btn btn-default btn-confirm" data-toggle="modal" data-target="#myModal" data-id="'.$result1->Requisition_ID.'">อนุมัติ</button>';
+
+													}
+
+		                                    			echo	'<button type="button" class="btn btn-danger btn-cancle" data-id="'.$field->Product_ID.'">ไม่อนุมัติ</button>';
+			                                    }
+			                                    if ($result1->Status == 1) {
+			                                    	echo '<h1>อนุมัติ</h1>';
+			                                    }
+			                                    if ($result1->Status == 2) {
+			                                    	echo '<h2>ไม่อนุมัติ</h2>';
+			                                    }
+
+
+               if($_SESSION['Position'] == "พนักงาน" || $_SESSION['Position'] == "admin")
+
+                    
+                                    if ($result1->Status == 0) {
+                                    	echo '<h3>
+                                    			รอการอนุมัติ
+                                			</h3>';
+                                    }
+                                    if ($result1->Status == 1) {
+                                    	echo '<h3 class="text-success"><b>อนุมัติ</b></h3>';
+                                    }
+                                    if ($result1->Status == 2) {
+                                    	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';
+                                    }
+                                
+		                                    ?>
+
+
+
+
+
+	                        </div>
 	                    </div>
 	                </div>
 	            </div>

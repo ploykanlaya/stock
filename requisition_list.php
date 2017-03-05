@@ -5,11 +5,7 @@
 include_once 'class/db.class.php';
 
 $database = new DB();
- 
-/*====================================================
- * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
- ===================================================== */
-$result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date DESC ")->findAll();
+
 
 ?>
 <!-- Top Bar -->
@@ -23,6 +19,20 @@ $result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date
 	<?php include 'left-menu-bar.php'; ?>  
 <!-- #END# Left Sidebar -->
 
+<?php 
+ if($_SESSION['Position'] == "ผู้จัดการ" || $_SESSION['Position'] == "admin"){
+
+$result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date DESC")->findAll();
+
+}
+if($_SESSION['Position'] == "พนักงาน" ){
+
+$result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION['UserID']."' ORDER BY Requisition_Date DESC ")->findAll();
+
+
+}
+
+?>
 <!-- Content -->
 <section class="content">
     <div class="container-fluid">

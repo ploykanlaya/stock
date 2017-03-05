@@ -10,7 +10,7 @@ include_once 'class/db.class.php';
 
 $database = new DB();
 
-$sql = "INSERT INTO requisition (Requisition_ID,Requisition_Date,UserID,Name,DeliveryDate,Status) VALUES ('".$_POST["Requisition_ID"]."','".date('Y-m-d', $time)."','".$_POST["UserID"]."','".$_POST["Name"]."','".""."','"."0"."')" ;
+$sql = "INSERT INTO requisition (Requisition_ID,Requisition_Date,UserID,Name,DeliveryDate,Status) VALUES ('".$_POST["Requisition_ID"]."','".date('Y-m-d', $time)."','".$SESSION["UserID"]."','".$SESSION["Name"]."','".""."','"."0"."')" ;
 //print_r($sql); 
 
 $database->query($sql);

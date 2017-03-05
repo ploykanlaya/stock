@@ -1,13 +1,10 @@
-<?php
-session_start();
-?>
 
 
 <aside id="leftsidebar" class="sidebar">
     <!-- User Info -->
     <div class="user-info">
-        <div class="image"><?php //echo "<img src='images/".$_SESSION['Image']."'width='50' hight='50'> "; ?>
-            <img src="images/user.png" width="48" height="48" alt="User" />
+        <div class="image"><?php echo "<img src='images/".$_SESSION['Image']."'width='50' hight='50'> "; ?>
+     <!--        <img src="images/user.png" width="48" height="48" alt="User" /> -->
         </div>
         <div class="info-container">
             <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ชื่อ : <?php echo $_SESSION['Name']; ?></div>
@@ -33,7 +30,7 @@ session_start();
             <li class="header">MAIN NAVIGATION</li>           
 
             <li class="active">
-                <a href="index_manager.php"><i class="material-icons">home</i><span>หน้าหลัก</span></a>
+                <a href="index.php"><i class="material-icons">home</i><span>หน้าหลัก</span></a>
             </li>
 
             <li>
@@ -141,12 +138,6 @@ session_start();
             <li class="header">MAIN NAVIGATION</li>           
 
 
-            <li class="active">
-                <a href="index_manager.php">
-                <i class="material-icons">home</i>
-                <span>หน้าหลัก</span>
-                </a>
-            </li>
 
 
             <li>

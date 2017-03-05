@@ -92,9 +92,9 @@
                     </div>
 
                 <div class="input-group">
-                       <!-- <span class="input-group-addon">
+                       <span class="input-group-addon">
                             <i class="material-icons">person</i>รูปภาพประจำตัว
-                            </span> -->
+                            </span>
                         <input type="file"  name="Image" id="Image">
                 </div>
 
