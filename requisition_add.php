@@ -73,7 +73,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                     <div class="form-group">
                                         <label class="form-label">วันทำการ</label>
                                         <div class="form-line">
-                                           <input type="text" class="datepicker form-control" name="Requisition_Date">
+                                           <input type="text" class="datepicker form-control" name="Requisition_Date" placeholder="คลิกที่นี่" required>
                                         </div>
                                     </div>
                                 </div>

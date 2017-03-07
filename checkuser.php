@@ -13,6 +13,8 @@ if(!empty($result->Name)){
 	$_SESSION['Name'] = $result->Name;
 	$_SESSION['Position'] = $result->Position;
 	$_SESSION['Image'] = $result->Image;
+
+	header( "Location: /stock/index.php" );
 }
 else{
 	header( "Location: /stock/sign-in.php" );
