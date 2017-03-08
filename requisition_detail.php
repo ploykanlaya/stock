@@ -14,7 +14,7 @@ $result1 =  $database->query("SELECT * From requisition where Requisition_ID='".
 // print_r($result1);exit();
 
 
-$result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,R.Status FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID where Re.Requisition_ID='".$_GET['id']."'" )->findAll();
+$result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,Re.Status FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID where Re.Requisition_ID='".$_GET['id']."'" )->findAll();
 
 
 // "SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,R.Status FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID where Re.Requisition_ID='".$_GET['id']."'"
@@ -68,9 +68,9 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 	                                    <th>#</th>
 	                                    
 	                                    <th>รหัสสินค้า</th>
-	                                    <th>ชื่อสินค้า</th>
-	                                    <th>จำนวนที่เบิก</th>
+	                                    <th>ชื่อสินค้า</th>                     
 	                                    <th>คงเหลือ</th>
+	                                    <th>จำนวนที่เบิก</th>
 	                                    <th>ราคาต่อหน่วย</th>
 	                                    <th>ราคารวม</th>
 	                                    <!--      <th>สถานะการอนุมัติ</th> -->
