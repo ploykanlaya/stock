@@ -14,7 +14,7 @@ $result1 =  $database->query("SELECT * From requisition where Requisition_ID='".
 // print_r($result1);exit();
 
 
-$result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,Re.Status FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID where Re.Requisition_ID='".$_GET['id']."'" )->findAll();
+$result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,R.Status FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID where Re.Requisition_ID='".$_GET['id']."'" )->findAll();
 
 
 // "SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,R.Status FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID where Re.Requisition_ID='".$_GET['id']."'"
@@ -163,14 +163,17 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 	                        </table>
 	                        </div>
 	                        </div>
-	                        <h1>ราคารวมสุทธิ <?=$TotalPrice;?> บาท</h1>
+	                        <h1>ราคารวมสุทธิ <?=$TotalPrice; ?> บาท</h1>
 	                        <div class="col-md-12" > 
 	                    <?php
 
 		          if($_SESSION['Position'] == "ผู้จัดการ")
+// $field->Numstock<$field->Number_Req
+
+
 
 			                                    if ($result1->Status == 0) {
-			                                    	if($count>0){
+			                                    	if($field->Number_Req> $field->Numstock){
 														echo '<button type="button" class="btn btn-default btn-confirm" data-toggle="modal" data-target="#myModal" 
 															data-id="'.$result1->Requisition_ID.'" disabled>อนุมัติ</button>';
 
@@ -181,17 +184,17 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 
 													}
 
-		                                    			echo	'<button type="button" class="btn btn-danger btn-cancle" data-id="'.$field->Product_ID.'">ไม่อนุมัติ</button>';
+		                                    			echo'<button type="button" class="btn btn-danger btn-cancle" data-toggle="modal" data-target="#myModal" data-id="'.$result1->Requisition_ID.'">ไม่อนุมัติ</button>';
 			                                    }
-			                                    if ($result1->Status == 1) {
-			                                    	echo '<h1>อนุมัติ</h1>';
-			                                    }
-			                                    if ($result1->Status == 2) {
-			                                    	echo '<h2>ไม่อนุมัติ</h2>';
-			                                    }
+			                                  if ($result1->Status == 1) {
+                                    	echo '<h3 class="text-success"><b>อนุมัติ</b></h3>';
+                                    }
+                                    if ($result1->Status == 2) {
+                                    	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';
+                                    }
 
 
-               if($_SESSION['Position'] == "พนักงาน" || $_SESSION['Position'] == "admin")
+               if($_SESSION['Position'] == "พนักงาน" || $_SESSION['Position'] == "admin"){
 
                     
                                     if ($result1->Status == 0) {
@@ -205,7 +208,7 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
                                     if ($result1->Status == 2) {
                                     	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';
                                     }
-                                
+                 }
 		                                    ?>
 
 
@@ -304,6 +307,8 @@ $( document ).ready(function() {
 		    }
 		});
 	});
+
+
 
 	$(".btn-cancle").on('click',function(){
 		var id = $(this).attr("data-id");

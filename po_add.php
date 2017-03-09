@@ -151,6 +151,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                             data-name="'.$data->Product_Name.'" 
                             data-unit="'.$data->Unit.'"
                             data-price="'.$data->Price.'"></td></tr>';
+
                     }
                 ?>
             </tbody>
@@ -204,7 +205,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                     tbody = tbody+'<tr>'+                                     
                         '<td><input value="'+id+'" type="text" class="form-control" name="Product_ID[]" readonly="true"></td>'+
                         '<td><input value="'+name+'" type="text" class="form-control" name="Product_Name[]" readonly="true"></td>'+  
-                        '<td><input value="'+amount+'" type="number" class="form-control" name="Number_Req[]" min="1" text="1"></td>'+
+                        '<td><input value="'+amount+'" type="number" class="form-control" name="Quantity[]" min="1" text="1"></td>'+
                         '<td><input value="'+price+'" type="text" class="form-control" name="Price[]" readonly="true"></td>'+
                         '<td><input value="'+unit+'" type="text" class="form-control" name="Unit[]" readonly="true"></td>'+
                         '<td><input value="'+(price*amount)+'" type="text" class="form-control" name="TotalPay[]" readonly="true"></td>'+
