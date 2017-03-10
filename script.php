@@ -36,10 +36,15 @@
 <!-- Bootstrap Material Datetime Picker Plugin Js -->
 <script src="plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
 
+
+
+
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
 <script src="js/pages/forms/basic-form-elements.js"></script>
 <script src="js/pages/examples/sign-in.js"></script>
+
+    <script src="../../js/pages/ui/dialogs.js"></script>
 
 <!-- DataTable -->
 <script src="plugins/DataTables-1.10.13/media/js/jquery.dataTables.min.js"></script>
@@ -51,3 +56,7 @@
 <script src="js/demo.js"></script>
 
 
+
+  
+
+   

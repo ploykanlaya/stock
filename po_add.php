@@ -104,7 +104,16 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                         <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">เลือกสินค้า</button></div>
                                      </div>
                                 </div>
-                            </div>    
+                            </div> 
+
+                          <!--   <div class="row clearfix js-sweetalert">
+                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <p>A warning message, with a function attached to the <b>Confirm</b> button...</p>
+                                    <button class="btn btn-primary waves-effect" data-type="confirm">CLICK ME</button>
+                                </div>
+                            </div> 
+ -->
+
                              <button type="submit" class="btn btn-danger btn-lg btn-block">บันทึก</button>
                         </form>
                     </div>
@@ -113,6 +122,8 @@ $product =  $database->query("SELECT * FROM product")->findAll();
         </div>
         <!-- #END# Multi Column -->
     </div>
+
+
 </section>
 <!-- #END# Content -->
 <!-- Modal -->

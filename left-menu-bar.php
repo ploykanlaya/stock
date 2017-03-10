@@ -39,16 +39,16 @@
                 </a>
                 <ul class="ml-menu">
                     <li>
-                        <a href="stock.html">คลังสินค้า</a>
+                        <a href="numberstock.php">คลังสินค้า</a>
                     </li>
                     <li>
-                        <a href="report_requests.html">ยอดเบิก</a>
+                        <a href="report_re.php">ยอดเบิก</a>
                     </li>
                     <li>
-                        <a href="report_po.html">ยอดสั่งซื้อ</a>
+                        <a href="report_po.php">ยอดสั่งซื้อ</a>
                     </li>
                     <li>
-                        <a href="report_return.html">ยอดคืนสินค้า</a>
+                        <a href="report_return.php">ยอดคืนสินค้า</a>
                     </li>
                 </ul>
             </li>
@@ -108,6 +108,9 @@
                         </li>
                         <li>
                         <a href="info_product2.php">รายการสินค้า</a>
+                    </li>
+                     <li>
+                        <a href="add_typeproduct.php">เพิ่มประเภทสินค้า</a>
                     </li>
                 </ul>
             </li>

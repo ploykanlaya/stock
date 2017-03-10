@@ -111,7 +111,7 @@
                                   
                                     <div class="form-group">
 
-                                     <label class="form-label">วันหมดอายุ</label>
+                                     <label class="form-label">วันที่นำเข้า</label>
                                         <div class="form-line">
                                            <input type="text" class="datepicker form-control" name="ExpDate" placeholder="Please choose a date...">
                                             </div>

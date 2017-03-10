@@ -36,6 +36,7 @@ if(!isset($_SESSION['Position'])){
 <!-- Bootstrap Select Css -->
 <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
+
 <!-- Custom Css -->
 <link href="css/style.css" rel="stylesheet">
 

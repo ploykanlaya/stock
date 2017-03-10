@@ -18,49 +18,40 @@
 <span class="label-count">7</span>
 </a>
 <ul class="dropdown-menu">
-<li class="header">NOTIFICATIONS</li>
+<li class="header">แจ้งเตือน</li>
 <li class="body">
 <ul class="menu">
+
+
 <li>
-<a href="javascript:void(0);">
-<div class="icon-circle bg-light-green">
-<i class="material-icons">person_add</i>
-</div>
-<div class="menu-info">
-<h4>12 new members joined</h4>
-<p>
-<i class="material-icons">access_time</i> 14 mins ago
-</p>
-</div>
-</a>
-</li>
-<li>
-<a href="javascript:void(0);">
+<a href="requisition_list.php">
 <div class="icon-circle bg-cyan">
-<i class="material-icons">add_shopping_cart</i>
+<i class="material-icons">publish</i>
 </div>
 <div class="menu-info">
-<h4>4 sales made</h4>
+<h4><b>รายงานการเบิก(ใหม่) </b></h4>
 <p>
 <i class="material-icons">access_time</i> 22 mins ago
 </p>
 </div>
 </a>
 </li>
+
+
 <li>
 <a href="javascript:void(0);">
 <div class="icon-circle bg-red">
-<i class="material-icons">delete_forever</i>
+<i class="material-icons">report_problem</i>
 </div>
 <div class="menu-info">
-<h4><b>Nancy Doe</b> deleted account</h4>
+<h4><b>สินค้าใกล้หมด</b></h4>
 <p>
 <i class="material-icons">access_time</i> 3 hours ago
 </p>
 </div>
 </a>
 </li>
-<li>
+<!-- <li>
 <a href="javascript:void(0);">
 <div class="icon-circle bg-orange">
 <i class="material-icons">mode_edit</i>
@@ -111,12 +102,12 @@
 </p>
 </div>
 </a>
-</li>
+</li> -->
 </ul>
 </li>
-<li class="footer">
+<!-- <li class="footer">
 <a href="javascript:void(0);">View All Notifications</a>
-</li>
+</li> -->
 </ul>
 </li>
 <!-- #END# Notifications -->
@@ -127,7 +118,7 @@
 <span class="label-count">9</span>
 </a>
 <ul class="dropdown-menu">
-<li class="header">TASKS</li>
+<li class="header">ปริมาณสินค้าแต่ละประเภท</li>
 <li class="body">
 <ul class="menu tasks">
 <li>
