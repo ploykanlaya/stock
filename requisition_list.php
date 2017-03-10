@@ -83,8 +83,8 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 		                                </tr>
 
 	                                <?php 
-	                            			}
-	                            			$index=$index+1;
+	                            			
+	                            			$index++;}
 	                            		}
 	                                ?>
 	                            </tbody>

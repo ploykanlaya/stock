@@ -28,6 +28,14 @@ if(!isset($_SESSION['Position'])){
 <link href="plugins/animate-css/animate.css" rel="stylesheet" />
 
 <!-- JQuery DataTable Css -->
+    <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
+
+
+<!-- Sweetalert Css -->
+    <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+
+<!-- JQuery DataTable Css -->
 <link rel="stylesheet" type="text/css" href="plugins/DataTables-1.10.13/media/css/jquery.dataTables.css">
 
 <!-- Bootstrap Material Datetime Picker Css -->
