@@ -50,6 +50,7 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 	                                <tr>
 	                                    <th>#</th>
 	                                    <th>รหัสใบเบิก</th>
+	                                   	<th>สถานะ</th>
 	                                    <th>วันที่เบิก</th>
 	                                    <th>วันที่ส่ง</th>
 	                                     <th>รหัสพนักงาน</th>
@@ -71,6 +72,7 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 		                                <tr>
 		                                    <td><?=$index;?></td>
 		                                    <td><?=$field->Requisition_ID;?></td>
+		                                    <td><?=$field->status;?></td>
 		                                    <td><?=date('d/m/Y', strtotime($field->Requisition_Date));?></td>
 		                                    <td><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td>
 		                                     <td><?=$field->UserID;?></td>

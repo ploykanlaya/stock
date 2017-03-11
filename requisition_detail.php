@@ -51,13 +51,15 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	            <div class="card">
 	                <div class="header">
-	                    <h2>รายละเอียดรายการเบิก เลขที่<?=$result1->Requisition_ID;?></h2>
+	                    <h2>รายละเอียดรายการเบิก</h2>
 	                    
 	                
 	                </div>
 	                <div class="body">
 	                    <div class="table-responsive">
-	                    <h5>วันที่เบิก <?=$result1->Requisition_Date;?></h5>
+	                    <h5>รายการ :<?=$result1->Requisition_ID;?></h5>
+	                    <h5>วันที่เบิก : <?=$result1->Requisition_Date;?></h5>
+	                    <h5>ผู้ทำรายการ : <?=$result1->Name;?></h5>
 	                    <div class="card">
 	                     <div class="body">
 	                        <table class="table table-hover dashboard-task-infos" id="requisition-table">
@@ -163,9 +165,12 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 	                        </table>
 	                        </div>
 	                        </div>
-	                        <h1>ราคารวมสุทธิ <?=$TotalPrice; ?> บาท</h1>
+	                        <h4>ราคารวมสุทธิ <?=$TotalPrice; ?> บาท</h4><br>
+	                             <h5>สถานระรายการ</h5>
 	                        <div class="col-md-12" > 
+	                   
 	                    <?php
+
 
 		          if($_SESSION['Position'] == "ผู้จัดการ")
 // $field->Numstock<$field->Number_Req

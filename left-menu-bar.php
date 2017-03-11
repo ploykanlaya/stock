@@ -88,7 +88,7 @@
                 </a>
                 <ul class="ml-menu">
                 <li>
-                    <a href="return_add.php">สร้างรายการคืน</a>
+                    <a href="return_add_manager.php">สร้างรายการคืน</a>
                     </li>
                     <li>
                     <a href="return_list.php">ดูรายการคืน</a>
@@ -138,7 +138,11 @@
             <li class="header">Employee Views</li>
             <li class="header">MAIN NAVIGATION</li>           
 
+      
 
+            <li class="active">
+                <a href="index.php"><i class="material-icons">home</i><span>หน้าหลัก</span></a>
+            </li>
 
 
             <li>
