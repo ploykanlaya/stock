@@ -134,9 +134,9 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 
 			                                    if ($field->Status == 0) {
 			                                    	echo '<td>
+
 			                                    			<button type="button" class="btn btn-default btn-confirm" data-toggle="modal" data-target="#myModal" data-id="'.$field->PO_ID.'"
-			                                    				data-quan="'.$field->Quantity.'"
-			                                    				data-num="'.$field->Numstock.'">
+			                                    				">
 			                                    			รับสินค้า
 			                                    			
 			                                    			</button>
@@ -239,23 +239,18 @@ $( document ).ready(function() {
     $('#requisition-table').DataTable();
 
 	$(".btn-confirm").on('click',function(){
-		var id = $(this).attr("data-id");
-		var Quantity = $(this).attr("data-quan");
-		var Numstock = $(this).attr("data-num");   
+		var id = $(this).attr("data-id");   
 		$.ajax({ 
 		    url: "../stock/action_PO.php",
 		    type: "POST",
 		    data: {
 		    	'method': 'update',
 		        'id': id,
-		        'status': 1,
-		        'Quantity': Quantity,
-		        'Numstock': Numstock
-
+		        'status': 1
 		    },
 		    success: function () {
-		    	// console.log(Quantity);
-		        location.reload();
+		    	console.log(id);
+		         // location.reload();
 		    }
 		});
 	});
