@@ -45,7 +45,7 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 	                </div>
 	                <div class="body">
 	                    <div class="table-responsive">
-	                        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+	                        <table class="table table-hover dashboard-task-infos" id="requisition-table">
 	                            <thead>
 	                                <tr>
 	                                    <th>#</th>
@@ -74,17 +74,17 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 		                                    <td><?=$field->PO_ID;?></td>  
 		                                    <td>
 		                                    	<?php if ($field->Status == 0) 
-		                                    			echo "eieiei";
+		                                    			echo "รอการอนุมัติ";
 		                                    		if ($field->Status == 1) 
-		                                    			echo "eeeeeee";
+		                                    			echo '<span class="text-success"><b>อนุมัติ</b></span>';
 		                                    		if ($field->Status == 2) 
-		                                    			echo "xxxxxxx";
+		                                    			echo '<span class="text-danger"><i>ไม่อนุมัติ</i></span>';
 
 		                                    	?>
 		                                    	
 		                                    </td>
 		                                    <td><?=date('d/m/Y', strtotime($field->PO_OutDate));?></td>
-										<td><!-- <?=date('d/m/Y', strtotime($field->receiveDate));?> --></td> 
+										<td> <?=date('d/m/Y', strtotime($field->receiveDate));?> </td> 
 		                                     <td><?=$field->UserID;?></td>
 		                                    <td><?=$field->Name;?></td>
 		                                        

@@ -249,8 +249,8 @@ $( document ).ready(function() {
 		        'status': 1
 		    },
 		    success: function () {
-		    	console.log(id);
-		         // location.reload();
+		    	// console.log(id);
+		          location.reload();
 		    }
 		});
 	});

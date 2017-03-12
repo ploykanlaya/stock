@@ -198,6 +198,9 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
                                     	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';
                                     }
 
+                                
+                            
+
 
                if($_SESSION['Position'] == "พนักงาน" || $_SESSION['Position'] == "admin"){
 
@@ -308,6 +311,7 @@ $( document ).ready(function() {
 		        'status': 1
 		    },
 		    success: function () {
+		    	
 		        location.reload();
 		    }
 		});

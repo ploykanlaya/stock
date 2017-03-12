@@ -51,7 +51,7 @@ $result =  $database->query("SELECT * FROM returnoder where UserID='".$_SESSION[
 	                                    <th>#</th>
 	                                    <th>รหัส</th>
 	                                    	<th>สถานะ</th>
-	                                    <th>วันที่ืำ</th>
+	                                    <th>วันที่ทำ</th>
 	                                   <!--  <th>วันที่ส่ง</th> -->
 	                                     <th>รหัสพนักงาน</th>
 	                                    <th>ชื่อพนักงาน</th>
@@ -72,7 +72,17 @@ $result =  $database->query("SELECT * FROM returnoder where UserID='".$_SESSION[
 		                                <tr>
 		                                    <td><?=$index;?></td>
 		                                    <td><?=$field->ReturnOder_ID;?></td>
-		                                    <td><?=$field->status;?></td>
+		                                   <td>
+		                                    	<?php if ($field->Status == 0) 
+		                                    			echo "รอการอนุมัติ";
+		                                    		if ($field->Status == 1) 
+		                                    			echo '<span class="text-success"><b>อนุมัติ</b></span>';
+		                                    		if ($field->Status == 2) 
+		                                    			echo '<span class="text-danger"><i>ไม่อนุมัติ</i></span>';
+
+		                                    	?>
+		                                    	
+		                                    </td>
 		                                    <td><?=date('d/m/Y', strtotime($field->ReturnDate));?></td>
 		                                    <!-- <td><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td> -->
 		                                     <td><?=$field->UserID;?></td>

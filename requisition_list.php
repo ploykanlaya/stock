@@ -72,7 +72,17 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 		                                <tr>
 		                                    <td><?=$index;?></td>
 		                                    <td><?=$field->Requisition_ID;?></td>
-		                                    <td><?=$field->status;?></td>
+		                                     <td>
+		                                    	<?php if ($field->Status == 0) 
+		                                    			echo "รอการอนุมัติ";
+		                                    		if ($field->Status == 1) 
+		                                    			echo '<span class="text-success"><b>อนุมัติ</b></span>';
+		                                    		if ($field->Status == 2) 
+		                                    			echo '<span class="text-danger"><i>ไม่อนุมัติ</i></span>';
+
+		                                    	?>
+		                                    	
+		                                    </td>
 		                                    <td><?=date('d/m/Y', strtotime($field->Requisition_Date));?></td>
 		                                    <td><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td>
 		                                     <td><?=$field->UserID;?></td>
@@ -162,6 +172,26 @@ $( document ).ready(function() {
 		});
 	});
 });
+
+
+// $(document).ready(function() {
+//     $('#example').DataTable( {
+//         dom: 'Bfrtip',
+//         buttons: [
+//             {
+//                 extend: 'pdfHtml5',
+//                 customize: function ( doc ) {
+//                     doc.content.splice( 1, 0, {
+//                         margin: [ 0, 0, 0, 12 ],
+//                         alignment: 'center',
+//                         image:''
+
+//                          } );
+//                 }
+//             }
+//         ]
+//     } );
+// } );
 </script>
 
 

@@ -39,7 +39,10 @@
                 </a>
                 <ul class="ml-menu">
                     <li>
-                        <a href="numberstock.php">คลังสินค้า</a>
+                        <a href="numberstock.php">สินค้าคงเหลือ</a>
+                    </li>
+                    <li>
+                        <a href="movementproduct.php">การเคลื่อนไหวสินค้า</a>
                     </li>
                     <li>
                         <a href="report_re.php">ยอดเบิก</a>
@@ -129,6 +132,33 @@
                 </li>
                 </ul>
             </li>
+            <li>
+                <a href="javascript:void(0);" class="menu-toggle">
+                <i class="fa fa-address-card-o" style="font-size:24px"></i><span>จัดการร้านค้าส่ง</span>
+                </a>
+                <ul class="ml-menu">
+                <li>
+                <a href="add_Wholesalers.php">เพิ่มผู้ใช้งาน</a>
+                </li>
+                <li>
+                <a href="info_Wholesalers.php">ลบ/แก้ไขข้อมูล</a>
+                </li>
+                <li>
+                <a href="info_Wholesalers_look.php">ดูรายชื่อผู้ใช้งาน</a>
+                </li>
+                </ul>
+            </li>
+        <li class="header"></li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            
+                        </a>
+                    </li>
         
         <?php 
             } 

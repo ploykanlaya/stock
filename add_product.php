@@ -83,9 +83,12 @@
                                       <label class="form-label">หน่วยนับสินค้า</label>
                                         <div class="form-line">
                                              <input type="text" class="form-control" name="Unit" placeholder="Unit" required>
-                                        </div>
+                                        </div>                               
                                     </div>
+
                                 </div>
+
+
                             </div>
 
                             <div class="row clearfix">
@@ -161,7 +164,7 @@
 
                             <div class="col-md-6">
                                     <div class="form-group">
-                                     <label class="form-label">ประเภทสินค้า</label>
+                                     <label class="form-label">ประเภทสินค้า</label> <a href="javascript:openAddCategory();"><small>+เพิ่มประเภทสินค้า</small></a>
                                        
 
 
@@ -242,6 +245,27 @@
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
+    
+<script> function openAddCategory() {
+        $("#categoryModal").modal({
+            backdrop: "static"
+        });
+            $("#addcategoryname").val("");
+            $("#addcategoryname").focus();
+        }
+        function openProductImage(url,title) {
+            $("#productimageModal").modal({
+                backdrop: "true"
+            });
+            var mymodal = $('#productimageModal');
+            mymodal.find('.modal-header').html("<button type=\"button\" class=\"close white-modal-close-button\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><h3 class=\"modal-title\" id=\"myModalLabel\" style=\"font-weight: bold;\">" + title + "</h3>");
+             
+           $("#productimage").attr("src", url);
+        }
+</script>
+
+
+
 </body>
 
 </html>

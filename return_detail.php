@@ -126,6 +126,7 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 	                        </div>
 	                        </div>
 	                        <h1>ราคารวมสุทธิ <?=$TotalPrice; ?> บาท</h1>
+	                        
 	                        <div class="col-md-12" > 
 	                  
 	                   <?php

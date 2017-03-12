@@ -46,7 +46,9 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                     <div class="form-group">
                                          <label class="form-label">รายการ</label>
                                          <div class="form-line">                  
-                                         <?php $recent_ID =  $database->query("SELECT ReturnOder_ID FROM returnoder ORDER BY ReturnOder_ID DESC limit 1")->findAll();
+                                         
+
+                                          <?php $recent_ID =  $database->query("SELECT CAST(ReturnOder_ID as INT) AS ReturnOder_ID FROM returnoder ORDER BY ReturnOder_ID DESC limit 1")->findAll();
 
                                                   ?>
                                            <input type="text" class="form-control" name="ReturnOder_ID" readonly value="<?php echo $recent_ID[0]->ReturnOder_ID+1; ?>">
