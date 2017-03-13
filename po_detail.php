@@ -11,7 +11,7 @@ $database = new DB();
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
 $result1 =  $database->query("SELECT * From purchaseorder where PO_ID='".$_GET['id']."'" )->find();
-// print_r($result1);exit();
+ // print_r($result1);exit();
 
 
 $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_ID, R.PO_ID, P.Product_Name, P.Price,P.Numstock,Po.Status FROM Product AS P JOIN po_detail AS R ON P.Product_ID = R.Product_ID JOIN purchaseorder as Po on R.PO_ID=Po.PO_ID where Po.PO_ID='".$_GET['id']."'" )->findAll();
@@ -103,9 +103,7 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 		                                    <td><?=$field->Product_ID;?></td>
 		                                   <td><?=$field->Product_Name;?></td>
 		                                 	<td><?=$field->Numstock;?></td>
-		                                    <td><?=$field->Numstock>=$field->Quantity?$field->Quantity:'<font color="red">'.$field->Quantity.'</font>';?></td>
-		                                    
-		                                       
+		                                 	<td><?=$field->Quantity;?></td>		                                       
 		                                    <td><?=$field->Price;?></td>
 		                                       
 		                                   	<td><?=$field->TotalPay;?></td>
@@ -125,6 +123,9 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 	                        </table>
 	                        </div>
 	                        </div>
+	                        <button id="print" type="button" class="btn btn-danger btn-cancle" ">พิมพ์เอกสาร</button>
+
+
 	                        <h1>ราคารวมสุทธิ <?=$TotalPrice;?> บาท</h1>
 	                        
 	                        <div class="col-md-12" > 
@@ -142,6 +143,7 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 			                                    			</button>
 		                                    				<button type="button" class="btn btn-danger btn-cancle" data-id="'.$field->PO_ID.'">ยกเลิก</button>
 		                                    			</td>';
+
 			                                    }
 			                                    if ($field->Status == 1) {
 			                                    	echo '<h3 class="text-success"><b>รับสินค้าแล้ว</b></h3>';
@@ -169,6 +171,8 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 	        <!-- #END# Task Info -->
 	     
 	      </div>
+
+
     </div>
 </section>
 <!-- #END# Content -->
@@ -234,12 +238,27 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 </script> -->
 <script type="text/javascript">
 
+
 $( document ).ready(function() {
 
-    $('#requisition-table').DataTable();
+     $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'pdfHtml5',
+                customize: function ( doc ) {
+                    doc.content.splice( 1, 0, {
+                        margin: [ 0, 0, 0, 12 ],
+                        alignment: 'center',
+                          } );
+                }
+            }
+        ]
+    } );
 
 	$(".btn-confirm").on('click',function(){
-		var id = $(this).attr("data-id");   
+		var id = $(this).attr("data-id"); 
+ //alert(id);
 		$.ajax({ 
 		    url: "../stock/action_PO.php",
 		    type: "POST",

@@ -74,17 +74,31 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 		                                    <td><?=$field->PO_ID;?></td>  
 		                                    <td>
 		                                    	<?php if ($field->Status == 0) 
-		                                    			echo "รอการอนุมัติ";
+		                                    			echo "รอรับสินค้า";
 		                                    		if ($field->Status == 1) 
-		                                    			echo '<span class="text-success"><b>อนุมัติ</b></span>';
+		                                    			echo '<span class="text-success"><b>รับสินค้าแล้ว</b></span>';
 		                                    		if ($field->Status == 2) 
-		                                    			echo '<span class="text-danger"><i>ไม่อนุมัติ</i></span>';
+		                                    			echo '<span class="text-danger"><i>ยกเลิก</i></span>';
 
 		                                    	?>
 		                                    	
 		                                    </td>
 		                                    <td><?=date('d/m/Y', strtotime($field->PO_OutDate));?></td>
-										<td> <?=date('d/m/Y', strtotime($field->receiveDate));?> </td> 
+
+
+										<td> <?php 
+										date('d/m/Y', strtotime($field->receiveDate));
+											$date1=date('d/m/Y', strtotime($field->receiveDate));
+											if ($field->Status == 1) {
+												echo "$date1";
+											}
+											else{
+
+												echo "";
+											}
+											?>  </td> 
+
+										    
 		                                     <td><?=$field->UserID;?></td>
 		                                    <td><?=$field->Name;?></td>
 		                                        
@@ -141,7 +155,7 @@ $( document ).ready(function() {
 	$(".btn-confirm").on('click',function(){
 		var id = $(this).attr("data-id");
 		$.ajax({ 
-		    url: "../stock/action_requisition.php",
+		    url: "../stock/action_PO.php",
 		    type: "POST",
 		    data: {
 		    	'method': 'update',
@@ -157,7 +171,7 @@ $( document ).ready(function() {
 	$(".btn-cancle").on('click',function(){
 		var id = $(this).attr("data-id");
 		$.ajax({ 
-		    url: "../stock/action_requisition.php",
+		    url: "../stock/action_PO.php",
 		    type: "POST",
 		    data: {
 		    	'method': 'update',

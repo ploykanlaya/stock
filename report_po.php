@@ -7,7 +7,21 @@ include_once 'class/db.class.php';
 $database = new DB();
 
 
+if (isset($_POST['statdate'])&&isset($_POST['enddate'])) {
+	$stat=date('Y-m-d',strtotime($_POST['statdate']));
+	$end=date('Y-m-d',strtotime($_POST['enddate']));
+}
+else{
+	$stat='2017-03-09';
+	$end='2017-03-13';
+}
+    $result =$database->query("SELECT product.Product_ID,product.Product_Name,SUM(po_detail.Quantity) AS Quantity,SUM(po_detail.TotalPay) as TotalPay FROM product INNER JOIN po_detail ON product.Product_ID=po_detail.Product_ID JOIN purchaseorder  where purchaseorder.PO_OutDate BETWEEN '".$stat."' AND '".$end."' GROUP BY product.Product_ID")->findAll() ;
+	
+
+// print_r($result);exit;
 ?>
+
+
 <!-- Top Bar -->
     <?php include 'head.php'; ?>  
 <!-- #Top Bar --> 
@@ -20,13 +34,6 @@ $database = new DB();
 <!-- #END# Left Sidebar -->
 
 
-<?php 
-	
-
-    $result =$database->query("SELECT product.Product_ID,product.Product_Name,SUM(po_detail.Quantity) AS Quantity,SUM(po_detail.TotalPay) as TotalPay FROM product INNER JOIN po_detail ON product.Product_ID=po_detail.Product_ID GROUP BY Product_ID")->findAll() ;
-	
-
-?>
 
 
 
@@ -43,34 +50,37 @@ $database = new DB();
                             </h2>
                         
                         </div>
+                        <form method="POST" action="report_po.php">
                         <div class="body">
                             <div class="row clearfix">
                                 
                                 <div class="col-sm-6">
                              <label class="form-label">ตั้งแต่วันที่</label>
                                 <div class="form-line">
-                                   <input type="text" class="datepicker form-control" name="ExpDate" placeholder="Please choose a date...">
+                                   <input type="text" class="datepicker form-control" name="statdate" placeholder="<?=$stat;?>">
                                     </div> 
                                 </div>
                                 
                                 <div class="col-sm-6">
                                 <label class="form-label">ถึงวันที่</label>
                                   <div class="form-line">
-                                      <input type="text" class="datepicker form-control" name="ExpDate" placeholder="Please choose a date...">
+                                      <input type="text" class="datepicker form-control" name="enddate" placeholder="<?=$end;?>">
                                         </div>
                                   </div>
 
                                
 
                                
-                                <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">ตกลง</button></div> 
+                                <div class="col-lg-12"><button type="submit" class="btn btn-primary waves-effect" >ตกลง</button></div> 
 
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <!-- #END# Select -->
 <!-- Content -->
 

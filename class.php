@@ -228,7 +228,93 @@ public function Requisition($conn,$addReq)
 }
 
 
+class Wholesalers{	
+		   public $Product_ID;
+	
+	public function deleteproduct($conn,$detproduct)
+					{
 
+						if(isset($detproduct->Product_ID))
+						{
+							echo $detproduct->Product_ID;
+							$deletesql = "DELETE FROM Product 										WHERE Product.Product_ID =".$detproduct->Product_ID."";
+							if ($conn->query($deletesql) === TRUE)	{
+							$message = "Delete success!";
+							echo "<script type='text/javascript'>alert('$message');</script>";
+							mysqli_close($conn);
+							echo "<script>window.location='info_product2.php';</script>"; }
+							
+						}
+						else
+						{
+							$message = "Delete fail!";
+							echo $detproduct->Product_ID ;
+							//echo "<script type='text/javascript'>alert('$message');</script>";
+							echo "error" . $conn->error;
+							mysqli_close($conn);
+							//echo "<script>window.location='pages/tables/info_user.php';</script>";
+						}
+					}
+		public	function editproduct($conn,$editpro)
+		{
+		echo " <script type='text/javascript'>alert('$editpro->Product_ID');</script>";
+		$editpro="UPDATE Product SET Product_Name = '$editpro->Product_Name', Price = '$editpro->Price',Unit = '$editpro->Unit',Numstock = '$editpro->Numstock',ExpDate = '$editpro->ExpDate',Wholesalers_ID = '$editpro->Wholesalers_ID',ProductType_ID = '$editpro->ProductType_ID' WHERE Product_ID='".$editpro->Product_ID."'";
+
+
+
+		$result = $conn->query($editpro);
+		if(isset($result))
+				{
+
+					?>
+					<script>
+					alert("Success");
+					</script> 
+					<script>
+					window.location="info_product2.php";
+					</script>
+					<?php
+				}
+				
+			else{
+				
+				?>
+					<script>
+					alert("Error");
+					</script> 
+					<script>
+					window.location="edit_product.php";
+					</script>
+					<?php
+				}
+		}
+
+
+				public function addproduct($conn,$addpro)
+									{
+
+											$sql = "INSERT INTO Product (Product_Name,Price,Unit,Numstock,SafetyStock,ExpDate,Wholesalers_ID,ProductType_ID)
+				VALUES ('".$addpro->Product_Name."','".$addpro->Price."','".$addpro->Unit."','".$addpro->Numstock."','".$addpro->SafetyStock."','".$addpro->ExpDate."','".$addpro->Wholesalers_ID."','".$addpro->ProductType_ID."')" ;
+											if ($conn->query($sql) === TRUE)	{
+											$message = "Insert New Product success!";
+											echo "<script type='text/javascript'>alert('$message');</script>";
+											mysqli_close($conn);
+											echo "<script>window.location='info_product2.php';</script>"; }
+							
+
+							
+
+
+				if ($conn->query($sql) === TRUE){
+					//echo "eieieieiei";
+				echo "<script>window.location='info_product2.php';</script>";
+					}	
+				else
+					echo "error" . $conn->error;
+
+					}
+
+ }
 
 	?>
 
