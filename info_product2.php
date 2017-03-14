@@ -56,20 +56,20 @@
                             
                         </div>
                         <div class="body">
-                            <table class="table table-hover dashboard-task-infos" id="requisition-table">
+                            <table class="table table-bordered" id="requisition-table">
 
                                 <thead>
                                     <tr>
                                         <th>รหัส</th>
-                                        <th>ชื่อ</th>
+                                        <th>ชื่อสินค้า</th>
                                         <th>ราคา</th>
                                        
-                                        <th>หน่วย</th>
+                                        <th>หน่วยนับ</th>
 
                                         <th>คงเหลือ</th>
                                         <th>จุดสั่งซื้อใหม่</th>
                                        
-                                        <th>วันหมดอายุ</th>
+                                        <!-- <th>วันหมดอายุ</th> -->
                                         <th>ร้านค้าส่ง</th>
                                         <th>ประเภท</th>
                                         <th></th>
@@ -85,17 +85,17 @@
                             while($rows=mysqli_fetch_array($result)){ 
                         ?> 
                                     <tr>
-                                        <td><?php echo $rows['Product_ID']; ?></td>
-                                        <td><?php echo $rows['Product_Name']; ?></td>  
-                                        <td><?php echo $rows['Price']; ?></td> 
+                                        <td align=right><?php echo $rows['Product_ID']; ?></td>
+                                        <td align=right><?php echo $rows['Product_Name']; ?></td>  
+                                        <td align=right><?php echo $rows['Price']; ?></td> 
                                     
-                                        <td><?php echo $rows['Unit']; ?></td>
+                                        <td align=right><?php echo $rows['Unit']; ?></td>
                                         
 
-                                        <td><?php echo $rows['Numstock']; ?></td>
-                                        <td><?php echo $rows['SafetyStock']; ?></td>
-                                        <td><?php echo $rows['ExpDate']; ?></td>
-
+                                        <td align=right><?php echo $rows['Numstock']; ?></td>
+                                        <td align=right><?php echo $rows['SafetyStock']; ?></td>
+                                        <!-- <td align=right><?php echo $rows['ExpDate']; ?></td>
+ -->
                                     <?php 
                                     $query1 = "SELECT Wholesalers_Name FROM wholesalers where Wholesalers_ID='".$rows['Wholesalers_ID']."'";
                                     $query2 = "SELECT ProductType_Name FROM product_type where ProductType_ID= '".$rows['ProductType_ID']."'"; 
@@ -103,11 +103,11 @@
                                     $result2 = mysqli_query($conn,$query2);
 
                                     while($rows1=mysqli_fetch_array($result1)){ ?>
-                                        <td><?php echo $rows1['Wholesalers_Name']; ?></td>
+                                        <td align=right><?php echo $rows1['Wholesalers_Name']; ?></td>
                                         <?php
                                     }
                                     while($rows2=mysqli_fetch_array($result2)){ ?>
-                                        <td><?php echo $rows2['ProductType_Name']; ?></td>
+                                        <td align=right><?php echo $rows2['ProductType_Name']; ?></td>
                                         <?php
                                     }
 ?>

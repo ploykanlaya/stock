@@ -84,13 +84,22 @@ else{
                                <!--  <div class="col-lg-12"><input type="submit" class="btn btn-primary waves-effect" name="Search"></input></div>
                                 </form> -->
 
+             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
             <form method="POST" action="movementproduct.php" > 
-					<input type="text" name="Product_ID" value="<?=$num;?>">
+            
+                  
+                  <input type="text" class="form-control" name="Product_ID" value="<?=$num;?>"><br>
+           
+					
 					                                
 					<button type="button" class="btn btn-danger select-modal" >เลือก</button>
 					<form>
-					<button type="submit" class="btn btn-danger select-modal" >ตกลง</button>
- 			</form>    
+					<button type="submit" class="btn btn-danger select-modal" >ตกลง</button> 
+
+ 			</form>   
+        
+            </div> 
 
 </div>
                         </div>
@@ -121,7 +130,7 @@ else{
 	                <div class="body">
 
 	                    <div class="table-responsive">
-	                        <table class="table table-hover dashboard-task-infos" id="requisition-table">
+	                        <table class="table table-bordered" id="requisition-table">
 	                            <thead>
 	                                <tr>
 	                                    <th>#</th>
@@ -144,13 +153,13 @@ else{
 									?>
 
 		                                <tr>
-		                                    <td><?=$index;?></td>
-		                                    <td><?=$field->Product_ID;?></td>
+		                                    <td align=right><?=$index;?></td>
+		                                    <td align=right><?=$field->Product_ID;?></td>
 		                                    
-		                                    <td>เบิก</td>
-		                                      <td><?=$field->Status;?></td>
-		                                    <td><?=$field->Quantity;?></td>
-   											<td><?=$field->PO_OutDate;?></td>
+		                                    <td align=right>เบิก</td>
+		                                      <td align=right><?=$field->Status;?></td>
+		                                    <td align=right><?=$field->Quantity;?></td>
+   											<td align=right><?=$field->PO_OutDate;?></td>
    											 
 		                                    
 		                                
@@ -172,13 +181,13 @@ else{
 									?>
 
 		                                <tr>
-		                                    <td><?=$index;?></td>
-		                                    <td><?=$field->Product_ID;?></td>
+		                                    <td align=right><?=$index;?></td>
+		                                    <td align=right><?=$field->Product_ID;?></td>
 		                                    
-		                                    <td>ซื้อ</td>
-		                                      <td><?=$field->Status;?></td>
-		                                    <td><?=$field->Number_Req;?></td>
-   											<td><?=$field->Requisition_Date;?></td>
+		                                    <td align=right>ซื้อ</td>
+		                                      <td align=right><?=$field->Status;?></td>
+		                                    <td align=right><?=$field->Number_Req;?></td>
+   											<td align=right><?=$field->Requisition_Date;?></td>
    											 
 		                                    
 		                                

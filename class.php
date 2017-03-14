@@ -37,8 +37,8 @@ class User{
 				public function adduser($conn,$adduser)
 					{
 
-							$sql = "INSERT INTO user (Name,Address,Telephone,Username,Password,Position,Image)
-VALUES ('$adduser->Name','$adduser->Address','$adduser->Telephone','$adduser->Username','$adduser->password','$adduser->position','$adduser->Image')" ;
+							$sql = "INSERT INTO user (Name,surname,Address,Telephone,Username,Password,Position,Image)
+VALUES ('$adduser->Name','$adduser->surname','$adduser->Address','$adduser->Telephone','$adduser->Username','$adduser->password','$adduser->position','$adduser->Image')" ;
 							if ($conn->query($sql) === TRUE)	{
 							$message = "Insert User success!";
 							echo "<script type='text/javascript'>alert('$message');</script>";
@@ -229,7 +229,7 @@ public function Requisition($conn,$addReq)
 
 
 class Wholesalers{	
-		   public $Product_ID;
+		   public $Wholesalers_ID;
 	
 	public function deleteproduct($conn,$detproduct)
 					{
@@ -290,16 +290,16 @@ class Wholesalers{
 		}
 
 
-				public function addproduct($conn,$addpro)
+				public function addwhol($conn,$addwho)
 									{
 
-											$sql = "INSERT INTO Product (Product_Name,Price,Unit,Numstock,SafetyStock,ExpDate,Wholesalers_ID,ProductType_ID)
-				VALUES ('".$addpro->Product_Name."','".$addpro->Price."','".$addpro->Unit."','".$addpro->Numstock."','".$addpro->SafetyStock."','".$addpro->ExpDate."','".$addpro->Wholesalers_ID."','".$addpro->ProductType_ID."')" ;
+											$sql = "INSERT INTO wholesalers (Wholesalers_Name,Telephone,Email,Address)
+				VALUES ('".$addwho->Wholesalers_Name."','".$addwho->Telephone."','".$addwho->Email."','".$addwho->Address."')" ;
 											if ($conn->query($sql) === TRUE)	{
-											$message = "Insert New Product success!";
+											$message = "Insert New wholesalers success!";
 											echo "<script type='text/javascript'>alert('$message');</script>";
 											mysqli_close($conn);
-											echo "<script>window.location='info_product2.php';</script>"; }
+											echo "<script>window.location='info_wholealers.php';</script>"; }
 							
 
 							
@@ -307,7 +307,7 @@ class Wholesalers{
 
 				if ($conn->query($sql) === TRUE){
 					//echo "eieieieiei";
-				echo "<script>window.location='info_product2.php';</script>";
+				echo "<script>window.location='info_wholealers.php';</script>";
 					}	
 				else
 					echo "error" . $conn->error;

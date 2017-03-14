@@ -45,7 +45,7 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 	                </div>
 	                <div class="body">
 	                    <div class="table-responsive">
-	                        <table class="table table-hover dashboard-task-infos" id="requisition-table">
+	                        <table class="table table-bordered" id="requisition-table">
 	                            <thead>
 	                                <tr>
 	                                    <th>#</th>
@@ -55,7 +55,7 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 	                                    <th>วันที่รับ</th>
 	                                     <th>รหัสพนักงาน</th>
 	                                    <th>ชื่อพนักงาน</th>
-	                                    <th>ดูรายละเอียด</th>
+	                                    <th>รายละเอียด</th>
 	                             
 	                              </tr>
 	                            </thead>
@@ -70,9 +70,9 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 									?>
 
 		                                <tr>
-		                                    <td><?=$index;?></td>
-		                                    <td><?=$field->PO_ID;?></td>  
-		                                    <td>
+		                                    <td align=right><?=$index;?></td>
+		                                    <td align=right><?=$field->PO_ID;?></td>  
+		                                    <td align=right>
 		                                    	<?php if ($field->Status == 0) 
 		                                    			echo "รอรับสินค้า";
 		                                    		if ($field->Status == 1) 
@@ -83,10 +83,10 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 		                                    	?>
 		                                    	
 		                                    </td>
-		                                    <td><?=date('d/m/Y', strtotime($field->PO_OutDate));?></td>
+		                                    <td align=right><?=date('d/m/Y', strtotime($field->PO_OutDate));?></td>
 
 
-										<td> <?php 
+										<td align=right> <?php 
 										date('d/m/Y', strtotime($field->receiveDate));
 											$date1=date('d/m/Y', strtotime($field->receiveDate));
 											if ($field->Status == 1) {
@@ -99,8 +99,8 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 											?>  </td> 
 
 										    
-		                                     <td><?=$field->UserID;?></td>
-		                                    <td><?=$field->Name;?></td>
+		                                     <td align=right><?=$field->UserID;?></td>
+		                                    <td align=right><?=$field->Name;?></td>
 		                                        
 		                                    <td><a href="po_detail.php?id=<?=$field->PO_ID;?>" class="btn btn-danger select-modal">คลิก</a></td>
 

@@ -84,7 +84,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                        <div class="header">
                                              <h4>เลือกสินค้า</h4>
                                          </div>
-                                        <table class="table table-hover" id="select-product-list">
+                                        <table class="table table-bordered" id="select-product-list">
                                             <thead>
                                             <tr>
                                                
@@ -101,7 +101,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                             </tbody>
                                         </table>  
 
-                                        <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">เลือกสินค้า</button></div>
+                                        <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">+ เลือกสินค้า</button></div>
                                      </div>
                                 </div>
                             </div> 
@@ -137,13 +137,13 @@ $product =  $database->query("SELECT * FROM product")->findAll();
         <h4 class="modal-title" id="myModalLabel">เลือกสินค้า</h4>
       </div>
       <div class="modal-body">
-        <table class="table table-hover" id="product-table">
+        <table class="table table-bordered" id="product-table">
             <thead>
               <tr>
                 <th>รหัส</th>
                 <th>ชื่อสินค้า</th>
-                <th>ยี่ห้อ</th>
-                <th>ราคา</th>
+                <th>ราคา</th> 
+                <th>หน่วยนับ</th>
                 <th>คงเหลือในคลัง</th>
                 <th>จำนวน</th>
               </tr>
@@ -152,12 +152,13 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                 <?php 
                     foreach ($product as $data) {
                         echo '<tr>
-                        <td>'.$data->Product_ID.'</td>
-                        <td>'.$data->Product_Name.'</td>
-                        <td>'.$data->Product_Brand.'</td>
-                        <td>'.$data->Price.'</td>
-                        <td>'.$data->Numstock.'</td>
-                        <td><input type="input" class="form-control" name="amount" 
+                        <td align=right>'.$data->Product_ID.'</td>
+                        <td align=right>'.$data->Product_Name.'</td>
+                       
+                        <td align=right>'.$data->Price.'</td>
+                         <td align=right>'.$data->Unit.'</td>
+                        <td align=right>'.$data->Numstock.'</td>
+                        <td align=right><input type="input" class="form-control" name="amount"
                             data-id="'.$data->Product_ID.'"
                             data-name="'.$data->Product_Name.'" 
                             data-unit="'.$data->Unit.'"

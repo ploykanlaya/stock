@@ -55,7 +55,7 @@
                            
                         </div>
                         <div class="body">
-                            <table class="table table-hover dashboard-task-infos" id="user-table">
+                            <table class="table table-bordered" id="user-table">
                                 <thead>
                                     <tr>
                                         <th>รหัสผู้ใช้งาน</th>
@@ -76,12 +76,12 @@
 
                         
                                     <tr>
-                                        <td><?php echo $rows['UserID']; ?></td>
-                                        <td><?php echo $rows['Name']; ?></td>  
-                                        <td><?php echo $rows['Telephone']; ?></td> 
-                                        <td><?php echo $rows['Address']; ?></td>
-                                        <td><?php echo $rows['Username']; ?></td>
-                                        <td><?php echo $rows['Position']; ?></td>
+                                        <td align=right><?php echo $rows['UserID']; ?></td>
+                                        <td align=right><?php echo $rows['Name']; ?></td>  
+                                        <td align=right><?php echo $rows['Telephone']; ?></td> 
+                                        <td align=right><?php echo $rows['Address']; ?></td>
+                                        <td align=right><?php echo $rows['Username']; ?></td>
+                                        <td align=right><?php echo $rows['Position']; ?></td>
                                         <td>
                                              
                                     <form  name="sentMessage" id="contactForm" novalidate role="form" method="POST" action="DeleteUserControl.php">    
@@ -129,38 +129,10 @@
 
 
 
-    <!-- Jquery Core Js -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core Js -->
-    <script src="plugins/bootstrap/js/bootstrap.js"></script>
-
-    <!-- Select Plugin Js -->
-    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-    <!-- Slimscroll Plugin Js -->
-    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-
-    <!-- Waves Effect Plugin Js -->
-    <script src="plugins/node-waves/waves.js"></script>
-
-    <!-- Jquery DataTable Plugin Js -->
-    <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
-    <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-    <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
-
-    <!-- Custom Js -->
-    <script src="js/admin.js"></script>
-    <script src="js/pages/tables/jquery-datatable.js"></script>
-
-    <!-- Demo Js -->
-    <script src="js/demo.js"></script>
+    
+<!-- Script Sidebar -->
+    <?php include 'script.php'; ?>  
+<!-- #END# Script Sidebar -->
 
     <script type="text/javascript">
         $( document ).ready(function() {

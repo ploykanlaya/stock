@@ -54,14 +54,14 @@
                          
                         </div>
                         <div class="body">
-                         <form id="addproduct" method="POST" action="AddProductControlCopy.php">
+                         <form id="addproduct" method="POST" action="AddwhoControlCopy.php">
                               
                             <div class="row clearfix">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                          <label class="form-label">ชื่อบริษัท</label>
                                          <div class="form-line">                                       
-                                           <input type="text" class="form-control" name="Product_Name" placeholder="Product_Name" required>
+                                           <input type="text" class="form-control" name="Wholesalers_Name" placeholder="Wholesalers_Name" required autofocus>
                                         </div>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                     <div class="form-group">
                                          <label class="form-label">เบอร์โทรศัพท์</label>
                                          <div class="form-line">
-                                             <input type="text" class="form-control" class="form-control" name="Price" placeholder="Price" >
+                                             <input type="text" class="form-control" class="form-control" name="Telephone" placeholder="Telephone" required >
                                         </div>
                                     </div>
                                 </div>
@@ -82,7 +82,7 @@
                                     <div class="form-group">
                                       <label class="form-label">อีเมลล์</label>
                                         <div class="form-line">
-                                             <input type="text" class="form-control" name="Unit" placeholder="Unit" required>
+                                             <input type="Email" class="form-control" name="Email" placeholder="E-mail" required>
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@
                                     <div class="form-group">
                                      <label class="form-label">ที่อยู่</label>
                                         <div class="form-line">
-                                             <input type="text" class="form-control" name="address" placeholder="Unit" required>
+                                             <input type="text" class="form-control" name="Address" placeholder="Address" required>
                                         </div>
                                     </div>
                                 </div>

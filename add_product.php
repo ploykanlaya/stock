@@ -58,33 +58,31 @@
                               
                             <div class="row clearfix">
                                 <div class="col-md-12">
-                                    <div class="form-group">
+                                    
                                          <label class="form-label">ชื่อสินค้า</label>
-                                         <div class="form-line">                                       
-                                           <input type="text" class="form-control" name="Product_Name" placeholder="Product_Name" required>
-                                        </div>
-                                    </div>
+                                                                                
+                                           <input type="text" class="form-control" name="Product_Name" placeholder="Product_Name" required autofocus>
+                                       
+                                    
                                 </div>
                             </div>
 
 
                             <div class="row clearfix">
                                 <div class="col-md-6">
-                                    <div class="form-group">
+                                    
                                          <label class="form-label">ราคาขายสินค้า</label>
-                                         <div class="form-line">
-                                             <input type="number" class="form-control numb-request" id="Price" name="Price" placeholder="Price" min="0" text="1">
-                                        </div>
-                                    </div>
+                                        
+                                             <input type="number" class="form-control numb-request" id="Price" name="Price" placeholder="Price" min="0" text="1" required >
+                                      
                                 </div>
 
                                 <div class="col-md-6">
-                                    <div class="form-group">
+                                   
                                       <label class="form-label">หน่วยนับสินค้า</label>
-                                        <div class="form-line">
+                                        
                                              <input type="text" class="form-control" name="Unit" placeholder="Unit" required>
-                                        </div>                               
-                                    </div>
+                                       
 
                                 </div>
 
@@ -93,32 +91,29 @@
 
                             <div class="row clearfix">
                                 <div class="col-md-6">
-                                    <div class="form-group">
+                                    
                                      <label class="form-label">จำนวนยกยอดมา</label>
-                                        <div class="form-line">
-                                             <input type="number" class="form-control numb-request" id="Numstock" name="Numstock" placeholder="Numstock" min="0" text="1" >
-                                        </div>
-                                    </div>
+                                        
+                                             <input type="number" class="form-control numb-request" id="Numstock" name="Numstock" placeholder="Numstock" min="0" text="1" required >
+                                        
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group">
+                                    
                                      <label class="form-label">จุดสั่งซื้อสินค้าใหม่</label>
-                                        <div class="form-line">
-                                              <input type="number" class="form-control numb-request" id="SafetyStock" name="SafetyStock" placeholder="SafetyStock" min="0" text="1">
-                                        </div>
-                                    </div>
+                                        
+                                              <input type="number" class="form-control numb-request" id="SafetyStock" name="SafetyStock" placeholder="SafetyStock" min="0" text="1" required >
+                                        
                                 </div>
 
 
                                 <div class="col-md-12">
                                   
-                                    <div class="form-group">
+                                   
 
                                      <label class="form-label">วันที่นำเข้า</label>
-                                        <div class="form-line">
-                                           <input type="text" class="datepicker form-control" name="ExpDate" placeholder="Please choose a date...">
-                                            </div>
-                                        </div>
+                                       
+                                           <input type="text" class="datepicker form-control" name="ExpDate" placeholder="Please choose a date..." required >
+                                            
                                     
                                 </div>
                             </div>
@@ -198,13 +193,13 @@
 
 
                                
-                      
+                    </div>
 
                            
                                        <button type="submit" class="btn btn-danger btn-lg btn-block">ยันยืน</button>
                                   
                                 </form>
-                                
+                                  
                             </div>
                         </div>
                     </div>

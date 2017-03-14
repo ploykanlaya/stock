@@ -125,11 +125,9 @@
                 <a href="sign-up.php">เพิ่มผู้ใช้งาน</a>
                 </li>
                 <li>
-                <a href="info_user.php">ลบ/แก้ไขข้อมูล</a>
+                <a href="info_user.php">รายการผู้ใช้งาน</a>
                 </li>
-                <li>
-                <a href="info_user_look.php">ดูรายชื่อผู้ใช้งาน</a>
-                </li>
+               
                 </ul>
             </li>
             <li>
@@ -143,9 +141,7 @@
                 <li>
                 <a href="info_Wholesalers.php">ลบ/แก้ไขข้อมูล</a>
                 </li>
-                <li>
-                <a href="info_Wholesalers_look.php">ดูรายชื่อผู้ใช้งาน</a>
-                </li>
+                
                 </ul>
             </li>
         <li class="header"></li>

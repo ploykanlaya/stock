@@ -68,8 +68,10 @@ $database = new DB();
                                         <option value="-1 year" <?=$show=='-1 year'?"selected":'';?>>สินค้าจมที่ไม่ได้เบิกมากกว่า 1 ปี</option>
                                     </select>
                                 </div>
-                                <div class="col-lg-12"><input type="submit" class="btn btn-primary waves-effect" name="Search"></input></div>
+                                <div class="col-lg-12"><button type="submit" class="btn btn-danger" name="Search">ตกลง</button></div>
                                 </form>
+
+
                                 
                                 
 
@@ -105,7 +107,7 @@ $database = new DB();
 	                <div class="body">
 
 	                    <div class="table-responsive">
-	                        <table class="table table-hover dashboard-task-infos" id="requisition-table">
+	                        <table class="table table-bordered" id="requisition-table" >
 	                            <thead>
 	                                <tr>
 	                                    <th>#</th>
@@ -133,16 +135,16 @@ $database = new DB();
 									?>
 
 		                                <tr>
-		                                    <td><?=$index;?></td>
-		                                    <td><?=$field->Product_ID;?></td>
-		                                    <td><?=$field->Product_Name;?></td>
-		                                    <td><?=date('d/m/Y', strtotime($field->	Requisition_Date));?></td>
-   											 <td><?=$field->Price;?></td>
-		                                     <td><?=$field->Numstock<=$field->SafetyStock?'<font color="red">'.$field->Numstock.'</font>':$field->Numstock;?></td>
+		                                    <td align=right><?=$index;?></td>
+		                                    <td align=right><?=$field->Product_ID;?></td>
+		                                    <td align=right><?=$field->Product_Name;?></td>
+		                                    <td align=right><?=date('d/m/Y', strtotime($field->	Requisition_Date));?></td>
+   											 <td align=right><?=$field->Price;?></td>
+		                                     <td align=right><?=$field->Numstock<=$field->SafetyStock?'<font color="red">'.$field->Numstock.'</font>':$field->Numstock;?></td>
 
 
 
-		                                    <td><?=$field->Numstock*$field->Price;?></td>
+		                                    <td align=right><?=$field->Numstock*$field->Price;?></td>
 		                                
 		                                </tr>
 

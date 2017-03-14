@@ -147,7 +147,7 @@ $orders = count($result);
                     </div>
                     <div class="body">
                         <div class="table-responsive">
-                            <table class="table table-hover dashboard-task-infos">
+                            <table class="table table-bordered" >
                                 <thead>
                                     <tr>
                                         <th>#</th>

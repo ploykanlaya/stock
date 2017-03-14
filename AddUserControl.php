@@ -16,13 +16,15 @@
 
 		    	
 		    	$adduser->Name=$_POST["Name"];
+		    	$adduser->Username=$_POST["surname"];
 
 		    	$adduser->Telephone=$_POST["Telephone"];
 		    	$adduser->Address=$_POST["Address"];
 		    	$adduser->Username=$_POST["Username"];
+
 		    	$adduser->password=$_POST["password"];
 				$adduser->position=$_POST["position"];
-				$adduser->position=$_POST["position"];
+				
 			 	$adduser->Image=$_FILES['Image']['name'];
 
 		

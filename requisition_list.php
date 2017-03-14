@@ -45,7 +45,7 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 	                </div>
 	                <div class="body">
 	                    <div class="table-responsive">
-	                        <table class="table table-hover dashboard-task-infos" id="requisition-table">
+	                        <table class="table table-bordered" id="requisition-table">
 	                            <thead>
 	                                <tr>
 	                                    <th>#</th>
@@ -55,7 +55,7 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 	                                    <th>วันที่ส่ง</th>
 	                                     <th>รหัสพนักงาน</th>
 	                                    <th>ชื่อพนักงาน</th>
-	                                    <th>ดูรายละเอียด</th>
+	                                    <th>รายละเอียด</th>
 	                             
 	                              </tr>
 	                            </thead>
@@ -70,9 +70,9 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 									?>
 
 		                                <tr>
-		                                    <td><?=$index;?></td>
-		                                    <td><?=$field->Requisition_ID;?></td>
-		                                     <td>
+		                                    <td align=right><?=$index;?></td>
+		                                    <td align=right><?=$field->Requisition_ID;?></td>
+		                                     <td align=right>
 		                                    	<?php if ($field->Status == 0) 
 		                                    			echo "รอการอนุมัติ";
 		                                    		if ($field->Status == 1) 
@@ -83,12 +83,12 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 		                                    	?>
 		                                    	
 		                                    </td>
-		                                    <td><?=date('d/m/Y', strtotime($field->Requisition_Date));?></td>
-		                                    <td><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td>
-		                                     <td><?=$field->UserID;?></td>
-		                                    <td><?=$field->Name;?></td>
+		                                    <td align=right><?=date('d/m/Y', strtotime($field->Requisition_Date));?></td>
+		                                    <td align=right><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td>
+		                                     <td align=right><?=$field->UserID;?></td>
+		                                    <td align=right><?=$field->Name;?></td>
 		                                        
-		                                    <td><a href="requisition_detail.php?id=<?=$field->Requisition_ID;?>" class="btn btn-danger select-modal">คลิก</a></td>
+		                                    <td ><a href="requisition_detail.php?id=<?=$field->Requisition_ID;?>" class="btn btn-danger select-modal">คลิก</a></td>
 
 
 		                                   

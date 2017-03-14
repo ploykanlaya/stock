@@ -88,7 +88,7 @@ $database = new DB();
 	                <div class="body">
 
 	                    <div class="table-responsive">
-	                        <table class="table table-hover dashboard-task-infos" id="requisition-table">
+	                        <table class="table table-bordered" id="requisition-table">
 	                            <thead>
 	                                <tr>
 	                                    <th>#</th>
@@ -112,12 +112,12 @@ $database = new DB();
 									?>
 
 		                                <tr>
-		                                    <td><?=$index;?></td>
-		                                    <td><?=$field->Product_ID;?></td>	
-		                                    <td><?=$field->Product_Name;?></td>           
-		                                    <td><?=$field->UserID;?></td>
-		                                    <td><?=$field->Name;?></td>
-		                                    <td><?=$field->Name;?></td>
+		                                    <td align=right><?=$index;?></td>
+		                                    <td align=right><?=$field->Product_ID;?></td>	
+		                                    <td align=right><?=$field->Product_Name;?></td>           
+		                                    <td align=right><?=$field->UserID;?></td>
+		                                    <td align=right><?=$field->Name;?></td>
+		                                    <td align=right><?=$field->Name;?></td>
 		                                
 		                                </tr>
 
@@ -131,7 +131,7 @@ $database = new DB();
 	                    </div>
 
 
-	                    <h3>สรุปยอดคืน... บาท</h3>
+	                    <h3 align=right>สรุปยอดคืน... บาท</h3>
 	                </div>
 	            </div>
 	        </div>
@@ -164,6 +164,15 @@ $database = new DB();
 <!-- Script Sidebar -->
 	<?php include 'script.php'; ?>  
 <!-- #END# Script Sidebar -->
+<script type="text/javascript">
+
+$( document ).ready(function() {
+
+	$('#requisition-table').DataTable();
+
+	
+});
+</script>
 
 
 </body>

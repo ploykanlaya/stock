@@ -13,77 +13,96 @@
 <!-- #END# Left Sidebar -->
 
 
-<section class="content">
-    <div class="container-fluid">
-       
-             <div class="row clearfix">
-            <div class="col-lg-12">
-                   
 
-        <div class="card">
-        <div class="header">
-                        <h4>เพิ่มผู้ใช้งานระบบ</h4>
-                    </div>
-            <div class="body">
-                <form id="sign_up" method="POST" action="AddUserControl.php" enctype="multipart/form-data">
-                    
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <!-- <i class="material-icons">person</i> -->ชื่อ-สกุล
-                        </span>
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="Name"  required autofocus>
-                        </div>
-                    </div>
+    <section class="content">
+        <div class="container-fluid">
+           
 
-                 
+            <!-- Multi Column -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                เพิ่มผู้ใช้งานใหม่
+                            </h2>
+                         
+                        </div>
+                        <div class="body">
+                         <form id="sign_up" method="POST" action="AddUserControl.php" enctype="multipart/form-data">
+                              
+                            <div class="row clearfix">
+                                <div class="col-md-6">
+                                    
+                                         <label class="form-label">ชื่อ</label>
+                                                                                
+                                           <input type="text" class="form-control" name="Name" placeholder="Name" required autofocus>
+                                       
+                                    
+                                </div>
+                            
 
 
+                            
+                                <div class="col-md-6">
+                                    
+                                         <label class="form-label">นามสกุล</label>
+                                        
+                                            <input type="text" class="form-control" name="surname" placeholder="SurName" required >
+                                      
+                                </div>
+                            </div>
 
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                           <!-- <i class="material-icons">call</i> -->เบอร์โทรศัพท์
-                        </span>
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="Telephone"  required>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <!-- <i class="material-icons">home</i> -->ที่อยู่
-                        </span>
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="Address"  required>
-                        </div>
-                    </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                   
+                                      <label class="form-label">เบอร์โทรศัพท์</label>
+                                        
+                                             <input type="text" class="form-control" name="Telephone" placeholder="Telephone" required>
+                                  </div>
+                                  </div>  
 
-                   
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <!-- <i class="material-icons">account_circle</i> -->ชื่อผู้ใช้งาน
-                        </span>
-                        <div class="form-line">
-                            <input type="text" class="form-control" name="Username"  required>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                           <!--  <i class="material-icons">lock</i> -->รหัสผ่าน
-                        </span>
-                        <div class="form-line">
-                            <input type="password" class="form-control" name="password" minlength="6"  required>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <!-- <i class="material-icons">lock</i> -->ยืนยันรหัสผ่าน
-                        </span>
-                        <div class="form-line">
-                            <input type="password" class="form-control" name="confirm" minlength="6"  required>
-                        </div>
-                    </div>
+                                 <div class="row clearfix">   
+                                <div class="col-md-12">
+                                    
+                                     <label class="form-label">ที่อยู่</label>
+                                        
+                                             <input type="text" class="form-control" name="Address" placeholder="Address" required>
+                                        
+                                </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                <div class="col-md-12">
+                                    
+                                     <label class="form-label">ชื่อผู้ใช้งาน</label>
+                                        
+                                              <input type="text" class="form-control" name="Username" placeholder="Username" required>
+                                        
+                                </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                <div class="col-md-6">
+  
+                                     <label class="form-label">รหัสผ่าน</label>
+                                       
+                                           <input type="password" class="form-control" name="password" minlength="6" placeholder="Password" required>
+  
+                                </div>
+                                 
+                                 <div class="col-md-6">
+
+                                     <label class="form-label">ยืนยันรหัสผ่าน</label>
+                                       
+                                           <input type="password" class="form-control" name="confirm" minlength="6" placeholder="confirm" required>
+                                   
+                                </div>
+
+                            </div>
 
                      <div class="form-group">
+                     <label class="position">ตำแหน่ง</label>
                     
                         <input type="radio" name="position" id="pos0" class="filled-in chk-col-pink" value="ผู้จัดการ">
                         <label for="pos0">ผู้จัดการ</label>
@@ -92,44 +111,40 @@
                     </div>
 
                 <div class="input-group">
-                       <span class="input-group-addon">
-                            <i class="material-icons">person</i>รูปภาพประจำตัว
-                            </span>
+                       <label class="Image">เลือกรูปภาพโปรไฟล์</label>
                         <input type="file"  name="Image" id="Image">
+               </div>
+
+                                   
+
+                             
+
+                            
+                            
+
+
+                               
+                      
+
+                           
+                                       <button type="submit" class="btn btn-danger btn-lg btn-block">ยันยืน</button>
+                                  
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-
-                  <button type="submit" class="btn btn-danger btn-lg btn-block">บันทึก</button>
-
-                    
-
-                  
-             
-                </form>
-
-            </div>
+            
+            <!-- #END# Multi Column -->
         </div>
-    </div>
-    </div>
-    </div>
     </section>
 
 
-<!-- Jquery Core Js -->
-    <script src="plugins/jquery/jquery.min.js"></script>
 
-    <!-- Bootstrap Core Js -->
-    <script src="plugins/bootstrap/js/bootstrap.js"></script>
-
-    <!-- Waves Effect Plugin Js -->
-    <script src="plugins/node-waves/waves.js"></script>
-
-    <!-- Validation Plugin Js -->
-    <script src="plugins/jquery-validation/jquery.validate.js"></script>
-
-    <!-- Custom Js -->
-    <script src="js/admin.js"></script>
-    <script src="js/pages/examples/sign-up.js"></script>
+<!-- Script Sidebar -->
+    <?php include 'script.php'; ?>  
+<!-- #END# Script Sidebar -->
 </body>
 
 </html>
