@@ -7,7 +7,23 @@ include_once 'class/db.class.php';
 $database = new DB();
 
 
+
+
+if (isset($_POST['statdate'])&&isset($_POST['enddate'])) {
+	$stat=date('Y-m-d',strtotime($_POST['statdate']));
+	$end=date('Y-m-d',strtotime($_POST['enddate']));
+}
+else{
+	$stat='เลือกช่วงเวลาเริ่มต้น';
+	$end='เลือกช่วงเวลาสิ้นสุด';
+}
+
+    $result =$database->query("SELECT product.Product_ID,product.Product_Name,sum(requisition_detail.Number_Req) as Number_Req,sum(requisition_detail.TotalPay) as TotalPay FROM product JOIN requisition_detail ON product.Product_ID=requisition_detail.Product_ID JOIN requisition where requisition.Requisition_Date BETWEEN '".$stat."' AND '".$end."' GROUP BY product.Product_ID")->findAll() ;
+	
+
 ?>
+
+
 <!-- Top Bar -->
     <?php include 'head.php'; ?>  
 <!-- #Top Bar --> 
@@ -21,22 +37,6 @@ $database = new DB();
 
 
 
-<?php 
-
-
-if (isset($_POST['statdate'])&&isset($_POST['enddate'])) {
-	$stat=date('Y-m-d',strtotime($_POST['statdate']));
-	$end=date('Y-m-d',strtotime($_POST['enddate']));
-}
-else{
-	$stat='เลือกช่วงเวลาเริ่มต้น';
-	$end='เลือกช่วงเวลาสิ้นสุด';
-}
-
-    $result =$database->query("SELECT product.Product_ID,product.Product_Name,sum(requisition_detail.Number_Req),sum(requisition_detail.TotalPay) FROM product JOIN requisition_detail ON product.Product_ID=requisition_detail.Product_ID JOIN requisition where requisition.Requisition_Date BETWEEN '".$stat."' AND '".$end."' GROUP BY product.Product_ID")->findAll() ;
-	
-
-?>
 
 
 
@@ -53,8 +53,9 @@ else{
                             </h2>
                         
                         </div>
+                        <form method="POST" action="report_re.php">
                         <div class="body">
-                            <div class="row clearfix" action="report_re.php">
+                            <div class="row clearfix" >
                                 
                                 <div class="col-sm-6">
                              <label class="form-label">ตั้งแต่วันที่</label>
@@ -73,7 +74,7 @@ else{
                                
 
                                
-                                <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">ตกลง</button></div> 
+                                <div class="col-lg-12"><button type="submit" class="btn btn-primary waves-effect" >ตกลง</button></div> 
 
                                 </div>
                             </div>
@@ -117,8 +118,17 @@ else{
 	                            		$index = 1;
 		                            	// ตรวจสอบ
 										if(!empty($result)){
-										    // พบข้อมูล
+											 $count=0;
+										    $TotalPrice=0;
+										   
 										    foreach ($result as $field) {
+
+										    	$TotalPrice+=$field->TotalPay;
+										    	if ($field->Number_Req<$field->Number_Req) {
+										    		$count++;
+										    	}
+										  
+										   
 
 									?>
 
@@ -142,7 +152,7 @@ else{
 	                    </div>
 
 
-	                    <h3 align=right>สรุปยอดเบิก... บาท</h3>
+	                    <h3 align=right>สรุปยอดเบิก<?=$TotalPrice;?> บาท</h3>
 	                </div>
 	            </div>
 	        </div>

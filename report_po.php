@@ -12,8 +12,8 @@ if (isset($_POST['statdate'])&&isset($_POST['enddate'])) {
 	$end=date('Y-m-d',strtotime($_POST['enddate']));
 }
 else{
-	$stat='เลือกช่วงเวลาเริ่มต้น';
-	$end='เลือกช่วงเวลาสิ้นสุด';
+	$stat='2017-03-09';
+	$end='2017-03-13';
 }
     $result =$database->query("SELECT product.Product_ID,product.Product_Name,SUM(po_detail.Quantity) AS Quantity,SUM(po_detail.TotalPay) as TotalPay FROM product INNER JOIN po_detail ON product.Product_ID=po_detail.Product_ID JOIN purchaseorder  where purchaseorder.PO_OutDate BETWEEN '".$stat."' AND '".$end."' GROUP BY product.Product_ID")->findAll() ;
 	
