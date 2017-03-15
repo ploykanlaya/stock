@@ -1,9 +1,9 @@
 <?php
-// print_r($_POST);exit(); 
+//print_r($_POST);exit(); 
  require("Class.php");
 
 $time = strtotime($_POST["ExpDate"]);//;วันที่
- $addpro = new Product;
+ $addwho = new Wholesalers;
 
 $servername = "localhost";
  $username = "root";
@@ -13,17 +13,12 @@ $servername = "localhost";
 $conn = new mysqli($servername, $username, $password,$database);
  mysqli_set_charset($conn,"utf8");
 // print_r($_POST);exit();
-$addpro->Product_Name=$_POST["Product_Name"];
 
-$addpro->Price=$_POST["Price"];
-// $addpro->Price=number_format( $_POST["Price"] , 2 )."<br />";
-$addpro->Unit=$_POST["Unit"];
-$addpro->Numstock=$_POST["Numstock"];
-$addpro->SafetyStock=$_POST["SafetyStock"];
-$addpro->ExpDate=date('Y-m-d', $time);echo date('Y-m-d', $time);
-$addpro->Wholesalers_ID=$_POST["Wholesalers_ID"];
-$addpro->ProductType_ID=$_POST["ProductType_ID"];
-$addpro->addproduct($conn,$addpro); 
+$addwho->Wholesalers_Name=$_POST["Wholesalers_Name"];
+$addwho->Telephone=$_POST["Telephone"];
+$addwho->Email=$_POST["Email"];
+$addwho->Address=$_POST["Address"];
+$addwho->addwhol($conn,$addwho); 
 
 	?>
 

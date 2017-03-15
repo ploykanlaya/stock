@@ -226,43 +226,43 @@ public function Requisition($conn,$addReq)
 
 }
 }
-
+	
 
 class Wholesalers{	
 		   public $Wholesalers_ID;
 	
-	public function deleteproduct($conn,$detproduct)
+	public function deletewho($conn,$detwho)
 					{
 
-						if(isset($detproduct->Product_ID))
+						if(isset($detwho->Wholesalers_ID))
 						{
-							echo $detproduct->Product_ID;
-							$deletesql = "DELETE FROM Product 										WHERE Product.Product_ID =".$detproduct->Product_ID."";
+							echo $detwho->Wholesalers_ID;
+							$deletesql = "DELETE FROM wholesalers 										WHERE wholesalers.Wholesalers_ID =".$detwho->Wholesalers_ID."";
 							if ($conn->query($deletesql) === TRUE)	{
 							$message = "Delete success!";
 							echo "<script type='text/javascript'>alert('$message');</script>";
 							mysqli_close($conn);
-							echo "<script>window.location='info_product2.php';</script>"; }
+							echo "<script>window.location='info_wholealers.php';</script>"; }
 							
 						}
 						else
 						{
 							$message = "Delete fail!";
-							echo $detproduct->Product_ID ;
+							echo $detproduct->Wholesalers_ID ;
 							//echo "<script type='text/javascript'>alert('$message');</script>";
 							echo "error" . $conn->error;
 							mysqli_close($conn);
 							//echo "<script>window.location='pages/tables/info_user.php';</script>";
 						}
 					}
-		public	function editproduct($conn,$editpro)
+		public	function editwho($conn,$editw)
 		{
-		echo " <script type='text/javascript'>alert('$editpro->Product_ID');</script>";
-		$editpro="UPDATE Product SET Product_Name = '$editpro->Product_Name', Price = '$editpro->Price',Unit = '$editpro->Unit',Numstock = '$editpro->Numstock',ExpDate = '$editpro->ExpDate',Wholesalers_ID = '$editpro->Wholesalers_ID',ProductType_ID = '$editpro->ProductType_ID' WHERE Product_ID='".$editpro->Product_ID."'";
+		echo " <script type='text/javascript'>alert('$editw->Wholesalers_ID');</script>";
+		$editwho="UPDATE wholesalers SET Wholesalers_Name = '$editwho->Wholesalers_Name', Telephone = '$editwho->Telephone',Email = '$editwho->Email',Address = '$editwho->Address' WHERE Wholesalers_ID='".$editwho->Wholesalers_ID."'";
 
+	 
 
-
-		$result = $conn->query($editpro);
+		$result = $conn->query($editwho);
 		if(isset($result))
 				{
 
@@ -271,7 +271,7 @@ class Wholesalers{
 					alert("Success");
 					</script> 
 					<script>
-					window.location="info_product2.php";
+					window.location="info_wholealers.php";
 					</script>
 					<?php
 				}
@@ -283,7 +283,7 @@ class Wholesalers{
 					alert("Error");
 					</script> 
 					<script>
-					window.location="edit_product.php";
+					window.location="edit_who.php";
 					</script>
 					<?php
 				}

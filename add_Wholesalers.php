@@ -58,44 +58,40 @@
                               
                             <div class="row clearfix">
                                 <div class="col-md-12">
-                                    <div class="form-group">
+                                  
                                          <label class="form-label">ชื่อบริษัท</label>
-                                         <div class="form-line">                                       
+                                                                               
                                            <input type="text" class="form-control" name="Wholesalers_Name" placeholder="Wholesalers_Name" required autofocus>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
 
 
                             <div class="row clearfix">
                                 <div class="col-md-6">
-                                    <div class="form-group">
+                                    
                                          <label class="form-label">เบอร์โทรศัพท์</label>
-                                         <div class="form-line">
+                                         
                                              <input type="text" class="form-control" class="form-control" name="Telephone" placeholder="Telephone" required >
-                                        </div>
-                                    </div>
+                                      
                                 </div>
 
                                 <div class="col-md-6">
-                                    <div class="form-group">
+                                   
                                       <label class="form-label">อีเมลล์</label>
-                                        <div class="form-line">
+                                       
                                              <input type="Email" class="form-control" name="Email" placeholder="E-mail" required>
-                                        </div>
-                                    </div>
+                                      
                                 </div>
                             </div>
 
                             <div class="row clearfix">
-                                <div class="col-md-6">
-                                    <div class="form-group">
+                                <div class="col-md-12">
+                                    
                                      <label class="form-label">ที่อยู่</label>
-                                        <div class="form-line">
+                                        
                                              <input type="text" class="form-control" name="Address" placeholder="Address" required>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                               
                             </div>

@@ -23,7 +23,17 @@ $database = new DB();
 
 <?php 
 
-    $result =$database->query("SELECT product.Product_ID,product.Product_Name,requisition_detail.Number_Req,requisition_detail.TotalPay FROM product INNER JOIN requisition_detail ON product.Product_ID=requisition_detail.Product_ID")->findAll() ;
+
+if (isset($_POST['statdate'])&&isset($_POST['enddate'])) {
+	$stat=date('Y-m-d',strtotime($_POST['statdate']));
+	$end=date('Y-m-d',strtotime($_POST['enddate']));
+}
+else{
+	$stat='เลือกช่วงเวลาเริ่มต้น';
+	$end='เลือกช่วงเวลาสิ้นสุด';
+}
+
+    $result =$database->query("SELECT product.Product_ID,product.Product_Name,sum(requisition_detail.Number_Req),sum(requisition_detail.TotalPay) FROM product JOIN requisition_detail ON product.Product_ID=requisition_detail.Product_ID JOIN requisition where requisition.Requisition_Date BETWEEN '".$stat."' AND '".$end."' GROUP BY product.Product_ID")->findAll() ;
 	
 
 ?>
@@ -44,19 +54,19 @@ $database = new DB();
                         
                         </div>
                         <div class="body">
-                            <div class="row clearfix">
+                            <div class="row clearfix" action="report_re.php">
                                 
                                 <div class="col-sm-6">
                              <label class="form-label">ตั้งแต่วันที่</label>
                                 <div class="form-line">
-                                   <input type="text" class="datepicker form-control" name="ExpDate" placeholder="Please choose a date...">
+                                   <input type="text" class="datepicker form-control" name="statdate" placeholder="<?=$stat;?>">
                                     </div> 
                                 </div>
                                 
                                 <div class="col-sm-6">
                                 <label class="form-label">ถึงวันที่</label>
                                   <div class="form-line">
-                                      <input type="text" class="datepicker form-control" name="ExpDate" placeholder="Please choose a date...">
+                                      <input type="text" class="datepicker form-control" name="enddate" placeholder="<?=$end;?>">
                                         </div>
                                   </div>
 

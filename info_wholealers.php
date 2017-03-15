@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <!-- Top Bar -->
@@ -38,7 +38,7 @@
           {
              echo "Failed to connect to MySQL: " . mysqli_connect_error($conn);
           }
-        $query = "SELECT * FROM user";
+        $query = "SELECT * FROM wholesalers";
         $result = mysqli_query($conn,$query)
          
         
@@ -59,11 +59,12 @@
                                 <thead>
                                     <tr>
                                         <th>รหัส</th>
-                                        <th>ชื่อ-สกุล</th>
+                                        <th>ชื่อร้านค้า</th>
                                         <th>เบอร์โทรศัพท์</th>
+                                       
+                                        <th>E-mail</th>
+
                                         <th>ที่อยู่</th>
-                                        <th>ชื่อผู้ใช้งาน</th>
-                                        <th>ตำแหน่ง</th>
                                         <th></th>
                                         <th></th>
                                    
@@ -76,29 +77,32 @@
 
                         
                                     <tr>
-                                        <td align=right><?php echo $rows['UserID']; ?></td>
-                                        <td align=right><?php echo $rows['Name']; ?></td>  
+
+                                        <td align=right><?php echo $rows['Wholesalers_ID']; ?></td>
+                                        <td align=right><?php echo $rows['Wholesalers_Name']; ?></td>  
                                         <td align=right><?php echo $rows['Telephone']; ?></td> 
+                                    
+                                        <td align=right><?php echo $rows['Email']; ?></td>
+                                        
+
                                         <td align=right><?php echo $rows['Address']; ?></td>
-                                        <td align=right><?php echo $rows['Username']; ?></td>
-                                        <td align=right><?php echo $rows['Position']; ?></td>
-                                        <td>
                                              
-                                    <form  name="sentMessage" id="contactForm" novalidate role="form" method="POST" action="DeleteUserControl.php">    
-                                         <input type="hidden" name="UserID" value="<?php echo $rows['UserID']; ?>">
+                                    <td>
+                                    <form  name="sentMessage" id="contactForm" novalidate role="form" method="POST" action="DeletewhoControl.php">    
+                                         <input type="hidden" name="Wholesalers_ID" value="<?php echo $rows['Wholesalers_ID']; ?>">
 
                                          <button class="btn btn-primary waves-effect"   data-type="confirm">ลบ</button>
                                     </form> </td>
                                     
                                     <td> 
                                     
-                                    <form name="sentMessage1" id="contactForm" novalidate role="form" method="POST" action="edit_user2.php">
+                                    <form name="sentMessage1" id="contactForm" novalidate role="form" method="POST" action="edit_who.php">
 
-                                    <input type="hidden" name="UserID" value="<?php echo $rows['UserID']; ?>">
-                                    <input type="hidden" name="Name" value="<?php echo $rows['Name']; ?>">
+                                    <input type="hidden" name="Wholesalers_ID" value="<?php echo $rows['Wholesalers_ID']; ?>">
+                                    <input type="hidden" name="Wholesalers_Name" value="<?php echo $rows['Wholesalers_Name']; ?>">
                                     <input type="hidden" name="Telephone" value="<?php echo $rows['Telephone']; ?>">
+                                    <input type="hidden" name="Email" value="<?php echo $rows['Email']; ?>">
                                     <input type="hidden" name="Address" value="<?php echo $rows['Address']; ?>">
-                                    <input type="hidden" name="Username" value="<?php echo $rows['Username']; ?>">
                                     
 
 
@@ -140,5 +144,3 @@
         });
     </script>
 </body>
-
-</html>

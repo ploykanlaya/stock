@@ -139,7 +139,7 @@
                 <a href="add_Wholesalers.php">เพิ่มผู้ใช้งาน</a>
                 </li>
                 <li>
-                <a href="info_Wholesalers.php">ลบ/แก้ไขข้อมูล</a>
+                <a href="info_wholealers.php">ลบ/แก้ไขข้อมูล</a>
                 </li>
                 
                 </ul>

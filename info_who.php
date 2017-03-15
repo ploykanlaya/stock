@@ -56,20 +56,20 @@
                             
                         </div>
                         <div class="body">
-                            <table class="table table-bordered" id="requisition-table">
+                            <table class="table table-hover dashboard-task-infos" id="requisition-table">
 
                                 <thead>
                                     <tr>
                                         <th>รหัส</th>
-                                        <th>ชื่อสินค้า</th>
+                                        <th>ชื่อ</th>
                                         <th>ราคา</th>
                                        
-                                        <th>หน่วยนับ</th>
+                                        <th>หน่วย</th>
 
                                         <th>คงเหลือ</th>
                                         <th>จุดสั่งซื้อใหม่</th>
                                        
-                                        <!-- <th>วันหมดอายุ</th> -->
+                                        <th>วันหมดอายุ</th>
                                         <th>ร้านค้าส่ง</th>
                                         <th>ประเภท</th>
                                         <th></th>
@@ -85,18 +85,17 @@
                             while($rows=mysqli_fetch_array($result)){ 
                         ?> 
                                     <tr>
-                                        <td align=right><?php echo $rows['Product_ID']; ?></td>
-                                        <td ><?php echo $rows['Product_Name']; ?></td>  
-                                        <td align=right ><?php echo $rows['Price']; ?></td> 
-
+                                        <td><?php echo $rows['Product_ID']; ?></td>
+                                        <td><?php echo $rows['Product_Name']; ?></td>  
+                                        <td><?php echo $rows['Price']; ?></td> 
                                     
-                                        <td ><?php echo $rows['Unit']; ?></td>
+                                        <td><?php echo $rows['Unit']; ?></td>
                                         
 
-                                        <td align=right><?php echo $rows['Numstock']; ?></td>
-                                        <td align=right><?php echo $rows['SafetyStock']; ?></td>
-                                        <!-- <td align=right><?php echo $rows['ExpDate']; ?></td>
- -->
+                                        <td><?php echo $rows['Numstock']; ?></td>
+                                        <td><?php echo $rows['SafetyStock']; ?></td>
+                                        <td><?php echo $rows['ExpDate']; ?></td>
+
                                     <?php 
                                     $query1 = "SELECT Wholesalers_Name FROM wholesalers where Wholesalers_ID='".$rows['Wholesalers_ID']."'";
                                     $query2 = "SELECT ProductType_Name FROM product_type where ProductType_ID= '".$rows['ProductType_ID']."'"; 
@@ -104,11 +103,11 @@
                                     $result2 = mysqli_query($conn,$query2);
 
                                     while($rows1=mysqli_fetch_array($result1)){ ?>
-                                        <td ><?php echo $rows1['Wholesalers_Name']; ?></td>
+                                        <td><?php echo $rows1['Wholesalers_Name']; ?></td>
                                         <?php
                                     }
                                     while($rows2=mysqli_fetch_array($result2)){ ?>
-                                        <td ><?php echo $rows2['ProductType_Name']; ?></td>
+                                        <td><?php echo $rows2['ProductType_Name']; ?></td>
                                         <?php
                                     }
 ?>
@@ -123,11 +122,11 @@
                                     
                                     <td> 
                                     
-                                    <form name="sentMessage1" id="contactForm" novalidate role="form" method="POST" action="edit_product.php" >
+                                    <form name="sentMessage1" id="contactForm" novalidate role="form" method="POST" action="edit_product.php">
 
                                     <input type="hidden" name="Product_ID" value="<?php echo $rows['Product_ID']; ?>">
                                     <input type="hidden" name="Product_Name" value="<?php echo $rows['Product_Name']; ?>">
-                                    <input type="hidden" name="Price" value="<?php echo $rows['Price']; ?>" >
+                                    <input type="hidden" name="Price" value="<?php echo $rows['Price']; ?>">
                                     <input type="hidden" name="Unit" value="<?php echo $rows['Unit']; ?>">
                                     <input type="hidden" name="Numstock" value="<?php echo $rows['Numstock']; ?>">
                                     <input type="hidden" name="SafetyStock" value="<?php echo $rows['SafetyStock']; ?>">
@@ -173,9 +172,6 @@
             $('#requisition-table').DataTable();
         });
     </script>
-
-    
- 
 </body>
 
 </html>

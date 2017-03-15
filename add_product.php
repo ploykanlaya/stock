@@ -55,7 +55,9 @@
                         </div>
                         <div class="body">
                          <form id="addproduct" method="POST" action="AddProductControlCopy.php">
-                              
+
+                         <html>
+           
                             <div class="row clearfix">
                                 <div class="col-md-12">
                                     
@@ -73,7 +75,7 @@
                                     
                                          <label class="form-label">ราคาขายสินค้า</label>
                                         
-                                             <input type="number" class="form-control numb-request" id="Price" name="Price" placeholder="Price" min="0" text="1" required >
+                                             <input type="text" class="form-control numb-request" name="Price" placeholder="Price" min="0" text="1"  OnChange="JavaScript:chkNum(this)" required >
                                       
                                 </div>
 
@@ -94,7 +96,7 @@
                                     
                                      <label class="form-label">จำนวนยกยอดมา</label>
                                         
-                                             <input type="number" class="form-control numb-request" id="Numstock" name="Numstock" placeholder="Numstock" min="0" text="1" required >
+                                             <input type="number" class="form-control numb-request" id="Numstock" name="Numstock" placeholder="Numstock" min="0" text="1"  required >
                                         
                                 </div>
                                 <div class="col-md-6">
@@ -126,12 +128,12 @@
                             <div class="col-md-6">
                                     <div class="form-group">
                                      <label class="form-label">ร้านค้าส่ง</label>
-                                       
+                                        <a href="add_Wholesalers.php"><small>+เพิ่มร้านค้าส่ง</small></a>
 
 
                                         <select name="Wholesalers_ID" class="form-control" >
                                                    <option>เลือกร้านค้าส่ง</option>
-                                                 
+                                                
                                                   <?php
                                                     
                                                     $sqli = "SELECT Wholesalers_ID,Wholesalers_Name FROM Wholesalers ";
@@ -159,7 +161,7 @@
 
                             <div class="col-md-6">
                                     <div class="form-group">
-                                     <label class="form-label">ประเภทสินค้า</label> <a href="javascript:openAddCategory();"><small>+เพิ่มประเภทสินค้า</small></a>
+                                     <label class="form-label">ประเภทสินค้า</label> <a href="addproducttype.php"><small>+เพิ่มประเภทสินค้า</small></a>
                                        
 
 
@@ -259,7 +261,28 @@
         }
 </script>
 
+    <script language="JavaScript">
 
+      function addCommas(nStr)
+      {
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+          x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
+      }
+
+      function chkNum(ele)
+      {
+        var num = parseFloat(ele.value);
+        ele.value = addCommas(num.toFixed(2));
+      }
+    </script>
+ 
 
 </body>
 

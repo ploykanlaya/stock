@@ -25,25 +25,22 @@
             $conn = new mysqli($hostname_connectDB, $username_connectDB,$password_connectDB, $database_connectDB);
             mysqli_set_charset($conn,"utf8");
        
-        $query = "SELECT * FROM user";
+        $query = "SELECT * FROM Wholesalers";
         $result = mysqli_query($conn,$query);
        
-        $UserID=$_POST['UserID'];
-        $Name=$_POST["Name"];
+        $Wholesalers_ID=$_POST['Wholesalers_ID'];
+        $Wholesalers_Name=$_POST["Wholesalers_Name"];
         $Telephone=$_POST["Telephone"];
+        $Email=$_POST["Email"];
         $Address=$_POST["Address"];
-        $Username=$_POST["Username"];
       
     ?>
- 
 
-
-  
 
    <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>ข้อมูลผู้ใช้งาน</h2>
+                <h2>ข้อมูลร้านค้าส่ง</h2>
             </div>
 
             <!-- Horizontal Layout -->
@@ -52,7 +49,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                แก้ไขข้อมูลผู้ใช้งาน
+                                แก้ไขข้อมูลร้านค้าส่ง
                             </h2>
                          
                         </div>
@@ -60,13 +57,13 @@
                             <form class="form-horizontal" method="POST" action="EditUserControl.php"> 
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="Name">ชื่อ-สกุล</label>
+                                        <label for="Name">ชื่อร้านค้าส่ง</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                             <input type="text" class="form-control" name="Name" placeholder="ชื่อ-สกุล" value='<?php echo $Name ?>' required autofocus/>
-                         <input type="hidden" name="UserID" value='<?php echo $UserID ?>'/>
+                                             <input type="text" class="form-control" name="Wholesalers_Name" placeholder="ชื่อ-สกุล" value='<?php echo $Wholesalers_Name ?>' required autofocus/>
+                         <input type="hidden" name="Wholesalers_ID" value='<?php echo $Wholesalers_ID ?>'/>
                                             </div>
                                         </div>
                                     </div>
@@ -85,12 +82,12 @@
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="Address">ที่อยู่</label>
+                                        <label for="Address">E-mail</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                 <input type="text" class="form-control" name="Address" placeholder="ที่อยู่" value='<?php echo $Address ?>'>
+                                                 <input type="text" class="form-control" name="Email" placeholder="E-mail" value='<?php echo $Email ?>'>
                             
                                             </div>
                                         </div>
@@ -98,12 +95,12 @@
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="Username">ชื่อผู้ใช้</label>
+                                        <label for="Username">ที่อยู่</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                               <input type="text" class="form-control" name="Username" placeholder="ชื่อผู้ใช้งาน" value='<?php echo $Username ?>'>
+                                               <input type="text" class="form-control" name="Address" placeholder="ที่อยุ่" value='<?php echo $Address ?>'>
                             
                                             </div>
                                         </div>

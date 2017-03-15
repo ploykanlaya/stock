@@ -24,7 +24,8 @@
             $conn = new mysqli($hostname_connectDB, $username_connectDB,$password_connectDB, $database_connectDB);
             mysqli_set_charset($conn,"utf8");
        
-        $query = "SELECT * FROM Product";
+        $query = "SELECT * FROM Product join product_type on";
+
         $result = mysqli_query($conn,$query);
        
        
@@ -35,8 +36,8 @@
         $Numstock=$_POST["Numstock"];
         $SafetyStock=$_POST["SafetyStock"];
         $ExpDate=$_POST["ExpDate"];
-        $Wholesalers_ID=$_POST["Wholesalers_ID"];
-        $ProductType_ID=$_POST["ProductType_ID"];
+        // $Wholesalers_ID=$_POST["Wholesalers_ID"];
+        // $ProductType_ID=$_POST["ProductType_ID"];
         
         
     ?>       
@@ -87,7 +88,7 @@
                             
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="Price">Price</label>
+                                        <label for="Price">ราคา</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
@@ -100,7 +101,7 @@
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="Username">Unit</label>
+                                        <label for="Username">หน่วยนับสินค้า</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
@@ -113,7 +114,7 @@
                                 </div>
                                      <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="Username">Numstock</label>
+                                        <label for="Username">จำนวนที่ยกยอดมา</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
@@ -126,7 +127,7 @@
                                 </div>
                                      <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="SafetyStock">SafetyStock</label>
+                                        <label for="SafetyStock">จุดสั่งซื้อใหม่</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
@@ -139,43 +140,18 @@
                                 </div>
                                      <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="Username">ExpDate</label>
+                                        <label for="Username">วันที่นำเข้า</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                               <input type="text" class="form-control" name="ExpDate" placeholder="ExpDate" value='<?php echo $ExpDate ?>'>
+                                               <input type="text" class="form-control" name="ExpDate" placeholder="Date" value='<?php echo $ExpDate ?>'>
                             
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                     <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="Username">Wholesalers_ID</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                               <input type="text" class="form-control" name="Wholesalers_ID" placeholder="Wholesalers_ID" value='<?php echo $Wholesalers_ID ?>'>
-                            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                 <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="Username">ProductType_ID</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                               <input type="text" class="form-control" name="ProductType_ID" placeholder="ProductType_ID" value='<?php echo $ProductType_ID ?>'>
-                            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                     
                            <!--      <div class="row clearfix">
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
                                         <input type="checkbox" id="remember_me_3" class="filled-in">
