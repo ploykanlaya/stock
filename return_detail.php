@@ -99,15 +99,12 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 		                                <tr>
 		                                    <td><?=$index;?></td>
 		                                    
-		                                    <td><?=$field->Product_ID;?></td>
+		                                    <td align=right><?=$field->Product_ID;?></td>
 		                                   <td><?=$field->Product_Name;?></td>
-		                                 	<td><?=$field->Numstock;?></td>
-		                                    <td><?=$field->Numstock>=$field->NumberReturn?$field->NumberReturn:'<font color="red">'.$field->NumberReturn.'</font>';?></td>
-		                                    
-		                                       
-		                                    <td><?=$field->Price;?></td>
-		                                       
-		                                   	<td><?=$field->TotalPay;?></td>
+		                                 	<td align=right><?=$field->Numstock;?></td>
+		                                 	<td align=right><?=$field->NumberReturn;?></td>
+		                                 	<td align=right><?=number_format($field->Price, 2, '.', ',');?></td>
+		                                    <td align=right><?=number_format($field->TotalPay, 2, '.', ',');?></td>
 		                  
 		                                </tr>
 
@@ -125,11 +122,12 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 	                        </table>
 	                        </div>
 	                        </div>
-	                        <h1>ราคารวมสุทธิ <?=$TotalPrice; ?> บาท</h1>
-	                        
+	                        <h4 align=right>ราคารวมสุทธิ <?=number_format($TotalPrice, 2, '.', ','); ?> บาท</h4>
+	                        <h5 align=right>สถานะการอนุมัติ
 	                        <div class="col-md-12" > 
 	                  
 	                   <?php
+	                  
 
 		         if($_SESSION['Position'] == "ผู้จัดการ" || $_SESSION['Position'] == "admin")
 
@@ -140,36 +138,40 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 		                                    			</td>';
 			                                    }
 			                                    if ($field->Status == 1) {
-			                                    	echo '<td class="text-success"><b>อนุมัติ</b></td>';
+			                                    	echo '<h4 class="text-success"><b>อนุมัติ</b></h4>';
 			                                    }
 			                                    if ($field->Status == 2) {
-			                                    	echo '<td class="text-danger"><i>ไม่อนุมัติ</i></td>';
+			                                    	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';
 			                                    }
 		                                    ?>
 		                                      
 
 		                                      <?php    
-       if($_SESSION['Position'] == "พนักงาน" || $_SESSION['Position'] == "admin")
+       if($_SESSION['Position'] == "พนักงาน" || $_SESSION['Position'] == "admin"){
 
 		                        
 			                                    if ($field->Status == 0) {
-			                                    	echo '<td>
-			                                    			รอการอนุมัติ
-		                                    			</td>';
+			                                    	echo '<h3>
+                                    					รอการอนุมัติ
+                                							</h3>';
 			                                    }
 			                                    if ($field->Status == 1) {
-			                                    	echo '<td class="text-success"><b>อนุมัติ</b></td>';
+			                                    	echo '<h3 class="text-success"><b>อนุมัติ</b></h3>';
 			                                    }
 			                                    if ($field->Status == 2) {
-			                                    	echo '<td class="text-danger"><i>ไม่อนุมัติ</i></td>';
+			                                    	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';
 			                                    }
+			                                }
 		                                    ?>
+
+
 
 
 
 
 
 	                        </div>
+	                        </h5>
 	                    </div>
 	                </div>
 	            </div>

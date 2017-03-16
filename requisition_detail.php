@@ -108,8 +108,7 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 		                                    <td><?=$field->Numstock>=$field->Number_Req?$field->Number_Req:'<font color="red">'.$field->Number_Req.'</font>';?></td>
 		                                    
 		                                       
-		                                    <td><?=$field->Price;?></td>
-		                                       
+		                                    <td><?=$field->Price;?></td> 
 		                                   	<td><?=$field->TotalPay;?></td>
 		                           
 
@@ -155,8 +154,8 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 
 
 	                                <?php 
-	                            			}
-	                            			$index=$index+1;
+	                            			
+	                            			$index++;}
 	                            		}
 	                                ?>
 	                            </tbody>
