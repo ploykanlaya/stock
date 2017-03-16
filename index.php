@@ -28,7 +28,7 @@ $database = new DB();
         }
         else
         {
-            //////// ADMIN /////////
+            include 'chart.php'; 
         }
 
     ?>  
