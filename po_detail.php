@@ -58,9 +58,10 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 	                <div class="body">
 	                    <div class="table-responsive">
 	                    <h5>วันที่สั่งซื้อ <?=$result1->PO_OutDate;?></h5>
+	                     
 	                    <div class="card">
 	                     <div class="body">
-	                        <table class="table table-hover dashboard-task-infos" id="requisition-table">
+	                        <table class="table table-bordered" id="requisition-table" >
 
 
 	                            <thead>
@@ -99,14 +100,15 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 
 		                                <tr>
 		                                    <td><?=$index;?></td>
-		                                    
-		                                    <td><?=$field->Product_ID;?></td>
+		                                   
+		                                    <td align=right><?=$field->Product_ID;?></td>
 		                                   <td><?=$field->Product_Name;?></td>
-		                                 	<td><?=$field->Numstock;?></td>
-		                                 	<td><?=$field->Quantity;?></td>		                                       
-		                                    <td><?=$field->Price;?></td>
-		                                       
-		                                   	<td><?=$field->TotalPay;?></td>
+		                                 	<td align=right><?=$field->Numstock;?></td>
+		                                 	<td align=right><?=$field->Quantity;?></td>		                                       
+		                                    <td align=right><?=number_format($field->Price, 2, '.', ',');?></td>
+		                                    
+		                                    <td align=right><?=number_format($field->TotalPay, 2, '.', ',');?></td> 
+		                                   	
 		                                   	
 		                                </tr>
 
@@ -126,7 +128,7 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 	                        <button id="print" type="button" class="btn btn-danger btn-cancle" ">พิมพ์เอกสาร</button>
 
 
-	                        <h1>ราคารวมสุทธิ <?=$TotalPrice;?> บาท</h1>
+	                        <h1 align=right>ราคารวมสุทธิ <?= number_format($TotalPrice, 2, '.', ',');?> บาท</h1>
 	                        
 	                        <div class="col-md-12" > 
 	                    <?php
@@ -292,6 +294,40 @@ $( document ).ready(function() {
 
 });
 </script>
+
+<script type="text/javascript">
+
+$( document ).ready(function() {
+
+	$('#requisition-table').DataTable();
+
+	
+});
+</script>
+
+
+  <script language="JavaScript">
+
+      function addCommas(nStr)
+      {
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+          x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
+      }
+
+      function chkNum(ele)
+      {
+        var num = parseFloat(ele.value);
+        ele.value = addCommas(num.toFixed(2));
+      }
+    </script>
+
 
 </body>
 </html>

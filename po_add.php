@@ -51,7 +51,8 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                            <input type="text" class="form-control" name="PO_ID" readonly value="<?php echo $recent_ID[0]->PO_ID+1; ?>">
                                         </div>
                                     </div>
-                                </div>   
+                                </div> 
+                            </div>  
                              <!--    <div class="col-md-6">
                                     <div class="form-group">
                                          <label class="form-label">รหัสพนักงาน</label>
@@ -69,6 +70,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                     </div>
                                 </div>      
                                -->
+                            <div class="row clearfix">
                                 <div class="col-md-6">                              
                                     <div class="form-group">
                                         <label class="form-label">วันทำการ</label>
@@ -77,7 +79,25 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                         </div>
                                     </div>
                                 </div>
-                            </div>  
+                           
+
+                        
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                     <label class="form-label">ร้านค้าส่ง</label>
+ 
+                                        <select name="Wholesalers_ID" class="form-control" >
+                                                   <option>เลือกร้านค้าส่ง</option>
+                                                   
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
                             <div class="row clearfix">
                                 <div class="col-lg-12">
                                     <div class="card">
@@ -153,10 +173,10 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                     foreach ($product as $data) {
                         echo '<tr>
                         <td align=right>'.$data->Product_ID.'</td>
-                        <td align=right>'.$data->Product_Name.'</td>
+                        <td >'.$data->Product_Name.'</td>
                        
-                        <td align=right>'.$data->Price.'</td>
-                         <td align=right>'.$data->Unit.'</td>
+                        <td align=right>'.number_format($data->Price, 2, '.', ',').'</td>
+                         <td >'.$data->Unit.'</td>
                         <td align=right>'.$data->Numstock.'</td>
                         <td align=right><input type="input" class="form-control" name="amount"
                             data-id="'.$data->Product_ID.'"

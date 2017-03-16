@@ -87,7 +87,7 @@
                                     <tr>
                                         <td align=right><?php echo $rows['Product_ID']; ?></td>
                                         <td ><?php echo $rows['Product_Name']; ?></td>  
-                                        <td align=right ><?php echo $rows['Price']; ?></td> 
+                                        <td align=right ><?php echo number_format($rows['Price'], 2, '.', ','); ?></td> 
 
                                     
                                         <td ><?php echo $rows['Unit']; ?></td>

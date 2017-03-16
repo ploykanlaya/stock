@@ -3,22 +3,53 @@
 /*====================================================
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
-$result = $database->query("SELECT * FROM `requisition` WHERE status=1")->findAll();
+$result = $database->query("SELECT * FROM `requisition` WHERE status=0")->findAll();
 $allowed = count($result);
 
-$result = $database->query("SELECT * FROM `purchaseorder` WHERE status=1")->findAll();
+$result = $database->query("SELECT * FROM `purchaseorder` WHERE status=0")->findAll();
 $orders = count($result);
+
+$result = $database->query("SELECT * FROM `returnoder` WHERE status=0")->findAll();
+$return = count($result);
+
+
+ $result = $database->query("SELECT * FROM `product`")->findAll();
+if($result["Numstock"] <= ["SafetyStock"])
+{
+$num = count($result);
+}
+
+
+
+
+
+
+
 ?>
 <section class="content">
     <div class="container-fluid">
     <div class="block-header">
-        <h2>ภาพรวม</h2>
+        <h2>รายการรออนุมัติ</h2>
     </div>
 
     <!-- Widgets -->
     <div class="row clearfix">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+       <div class="info-box bg-pink hover-expand-effect">
+                <div class="icon">
+                    <i class="material-icons">forum</i>
+                </div>
+                <div class="content">
+                    <div class="text">รายการรอรับสินค้า</div>
+
+                    <?php 
+                        echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$orders."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
+                    ?>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box bg-pink hover-expand-effect">
+            <div class="info-box bg-cyan hover-expand-effect">
                 <div class="icon">
                     <i class="material-icons">playlist_add_check</i>
                 </div>
@@ -31,20 +62,7 @@ $orders = count($result);
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box bg-cyan hover-expand-effect">
-                <div class="icon">
-                    <i class="material-icons">forum</i>
-                </div>
-                <div class="content">
-                    <div class="text">รายการสั่งซื้อ</div>
-
-                    <?php 
-                        echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$orders."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
-                    ?>
-                </div>
-            </div>
-        </div>
+      
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="info-box bg-light-green hover-expand-effect">
                 <div class="icon">
@@ -53,7 +71,7 @@ $orders = count($result);
                 <div class="content">
                     <div class="text">รายการคืน</div>
                      <?php 
-                        echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$orders."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
+                        echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$return."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
                     ?>
                 </div>
             </div>
@@ -64,39 +82,14 @@ $orders = count($result);
                     <i class="material-icons">help</i>
                 </div>
                 <div class="content">
-                    <div class="text">สินค้าใหม่</div>
+                    <div class="text">สินค้าใกล้หมด</div>
                      <?php 
-                        echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$orders."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
+                        echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$num."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
                     ?>
                 </div>
             </div>
         </div>
-             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box bg-blue-grey">
-                <div class="icon">
-                    <i class="material-icons">person_add</i>
-                </div>
-                <div class="content">
-                    <div class="text">พนักงานใหม่</div>
-                    <?php 
-                        echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$orders."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
-                    ?>
-                </div>
-            </div>
-        </div>
-             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box bg-deep-purple">
-                <div class="icon">
-                    <i class="material-icons">help</i>
-                </div>
-                <div class="content">
-                    <div class="text">หมวดหมู่ขายดี</div>
-                    <?php 
-                        echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$orders."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
-                    ?>
-                </div>
-            </div>
-        </div>
+   
     </div>
     <!-- #END# Widgets -->
 

@@ -6,7 +6,17 @@ include_once 'class/db.class.php';
 
 $database = new DB();
 
-
+if (isset($_POST['statdate'])&&isset($_POST['enddate'])) {
+	$stat=date('Y-m-d',strtotime($_POST['statdate']));
+	$end=date('Y-m-d',strtotime($_POST['enddate']));
+}
+else{
+	$stat='2017-03-09';
+	$end='2017-03-13';
+}
+   
+    $result =$database->query("SELECT product.Product_ID,product.Product_Name,SUM(returnorder_detail.NumberReturn) as NumberReturn,sum(returnorder_detail.TotalPay) as TotalPay FROM product INNER JOIN returnorder_detail ON product.Product_ID=returnorder_detail.Product_ID JOIN returnoder  where returnoder.ReturnDate BETWEEN '".$stat."' AND '".$end."' GROUP BY product.Product_ID")->findAll() ;
+// print_r($result);exit;
 ?>
 <!-- Top Bar -->
     <?php include 'head.php'; ?>  
@@ -19,13 +29,7 @@ $database = new DB();
 	<?php include 'left-menu-bar.php'; ?>  
 <!-- #END# Left Sidebar -->
 
-<?php 
-	
 
-    $result =$database->query("SELECT product.Product_ID,product.Product_Name,po_detail.Quantity,po_detail.TotalPay FROM product INNER JOIN po_detail ON product.Product_ID=po_detail.Product_ID")->findAll() ;
-	
-
-?>
 
 
 
@@ -42,34 +46,36 @@ $database = new DB();
                             </h2>
                         
                         </div>
+                        <form method="POST" action="report_return.php">
                         <div class="body">
                             <div class="row clearfix">
                                 
                                 <div class="col-sm-6">
                              <label class="form-label">ตั้งแต่วันที่</label>
                                 <div class="form-line">
-                                   <input type="text" class="datepicker form-control" name="ExpDate" placeholder="Please choose a date...">
+                                   <input type="text" class="datepicker form-control" name="statdate" placeholder="<?=$stat;?>">
                                     </div> 
                                 </div>
                                 
                                 <div class="col-sm-6">
                                 <label class="form-label">ถึงวันที่</label>
                                   <div class="form-line">
-                                      <input type="text" class="datepicker form-control" name="ExpDate" placeholder="Please choose a date...">
+                                      <input type="text" class="datepicker form-control" name="enddate" placeholder="<?=$end;?>">
                                         </div>
                                   </div>
 
                                
 
                                
-                                <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">ตกลง</button></div> 
+                                <div class="col-lg-12"><button type="submit" class="btn btn-primary waves-effect" >ตกลง</button></div> 
 
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
+           
             <!-- #END# Select -->
 <!-- Content -->
 
@@ -84,7 +90,7 @@ $database = new DB();
 
 
 
-
+	                	 
 	                <div class="body">
 
 	                    <div class="table-responsive">
@@ -106,8 +112,15 @@ $database = new DB();
 	                            		$index = 1;
 		                            	// ตรวจสอบ
 										if(!empty($result)){
-										    // พบข้อมูล
+										     $count=0;
+										    $TotalPrice=0;
+										   
 										    foreach ($result as $field) {
+
+										    	$TotalPrice+=$field->TotalPay;
+										    	if ($field->NumberReturn<$field->NumberReturn) {
+										    		$count++;
+										    	}
 
 									?>
 
@@ -115,15 +128,15 @@ $database = new DB();
 		                                    <td align=right><?=$index;?></td>
 		                                    <td align=right><?=$field->Product_ID;?></td>	
 		                                    <td align=right><?=$field->Product_Name;?></td>           
-		                                    <td align=right><?=$field->UserID;?></td>
-		                                    <td align=right><?=$field->Name;?></td>
-		                                    <td align=right><?=$field->Name;?></td>
+		                                    <td align=right><?=$field->NumberReturn;?></td>
+		                                    <td align=right><?=$field->TotalPay;?></td>
+		                                    
 		                                
 		                                </tr>
 
 	                                <?php 
-	                            			}
-	                            			$index=$index+1;
+	                            			
+	                            			$index++;}
 	                            		}
 	                                ?>
 	                            </tbody>
@@ -131,7 +144,8 @@ $database = new DB();
 	                    </div>
 
 
-	                    <h3 align=right>สรุปยอดคืน... บาท</h3>
+	                    <h3 align=right><?=$TotalPrice;?> บาท</h3>
+	                   
 	                </div>
 	            </div>
 	        </div>

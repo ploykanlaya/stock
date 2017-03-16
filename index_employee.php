@@ -5,8 +5,10 @@
 $result = $database->query("SELECT * FROM `requisition` WHERE status=1")->findAll();
 $allowed = count($result);
 
-$result = $database->query("SELECT * FROM `purchaseorder` WHERE status=1")->findAll();
-$orders = count($result);
+$result = $database->query("SELECT * FROM `returnoder` WHERE status=1")->findAll();
+$return = count($result);
+
+
 ?> 
 <section class="content">
     <div class="container-fluid">
@@ -39,39 +41,12 @@ $orders = count($result);
                     <div class="text">รายการคืน</div>
 
                     <?php 
-                        echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$orders."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
+                        echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$return."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
                     ?>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box bg-light-green hover-expand-effect">
-                <div class="icon">
-                    <i class="material-icons">forum</i>
-                </div>
-                <div class="content">
-                    <div class="text">รายการคืน</div>
-                     <?php 
-                        echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$orders."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
-                    ?>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box bg-orange hover-expand-effect">
-                <div class="icon">
-                    <i class="material-icons">help</i>
-                </div>
-                <div class="content">
-                    <div class="text">สินค้าใหม่</div>
-                     <?php 
-                        echo "<div class=\"number count-to\" data-from=\"0\" data-to=\"".$orders."\" data-speed=\"15\" data-fresh-interval=\"20\"></div>";
-                    ?>
-                </div>
-            </div>
-        </div>
-
-
+ 
         </div>
 
 
@@ -125,12 +100,8 @@ $orders = count($result);
                                         <th>ชื่อ</th>
                                         <th>ราคา</th>
                                        
-                                        <th>หน่วย</th>
-
-                                        <th>คงเหลือ</th>
-                                        <th>จุดสั่งซื้อใหม่</th>
-                                       
-                                        <th>วันหมดอายุ</th>
+                                        <th>หน่วยนับสินค้า</th>
+ 
                                         <th>ร้านค้าส่ง</th>
                                         <th>ประเภท</th>
                                         
@@ -150,11 +121,7 @@ $orders = count($result);
                                         <td><?php echo $rows['Price']; ?></td> 
                                     
                                         <td><?php echo $rows['Unit']; ?></td>
-                                        
-
-                                        <td><?php echo $rows['Numstock']; ?></td>
-                                        <td><?php echo $rows['SafetyStock']; ?></td>
-                                        <td><?php echo $rows['ExpDate']; ?></td>
+                                       
 
                                     <?php 
                                     $query1 = "SELECT Wholesalers_Name FROM wholesalers where Wholesalers_ID='".$rows['Wholesalers_ID']."'";
@@ -172,13 +139,7 @@ $orders = count($result);
                                     }
 ?>
                
-                                   
-                                    
-                                    
-                                
-                                    
-
-                                       
+                                  
                                     </tr>       
                                     <?php } ?> 
                         </tbody>

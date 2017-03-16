@@ -73,13 +73,14 @@ else{
                                
                                 <div class="col-lg-12"><button type="submit" class="btn btn-primary waves-effect" >ตกลง</button></div> 
 
+                                	</div>
                                 </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+              
+         
 
             <!-- #END# Select -->
 <!-- Content -->
