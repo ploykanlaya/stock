@@ -137,9 +137,9 @@ else{
 		                                <tr>
 		                                    <td align=right><?=$index;?></td>
 		                                    <td align=right><?=$field->Product_ID;?></td>	
-		                                    <td ><?=$field->Product_Name;?></td>           
+		                                    <td align=right><?=$field->Product_Name;?></td>           
 		                                    <td align=right><?=$field->Number_Req;?></td>
-		                                    <td align=right><?=number_format($field->TotalPay, 2, '.', ',');?></td>
+		                                    <td align=right><?=$field->TotalPay;?></td>
 		                                 
 		                                
 		                                </tr>
@@ -154,7 +154,7 @@ else{
 	                    </div>
 
 
-	                    <h3 align=right>สรุปยอดเบิก <?=number_format($TotalPrice, 2, '.', ',');?> บาท</h3>
+	                    <h3 align=right>สรุปยอดเบิก<?=$TotalPrice;?> บาท</h3>
 	                </div>
 	            </div>
 	        </div>
@@ -192,7 +192,12 @@ else{
 
 $( document ).ready(function() {
 
-	$('#requisition-table').DataTable();
+	$('#requisition-table').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf', 'print'
+        ]
+    } );
 
 	
 });
