@@ -50,16 +50,17 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	            <div class="card">
 	                <div class="header">
-	                    <h2>รายละเอียดรายการคืน เลขที่<?=$result1->ReturnOder_ID;?></h2>
+	                    <h2>รายละเอียดรายการคืน เลขที่ <?=$result1->ReturnOder_ID;?></h2>
 	                    
 	                
 	                </div>
 	                <div class="body">
 	                    <div class="table-responsive">
 	                    <h5>วันที่ทำรายการ <?=$result1->ReturnDate;?></h5>
+	                    <h5>ผู้ทำรายการ : <?=$result1->Name;?></h5>
 	                    <div class="card">
 	                     <div class="body">
-	                        <table class="table table-hover dashboard-task-infos" id="requisition-table">
+	                        <table class="table table-bordered" id="requisition-table">
 
 
 	                            <thead>
@@ -138,7 +139,7 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 		                                    			</td>';
 			                                    }
 			                                    if ($field->Status == 1) {
-			                                    	echo '<h4 class="text-success"><b>อนุมัติ</b></h4>';
+			                                    	echo '<h3 class="text-success"><b>อนุมัติ</b></h3>';
 			                                    }
 			                                    if ($field->Status == 2) {
 			                                    	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';

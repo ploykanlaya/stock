@@ -51,13 +51,14 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	            <div class="card">
 	                <div class="header">
-	                    <h2>รายละเอียดรายการสั่งซื้อ เลขที่<?=$result1->PO_ID;?></h2>
+	                    <h2>รายละเอียดรายการสั่งซื้อ เลขที่ <?=$result1->PO_ID;?></h2>
 	                    
 	                
 	                </div>
 	                <div class="body">
 	                    <div class="table-responsive">
 	                    <h5>วันที่สั่งซื้อ <?=$result1->PO_OutDate;?></h5>
+	                    <h5>ผู้ทำรายการ : <?=$result1->Name;?></h5>
 	                     
 	                    <div class="card">
 	                     <div class="body">
@@ -128,9 +129,10 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 	                        <button id="print" type="button" class="btn btn-danger btn-cancle" ">พิมพ์เอกสาร</button>
 
 
-	                        <h1 align=right>ราคารวมสุทธิ <?= number_format($TotalPrice, 2, '.', ',');?> บาท</h1>
-	                        
+	                        <h4 align=right>ราคารวมสุทธิ <?=number_format($TotalPrice, 2, '.', ','); ?> บาท</h4>
+	                        <h5 align=right>สถานะการอนุมัติ
 	                        <div class="col-md-12" > 
+	                     
 	                    <?php
 
 	                     if($_SESSION['Position'] == "ผู้จัดการ" || $_SESSION['Position'] == "admin")

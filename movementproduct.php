@@ -45,6 +45,8 @@ else{
     
 	
 	$result2 =$database->query("SELECT product.Product_ID,product.Product_Name,requisition_detail.Number_Req,requisition.Requisition_Date,requisition.Status FROM product JOIN requisition_detail ON product.Product_ID=requisition_detail.Product_ID JOIN requisition ON requisition_detail.Requisition_ID= requisition.Requisition_ID ".$pid."")->findAll() ;
+
+    $result3 =$database->query("SELECT product.Product_ID,product.Product_Name,returnorder_detail.NumberReturn,returnoder.ReturnDate,returnoder.Status FROM product JOIN returnorder_detail ON product.Product_ID=returnorder_detail.Product_ID JOIN returnoder ON returnorder_detail.ReturnOder_ID= returnoder.ReturnOder_ID ".$pid."")->findAll() ;
 	
 
 
@@ -124,7 +126,7 @@ else{
 	                    <h2>การเคลื่อนไหว</h2>
 	                </div>
 
-
+                    
 
 
 	                <div class="body">
@@ -157,7 +159,17 @@ else{
 		                                    <td align=right><?=$field->Product_ID;?></td>
 		                                    
 		                                    <td align=right>เบิก</td>
-		                                      <td align=right><?=$field->Status;?></td>
+		                                        <td align=right>
+                                                <?php if ($field->Status == 0) 
+                                                        echo "รอการอนุมัติ";
+                                                    if ($field->Status == 1) 
+                                                        echo '<span class="text-success"><b>อนุมัติ</b></span>';
+                                                    if ($field->Status == 2) 
+                                                        echo '<span class="text-danger"><i>ไม่อนุมัติ</i></span>';
+
+                                                ?>
+                                                
+                                            </td>
 		                                    <td align=right><?=$field->Quantity;?></td>
    											<td align=right><?=$field->PO_OutDate;?></td>
    											 
@@ -185,7 +197,17 @@ else{
 		                                    <td align=right><?=$field->Product_ID;?></td>
 		                                    
 		                                    <td align=right>ซื้อ</td>
-		                                      <td align=right><?=$field->Status;?></td>
+		                                        <td align=right>
+                                                <?php if ($field->Status == 0) 
+                                                        echo "รอรับสินค้า";
+                                                    if ($field->Status == 1) 
+                                                        echo '<span class="text-success"><b>รับสินค้าแล้ว</b></span>';
+                                                    if ($field->Status == 2) 
+                                                        echo '<span class="text-danger"><i>ยกเลิก</i></span>';
+
+                                                ?>
+                                                
+                                            </td>
 		                                    <td align=right><?=$field->Number_Req;?></td>
    											<td align=right><?=$field->Requisition_Date;?></td>
    											 
@@ -199,6 +221,43 @@ else{
 	                            			
 	                            		}
 	                                ?>
+
+                                    <?php 
+
+                                
+                                            foreach ($result3 as $field) {
+
+                                    ?>
+
+                                        <tr>
+                                            <td align=right><?=$index;?></td>
+                                            <td align=right><?=$field->Product_ID;?></td>
+                                            
+                                            <td align=right>คืน</td>
+                                                <td align=right>
+                                                <?php if ($field->Status == 0) 
+                                                        echo "รอการอนุมัติ";
+                                                    if ($field->Status == 1) 
+                                                        echo '<span class="text-success"><b>อนุมัติ</b></span>';
+                                                    if ($field->Status == 2) 
+                                                        echo '<span class="text-danger"><i>ไม่อนุมัติ</i></span>';
+
+                                                ?>
+                                                
+                                            </td>
+                                            <td align=right><?=$field->NumberReturn;?></td>
+                                            <td align=right><?=$field->ReturnDate;?></td>
+                                             
+                                            
+                                        
+                                        </tr>
+
+                                    <?php 
+
+                                        $index++;
+                                            
+                                        }
+                                    ?>
 	                            </tbody>
 	                        </table>
 	                    </div>

@@ -92,7 +92,7 @@ $return = count($result);
                             
                         </div>
                         <div class="body">
-                            <table class="table table-hover dashboard-task-infos" id="requisition-table">
+                            <table class="table table-bordered" id="requisition-table">
 
                                 <thead>
                                     <tr>
@@ -116,9 +116,9 @@ $return = count($result);
                             while($rows=mysqli_fetch_array($result)){ 
                         ?> 
                                     <tr>
-                                        <td><?php echo $rows['Product_ID']; ?></td>
+                                        <td align=right><?php echo $rows['Product_ID']; ?></td>
                                         <td><?php echo $rows['Product_Name']; ?></td>  
-                                        <td><?php echo $rows['Price']; ?></td> 
+                                        <td align=right ><?php echo number_format($rows['Price'], 2, '.', ','); ?></td>  
                                     
                                         <td><?php echo $rows['Unit']; ?></td>
                                        

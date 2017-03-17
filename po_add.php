@@ -9,8 +9,13 @@ $database = new DB();
 /*====================================================
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
-$product =  $database->query("SELECT * FROM product")->findAll();
+$product =  $database->query("SELECT * FROM product ")->findAll();
 
+ $sqli = $database->query("SELECT Wholesalers_ID,Wholesalers_Name FROM Wholesalers")->findAll();
+
+
+                                                 
+    
 ?>
 <!-- Head -->
     <?php include 'head.php'; ?>  
@@ -86,12 +91,32 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                 <div class="form-group">
                                      <label class="form-label">ร้านค้าส่ง</label>
  
-                                        <select name="Wholesalers_ID" class="form-control" >
+                                               
+                                                <select name="Wholesalers_ID" class="form-control" >
                                                    <option>เลือกร้านค้าส่ง</option>
+                                                
+                                                  <?php
+                                                    foreach ($sqli as $row1) {
+                                                        echo " <option value=".$row1->Wholesalers_ID." >
+
+                                                                ".$row1->Wholesalers_Name."</option>";
+                                                       
+
+                                                    }
+                                                  
+
                                                    
-                                        </select>
+
+                                                   
+                                                ?>
+                                                
+                                              </select>
+
+                                    
                                 </div>
                             </div>
+
+
                         </div>
 
 
@@ -170,6 +195,9 @@ $product =  $database->query("SELECT * FROM product")->findAll();
             </thead>
             <tbody>
                 <?php 
+
+                
+
                     foreach ($product as $data) {
                         echo '<tr>
                         <td align=right>'.$data->Product_ID.'</td>

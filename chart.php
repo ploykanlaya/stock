@@ -10,23 +10,7 @@
 <!-- Basic Examples -->
 
 <div class="row clearfix">
-    <div class="col-lg-6">
-        <div class="card">
-            <div class="header">
-                <h2>
-                    กราฟแท่ง
-                </h2>
-                
-            </div>
-            <div class="body">
-
-                <!-- ตำแหน่งของกราฟ -->
-                <canvas id="myChart"></canvas>
-                <!-- ตำแหน่งของกราฟ -->
-
-            </div>
-        </div>
-    </div>
+    
 
     <div class="col-lg-6">
         <div class="card">
@@ -46,7 +30,7 @@
         </div>
     </div>
 
-     <div class="col-lg-12">
+     <div class="col-lg-6">
         <div class="card">
             <div class="header">
                 <h2>

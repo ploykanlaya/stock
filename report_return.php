@@ -127,9 +127,9 @@ else{
 		                                <tr>
 		                                    <td align=right><?=$index;?></td>
 		                                    <td align=right><?=$field->Product_ID;?></td>	
-		                                    <td align=right><?=$field->Product_Name;?></td>           
+		                                    <td ><?=$field->Product_Name;?></td>           
 		                                    <td align=right><?=$field->NumberReturn;?></td>
-		                                    <td align=right><?=$field->TotalPay;?></td>
+		                                    <td align=right><?=number_format($field->TotalPay, 2, '.', ',');?></td>
 		                                    
 		                                
 		                                </tr>
@@ -144,7 +144,7 @@ else{
 	                    </div>
 
 
-	                    <h3 align=right><?=$TotalPrice;?> บาท</h3>
+	                    <h3 align=right>สรุปยอดคืน <?=number_format($TotalPrice, 2, '.', ',');?> บาท</h3>
 	                   
 	                </div>
 	            </div>

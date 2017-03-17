@@ -51,18 +51,18 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	            <div class="card">
 	                <div class="header">
-	                    <h2>รายละเอียดรายการเบิก</h2>
+	                    <h2>รายละเอียดรายการเบิก เลขที่ <?=$result1->Requisition_ID;?></h2>
 	                    
 	                
 	                </div>
 	                <div class="body">
 	                    <div class="table-responsive">
-	                    <h5>รายการ :<?=$result1->Requisition_ID;?></h5>
+	                    
 	                    <h5>วันที่เบิก : <?=$result1->Requisition_Date;?></h5>
 	                    <h5>ผู้ทำรายการ : <?=$result1->Name;?></h5>
 	                    <div class="card">
 	                     <div class="body">
-	                        <table class="table table-hover dashboard-task-infos" id="requisition-table">
+	                        <table class="table table-bordered" id="requisition-table">
 
 
 	                            <thead>
@@ -102,14 +102,14 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 		                                <tr>
 		                                    <td><?=$index;?></td>
 		                                    
-		                                    <td><?=$field->Product_ID;?></td>
+		                                    <td align=right><?=$field->Product_ID;?></td>
 		                                   <td><?=$field->Product_Name;?></td>
-		                                 	<td><?=$field->Numstock;?></td>
-		                                    <td><?=$field->Numstock>=$field->Number_Req?$field->Number_Req:'<font color="red">'.$field->Number_Req.'</font>';?></td>
+		                                 	<td align=right><?=$field->Numstock;?></td>
+		                                    <td align=right><?=$field->Numstock>=$field->Number_Req?$field->Number_Req:'<font color="red">'.$field->Number_Req.'</font>';?></td>
 		                                    
 		                                       
-		                                    <td><?=$field->Price;?></td> 
-		                                   	<td><?=$field->TotalPay;?></td>
+		                                    <td align=right><?=number_format($field->Price, 2, '.', ',');?></td>
+		                                    <td align=right><?=number_format($field->TotalPay, 2, '.', ',');?></td>
 		                           
 
 		                       <!--  <?php
@@ -164,8 +164,8 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 	                        </table>
 	                        </div>
 	                        </div>
-	                        <h4>ราคารวมสุทธิ <?=$TotalPrice; ?> บาท</h4><br>
-	                             <h5>สถานระรายการ</h5>
+	                        <h4 align=right>ราคารวมสุทธิ <?=number_format($TotalPrice, 2, '.', ','); ?> บาท</h4>
+	                        <h5 align=right>สถานะการอนุมัติ
 	                        <div class="col-md-12" > 
 	                   
 	                    <?php

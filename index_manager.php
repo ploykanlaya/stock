@@ -107,11 +107,12 @@ $num = count($result);
                     </div>
                 </div>
             </div>
-
+        </div> 
         
             <!-- #END# Line Chart -->
 
             <!-- Pie Chart -->
+            <div class="row clearfix">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
@@ -124,96 +125,13 @@ $num = count($result);
                     </div>
                 </div>
             </div>
-           </div>  
+            </div>
+          
 
             <!-- #END# Pie Chart -->
       
         
-        <div class="row clearfix">
-            <!-- Task Info -->
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>สินค้าเคลื่อนไหวย้อนหลัง 3 เดือน</h2>
-                      
-                        
-                    </div>
-                    <div class="body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" >
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>ชื่อสินค้า</th>
-                                        <th>เข้า</th>
-                                        <th>เบิกออก</th>
-                                        <th>เปลี่ยนแปลง</th>
-                                        <th>คงเหลือ</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Task A</td>
-                                        <td>24</td>
-                                        <td>53</td> 
-                                        <td>10</td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div>
-                                            </div>
-                                        </td>
-                                       
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Task B</td>
-                                        <td>43</td>
-                                        <td>76</td> 
-                                         <td>4</td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-                                            </div>
-                                        </td>
-                                      
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Task C</td>
-                                        <td>23</td>
-                                        <td>10</td>
-                                        <td>5</td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-light-blue" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%"></div>
-                                            </div>
-                                        </td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>43</td>
-                                        <td>54</td>
-                                        <td>22</td> 
-                                        <td>5</td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
-                                            </div>
-                                        </td>
-                                       
-                                    </tr>
-                                  
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# Task Info -->
-         
-          </div>
+    
     </div>
 </section>
 
