@@ -17,6 +17,9 @@ if(!empty($result->Name)){
 	header( "Location: /stock/index.php" );
 }
 else{
-	header( "Location: /stock/sign-in.php" );
+	$message = "Username or Password Invalid Please check and enter again";
+				echo "<script type='text/javascript'>alert('$message');</script>";
+	
+				echo "<script>window.location='sign-in.php';</script>";
 }
 ?>

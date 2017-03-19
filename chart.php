@@ -1,4 +1,7 @@
  <?php
+include_once 'class/db.class.php';
+
+$database = new DB();
 
 
 ?> 
@@ -48,6 +51,34 @@
         </div>
     </div>
 </div>
+<?php 
+
+$result = $database->query("SELECT DATE_FORMAT(requisition.Requisition_Date,'%m') AS Requisition_Date
+, SUM(requisition_detail.TotalPay) AS TotalPay
+FROM requisition JOIN requisition_detail on requisition.Requisition_ID=requisition_detail.Requisition_ID 
+GROUP BY DATE_FORMAT(requisition.Requisition_Date,'%m-%Y')")->findAll();
+
+
+$count=count($result);
+$x=0;
+$string="";
+$month="";
+foreach ($result as $row ) {
+    $x++;
+    if ($x==$count) {
+
+        $string = $string.($row->TotalPay);
+        $month = $month.'"'.($row->Requisition_Date).'"';
+    }
+    else{
+          $string = $string.($row->TotalPay).",";
+            $month = $month.'"'.($row->Requisition_Date).'"'.",";
+    }
+       
+}
+
+?>
+
 
 </div>
 <?php include 'script.php'; ?>  
@@ -97,13 +128,13 @@
 <script type="text/javascript">
     var ctx2 = document.getElementById("line-chart");
 
-    var test = [500, 200, 900, 450, 750, 600, 470, 800, 790, 1000, 970, 1200];
-    var month = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+    var test = [<?php echo $string; ?>];
+    var month = [<?php echo $month ?>];
 
     var scatterChart = new Chart(ctx2, {
     type: 'line',
     data: {
-        labels: ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"],
+        labels: month,
         datasets: [
         {
             label: 'การเบิกในแต่ละเดือน', 

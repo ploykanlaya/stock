@@ -3,9 +3,8 @@ session_start();
 $allPosts = $_POST['Product_ID'];
 $countPosts = count($allPosts);
 
-
-$time = strtotime($_POST["PO_OutDate"]);//;วันที่
-
+//;วันที่
+$time=strtotime(date('Y-m-d'));
 include_once 'class/db.class.php';
 
 $database = new DB();
@@ -20,6 +19,7 @@ for ($i=0; $i < $countPosts; $i++) {
 	$sql2="INSERT INTO po_detail (TotalPay,Product_ID,Quantity,PO_ID,created_date,updated_date) VALUES ('".$_POST["TotalPay"][$i]."','".$_POST["Product_ID"][$i]."','".$_POST["Quantity"][$i]."','".$_POST["PO_ID"]."','"."0"."','"."0"."')" ;  
 	$database->query($sql2);
 }
+
 
 
 

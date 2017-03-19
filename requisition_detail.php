@@ -171,13 +171,10 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 	                    <?php
 
 
-		          if($_SESSION['Position'] == "ผู้จัดการ")
-// $field->Numstock<$field->Number_Req
-
-
+		            if($_SESSION['Position'] == "ผู้จัดการ")
 
 			                                    if ($result1->Status == 0) {
-			                                    	if($field->Number_Req> $field->Numstock){
+			                                    	if($count>0){
 														echo '<button type="button" class="btn btn-default btn-confirm" data-toggle="modal" data-target="#myModal" 
 															data-id="'.$result1->Requisition_ID.'" disabled>อนุมัติ</button>';
 
@@ -188,17 +185,14 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 
 													}
 
-		                                    			echo'<button type="button" class="btn btn-danger btn-cancle" data-toggle="modal" data-target="#myModal" data-id="'.$result1->Requisition_ID.'">ไม่อนุมัติ</button>';
+		                                    			echo	'<button type="button" class="btn btn-danger btn-cancle" data-id="'.$field->Product_ID.'">ไม่อนุมัติ</button>';
 			                                    }
-			                                  if ($result1->Status == 1) {
-                                    	echo '<h3 class="text-success"><b>อนุมัติ</b></h3>';
-                                    }
-                                    if ($result1->Status == 2) {
-                                    	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';
-                                    }
-
-                                
-                            
+			                                    if ($result1->Status == 1) {
+			                                    	echo '<h3 class="text-success"><b>อนุมัติ</b></h3>';
+			                                    }
+			                                    if ($result1->Status == 2) {
+			                                    	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';
+			                                    }
 
 
                if($_SESSION['Position'] == "พนักงาน" || $_SESSION['Position'] == "admin"){
@@ -215,9 +209,9 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
                                     if ($result1->Status == 2) {
                                     	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';
                                     }
-                 }
+                                }
+                                
 		                                    ?>
-
 
 
 

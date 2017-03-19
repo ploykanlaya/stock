@@ -13,7 +13,7 @@ class User{
 					$_SESSION["user"]=$memberlogin->username;
 
 					mysqli_close($conn);
-					echo "<script>window.location='index_manager.php';</script>";
+					echo "<script>window.location='index.php';</script>";
 
 					$_status=1;
 					break;
