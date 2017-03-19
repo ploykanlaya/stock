@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<meta charset="UTF-8">
+
 <?php
 
 include_once 'class/db.class.php';

@@ -15,7 +15,7 @@ $database = new DB();
 <div class="row clearfix">
     
 
-    <div class="col-lg-6">
+    <div class="col-lg-12">
         <div class="card">
             <div class="header">
                 <h2>
@@ -33,7 +33,7 @@ $database = new DB();
         </div>
     </div>
 
-     <div class="col-lg-6">
+     <div class="col-lg-12">
         <div class="card">
             <div class="header">
                 <h2>
@@ -74,9 +74,57 @@ foreach ($result as $row ) {
           $string = $string.($row->TotalPay).",";
             $month = $month.'"'.($row->Requisition_Date).'"'.",";
     }
-       
 }
 
+
+
+    $result2 = $database->query("SELECT DATE_FORMAT(purchaseorder.PO_OutDate,'%m') AS PO_OutDate
+, SUM(po_detail.TotalPay) AS TotalPay2
+FROM purchaseorder JOIN po_detail on purchaseorder.PO_ID=po_detail.PO_ID 
+GROUP BY DATE_FORMAT(purchaseorder.PO_OutDate,'%m-%Y')")->findAll();
+
+
+$count2=count($result2);
+$y=0;
+$string2="";
+$month2="";
+foreach ($result2 as $row ) {
+    $y++;
+    if ($y==$count2) {
+
+        $string2 = $string2.($row->TotalPay2);
+        $month2 = $month2.'"'.($row->PO_OutDate).'"';
+    }
+    else{
+          $string2 = $string2.($row->TotalPay2).",";
+
+            $month2 = $month2.'"'.($row->PO_OutDate).'"'.",";
+    }
+       }
+
+$result3 = $database->query("SELECT DATE_FORMAT(returnoder.ReturnDate,'%m') AS ReturnDate
+, SUM(returnorder_detail.TotalPay) AS TotalPay3
+FROM returnoder JOIN returnorder_detail on returnoder.ReturnOder_ID=returnorder_detail.ReturnOder_ID 
+GROUP BY DATE_FORMAT(returnoder.ReturnDate,'%m-%Y')")->findAll();
+
+
+$count3=count($result3);
+$z=0;
+$string3="";
+$month3="";
+foreach ($result3 as $row ) {
+    $z++;
+    if ($z==$count3) {
+
+        $string3 = $string3.($row->TotalPay3);
+        $month3 = $month3.'"'.($row->PO_OutDate).'"';
+    }
+    else{
+          $string3 = $string3.($row->TotalPay3).",";
+
+            $month3 = $month3.'"'.($row->PO_OutDate).'"'.",";
+    }
+       }
 ?>
 
 
@@ -131,6 +179,12 @@ foreach ($result as $row ) {
     var test = [<?php echo $string; ?>];
     var month = [<?php echo $month ?>];
 
+    var test2 = [<?php echo $string2; ?>];
+    var month2 = [<?php echo $month2 ?>];
+
+    var test3 = [<?php echo $string3; ?>];
+    var month3 = [<?php echo $month3 ?>];
+
     var scatterChart = new Chart(ctx2, {
     type: 'line',
     data: {
@@ -142,15 +196,17 @@ foreach ($result as $row ) {
             borderColor: 'rgba(99,255,132,1)',
             backgroundColor: 'rgba(99,255,132,0.2)'
         },
+        
+
         {
             label: 'การซื้อในแต่ละเดือน', 
-            data: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200], 
+            data: test2,
             borderColor: 'rgba(255,99,132,1)',
             backgroundColor: 'rgba(255,99,132,0.2)'
         },
         {
             label: 'การคืนในแต่ละเดือน', 
-            data: [150, 250, 350, 450, 550, 650, 750, 850, 950, 1500, 1100, 1200], 
+            data: test3,
             borderColor: 'rgba(132,99,255,1)',
             backgroundColor: 'rgba(132,99,255,0.2)'
         }

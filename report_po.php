@@ -193,7 +193,12 @@ else{
 
 $( document ).ready(function() {
 
-	$('#requisition-table').DataTable();
+	$('#requisition-table').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf', 'print'
+        ]
+    } );
 
 	
 });

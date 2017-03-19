@@ -126,7 +126,7 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 	                        </table>
 	                        </div>
 	                        </div>
-	                        <button id="print" type="button" class="btn btn-danger btn-cancle" ">พิมพ์เอกสาร</button>
+	                        
 
 
 	                        <h4 align=right>ราคารวมสุทธิ <?=number_format($TotalPrice, 2, '.', ','); ?> บาท</h4>
@@ -301,7 +301,12 @@ $( document ).ready(function() {
 
 $( document ).ready(function() {
 
-	$('#requisition-table').DataTable();
+	$('#requisition-table').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf', 'print'
+        ]
+    } );
 
 	
 });
