@@ -9,7 +9,7 @@ include_once 'class/db.class.php';
 
 $database = new DB();
 
-$sql = "INSERT INTO purchaseorder (PO_ID,PO_OutDate,UserID,Name,Status) VALUES ('".$_POST["PO_ID"]."','".date('Y-m-d', $time)."','".$_SESSION['UserID']."','".$_SESSION['Name']."','"."0"."')" ;
+$sql = "INSERT INTO purchaseorder (PO_ID,PO_OutDate,UserID,Name,Status) VALUES ('".$_POST["PO_ID"]."','".date('Y-m-d')."','".$_SESSION['UserID']."','".$_SESSION['Name']."','"."0"."')" ;
 
  // print_r($sql);exit; 
 

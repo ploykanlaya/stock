@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <?php
 
 include_once 'class/db.class.php';
@@ -18,7 +17,6 @@ else{
 	$stat='เลือกช่วงเวลาเริ่มต้น';
 	$end='เลือกช่วงเวลาสิ้นสุด';
 }
-
 
     $result =$database->query("SELECT product.Product_ID,product.Product_Name,sum(requisition_detail.Number_Req) as Number_Req,sum(requisition_detail.TotalPay) as TotalPay FROM product JOIN requisition_detail ON product.Product_ID=requisition_detail.Product_ID JOIN requisition where requisition.Requisition_Date BETWEEN '".$stat."' AND '".$end."' GROUP BY product.Product_ID")->findAll() ;
 	
@@ -88,7 +86,7 @@ else{
             </div>
             <!-- #END# Select -->
 <!-- Content -->
- <?php  if(isset($result)) {  ?>
+
     	<div class="row clearfix">
 
 	        <!-- Task Info -->
@@ -138,12 +136,12 @@ else{
 
 		                                <tr>
 		                                    <td align=right><?=$index;?></td>
-		                                    <td align=right><?=$field->Product_ID;?></td>
+		                                    <td align=right><?=$field->Product_ID;?></td>	
 		                                    <td align=right><?=$field->Product_Name;?></td>           
 		                                    <td align=right><?=$field->Number_Req;?></td>
 		                                    <td align=right><?=$field->TotalPay;?></td>
 		                                 
-		                           
+		                                
 		                                </tr>
 
 	                                <?php 
@@ -155,18 +153,17 @@ else{
 	                        </table>
 	                    </div>
 
-
-	                    <h3 align=right>สรุปยอดเบิก<?php if (!empty($TotalPrice)) {
+ <?php  if(isset($result)) {  ?>
+	                   <h3 align=right>สรุปยอดเบิก<?php if (!empty($TotalPrice)) {
 	                    	echo $TotalPrice;
 	                    }?> บาท</h3>
+	                     <?php } ?>
 	                </div>
 	            </div>
 	        </div>
 	        <!-- #END# Task Info -->
 	     
 	      </div>
-
-	      <?php } ?>
     </div>
 </section>
 <!-- #END# Content -->
@@ -198,12 +195,7 @@ else{
 
 $( document ).ready(function() {
 
-	$('#requisition-table').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'excel', 'pdf', 'print'
-        ]
-    } );
+	$('#requisition-table').DataTable();
 
 	
 });

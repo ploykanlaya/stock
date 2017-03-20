@@ -50,14 +50,13 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 	        <!-- Task Info -->
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	            <div class="card">
-	                <div class="header">
-	                    <h2>รายละเอียดรายการสั่งซื้อ เลขที่ <?=$result1->PO_ID;?></h2>
-	                    
-	                
-	                </div>
-	                <div class="body">
-	                    <div class="table-responsive">
-	                    <h5>วันที่สั่งซื้อ <?=$result1->PO_OutDate;?></h5>
+   
+	                <div class="body"> 
+	                 <div id="div_print">
+	                 <div class="table-responsive">
+	                	<h3 align=center>ใบสั่งซื้อ</h3> 
+	                	<h5>รายการ เลขที่ : <?=$result1->PO_ID;?></h5> 
+	                    <h5>วันที่สั่งซื้อ : <?=$result1->PO_OutDate;?></h5>
 	                    <h5>ผู้ทำรายการ : <?=$result1->Name;?></h5>
 	                     
 	                    <div class="card">
@@ -130,6 +129,9 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 
 
 	                        <h4 align=right>ราคารวมสุทธิ <?=number_format($TotalPrice, 2, '.', ','); ?> บาท</h4>
+
+	                        </div>
+	                        </div>
 	                        <h5 align=right>สถานะการอนุมัติ
 	                        <div class="col-md-12" > 
 	                     
@@ -168,13 +170,16 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 
 
 	                        </div>
+	                        </h5>
+	                        <button name="b_print" type="button" class="btn z-btn-icon btn-text z-btn-gray z-btn-dropdown dropdown-toggle height43"  onClick="printdiv('div_print');" value=" Print "><i class="icon ion-printer"></i> พิมพ์เอกสาร</button>
+	                        <!-- <input name="b_print" type="button" class="ipt"   onClick="printdiv('div_print');" value=" Print "> -->
 	                    </div>
 	                </div>
 	            </div>
 	        </div>
 	        <!-- #END# Task Info -->
 	     
-	      </div>
+	      
 
 
     </div>
@@ -301,12 +306,7 @@ $( document ).ready(function() {
 
 $( document ).ready(function() {
 
-	$('#requisition-table').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'excel', 'pdf', 'print'
-        ]
-    } );
+	$('#requisition-table').DataTable();
 
 	
 });
@@ -335,6 +335,18 @@ $( document ).ready(function() {
       }
     </script>
 
-
+<script language="javascript">
+function printdiv(printpage)
+{
+var headstr = "<html><head><section><div><h5><h2></h2></h5></div></section></head><body>";
+var footstr = "</body>";
+var newstr = document.all.item(printpage).innerHTML;
+var oldstr = document.body.innerHTML;
+document.body.innerHTML = headstr+newstr+footstr;
+window.print();
+document.body.innerHTML = oldstr;
+return false;
+}
+</script>
 </body>
 </html>

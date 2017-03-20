@@ -50,19 +50,7 @@ if (isset($_POST["Wholesalers_ID"])) {
                     <div class="body">
                         <!-- <form id="addproduct" method="POST" action="AddRequisitionControl.php"> -->
                         <form method="POST" action="po_add.php">
-                            <div class="row clearfix">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                         <label class="form-label">รายการ</label>
-                                         <div class="form-line">                  
-                                         <?php $recent_ID =  $database->query("SELECT CAST(PO_ID as INT) AS PO_ID FROM purchaseorder ORDER BY PO_ID DESC limit 1")->findAll();
-
-                                                  ?>
-                                           <input type="text" class="form-control" name="PO_ID" readonly value="<?php echo $recent_ID[0]->PO_ID+1; ?>">
-                                        </div>
-                                    </div>
-                                </div> 
-                            </div>  
+                             
                              <!--    <div class="col-md-6">
                                     <div class="form-group">
                                          <label class="form-label">รหัสพนักงาน</label>
@@ -110,7 +98,8 @@ if (isset($_POST["Wholesalers_ID"])) {
                                                                                    
                                                     ?>
                                                      
-                                                  </select><button type="submit" class="btn btn-primary waves-effect" >ตกลง</button>
+                                                  </select>
+                                                  <button type="submit" class="btn btn-primary waves-effect" >ตกลง</button>
 
                                                <?php   }
                                                else 
@@ -134,6 +123,20 @@ if (isset($_POST["Wholesalers_ID"])) {
 
 
                         <form method="POST" action="AddProductControl_PO.php">
+                        <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                         <label class="form-label">รายการ</label>
+                                         <div class="form-line">                  
+                                         <?php $recent_ID =  $database->query("SELECT CAST(PO_ID as INT) AS PO_ID FROM purchaseorder ORDER BY PO_ID DESC limit 1")->findAll();
+
+                                                  ?>
+                                           <input type="text" class="form-control" name="PO_ID" readonly value="<?php echo $recent_ID[0]->PO_ID+1; ?>">
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div> 
+
                             <div class="row clearfix">
                                 <div class="col-lg-12">
                                     <div class="card">
