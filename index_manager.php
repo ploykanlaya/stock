@@ -96,7 +96,7 @@ $num = count($result);
 
     <!-- Line Chart -->
     <div class="row clearfix">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <div class="card">
                     <div class="header">
                         <h2>ยอดขายรวม</h2>
@@ -107,13 +107,13 @@ $num = count($result);
                     </div>
                 </div>
             </div>
-        </div> 
+      
         
             <!-- #END# Line Chart -->
 
             <!-- Pie Chart -->
-            <div class="row clearfix">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <div class="card">
                     <div class="header">
                         <h2>มูลค่าสินค้าคงเหลือแต่ละประเภท</h2>

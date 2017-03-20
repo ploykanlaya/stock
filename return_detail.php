@@ -44,22 +44,23 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 
 <!-- Content -->
 <section class="content">
+	
     <div class="container-fluid">
     	<div class="row clearfix">
 	        <!-- Task Info -->
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	            <div class="card">
-	                <div class="header">
-	                    <h2>รายละเอียดรายการคืน เลขที่ <?=$result1->ReturnOder_ID;?></h2>
-	                    
-	                
-	                </div>
+
 	                <div class="body">
-	                    <div class="table-responsive">
+	                <div id="div_print">
+
+	                    <div class="table-responsive" > 
+	                    <h3>รายการคืน เลขที่ <?=$result1->ReturnOder_ID;?></h3>
 	                    <h5>วันที่ทำรายการ <?=$result1->ReturnDate;?></h5>
 	                    <h5>ผู้ทำรายการ : <?=$result1->Name;?></h5>
 	                    <div class="card">
 	                     <div class="body">
+	                     
 	                        <table class="table table-bordered" id="requisition-table">
 
 
@@ -124,7 +125,11 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 	                        </div>
 	                        </div>
 	                        <h4 align=right>ราคารวมสุทธิ <?=number_format($TotalPrice, 2, '.', ','); ?> บาท</h4>
+	                        </div>
+	                        </div>
+
 	                        <h5 align=right>สถานะการอนุมัติ
+
 	                        <div class="col-md-12" > 
 	                  
 	                   <?php
@@ -173,14 +178,19 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 
 	                        </div>
 	                        </h5>
+	                        <input name="b_print" type="button" class="ipt"   onClick="printdiv('div_print');" value=" Print ">
 	                    </div>
-	                </div>
+	                </div>	               
+     
 	            </div>
-	        </div>
+	          </div>
+	          
+	       
 	        <!-- #END# Task Info -->
 	     
 	      </div>
-    </div>
+    
+    
 </section>
 <!-- #END# Content -->
 
@@ -284,6 +294,20 @@ $( document ).ready(function() {
 	});
 
 });
+</script>
+
+<script language="javascript">
+function printdiv(printpage)
+{
+var headstr = "<html><head><section><div><h5><h2></h2></h5></div></section></head><body>";
+var footstr = "</body>";
+var newstr = document.all.item(printpage).innerHTML;
+var oldstr = document.body.innerHTML;
+document.body.innerHTML = headstr+newstr+footstr;
+window.print();
+document.body.innerHTML = oldstr;
+return false;
+}
 </script>
 
 </body>
