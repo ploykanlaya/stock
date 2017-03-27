@@ -88,7 +88,7 @@ $result =  $database->query("SELECT * FROM returnoder where UserID='".$_SESSION[
 		                                    <!-- <td><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td> -->
 		                                     <td align=right><?=$field->UserID;?></td>
 		                                    <td align=right><?=$field->Name;?></td>
-		                                  <!--   <td align=right><?=$field->SESSION['Position'];?></td> -->
+		                                  <td align=right><?=$_SESSION['Position'];?></td> 
 		                                        
 		                                    <td><a href="return_detail.php?id=<?=$field->ReturnOder_ID;?>" class="btn btn-danger select-modal">คลิก</a></td>
 

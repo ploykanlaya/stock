@@ -58,7 +58,7 @@
 
             <li>
                 <a href="javascript:void(0);" class="menu-toggle">
-                <i class="fa fa-cart-arrow-down" style="font-size:24px"></i><span>การสั่งซื้อ</span>
+                <i class="fa fa-cart-arrow-down" style="font-size:24px"></i><span>การสั่งซื้อ-รับสินค้า</span>
                 </a>
                 <ul class="ml-menu">
                 <li>
@@ -110,9 +110,9 @@
                         <li>
                         <a href="info_product2.php">รายการสินค้า</a>
                     </li>
-                     <li>
+                    <!--  <li>
                         <a href="add_typeproduct.php">เพิ่มประเภทสินค้า</a>
-                    </li>
+                    </li> -->
                 </ul>
             </li>
 

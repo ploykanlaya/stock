@@ -53,8 +53,8 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 	                                    	<th>สถานะ</th>
 	                                    <th>วันที่สั่งซื้อ</th>
 	                                    <th>วันที่รับ</th>
-	                                     <th>รหัสพนักงาน</th>
-	                                    <th>ชื่อพนักงาน</th>
+	                                     <th>รหัสผู้ทำ</th>
+	                                    <th>ชื่อผู้ทำ</th>
 	                                    <th>รายละเอียด</th>
 	                             
 	                              </tr>
