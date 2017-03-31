@@ -155,8 +155,13 @@ else{
 	                        </table>
 	                    </div>
 
+ <?php  if(isset($result)) {  ?>
+	                   <h3 align=right>สรุปยอดซื้อ <?php if (!empty($TotalPrice)) {
+	                    	echo number_format($TotalPrice, 2, '.', ',');
+	                    }?> บาท</h3>
+	                     <?php } ?>
 
-	                    <h3 align=right>สรุปยอดซื้อ <?=number_format($TotalPrice, 2, '.', ',');?> บาท</h3>
+
 	                </div>
 	            </div>
 	        </div>
@@ -193,12 +198,7 @@ else{
 
 $( document ).ready(function() {
 
-	$('#requisition-table').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'excel', 'pdf', 'print'
-        ]
-    } );
+	$('#requisition-table').DataTable();
 
 	
 });

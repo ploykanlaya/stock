@@ -144,7 +144,11 @@ else{
 	                    </div>
 
 
-	                    <h3 align=right>สรุปยอดคืน <?=number_format($TotalPrice, 2, '.', ',');?> บาท</h3>
+	              <?php  if(isset($result)) {  ?>
+	                   <h3 align=right>สรุปยอดคืน <?php if (!empty($TotalPrice)) {
+	                    	echo number_format($TotalPrice, 2, '.', ',');
+	                    }?> บาท</h3>
+	                     <?php } ?>
 	                   
 	                </div>
 	            </div>

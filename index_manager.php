@@ -29,7 +29,7 @@ $num = count($result);
 <section class="content">
     <div class="container-fluid">
     <div class="block-header">
-        <h2>รายการรออนุมัติ</h2>
+        <h2>คุณมีรายการแจ้งเตือน !!</h2>
     </div>
 
     <!-- Widgets -->

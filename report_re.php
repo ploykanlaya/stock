@@ -154,8 +154,8 @@ else{
 	                    </div>
 
  <?php  if(isset($result)) {  ?>
-	                   <h3 align=right>สรุปยอดเบิก<?php if (!empty($TotalPrice)) {
-	                    	echo $TotalPrice;
+	                   <h3 align=right>สรุปยอดเบิก <?php if (!empty($TotalPrice)) {
+	                    	echo number_format($TotalPrice, 2, '.', ',');
 	                    }?> บาท</h3>
 	                     <?php } ?>
 	                </div>
