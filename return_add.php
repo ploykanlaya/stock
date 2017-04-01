@@ -9,7 +9,13 @@ $database = new DB();
 /*====================================================
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
-$product =  $database->query("SELECT * FROM product")->findAll();
+if (isset($_POST["Wholesalers_ID"])) {
+    $product =  $database->query("SELECT * FROM product where Wholesalers_ID=('".$_POST["Wholesalers_ID"]."')")->findAll();
+    $name =$database->query("SELECT * FROM Wholesalers where Wholesalers_ID=('".$_POST["Wholesalers_ID"]."')")->findAll();
+}
+
+ $sqli = $database->query("SELECT Wholesalers_ID,Wholesalers_Name FROM Wholesalers")->findAll();
+
 
 ?>
 <!-- Head -->
@@ -86,6 +92,9 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                     </div>
                                 </div>
                             </div>  
+
+
+                            <form method="POST" action="AddProductControl_return.php">
                             <div class="row clearfix">
                                 <div class="col-lg-12">
                                     <div class="card">

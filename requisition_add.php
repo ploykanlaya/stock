@@ -9,7 +9,13 @@ $database = new DB();
 /*====================================================
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
-$product =  $database->query("SELECT * FROM product")->findAll();
+if (isset($_POST["Wholesalers_ID"])) {
+    $product =  $database->query("SELECT * FROM product where Wholesalers_ID=('".$_POST["Wholesalers_ID"]."')")->findAll();
+    $name =$database->query("SELECT * FROM Wholesalers where Wholesalers_ID=('".$_POST["Wholesalers_ID"]."')")->findAll();
+}
+
+ $sqli = $database->query("SELECT Wholesalers_ID,Wholesalers_Name FROM Wholesalers")->findAll();
+
 
 ?>
 <!-- Head -->
@@ -39,20 +45,8 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                     </div>
                     <div class="body">
                         <!-- <form id="addproduct" method="POST" action="AddRequisitionControl.php"> -->
-                        <form method="POST" action="AddProductControl.php">
+                         <form method="POST" action="requisition_add.php"> 
                           
-                            <div class="row clearfix">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                         <label class="form-label">รายการ</label>
-                                         <div class="form-line">                  
-                                         <?php $recent_ID =  $database->query("SELECT Requisition_ID FROM requisition ORDER BY Requisition_ID DESC limit 1")->findAll();
-
-                                                  ?>
-                                           <input type="text" class="form-control" name="Requisition_ID" readonly value="<?php echo $recent_ID[0]->Requisition_ID+1; ?>">
-                                        </div>
-                                    </div>
-                                </div>   
 
                                      
                              <!--    <div class="col-md-6">
@@ -72,15 +66,71 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                     </div>
                                 </div>      
                                -->
-                                <div class="col-md-6">                              
+                           <!--      <div class="col-md-6">                              
                                     <div class="form-group">
                                         <label class="form-label">วันทำการ</label>
                                         <div class="form-line">
                                            <input type="text" class="datepicker form-control" name="Requisition_Date" placeholder="คลิกที่นี่" required>
                                         </div>
                                     </div>
+                                </div> -->
+                            
+                             <div class="row clearfix">
+                                <!-- <div class="col-md-6">                              
+                                    <div class="form-group">
+                                        <label class="form-label">วันทำการ</label>
+                                        <div class="form-line">
+                                           <input type="text" class="datepicker form-control" name="PO_OutDate" placeholder="คลิกที่นี่" required>
+                                        </div>
+                                    </div>
+                                </div> -->
+                           
+
+                     
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                     <label class="form-label">ร้านค้าส่ง</label><br>
+ 
+                                               <?php if (empty($_POST['Wholesalers_ID'])){ ?>
+                                                <select name="Wholesalers_ID" class="form-control" >
+                                                       <option>เลือกร้านค้าส่ง</option>
+                                                    
+                                                      <?php
+                                                        foreach ($sqli as $row1) {
+
+                                                            echo " <option value=".$row1->Wholesalers_ID." >
+
+                                                                    ".$row1->Wholesalers_Name."</option>";                 
+                                                        }
+                                                                                   
+                                                    ?>
+                                                     
+                                                  </select><button type="submit" class="btn btn-primary waves-effect" >ตกลง</button>
+
+                                               <?php   }
+                                               else 
+
+                                                echo $name[0]->Wholesalers_Name; ?>
+                                    </div>
                                 </div>
-                            </div>  
+                                </div>
+                            </form>
+
+
+                              <form method="POST" action="AddProductControl.php">
+                                <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                         <label class="form-label">รายการ</label>
+                                         <div class="form-line">                  
+                                         <?php $recent_ID =  $database->query("SELECT Requisition_ID FROM requisition ORDER BY Requisition_ID DESC limit 1")->findAll();
+
+                                                  ?>
+                                           <input type="text" class="form-control" name="Requisition_ID" readonly value="<?php echo $recent_ID[0]->Requisition_ID+1; ?>">
+                                        </div>
+                                    </div>
+                                </div>   
+                            </div>
                             <div class="row clearfix">
                                 <div class="col-lg-12">
                                     <div class="card">
