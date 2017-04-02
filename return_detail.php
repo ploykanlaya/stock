@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+
+
 <?php
 
 include_once 'class/db.class.php';
@@ -52,7 +54,7 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 	            <div class="card">
 
 	                <div class="body">
-	                <div id="div_print">
+	                 <div id="div_print">
 
 	                    <div class="table-responsive" > 
 	                    <h3>รายการคืน เลขที่ <?=$result1->ReturnOder_ID;?></h3>
@@ -122,11 +124,37 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 
 	                            
 	                        </table>
+	                        
 	                        </div>
 	                        </div>
+
 	                        <h4 align=right>ราคารวมสุทธิ <?=number_format($TotalPrice, 2, '.', ','); ?> บาท</h4>
 	                        </div>
-	                        </div>
+	                     
+		 		<hr>
+	                        <TABLE align=center   width="80%" height="100" >
+            
+            <TR>
+                     <TH> ผู้รับสินค้า	</TH>
+                     <TH> ผู้ส่งสินค้า</TH>
+                     <TH> ผู้รับเงิน</TH>
+                     <TH> ผู้อนุมัติ</TH>
+            </TR> 
+            <TR>
+                     <TD> .......................</TD>
+                     <TD> .......................</TD>
+                     <TD> .......................</TD>
+                     <TD> ....................... </TD>
+             </TR>
+             <TR>
+                     <TD> วันที่...............	</TD>
+                     <TD> วันที่...............</TD>
+                     <TD> วันที่...............</TD>
+                     <TD> วันที่...............	</TD>
+             </TR>
+          
+			</TABLE>    </div>  
+
 
 	                        <h5 align=right>สถานะการอนุมัติ
 
@@ -178,8 +206,8 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 
 	                        </div>
 	                        </h5>
-	                        <input name="b_print" type="button" class="ipt"   onClick="printdiv('div_print');" value=" Print ">
-	                    </div>
+	                        <button name="b_print" type="button" class="btn z-btn-icon btn-text z-btn-gray z-btn-dropdown dropdown-toggle height43"  onClick="printdiv('div_print');" value=" Print "><i class="icon ion-printer"></i> พิมพ์เอกสาร</button>
+	                   
 	                </div>	               
      
 	            </div>
@@ -188,6 +216,7 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 	       
 	        <!-- #END# Task Info -->
 	     
+	      </div>
 	      </div>
     
     
@@ -295,6 +324,42 @@ $( document ).ready(function() {
 
 });
 </script>
+
+<script language="javascript">
+function printdiv(printpage)
+{
+var headstr = "<html><head><section><div><h5><h2></h2></h5></div></section></head><body>";
+var footstr = "</body>";
+var newstr = document.all.item(printpage).innerHTML;
+var oldstr = document.body.innerHTML;
+document.body.innerHTML = headstr+newstr+footstr;
+window.print();
+document.body.innerHTML = oldstr;
+return false;
+}
+</script>
+
+<script language="JavaScript">
+
+      function addCommas(nStr)
+      {
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+          x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
+      }
+
+      function chkNum(ele)
+      {
+        var num = parseFloat(ele.value);
+        ele.value = addCommas(num.toFixed(2));
+      }
+    </script>
 
 <script language="javascript">
 function printdiv(printpage)

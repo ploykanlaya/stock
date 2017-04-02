@@ -45,10 +45,44 @@ if (isset($_POST["Wholesalers_ID"])) {
                     </div>
                     <div class="body">
                         <!-- <form id="addproduct" method="POST" action="AddRequisitionControl.php"> -->
-                        <form method="POST" action="AddProductControl_return.php">
+                        <form method="POST" action="return_add.php">
                           
                             <div class="row clearfix">
-                                <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                     <label class="form-label">ร้านค้าส่ง</label><br>
+ 
+                                               <?php if (empty($_POST['Wholesalers_ID'])){ ?>
+                                                <select name="Wholesalers_ID" class="form-control" >
+                                                       <option>เลือกร้านค้าส่ง</option>
+                                                    
+                                                      <?php
+                                                        foreach ($sqli as $row1) {
+
+                                                            echo " <option value=".$row1->Wholesalers_ID." >
+
+                                                                    ".$row1->Wholesalers_Name."</option>";                 
+                                                        }
+                                                                                   
+                                                    ?>
+                                                     
+                                                  </select><button type="submit" class="btn btn-primary waves-effect" >ตกลง</button>
+
+                                               <?php   }
+                                               else 
+
+                                                echo $name[0]->Wholesalers_Name; ?>
+                                                   
+                                        </div>     
+                                        </div>
+                                        </div>
+
+                            </form>  
+
+
+                            <form method="POST" action="AddProductControl_return.php">
+                             <div class="row clearfix">
+                              <div class="col-md-12">
                                     <div class="form-group">
                                          <label class="form-label">รายการ</label>
                                          <div class="form-line">
@@ -62,39 +96,8 @@ if (isset($_POST["Wholesalers_ID"])) {
                                            <input type="text" class="form-control" name="ReturnOder_ID" readonly value="<?php echo $recent_ID[0]->ReturnOder_ID+1; ?>">
                                         </div>
                                     </div>
-                                </div>   
-
-
-                                     
-                             <!--    <div class="col-md-6">
-                                    <div class="form-group">
-                                         <label class="form-label">รหัสพนักงาน</label>
-                                         <div class="form-line">
-                                             <input type="text" class="form-control" name="UserID"  required>
-                                        </div>
-                                    </div>
+                                </div> 
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                         <label class="form-label">ชื่อพนักงาน</label>
-                                         <div class="form-line">                                       
-                                           <input type="text" class="form-control" name="Name"  required>
-                                        </div>
-                                    </div>
-                                </div>      
-                               -->
-                                <div class="col-md-6">                              
-                                    <div class="form-group">
-                                        <label class="form-label">วันทำการ</label>
-                                        <div class="form-line">
-                                           <input type="text" class="datepicker form-control" name="ReturnDate" placeholder="คลิกที่นี่" required>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>  
-
-
-                            <form method="POST" action="AddProductControl_return.php">
                             <div class="row clearfix">
                                 <div class="col-lg-12">
                                     <div class="card">

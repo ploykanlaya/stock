@@ -131,6 +131,30 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 	                        <h4 align=right>ราคารวมสุทธิ <?=number_format($TotalPrice, 2, '.', ','); ?> บาท</h4>
 
 	                        </div>
+
+	                        <hr>
+	                        <TABLE align=center   width="80%" height="100" >
+            
+            <TR>
+                     <TH> ผู้รับสินค้า	</TH>
+                     <TH> ผู้ส่งสินค้า</TH>
+                     <TH> ผู้รับเงิน</TH>
+                     <TH> ผู้อนุมัติ</TH>
+            </TR> 
+            <TR>
+                     <TD> .......................</TD>
+                     <TD> .......................</TD>
+                     <TD> .......................</TD>
+                     <TD> ....................... </TD>
+             </TR>
+             <TR>
+                     <TD> วันที่...............	</TD>
+                     <TD> วันที่...............</TD>
+                     <TD> วันที่...............</TD>
+                     <TD> วันที่...............	</TD>
+             </TR>
+          
+			</TABLE>
 	                        </div>
 	                        <h5 align=right>สถานะการอนุมัติ
 	                        <div class="col-md-12" > 

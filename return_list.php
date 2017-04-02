@@ -32,6 +32,9 @@ $result =  $database->query("SELECT * FROM returnoder where UserID='".$_SESSION[
 
 }
 
+// $result2 =  $database->query("SELECT Position FROM u.user join r.returnoder on u.UserID=r.UserID ")->findAll();
+// // print_r($result2);exit();
+
 ?>
 <!-- Content -->
 <section class="content">
@@ -88,7 +91,7 @@ $result =  $database->query("SELECT * FROM returnoder where UserID='".$_SESSION[
 		                                    <!-- <td><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td> -->
 		                                     <td align=right><?=$field->UserID;?></td>
 		                                    <td align=right><?=$field->Name;?></td>
-		                                  <td align=right><?=$_SESSION['Position'];?></td> 
+		                                  <td align=right><?=$field->Position;?></td> 
 		                                        
 		                                    <td><a href="return_detail.php?id=<?=$field->ReturnOder_ID;?>" class="btn btn-danger select-modal">คลิก</a></td>
 

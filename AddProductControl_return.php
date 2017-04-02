@@ -11,7 +11,7 @@ include_once 'class/db.class.php';
 
 $database = new DB();
 
-$sql = "INSERT INTO returnoder (ReturnOder_ID,ReturnDate,UserID,Name,Status) VALUES ('".$_POST["ReturnOder_ID"]."','".date('Y-m-d', $time)."','".$_SESSION['UserID']."','".$_SESSION['Name']."','"."0"."')" ;
+$sql = "INSERT INTO returnoder (ReturnOder_ID,ReturnDate,UserID,Name,Status,Position) VALUES ('".$_POST["ReturnOder_ID"]."','".date('Y-m-d', $time)."','".$_SESSION['UserID']."','".$_SESSION['Name']."','"."0"."','".$_SESSION['Position']."')" ;
 
 // print_r($sql); 
 

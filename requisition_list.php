@@ -84,7 +84,18 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 		                                    	
 		                                    </td>
 		                                    <td align=right><?=date('d/m/Y', strtotime($field->Requisition_Date));?></td>
-		                                    <td align=right><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td>
+		                                   
+		                                    <td align=right> <?php 
+										date('d/m/Y', strtotime($field->DeliveryDate));
+											$date1=date('d/m/Y', strtotime($field->DeliveryDate));
+											if ($field->Status == 1) {
+												echo "$date1";
+											}
+											else{
+
+												echo "";
+											}
+											?>  </td> 
 		                                     <td align=right><?=$field->UserID;?></td>
 		                                    <td align=right><?=$field->Name;?></td>
 		                                        

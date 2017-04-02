@@ -12,6 +12,11 @@ $items =  $database->query("SELECT * FROM requisition_detail WHERE Requisition_I
 foreach ($items as $field) {
 	$result =  $database->query("UPDATE product SET Numstock= Numstock - ".$field->Number_Req." WHERE Product_ID = ".$field->Product_ID);
 }
+
+
+	$date1=date("Y/m/d");
+	$result2 =  $database->query("UPDATE requisition SET DeliveryDate='".$date1."' WHERE Requisition_ID='".$_POST['id']."'" );
+
 }
 
 

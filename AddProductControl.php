@@ -5,7 +5,7 @@ $allPosts = $_POST['Product_ID'];
 $countPosts = count($allPosts);
 
 
-$time = strtotime($_POST["Requisition_Date"]);//;วันที่
+$time=strtotime(date('Y-m-d'));//;วันที่
 
 include_once 'class/db.class.php';
 
