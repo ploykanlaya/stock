@@ -9,6 +9,17 @@ $database = new DB();
     <div class="container-fluid">
         <div class="block-header">
             <h2>ตัวอย่างกราฟ</h2>
+            <?php 
+
+$time=date('Y-m-d');
+$sql="SELECT DATE_FORMAT(requisition.Requisition_Date,'%m') AS Requisition_Date
+, SUM(requisition_detail.TotalPay) AS TotalPay
+FROM requisition JOIN requisition_detail on requisition.Requisition_ID=requisition_detail.Requisition_ID where requisition.Requisition_Date = YEAR($time)
+";
+
+echo ($sql);exit();
+
+             ?>
         </div>
 <!-- Basic Examples -->
 
@@ -53,11 +64,14 @@ $database = new DB();
 </div>
 <?php 
 
+$time=date('Y-m-d');
+
 $result = $database->query("SELECT DATE_FORMAT(requisition.Requisition_Date,'%m') AS Requisition_Date
 , SUM(requisition_detail.TotalPay) AS TotalPay
-FROM requisition JOIN requisition_detail on requisition.Requisition_ID=requisition_detail.Requisition_ID 
+FROM requisition JOIN requisition_detail on requisition.Requisition_ID=requisition_detail.Requisition_ID where year_column = YEAR($time)
 GROUP BY DATE_FORMAT(requisition.Requisition_Date,'%m-%Y')")->findAll();
 
+ print_r($result);exit();
 
 $count=count($result);
 $x=0;
