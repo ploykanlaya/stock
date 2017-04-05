@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <?php
 
 include_once 'class/db.class.php';
@@ -14,7 +18,7 @@ $result1 =  $database->query("SELECT * From purchaseorder where PO_ID='".$_GET['
  // print_r($result1);exit();
 
 
-$result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_ID, R.PO_ID, P.Product_Name, P.Price,P.Numstock,Po.Status FROM Product AS P JOIN po_detail AS R ON P.Product_ID = R.Product_ID JOIN purchaseorder as Po on R.PO_ID=Po.PO_ID where Po.PO_ID='".$_GET['id']."'" )->findAll();
+$result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID, R.PO_ID, R.PO_ID, P.Product_Name, P.Price,P.Numstock,Po.Status FROM Product AS P JOIN po_detail AS R ON P.Product_ID = R.Product_ID JOIN purchaseorder as Po on R.PO_ID=Po.PO_ID where Po.PO_ID='".$_GET['id']."'" )->findAll();
 
 
 // "SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Requisition_ID, R.Requisition_Date, P.Product_Name, P.Price,P.Numstock,R.Status FROM Product AS P JOIN requisition_detail AS R ON P.Product_ID = R.Product_ID JOIN requisition as Re on R.Requisition_ID=Re.Requisition_ID where Re.Requisition_ID='".$_GET['id']."'"
@@ -73,6 +77,7 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 	                                    <th>คงเหลือ</th>
 	                                     <th>จำนวนที่สั่ง</th>
 	                                    <th>ราคาต่อหน่วย</th>
+	                                    <th>หน่วยนับ</th>
 	                                    <th>ราคารวม</th>
 	                                       <!--   <th>รับสินค้า</th> -->
 	                                </tr>
@@ -106,6 +111,7 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 		                                 	<td align=right><?=$field->Numstock;?></td>
 		                                 	<td align=right><?=$field->Quantity;?></td>		                                       
 		                                    <td align=right><?=number_format($field->Price, 2, '.', ',');?></td>
+		                                    <td align=right><?=$field->Unit;?></td>
 		                                    
 		                                    <td align=right><?=number_format($field->TotalPay, 2, '.', ',');?></td> 
 		                                   	
@@ -195,8 +201,14 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 
 	                        </div>
 	                        </h5>
-	                        <button name="b_print" type="button" class="btn z-btn-icon btn-text z-btn-gray z-btn-dropdown dropdown-toggle height43"  onClick="printdiv('div_print');" value=" Print "><i class="icon ion-printer"></i> พิมพ์เอกสาร</button>
-	                        <!-- <input name="b_print" type="button" class="ipt"   onClick="printdiv('div_print');" value=" Print "> -->
+	                        <button name="b_print" type="button" class="btn z-btn-icon btn-text z-btn-gray z-btn-dropdown dropdown-toggle height43"  onClick="printdiv('div_print');" value=" Print "><i class="glyphicon glyphicon-print"></i> พิมพ์เอกสาร</button>
+
+
+	                       <button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">ปรับจำนวนสั่งซื้อ</button>
+                                    
+
+
+	                        
 	                    </div>
 	                </div>
 	            </div>
@@ -209,6 +221,59 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
     </div>
 </section>
 <!-- #END# Content -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">ปรับจำนวน</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered" id="requisition-table">
+            <thead>
+              <tr>
+                <th>รหัส</th>
+                <th>ชื่อสินค้า</th>
+                <th>ราคา</th> 
+                <th>หน่วยนับ</th>
+                <th>คงเหลือในคลัง</th>
+                <th>จำนวนที่สั่งซื้อ</th>
+              </tr>
+            </thead>
+            <tbody>
+                
+                <?php 
+
+
+                    foreach ($result as $data) {
+                        echo '<form action="update_po.php" method="POST">
+                        	<input type="hidden" name="PO_ID" value="<?php echo $rows['PO_ID']; ?>">
+                        <tr>
+                        <td align=right>'.$data->Product_ID.'</td>
+                        <td >'.$data->Product_Name.'</td>
+                       
+                        <td align=right>'.number_format($data->Price, 2, '.', ',').'</td>
+                         <td >'.$data->Unit.'</td>
+                        <td align=right>'.$data->Numstock.'</td>
+                        <td align=right><input type="number" name="Quantity" class="form-control" value="'.$data->Quantity.'"></td>
+                        <td> <button type="submit" class="btn btn-primary">อัทเดท</button></td>
+	                        </tr></form>';
+
+
+                    }
+                ?>
+
+                
+            </tbody>
+          </table>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
 
 <!-- Modal -->
 <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -235,6 +300,64 @@ $result =  $database->query("SELECT R.Quantity, R.TotalPay, P.Product_ID, R.PO_I
 
     <!-- Demo Js -->
        <?php include 'script.php'; ?>  
+
+       <script type="text/javascript">
+    // function cloneRow() {
+    //     var content = document.querySelector('template').content;
+    //     document.querySelector('#tableToModify').appendChild(
+    //     document.importNode(content, true));
+    //     var rowCount = $('#select-product-list tbody > tr').length-1;
+    //     var i = rowCount+1;
+
+    //     var last = $('#select-product-list tbody > tr:last');
+    //     last.attr('id','tr-'+i);
+    //     last.find("button").attr('id','btn-'+i);
+    // }    
+
+    function selectModal(){
+        $("#myModal").modal("show");
+    }
+
+    // function getSecondPart(str) {
+    //     return str.split('-')[1];
+    // }
+
+    $( document ).ready(function() {
+
+        $('#product-table').dataTable();
+
+        $('#confirm').click(function(){
+            var tbody= "";
+            $('#product-table > tbody  > tr').each(function() {
+                var id = $(this).find('input[name="amount"]').data('id');
+                var name = $(this).find('input[name="amount"]').data("name");
+                var unit = $(this).find('input[name="amount"]').data("unit");
+                var price = $(this).find('input[name="amount"]').data("price");
+                var amount = $(this).find('input[name="amount"]').val();
+                if(amount > 0){
+                    tbody = tbody+'<tr>'+                                     
+                        '<td><input value="'+id+'" type="text" class="form-control" name="Product_ID[]" readonly="true"></td>'+
+                        '<td><input value="'+name+'" type="text" class="form-control" name="Product_Name[]" readonly="true"></td>'+  
+                        '<td><input value="'+amount+'" type="number" class="form-control" name="Quantity[]" min="1" text="1"></td>'+
+                        '<td><input value="'+price+'" type="text" class="form-control" name="Price[]" readonly="true"></td>'+
+                        '<td><input value="'+unit+'" type="text" class="form-control" name="Unit[]" readonly="true"></td>'+
+                        '<td><input value="'+(price*amount)+'" type="text" class="form-control" name="TotalPay[]" readonly="true"></td>'+
+                        '</tr>';
+                }
+            });
+            $('#tableToModify').html(tbody);
+            $("#myModal").modal("hide");
+        });
+
+        $(".numb-request").change(function() { 
+            var _this = this;
+            var value = $(this).val();
+            var price = $(_this).parent().parent().find("input[name=Price]").val();
+            $(_this).parent().parent().find("input[name=TotalPay]").val(value*price);
+        });
+    });
+   
+</script>
 <!-- #END# Script Sidebar -->
 <!-- <script type="text/javascript">
 	$(".btn-confirm").on('click',function(){
