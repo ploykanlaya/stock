@@ -75,7 +75,7 @@
                                     
                                          <label class="form-label">ราคาขายสินค้า</label>
                                         
-                                             <input type="text" class="form-control numb-request" name="Price" placeholder="Price" min="0" text="1"  OnChange="JavaScript:chkNum(this)" required >
+                                             <input type="number" class="form-control numb-request" name="Price" placeholder="Price" min="1" text="1"  OnChange="JavaScript:chkNum(this)" required >
                                       
                                 </div>
 
@@ -96,14 +96,14 @@
                                     
                                      <label class="form-label">จำนวนยกยอดมา</label>
                                         
-                                             <input type="number" class="form-control numb-request" id="Numstock" name="Numstock" placeholder="Numstock" min="0" text="1"  required >
+                                             <input type="number" class="form-control numb-request" id="Numstock" name="Numstock" placeholder="Numstock" min="1" text="1"  required >
                                         
                                 </div>
                                 <div class="col-md-6">
                                     
                                      <label class="form-label">จุดสั่งซื้อสินค้าใหม่</label>
                                         
-                                              <input type="number" class="form-control numb-request" id="SafetyStock" name="SafetyStock" placeholder="SafetyStock" min="0" text="1" required >
+                                              <input type="number" class="form-control numb-request" id="SafetyStock" name="SafetyStock" placeholder="SafetyStock" min="1" text="1" required >
                                         
                                 </div>
 
