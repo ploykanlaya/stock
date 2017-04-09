@@ -53,8 +53,8 @@ if (isset($_POST["Wholesalers_ID"])) {
                                      <label class="form-label">ร้านค้าส่ง</label><br>
  
                                                <?php if (empty($_POST['Wholesalers_ID'])){ ?>
-                                                <select name="Wholesalers_ID" class="form-control" >
-                                                       <option>เลือกร้านค้าส่ง</option>
+                                                <select name="Wholesalers_ID" class="form-control" required>
+                                                       <option value="">เลือกร้านค้าส่ง</option>
                                                     
                                                       <?php
                                                         foreach ($sqli as $row1) {
@@ -78,7 +78,12 @@ if (isset($_POST["Wholesalers_ID"])) {
                                         </div>
 
                             </form>  
+                            <?php 
+                            if (isset($_POST['Wholesalers_ID'])) {
+                                
+                            
 
+                             ?>
 
                             <form method="POST" action="AddProductControl_return.php">
                              <div class="row clearfix">
@@ -125,8 +130,10 @@ if (isset($_POST["Wholesalers_ID"])) {
                                      </div>
                                 </div>
                             </div>    
+
                              <button type="submit" class="btn btn-danger btn-lg btn-block">บันทึก</button>
                         </form>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

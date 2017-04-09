@@ -104,7 +104,7 @@
                      <div class="form-group">
                      <label class="position">ตำแหน่ง</label>
                     
-                        <input type="radio" name="position" id="pos0" class="filled-in chk-col-pink" value="ผู้จัดการ">
+                        <input type="radio" name="position" id="pos0" class="filled-in chk-col-pink" value="ผู้จัดการ" required>
                         <label for="pos0">ผู้จัดการ</label>
                         <input type="radio" name="position" id="pos1" class="filled-in chk-col-pink" value="พนักงาน">
                         <label for="pos1">พนักงาน</label>
@@ -112,7 +112,7 @@
 
                 <div class="input-group">
                        <label class="Image">เลือกรูปภาพโปรไฟล์</label>
-                        <input type="file"  name="Image" id="Image">
+                        <input type="file"  name="Image" id="Image" required>
                </div>
 
                                    
