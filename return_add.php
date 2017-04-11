@@ -85,7 +85,7 @@ if (isset($_POST["Wholesalers_ID"])) {
 
                              ?>
 
-                            <form method="POST" action="AddProductControl_return.php">
+                            <form method="POST" action="AddProductControl_return.php" ล >
                              <div class="row clearfix">
                               <div class="col-md-12">
                                     <div class="form-group">
@@ -126,7 +126,7 @@ if (isset($_POST["Wholesalers_ID"])) {
                                             </tbody>
                                         </table>  
 
-                                        <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">+ เลือกสินค้า</button></div>
+                                        <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="selectModal()" required>+ เลือกสินค้า </button></div>
                                      </div>
                                 </div>
                             </div>    

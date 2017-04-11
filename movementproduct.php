@@ -137,10 +137,11 @@ else{
 	                                <tr>
 	                                    <th>#</th>
 	                                    <th>รหัสสินค้า</th>
+
 	                                     <th>ประเภท</th>
 	                                    <th>สถานะ</th>
-	                                    <th>จำนำวน</th>
-	                                    <th>วันที่</th>
+	                                    <th>จำนวน</th>
+	                                    <th>วันที่ทำรายการ</th>
 
 	                                    
 	                             
@@ -196,7 +197,7 @@ else{
 		                                    <td align=right><?=$index;?></td>
 		                                    <td align=right><?=$field->Product_ID;?></td>
 		                                    
-		                                    <td align=right>ซื้อ</td>
+		                                    <td align=right>สั่งซื้อ</td>
 		                                        <td align=right>
                                                 <?php if ($field->Status == 0) 
                                                         echo "รอรับสินค้า";

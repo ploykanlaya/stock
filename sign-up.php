@@ -36,7 +36,7 @@
                                     
                                          <label class="form-label">ชื่อ</label>
                                                                                 
-                                           <input type="text" class="form-control" name="Name" placeholder="Name" required autofocus>
+                                           <input type="text" class="form-control" name="Name" placeholder="Name" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" required autofocus>
                                        
                                     
                                 </div>
@@ -48,7 +48,7 @@
                                     
                                          <label class="form-label">นามสกุล</label>
                                         
-                                            <input type="text" class="form-control" name="surname" placeholder="SurName" required >
+                                            <input type="text" class="form-control" name="surname" placeholder="SurName" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" required >
                                       
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                                    
                                       <label class="form-label">เบอร์โทรศัพท์</label>
                                         
-                                             <input type="text" class="form-control" name="Telephone" placeholder="Telephone" required>
+                                             <input type="text" class="form-control" name="Telephone" placeholder="Telephone" maxlength=10 onKeyUp="if(this.value*1!=this.value) this.value='' ;" required>
                                   </div>
                                   </div>  
 
@@ -67,7 +67,7 @@
                                     
                                      <label class="form-label">ที่อยู่</label>
                                         
-                                             <input type="text" class="form-control" name="Address" placeholder="Address" required>
+                                             <input type="text" class="form-control" name="Address" placeholder="Address" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" required>
                                         
                                 </div>
                                 </div>
@@ -77,7 +77,7 @@
                                     
                                      <label class="form-label">ชื่อผู้ใช้งาน</label>
                                         
-                                              <input type="text" class="form-control" name="Username" placeholder="Username" required>
+                                              <input type="text" class="form-control" name="Username" placeholder="Username" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" required>
                                         
                                 </div>
                                 </div>

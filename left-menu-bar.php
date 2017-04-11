@@ -45,13 +45,13 @@
                         <a href="movementproduct.php">การเคลื่อนไหวสินค้า</a>
                     </li>
                     <li>
-                        <a href="report_re.php">ยอดเบิก</a>
+                        <a href="report_re.php">ยอดรวมการเบิก</a>
                     </li>
                     <li>
-                        <a href="report_po.php">ยอดสั่งซื้อ</a>
+                        <a href="report_po.php">ยอดรวมสั่งซื้อ</a>
                     </li>
                     <li>
-                        <a href="report_return.php">ยอดคืนสินค้า</a>
+                        <a href="report_return.php">ยอดรวมคืนสินค้า</a>
                     </li>
                 </ul>
             </li>

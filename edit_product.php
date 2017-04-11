@@ -57,18 +57,7 @@
                             <h2>
                                 แก้ไขข้อมูลสินค้า
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                           
                         </div>
                         <div class="body">
                             <form class="form-horizontal" method="POST" action="EditProductControl.php"> 
@@ -79,7 +68,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                             <input type="text" class="form-control" name="Product_Name" placeholder="ชื่อ-สกุล" value='<?php echo $Product_Name ?>' required autofocus/>
+                                             <input type="text" class="form-control" name="Product_Name" placeholder="ชื่อ-สกุล" value='<?php echo $Product_Name ?>' onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='<?php echo $Product_Name ?>';}" required autofocus/>
                          <input type="hidden" name="Product_ID" value='<?php echo $Product_ID ?>'/>
                                             </div>
                                         </div>
@@ -93,7 +82,8 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                 <input type="text" class="form-control" name="Price" placeholder="Price" value='<?php echo $Price ?>'>
+                                             
+                                                 <input type="text" class="form-control" name="Price" placeholder="Price" value='<?php echo $Price ?>' onKeyPress="CheckNum()"  OnChange="JavaScript:chkNum(this)" required>
                             
                                             </div>
                                         </div>
@@ -106,25 +96,13 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                               <input type="text" class="form-control" name="Unit" placeholder="Unit" value='<?php echo $Unit ?>'>
+                                               <input type="text" class="form-control" name="Unit" placeholder="Unit" value='<?php echo $Unit ?>' required>
                             
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                     <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="Username">จำนวนที่ยกยอดมา</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                               <input type="text" class="form-control" name="Numstock" placeholder="Numstock" value='<?php echo $Numstock ?>'>
-                            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                 
                                      <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                         <label for="SafetyStock">จุดสั่งซื้อใหม่</label>
@@ -132,26 +110,13 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                               <input type="text" class="form-control" name="SafetyStock" placeholder="SafetyStock" value='<?php echo $SafetyStock ?>'>
+                                               <input type="number" class="form-control" name="SafetyStock" placeholder="SafetyStock" min="1" text="1" value='<?php echo $SafetyStock ?>' required>
                             
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                     <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="Username">วันที่นำเข้า</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                               <input type="text" class="form-control" name="ExpDate" placeholder="Date" value='<?php echo $ExpDate ?>'>
-                            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                     
+                                    
                            <!--      <div class="row clearfix">
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
                                         <input type="checkbox" id="remember_me_3" class="filled-in">
@@ -202,6 +167,35 @@
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
+
+    <script language="javascript">
+function CheckNum(){
+    if (event.keyCode < 49 || event.keyCode > 57){
+          event.returnValue = false;
+        }
+  }
+</script>
+    <script language="JavaScript">
+
+      function addCommas(nStr)
+      {
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+          x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
+      }
+
+      function chkNum(ele)
+      {
+        var num = parseFloat(ele.value);
+        ele.value = addCommas(num.toFixed(2));
+      }
+    </script>
 </body>
 
 </html>

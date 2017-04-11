@@ -63,7 +63,7 @@
                                     
                                          <label class="form-label">ชื่อสินค้า</label>
                                                                                 
-                                           <input type="text" class="form-control" name="Product_Name" placeholder="Product_Name" required autofocus>
+                                           <input type="text" class="form-control" name="Product_Name" placeholder="Product_Name" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" required autofocus>
                                        
                                     
                                 </div>
@@ -75,7 +75,7 @@
                                     
                                          <label class="form-label">ราคาขายสินค้า</label>
                                         
-                                             <input type="number" class="form-control numb-request" name="Price" placeholder="Price" min="1" text="1"  OnChange="JavaScript:chkNum(this)" required >
+                                             <input type="text" class="form-control numb-request" id="Price" name="Price" placeholder="Price" min="1" text="1" onKeyPress="CheckNum()"  OnChange="JavaScript:chkNum(this)" required >
                                       
                                 </div>
 
@@ -83,7 +83,7 @@
                                    
                                       <label class="form-label">หน่วยนับสินค้า</label>
                                         
-                                             <input type="text" class="form-control" name="Unit" placeholder="Unit" required>
+                                             <input type="text" class="form-control" name="Unit" placeholder="Unit" onKeyUp="if(!(isNaN(this.value))) { alert('กรุณากรอกอักษร'); this.value='';}" required>
                                        
 
                                 </div>
@@ -96,7 +96,7 @@
                                     
                                      <label class="form-label">จำนวนยกยอดมา</label>
                                         
-                                             <input type="number" class="form-control numb-request" id="Numstock" name="Numstock" placeholder="Numstock" min="1" text="1"  required >
+                                             <input type="number" class="form-control numb-request" id="Numstock" name="Numstock" placeholder="Numstock" min="1" text="1" required >
                                         
                                 </div>
                                 <div class="col-md-6">
@@ -161,7 +161,7 @@
 
                             <div class="col-md-6">
                                     <div class="form-group">
-                                     <label class="form-label">ประเภทสินค้า</label> <a href="addproducttype.php"><small>+เพิ่มประเภทสินค้า</small></a>
+                                     <label class="form-label">ประเภทสินค้า</label> <!-- <a href="addproducttype.php"><small>+เพิ่มประเภทสินค้า</small></a> -->
                                        
 
 
@@ -242,6 +242,9 @@
 
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
+  
+  
+
     
 <script> function openAddCategory() {
         $("#categoryModal").modal({
@@ -261,6 +264,13 @@
         }
 </script>
 
+<script language="javascript">
+function CheckNum(){
+    if (event.keyCode < 49 || event.keyCode > 57){
+          event.returnValue = false;
+        }
+  }
+</script>
     <script language="JavaScript">
 
       function addCommas(nStr)
