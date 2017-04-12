@@ -66,6 +66,7 @@
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
 
+<script src="js/bootstrap-datetimepicker.min.js"></script>
 
  
 

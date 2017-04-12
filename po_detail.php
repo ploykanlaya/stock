@@ -204,7 +204,7 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
 	                        <button name="b_print" type="button" class="btn z-btn-icon btn-text z-btn-gray z-btn-dropdown dropdown-toggle height43"  onClick="printdiv('div_print');" value=" Print "><i class="glyphicon glyphicon-print"></i> พิมพ์เอกสาร</button>
 
 
-	                       <button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">ปรับจำนวนสั่งซื้อ</button>
+	                     <!--   <button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">ปรับจำนวนสั่งซื้อ</button> -->
                                     
 
 
@@ -221,7 +221,7 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
     </div>
 </section>
 <!-- #END# Content -->
-
+<!-- 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -246,19 +246,19 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
                 <?php 
 
 
-                    foreach ($result as $data) {
-                        echo '<form action="update_po.php" method="POST">
-                        	<input type="hidden" name="PO_ID" value="<?php echo $rows['PO_ID']; ?>">
-                        <tr>
-                        <td align=right>'.$data->Product_ID.'</td>
-                        <td >'.$data->Product_Name.'</td>
+                    // foreach ($result as $data) {
+                    //     echo '<form action="update_po.php" method="POST">
+                    //     	<input type="hidden" name="PO_ID" value="<?php echo $rows['PO_ID']; ?>">
+                    //     <tr>
+                    //     <td align=right>'.$data->Product_ID.'</td>
+                    //     <td >'.$data->Product_Name.'</td>
                        
-                        <td align=right>'.number_format($data->Price, 2, '.', ',').'</td>
-                         <td >'.$data->Unit.'</td>
-                        <td align=right>'.$data->Numstock.'</td>
-                        <td align=right><input type="number" name="Quantity" class="form-control" value="'.$data->Quantity.'"></td>
-                        <td> <button type="submit" class="btn btn-primary">อัทเดท</button></td>
-	                        </tr></form>';
+                    //     <td align=right>'.number_format($data->Price, 2, '.', ',').'</td>
+                    //      <td >'.$data->Unit.'</td>
+                    //     <td align=right>'.$data->Numstock.'</td>
+                    //     <td align=right><input type="number" name="Quantity" class="form-control" value="'.$data->Quantity.'"></td>
+                    //     <td> <button type="submit" class="btn btn-primary">อัทเดท</button></td>
+	                   //      </tr></form>';
 
 
                     }
@@ -271,7 +271,7 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
      
     </div>
   </div>
-</div>
+</div> -->
 
 
 

@@ -42,13 +42,14 @@
                         <a href="numberstock.php">สินค้าคงเหลือ</a>
                     </li>
                     <li>
-                        <a href="movementproduct.php">การเคลื่อนไหวสินค้า</a>
+                        <a href="movementproduct.php">เช็คการเคลื่อนไหวสินค้า</a>
+                    </li>
+                    
+                    <li>
+                        <a href="report_po.php">ยอดรวมสั่งซื้อ</a>
                     </li>
                     <li>
                         <a href="report_re.php">ยอดรวมการเบิก</a>
-                    </li>
-                    <li>
-                        <a href="report_po.php">ยอดรวมสั่งซื้อ</a>
                     </li>
                     <li>
                         <a href="report_return.php">ยอดรวมคืนสินค้า</a>
@@ -135,11 +136,11 @@
             </li>
             <li>
                 <a href="javascript:void(0);" class="menu-toggle">
-                <i class="fa fa-address-card-o" style="font-size:24px"></i><span>จัดการร้านค้าส่ง</span>
+                <i class="fa fa-address-card-o" style="font-size:24px"></i><span>จัดการบริษัทค้าส่ง </span>
                 </a>
                 <ul class="ml-menu">
                 <li>
-                <a href="add_Wholesalers.php">เพิ่มผู้ใช้งาน</a>
+                <a href="add_Wholesalers.php">เพิ่มบริษัทค้าส่ง </a>
                 </li>
                 <li>
                 <a href="info_wholealers.php">ลบ/แก้ไขข้อมูล</a>

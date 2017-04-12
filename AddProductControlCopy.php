@@ -13,6 +13,12 @@ $servername = "localhost";
 $conn = new mysqli($servername, $username, $password,$database);
  mysqli_set_charset($conn,"utf8");
 // print_r($_POST);exit();
+ $query = "SELECT * FROM Product WHERE Product_Name = '" . $_POST['Product_Name'] . "'";
+			$result = mysqli_query($conn, $query);
+			if (mysqli_fetch_array($result) > 0) {
+				echo "<script type=\"text/javascript\">alert(\"Name Product Already Exists\");window.location.href='add_product.php';</script>";
+				die();
+			};
 $addpro->Product_Name=$_POST["Product_Name"];
 
 $addpro->Price=$_POST["Price"];
