@@ -69,21 +69,9 @@ if (isset($_POST["Wholesalers_ID"])) {
                                 </div>      
                                -->
                             <div class="row clearfix">
-                                <!-- <div class="col-md-6">                              
-                                    <div class="form-group">
-                                        <label class="form-label">วันทำการ</label>
-                                        <div class="form-line">
-                                           <input type="text" class="datepicker form-control" name="PO_OutDate" placeholder="คลิกที่นี่" required>
-                                        </div>
-                                    </div>
-                                </div> -->
-                           
-
-                     
                             <div class="col-md-6">
                                 <div class="form-group">
-                                     <label class="form-label">ร้านค้าส่ง</label><br>
- 
+                                     <label class="form-label">ร้านค้าส่ง</label> 
                                                <?php if (empty($_POST['Wholesalers_ID'])){ ?>
                                                 <select name="Wholesalers_ID" class="form-control" >
                                                        <option>เลือกร้านค้าส่ง</option>
@@ -99,7 +87,12 @@ if (isset($_POST["Wholesalers_ID"])) {
                                                     ?>
                                                      
                                                   </select>
+                                            <div class="body">
+ 
                                                   <button type="submit" class="btn btn-primary waves-effect" >ตกลง</button>
+
+                                              
+                                          </div>
 
                                                <?php   }
                                                else 
@@ -108,7 +101,7 @@ if (isset($_POST["Wholesalers_ID"])) {
                                                    
                                              
                                     
-                                  
+                                  </div>
                                 </div>
 
 
@@ -117,10 +110,12 @@ if (isset($_POST["Wholesalers_ID"])) {
 
                             </form>
 
-                        </div>
+                       <?php 
+                            if (isset($_POST['Wholesalers_ID'])) {
+                                
+                            
 
-
-
+                             ?>
 
                         <form method="POST" action="AddProductControl_PO.php">
                         <div class="row clearfix">
@@ -175,6 +170,8 @@ if (isset($_POST["Wholesalers_ID"])) {
 
                              <button type="submit" class="btn btn-danger btn-lg btn-block">บันทึก</button>
                         </form>
+
+                         <?php } ?>
                     </div>
                 </div>
             </div>

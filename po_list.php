@@ -83,12 +83,12 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 		                                    	?>
 		                                    	
 		                                    </td>
-		                                    <td align=right><?=date('d/m/Y', strtotime($field->PO_OutDate));?></td>
+		                                    <td align=right><?=date('Y-m-d', strtotime($field->PO_OutDate));?></td>
 
 
 										<td align=right> <?php 
-										date('d/m/Y', strtotime($field->receiveDate));
-											$date1=date('d/m/Y', strtotime($field->receiveDate));
+										date('Y-m-d', strtotime($field->receiveDate));
+											$date1=date('Y-m-d', strtotime($field->receiveDate));
 											if ($field->Status == 1) {
 												echo "$date1";
 											}

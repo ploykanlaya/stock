@@ -12,32 +12,34 @@ $orders = count($result);
 $result = $database->query("SELECT * FROM `returnoder` WHERE status=0")->findAll();
 $return = count($result);
 
-
- $result = $database->query("SELECT * FROM `product`")->findAll();
+$result = $database->query("SELECT * FROM `product`")->findAll();
 if($result["Numstock"] <= ["SafetyStock"])
 {
 $num = count($result);
 }
-
-
-
-
-
-
-
 ?>
-<section class="content">
-    <div class="container-fluid">
-    <div class="block-header">
-        <h2>คุณมีรายการแจ้งเตือน !!</h2>
-    </div>
 
-    <!-- Widgets -->
+
+<section class="content">
+    <div class="container-fluid"> 
+
+    <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                รายการแจ้งเตือน
+                            </h2>
+                        </div>
+
+            
+            <div class="body">
     <div class="row clearfix">
       <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
        <div class="info-box bg-pink hover-expand-effect">
                 <div class="icon">
-                    <i class="material-icons">forum</i>
+                    <i class="material-icons">system_update_alt
+</i>
                 </div>
                 <div class="content">
                     <div class="text">รายการรอรับสินค้า</div>
@@ -51,7 +53,7 @@ $num = count($result);
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="info-box bg-cyan hover-expand-effect">
                 <div class="icon">
-                    <i class="material-icons">playlist_add_check</i>
+                    <i class="material-icons">store</i>
                 </div>
                 <div class="content">
                     <div class="text">รายการเบิก</div>
@@ -66,7 +68,7 @@ $num = count($result);
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="info-box bg-light-green hover-expand-effect">
                 <div class="icon">
-                    <i class="material-icons">person_add</i>
+                    <i class="material-icons">restore_page</i>
                 </div>
                 <div class="content">
                     <div class="text">รายการคืน</div>
@@ -79,7 +81,7 @@ $num = count($result);
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="info-box bg-orange hover-expand-effect">
                 <div class="icon">
-                    <i class="material-icons">help</i>
+                    <i class="material-icons">report</i>
                 </div>
                 <div class="content">
                     <div class="text">สินค้าใกล้หมด</div>
@@ -93,9 +95,10 @@ $num = count($result);
     </div>
     <!-- #END# Widgets -->
 
+ 
 
     <!-- Line Chart -->
-    <div class="row clearfix">
+   <!--  <div class="row clearfix">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <div class="card">
                     <div class="header">
@@ -107,12 +110,12 @@ $num = count($result);
                     </div>
                 </div>
             </div>
-      
+       -->
         
             <!-- #END# Line Chart -->
 
             <!-- Pie Chart -->
-            
+         <!--    
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <div class="card">
                     <div class="header">
@@ -121,17 +124,23 @@ $num = count($result);
                         
                     </div>
                     <div class="body">
-                        <canvas id="pie_chart" height="155"></canvas>
+                        <canvas id="pie_chart" height="0"></canvas>
                     </div>
                 </div>
             </div>
             </div>
-          
+           -->
 
             <!-- #END# Pie Chart -->
-      
-        
+            </div>
+            </div>
+        </div>
     
+    </div>
+
+
+
+
     </div>
 </section>
 
@@ -172,7 +181,7 @@ $num = count($result);
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
-    <script src="js/pages/charts/chartjs.js"></script>
+    <!-- <script src="js/pages/charts/chartjs.js"></script> -->
     <script src="js/pages/index.js"></script>
 
     <!-- Demo Js -->

@@ -45,7 +45,7 @@ if (isset($_POST["Wholesalers_ID"])) {
                     </div>
                     <div class="body">
                         <!-- <form id="addproduct" method="POST" action="AddRequisitionControl.php"> -->
-                        <form method="POST" action="return_add.php">
+                        <form method="POST"  action="return_add.php">
                           
                             <div class="row clearfix">
                             <div class="col-md-6">
@@ -85,7 +85,7 @@ if (isset($_POST["Wholesalers_ID"])) {
 
                              ?>
 
-                            <form method="POST" action="AddProductControl_return.php" ล >
+                            <form method="POST" action="AddProductControl_return.php" >
                              <div class="row clearfix">
                               <div class="col-md-12">
                                     <div class="form-group">
@@ -129,9 +129,15 @@ if (isset($_POST["Wholesalers_ID"])) {
                                         <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="selectModal()" required>+ เลือกสินค้า </button></div>
                                      </div>
                                 </div>
-                            </div>    
+                            </div>  
 
-                             <button type="submit" class="btn btn-danger btn-lg btn-block">บันทึก</button>
+                           
+
+
+                             <button type="submit" class="btn btn-danger btn-lg btn-block" >บันทึก</button>
+
+                            
+
                         </form>
                         <?php } ?>
                     </div>
@@ -211,6 +217,8 @@ if (isset($_POST["Wholesalers_ID"])) {
     function selectModal(){
         $("#myModal").modal("show");
     }
+
+   
 
     // function getSecondPart(str) {
     //     return str.split('-')[1];

@@ -42,7 +42,7 @@
                         <a href="numberstock.php">สินค้าคงเหลือ</a>
                     </li>
                     <li>
-                        <a href="movementproduct.php">เช็คการเคลื่อนไหวสินค้า</a>
+                        <a href="movementproduct.php">การเคลื่อนไหวสินค้า</a>
                     </li>
                     
                     <li>

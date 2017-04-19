@@ -9,13 +9,7 @@ $database = new DB();
 /*====================================================
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
-if (isset($_POST["Wholesalers_ID"])) {
-    $product =  $database->query("SELECT * FROM product where Wholesalers_ID=('".$_POST["Wholesalers_ID"]."')")->findAll();
-    $name =$database->query("SELECT * FROM Wholesalers where Wholesalers_ID=('".$_POST["Wholesalers_ID"]."')")->findAll();
-}
-
- $sqli = $database->query("SELECT Wholesalers_ID,Wholesalers_Name FROM Wholesalers")->findAll();
-
+$product =  $database->query("SELECT * FROM product")->findAll();
 
 ?>
 <!-- Head -->
@@ -87,7 +81,7 @@ if (isset($_POST["Wholesalers_ID"])) {
                            
 
                      
-                            <div class="col-md-6">
+                           <!--  <div class="col-md-6">
                                 <div class="form-group">
                                      <label class="form-label">ร้านค้าส่ง</label><br>
  
@@ -112,7 +106,7 @@ if (isset($_POST["Wholesalers_ID"])) {
 
                                                 echo $name[0]->Wholesalers_Name; ?>
                                     </div>
-                                </div>
+                                </div> -->
                                 </div>
                             </form>
 

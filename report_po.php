@@ -55,11 +55,15 @@ else{
                             <div class="row clearfix">
                             <!--     
                                 <div class="col-sm-6">
-                            
-
                                 <div class="form-line">
                                    <input type="text" class="datepicker form-control" name="statdate" placeholder="<?=$stat;?>">
-                                    </div> 
+                                    </div>
+                                    <div class='input-group date' id='datetimepicker6'>
+                <input type='text' class="form-control" name="statdate" placeholder="<?=$stat;?>"/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div> 
                                 </div>
                                 
                                 <div class="col-sm-6">
@@ -73,13 +77,14 @@ else{
     <label class="form-label">ตั้งแต่วันที่</label>
         <div class="form-group">
             <div class='input-group date' id='datetimepicker6'>
-                <input type='text' class="form-control" name="statdate" placeholder="<?=$stat;?>"/>
+                <input type='text' class="form-control " name="statdate" placeholder="<?=$stat;?>"/>
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
             </div>
         </div>
     </div>
+    
     <div class='col-md-6'>
     	<label class="form-label">ถึงวันที่</label>
         <div class="form-group"> 

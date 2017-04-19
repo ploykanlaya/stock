@@ -5,6 +5,7 @@ $countPosts = count($allPosts);
 
 //;วันที่
 $time=strtotime(date('Y-m-d'));
+// print_r(date('Y-m-d'));exit();
 include_once 'class/db.class.php';
 
 $database = new DB();

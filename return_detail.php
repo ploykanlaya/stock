@@ -118,6 +118,8 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 	                            			
 	                            			$index++;
 	                            			}
+	                            		}else{
+	                            			//don't have result
 	                            		}
 	                                ?>
 	                            </tbody>
@@ -128,9 +130,15 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 	                        </div>
 	                        </div>
 
-	                        <h4 align=right>ราคารวมสุทธิ <?=number_format($TotalPrice, 2, '.', ','); ?> บาท</h4>
+	                  <?php  if(isset($result)) {  ?>
+	                   <h3 align=right>ราคารวมสุทธิ <?php if (!empty($TotalPrice)) {
+	                    	echo number_format($TotalPrice, 2, '.', ',');
+	                    }else { echo '0.00'; }?> บาท</h3>
+	                     <?php } ?>
+
+
+	                      
 	                        </div>
-	                     
 		 		<hr>
 	                        <TABLE align=center   width="80%" height="100" >
             
@@ -161,8 +169,13 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 	                        <div class="col-md-12" > 
 	                  
 	                   <?php
-	                  
-
+	            // echo "result:".isset($result).empty($result);   
+	            
+if(empty($result)){//delete empty data  
+	   echo '<h3 class="text-danger"><b>ไม่มีข้อมูล</b></h3>
+		<button class="btn btn-warning waves-effect"   data-type="confirm">ลบ</button>';}
+else{                
+	                    
 		         if($_SESSION['Position'] == "ผู้จัดการ" || $_SESSION['Position'] == "admin")
 
 			                                    if ($field->Status == 0) {
@@ -177,10 +190,7 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 			                                    if ($field->Status == 2) {
 			                                    	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';
 			                                    }
-		                                    ?>
-		                                      
-
-		                                      <?php    
+		                                   
        if($_SESSION['Position'] == "พนักงาน" || $_SESSION['Position'] == "admin"){
 
 		                        
@@ -196,8 +206,9 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 			                                    	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';
 			                                    }
 			                                }
-		                                    ?>
 
+}	                                    ?>
+			                            
 
 
 
