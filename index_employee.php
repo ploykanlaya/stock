@@ -87,7 +87,7 @@ $return = count($result);
                     <div class="card">
                         <div class="header">
                             <h2>
-                                รายการทั้งหมด
+                                รายการสินค้าทั้งหมด
                             </h2>
                             
                         </div>

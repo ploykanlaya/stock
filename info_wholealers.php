@@ -91,7 +91,7 @@
                                     <form  name="sentMessage" id="contactForm" novalidate role="form" method="POST" action="DeletewhoControl.php">    
                                          <input type="hidden" name="Wholesalers_ID" value="<?php echo $rows['Wholesalers_ID']; ?>">
 
-                                         <button class="btn btn-primary waves-effect"   data-type="confirm">ลบ</button>
+                                         <button class="btn btn-danger waves-effect "   data-type="confirm">ลบ</button>
                                     </form> </td>
                                     
                                     <td> 

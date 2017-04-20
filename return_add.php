@@ -66,7 +66,13 @@ if (isset($_POST["Wholesalers_ID"])) {
                                                                                    
                                                     ?>
                                                      
-                                                  </select><button type="submit" class="btn btn-primary waves-effect" >ตกลง</button>
+                                                  </select>
+
+                                        <div class="row clearfix">
+                                            <div class="body">
+                                            <button type="submit" class="btn btn-primary waves-effect" >ตกลง</button>
+                                            </div>
+                                            </div>
 
                                                <?php   }
                                                else 
@@ -134,7 +140,7 @@ if (isset($_POST["Wholesalers_ID"])) {
                            
 
 
-                             <button type="submit" class="btn btn-danger btn-lg btn-block" >บันทึก</button>
+                             <button type="submit" class="btn btn-danger btn-lg btn-block">บันทึก</button>
 
                             
 
@@ -218,7 +224,7 @@ if (isset($_POST["Wholesalers_ID"])) {
         $("#myModal").modal("show");
     }
 
-   
+    
 
     // function getSecondPart(str) {
     //     return str.split('-')[1];

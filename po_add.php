@@ -87,11 +87,13 @@ if (isset($_POST["Wholesalers_ID"])) {
                                                     ?>
                                                      
                                                   </select>
+                                           <div class="row clearfix">
                                             <div class="body">
  
                                                   <button type="submit" class="btn btn-primary waves-effect" >ตกลง</button>
 
                                               
+                                          </div>
                                           </div>
 
                                                <?php   }
@@ -160,8 +162,9 @@ if (isset($_POST["Wholesalers_ID"])) {
                                             </tr>
                                             </tfoot>
                                         </table>  
+                                        <div class="row clearfix">
 
-                                        <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">+ เลือกสินค้า</button></div>
+                                        <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">+ เลือกสินค้า</button></div></div>
                                      </div>
                                 </div>
                             </div> 

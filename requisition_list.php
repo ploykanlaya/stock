@@ -74,20 +74,20 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 		                                    <td align=right><?=$field->Requisition_ID;?></td>
 		                                     <td align=right>
 		                                    	<?php if ($field->Status == 0) 
-		                                    			echo "รอการอนุมัติ";
+		                                    			echo '<span class="label bg-green"><i>รอการอนุมัติ</i></span>';
 		                                    		if ($field->Status == 1) 
-		                                    			echo '<span class="text-success"><b>อนุมัติ</b></span>';
+		                                    			echo '<span class="label bg-blue"><b>อนุมัติ</b></span>';
 		                                    		if ($field->Status == 2) 
-		                                    			echo '<span class="text-danger"><i>ไม่อนุมัติ</i></span>';
+		                                    			echo '<span class="label bg-orange"><i>ไม่อนุมัติ</i></span>';
 
 		                                    	?>
 		                                    	
 		                                    </td>
-		                                    <td align=right><?=date('d/m/Y', strtotime($field->Requisition_Date));?></td>
+		                                    <td align=right><?=date('Y-m-d', strtotime($field->Requisition_Date));?></td>
 		                                   
 		                                    <td align=right> <?php 
 										date('d/m/Y', strtotime($field->DeliveryDate));
-											$date1=date('d/m/Y', strtotime($field->DeliveryDate));
+											$date1=date('Y-m-d', strtotime($field->DeliveryDate));
 											if ($field->Status == 1) {
 												echo "$date1";
 											}
@@ -99,7 +99,7 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 		                                     <td align=right><?=$field->UserID;?></td>
 		                                    <td align=right><?=$field->Name;?></td>
 		                                        
-		                                    <td ><a href="requisition_detail.php?id=<?=$field->Requisition_ID;?>" class="btn btn-danger select-modal">คลิก</a></td>
+		                                    <td ><a href="requisition_detail.php?id=<?=$field->Requisition_ID;?>" class="btn btn-danger select-modal">ตรวจสอบ</a></td>
 
 
 		                                   

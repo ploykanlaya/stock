@@ -87,7 +87,7 @@
                                     <form  name="sentMessage" id="contactForm" novalidate role="form" method="POST" action="DeleteUserControl.php">    
                                          <input type="hidden" name="UserID" value="<?php echo $rows['UserID']; ?>">
 
-                                         <button class="btn btn-primary waves-effect"   data-type="confirm">ลบ</button>
+                                         <button class="btn btn-danger waves-effect "   data-type="confirm">ลบ</button>
                                     </form> </td>
                                     
                                     <td> 
@@ -102,7 +102,7 @@
                                     
 
 
-                                     <button class="btn btn-primary waves-effect"   data-type="confirm">แก้ไข</button>
+                                     <button class="btn btn-primary waves-effect "   data-type="confirm">แก้ไข</button>
                                                
                                    </form> </td>
 

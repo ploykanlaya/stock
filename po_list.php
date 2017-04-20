@@ -73,14 +73,14 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 		                                    <td align=right><?=$index;?></td>
 		                                    <td align=right><?=$field->PO_ID;?></td>  
 		                                    <td align=right>
-		                                    	<?php if ($field->Status == 0) 
-		                                    			echo "รอรับสินค้า";
+		                                    <?php if ($field->Status == 0) 
+		                                    			echo '<span class="label bg-green"><i>รอรับสินค้า</i></span>';
 		                                    		if ($field->Status == 1) 
-		                                    			echo '<span class="text-success"><b>รับสินค้าแล้ว</b></span>';
+		                                    			echo '<span class="label bg-blue"><b>รับสินค้าแล้ว</b></span>';
 		                                    		if ($field->Status == 2) 
-		                                    			echo '<span class="text-danger"><i>ยกเลิก</i></span>';
+		                                    			echo '<span class="label bg-orange"><i>ยกเลิก</i></span>';
 
-		                                    	?>
+		                                    	?>  	
 		                                    	
 		                                    </td>
 		                                    <td align=right><?=date('Y-m-d', strtotime($field->PO_OutDate));?></td>
@@ -102,7 +102,7 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 		                                     <td align=right><?=$field->UserID;?></td>
 		                                    <td align=right><?=$field->Name;?></td>
 		                                        
-		                                    <td><a href="po_detail.php?id=<?=$field->PO_ID;?>" class="btn btn-danger select-modal">คลิก</a></td>
+		                                    <td><a href="po_detail.php?id=<?=$field->PO_ID;?>" class="btn btn-danger select-modal">ตรวจสอบ</a></td>
 
 		                                </tr>
 

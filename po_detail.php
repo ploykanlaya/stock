@@ -55,13 +55,15 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	            <div class="card">
    
-	                <div class="body"> 
+	                <div class="body">
+	                <button name="b_print" type="button" class="btn z-btn-icon btn-text z-btn-gray z-btn-dropdown dropdown-toggle height43"  onClick="printdiv('div_print');" value=" Print "><i class="glyphicon glyphicon-print"></i> พิมพ์เอกสาร</button> 
 	                 <div id="div_print">
 	                 <div class="table-responsive">
 	                	<h3 align=center>ใบสั่งซื้อ</h3> 
 	                	<h5>รายการ เลขที่ : <?=$result1->PO_ID;?></h5> 
 	                    <h5>วันที่สั่งซื้อ : <?=$result1->PO_OutDate;?></h5>
 	                    <h5>ผู้ทำรายการ : <?=$result1->Name;?></h5>
+
 	                     
 	                    <div class="card">
 	                     <div class="body">
@@ -162,8 +164,8 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
           
 			</TABLE>
 	                        </div>
-	                        <h5 align=right>สถานะการอนุมัติ
-	                        <div class="col-md-12" > 
+	                        <h4 align=right>สถานะการอนุมัติ<br><br>
+	                        <!-- <div class="col-md-12" > --> 
 	                     
 	                    <?php
 
@@ -193,22 +195,22 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
 		                                      
 
 
+	                       <button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">ปรับจำนวนสั่งซื้อ</button>
 
 
 
 
 
 
-	                        </div>
-	                        </h5>
-	                        <button name="b_print" type="button" class="btn z-btn-icon btn-text z-btn-gray z-btn-dropdown dropdown-toggle height43"  onClick="printdiv('div_print');" value=" Print "><i class="glyphicon glyphicon-print"></i> พิมพ์เอกสาร</button>
+	                        <!-- </div> -->
+	                       
+	                        
 
 
-	                     <!--   <button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">ปรับจำนวนสั่งซื้อ</button> -->
                                     
 
 
-	                        
+	                        </h5>
 	                    </div>
 	                </div>
 	            </div>
@@ -221,7 +223,7 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
     </div>
 </section>
 <!-- #END# Content -->
-<!-- 
+ 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -248,7 +250,7 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
 
                     // foreach ($result as $data) {
                     //     echo '<form action="update_po.php" method="POST">
-                    //     	<input type="hidden" name="PO_ID" value="<?php echo $rows['PO_ID']; ?>">
+                    //     	<input type="hidden" name="PO_ID" value="<?php echo $rows['PO_ID'];?>">
                     //     <tr>
                     //     <td align=right>'.$data->Product_ID.'</td>
                     //     <td >'.$data->Product_Name.'</td>
@@ -271,7 +273,7 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
      
     </div>
   </div>
-</div> -->
+</div> 
 
 
 

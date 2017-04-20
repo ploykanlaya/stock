@@ -77,23 +77,24 @@ $result =  $database->query("SELECT * FROM returnoder where UserID='".$_SESSION[
 		                                    <td align=right><?=$index;?></td>
 		                                    <td align=right><?=$field->ReturnOder_ID;?></td>
 		                                   <td align=right>
-		                                    	<?php if ($field->Status == 0) 
-		                                    			echo "รอการอนุมัติ";
+		                                    	
+		                                    	   <?php if ($field->Status == 0) 
+		                                    			echo '<span class="label bg-green"><i>รอการอนุมัติ</i></span>';
 		                                    		if ($field->Status == 1) 
-		                                    			echo '<span class="text-success"><b>อนุมัติ</b></span>';
+		                                    			echo '<span class="label bg-blue"><b>อนุมัติ</b></span>';
 		                                    		if ($field->Status == 2) 
-		                                    			echo '<span class="text-danger"><i>ไม่อนุมัติ</i></span>';
+		                                    			echo '<span class="label bg-orange"><i>ไม่อนุมัติ</i></span>';
 
 		                                    	?>
 		                                    	
 		                                    </td>
-		                                    <td align=right><?=date('d/m/Y', strtotime($field->ReturnDate));?></td>
-		                                    <!-- <td><?=date('d/m/Y', strtotime($field->DeliveryDate));?></td> -->
+		                                    <td align=right><?=date('Y-m-d', strtotime($field->ReturnDate));?></td>
+		                                    <!-- <td><?=date('Y-m-d', strtotime($field->DeliveryDate));?></td> -->
 		                                     <td align=right><?=$field->UserID;?></td>
 		                                    <td align=right><?=$field->Name;?></td>
 		                                  <td align=right><?=$field->Position;?></td> 
 		                                        
-		                                    <td><a href="return_detail.php?id=<?=$field->ReturnOder_ID;?>" class="btn btn-danger select-modal">คลิก</a></td>
+		                                    <td><a href="return_detail.php?id=<?=$field->ReturnOder_ID;?>" class="btn btn-danger select-modal">ตรวจสอบ</a></td>
 
 
 

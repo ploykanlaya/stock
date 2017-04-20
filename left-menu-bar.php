@@ -68,6 +68,9 @@
                 <li>
                 <a href="po_list.php">ดูรายการสั่งซื้อ-รับสินค้า</a>
                 </li>
+                <li>
+                <a href="po_list.php">รับสินค้า</a>
+                </li>
                
 
 

@@ -176,13 +176,13 @@ $product =  $database->query("SELECT * FROM product")->findAll();
         <table class="table table-bordered" id="product-table">
             <thead>
               <tr>
-                <th>รหัส</th>
-                <th>ชื่อสินค้า</th>
-                <th>ราคา</th> 
-                <th>หน่วยนับ</th>
-                <th>คงเหลือในคลัง</th>
-                <th>จำนวน</th>
-              </tr>
+               <th class="col-md-2">รหัสสินค้า</th>
+              <th class="col-md-2">ชื่อสินค้า</th> 
+              <th class="col-md-2">จำนวน</th>
+              <th class="col-md-2">มูลค่าต่อหน่วย</th>
+             <th class="col-md-2">หน่วยสินค้า</th> 
+              <th class="col-md-2">ราคารวม</th>
+                </tr>
             </thead>
             <tbody>
                 <?php 
@@ -202,6 +202,12 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                     }
                 ?>
             </tbody>
+            <tfoot>
+                                              <tr>
+                                                <th colspan="5" class="text-right" style="vertical-align:bottom;">ราคารวมสุทธิ</th>
+                                                <th><input id="total_cost" type="text" class="form-control" name="total_cost" readonly="true"></th>
+                                            </tr>
+                                            </tfoot>
           </table>
       </div>
       <div class="modal-footer">
@@ -242,6 +248,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
 
         $('#confirm').click(function(){
             var tbody= "";
+            var total_cost = 0;
             $('#product-table > tbody  > tr').each(function() {
                 var id = $(this).find('input[name="amount"]').data('id');
                 var name = $(this).find('input[name="amount"]').data("name");
@@ -257,9 +264,11 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                         '<td><input value="'+unit+'" type="text" class="form-control" name="Unit[]" readonly="true"></td>'+
                         '<td><input value="'+(price*amount)+'" type="text" class="form-control" name="TotalPay[]" readonly="true"></td>'+
                         '</tr>';
+                        total_cost+=price*amount;
                 }
             });
             $('#tableToModify').html(tbody);
+             $('#total_cost').val(total_cost);
             $("#myModal").modal("hide");
         });
 
