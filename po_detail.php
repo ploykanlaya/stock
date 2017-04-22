@@ -252,7 +252,9 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
 		                                    				<button type="button" class="btn btn-danger btn-cancle" data-id="'.$field->PO_ID.'">ยกเลิก</button>
 		                                    			
 
-                                              <button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">ปรับจำนวนสั่งซื้อ</button></td>';
+                                              <button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">ปรับจำนวนสั่งซื้อ</button>
+
+                                              </td>';
 
 
 			                                    }
@@ -317,20 +319,24 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
               </tr>
             </thead>
             <tbody>
-            <form action="update_po.php" method="POST">
+            <form method="POST">
                 <?php 
                     foreach ($result as $data) {
                 ?>
                     <tr>
-                    <input type="hidden" name="PO_ID" value="<?php echo $rows['PO_ID'];?>">               
+                    <input type="hidden" name="PO_ID" value="<?php echo $data->PO_ID;?>">
+                    <input type="hidden" name="Product_ID" value="<?=$data->Product_ID?>">               
                     <td align=right><?php echo $data->Product_ID; ?></td>
                         <td ><?php echo $data->Product_Name ?></td>
                        
                         <td align=right><?= number_format($data->Price, 2, '.', ',') ?></td>
                          <td ><?=$data->Unit?></td>
                         <td align=right><?= $data->Numstock ?></td>
-                        <td align=right><input type="number" name="Quantity" class="form-control" value="<?= $data->Quantity ?>"></td>
-                        <td> <button type="submit" class="btn btn-primary">อัทเดท</button></td> 
+                        <td align=right>
+                        <input type="number" id='product_<?=$data->Product_ID?>' name="Quantity" class="form-control" value="<?= $data->Quantity ?>">
+                        </td>
+                        <td> <input type="button"  class="btn btn-primary"  value="อัพเดท"
+                        onclick="update_po('<?=$data->PO_ID?>','<?=$data->Product_ID?>')" /> </td> 
                
 	                       
                   </tr>
@@ -467,6 +473,23 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
 	});
 </script> -->
 <script type="text/javascript">
+  var update_po =function(PO_ID,Product_ID){
+    Quantity = $('#product_'+Product_ID).val();
+    $.ajax({
+      url:"../stock/update_po.php",
+      type : "POST",
+      data : {
+        "PO_ID":PO_ID,
+        "Product_ID":Product_ID,
+        "Quantity":Quantity
+      },
+      success : function(){
+         alert("แก้ไขเรียบร้อย");
+      }
+
+    })
+
+  }
 
 
 $( document ).ready(function() {

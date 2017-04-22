@@ -13,6 +13,8 @@ $database = new DB();
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
 $result1 =  $database->query("SELECT * From returnoder where ReturnOder_ID='".$_GET['id']."'" )->find();
+$result2 =  $database->query("SELECT * From wholesalers as w JOIN  returnoder as r on w.Wholesalers_ID=r.Wholesalers_ID " )->find();
+ // print_r($result2);exit();
 // print_r($result1);exit();
 
 $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.ReturnOder_ID,P.Product_Name, P.Price,P.Numstock,Po.Status FROM Product AS P JOIN returnorder_detail AS R ON P.Product_ID = R.Product_ID JOIN returnoder as Po on R.ReturnOder_ID=Po.ReturnOder_ID where Po.ReturnOder_ID='".$_GET['id']."'" )->findAll();
@@ -52,14 +54,35 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 	        <!-- Task Info -->
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	            <div class="card">
+	           
 
 	                <div class="body">
+	                  <button name="b_print" type="button" class="btn z-btn-icon btn-text z-btn-gray z-btn-dropdown dropdown-toggle height43"  onClick="printdiv('div_print');" value=" Print "><i class="glyphicon glyphicon-print"></i> พิมพ์เอกสาร</button> 
 	                 <div id="div_print">
 
-	                    <div class="table-responsive" > 
-	                    <h3>รายการคืน เลขที่ <?=$result1->ReturnOder_ID;?></h3>
+	                 <div class="row clearfix"><h3 align=center>ใบคืนสินค้า</h3>
+	                	<div class="body">
+	                	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+	                	 
+
+	                	<h5>ชื่อร้านค้าส่ง : <?=$result2->Wholesalers_Name;?> </h5> 
+	                	<h5>ที่อยู่ : <?=$result2->Address;?> </h5> 
+	                    <h5>เบอร์โทรศัพท์ : <?=$result2->Telephone;?> </h5>
+	                    <h5>อีเมลล์ : <?=$result2->Email;?> </h5>
+	                     </div>
+	                    
+	                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+	                 
+	                    <h5>รายการคืน เลขที่ <?=$result1->ReturnOder_ID;?></h5>
 	                    <h5>วันที่ทำรายการ <?=$result1->ReturnDate;?></h5>
 	                    <h5>ผู้ทำรายการ : <?=$result1->Name;?></h5>
+	                    </div> 
+	                    </div>
+	                    </div>
+
+
+	                    <div class="table-responsive" > 
+	                   
 	                    <div class="card">
 	                     <div class="body">
 	                     
@@ -118,8 +141,6 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 	                            			
 	                            			$index++;
 	                            			}
-	                            		}else{
-	                            			//don't have result
 	                            		}
 	                                ?>
 	                            </tbody>
@@ -164,9 +185,9 @@ $result =  $database->query("SELECT R.NumberReturn, R.TotalPay, P.Product_ID, R.
 			</TABLE>    </div>  
 
 
-	                        <h5 align=right>สถานะการอนุมัติ
 
-	                        <div class="col-md-12" > 
+	                        <h4 align=right>สถานะการอนุมัติ
+	                   
 	                  
 	                   <?php
 	            // echo "result:".isset($result).empty($result);   
@@ -185,29 +206,29 @@ else{
 		                                    			</td>';
 			                                    }
 			                                    if ($field->Status == 1) {
-			                                    	echo '<h3 class="text-success"><b>อนุมัติ</b></h3>';
+			                                    	echo '<h3 align=right class="text-success"><b>อนุมัติ</b></h3>';
 			                                    }
 			                                    if ($field->Status == 2) {
-			                                    	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';
+			                                    	echo '<h3  align=right class="text-danger"><i>ไม่อนุมัติ</i></h3>';
 			                                    }
 		                                   
        if($_SESSION['Position'] == "พนักงาน" || $_SESSION['Position'] == "admin"){
 
 		                        
 			                                    if ($field->Status == 0) {
-			                                    	echo '<h3>
+			                                    	echo '<h3 align=right >
                                     					รอการอนุมัติ
                                 							</h3>';
 			                                    }
 			                                    if ($field->Status == 1) {
-			                                    	echo '<h3 class="text-success"><b>อนุมัติ</b></h3>';
+			                                    	echo '<h3 align=right class="text-success"><b>อนุมัติ</b></h3>';
 			                                    }
 			                                    if ($field->Status == 2) {
-			                                    	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';
+			                                    	echo '<h3  align=right class="text-danger"><i>ไม่อนุมัติ</i></h3>';
 			                                    }
 			                                }
-
-}	                                    ?>
+}	                                  
+  ?>
 			                            
 
 
@@ -215,12 +236,13 @@ else{
 
 
 
-	                        </div>
-	                        </h5>
-	                        <button name="b_print" type="button" class="btn z-btn-icon btn-text z-btn-gray z-btn-dropdown dropdown-toggle height43"  onClick="printdiv('div_print');" value=" Print "><i class="icon ion-printer"></i> พิมพ์เอกสาร</button>
+	                       
+	                        </h4>
+	                       
+	                       
 	                   
 	                </div>	               
-     
+    
 	            </div>
 	          </div>
 	          

@@ -44,7 +44,7 @@ if (isset($_POST["Wholesalers_ID"])) {
                         <h4>สร้างรายการคืน</h4>
                     </div>
                     <div class="body">
-                        <!-- <form id="addproduct" method="POST" action="AddRequisitionControl.php"> -->
+                      
                         <form method="POST"  action="return_add.php">
                           
                             <div class="row clearfix">
@@ -92,6 +92,7 @@ if (isset($_POST["Wholesalers_ID"])) {
                              ?>
 
                             <form method="POST" action="AddProductControl_return.php" >
+                            <input type="hidden" name="Wholesalers_ID" value="<?php echo ($name[0]->{'Wholesalers_ID'}) ?>" >
                              <div class="row clearfix">
                               <div class="col-md-12">
                                     <div class="form-group">
