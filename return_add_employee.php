@@ -20,6 +20,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
     <?php include 'top-bar.php'; ?>  
 <!-- #Top Bar -->
 <!-- Left Sidebar -->
+z
     <?php include 'left-menu-bar.php'; ?>  
 <!-- #END# Left Sidebar -->
 
@@ -39,7 +40,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                     </div>
                     <div class="body">
                         <!-- <form id="addproduct" method="POST" action="AddRequisitionControl.php"> -->
-                        <form method="POST" action="AddProductControl_return.php">
+                        <form method="POST" action="AddProductControl_return_em.php">
                           
                             <div class="row clearfix">
                                 <div class="col-md-12">

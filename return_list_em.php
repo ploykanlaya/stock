@@ -22,15 +22,18 @@ $database = new DB();
 <?php 
  if($_SESSION['Position'] == "ผู้จัดการ" || $_SESSION['Position'] == "admin"){
 
-$result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date DESC")->findAll();
+$result =  $database->query("SELECT * FROM returnoder ORDER BY ReturnDate DESC")->findAll();
 
 }
 if($_SESSION['Position'] == "พนักงาน" ){
 
-$result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION['UserID']."' ORDER BY Requisition_Date DESC ")->findAll();
+$result =  $database->query("SELECT * FROM returnoder where UserID='".$_SESSION['UserID']."' ORDER BY ReturnDate DESC ")->findAll();
 
 
 }
+
+// $result2 =  $database->query("SELECT Position FROM u.user join r.returnoder on u.UserID=r.UserID ")->findAll();
+// // print_r($result2);exit();
 
 ?>
 <!-- Content -->
@@ -41,7 +44,7 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	            <div class="card">
 	                <div class="header">
-	                    <h2>รายการเบิกสินค้า</h2>
+	                    <h2>รายการคืนสินค้า</h2>
 	                </div>
 	                <div class="body">
 	                    <div class="table-responsive">
@@ -49,12 +52,13 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 	                            <thead>
 	                                <tr>
 	                                    <th>#</th>
-	                                    <th>รหัสใบเบิก</th>
-	                                   	<th>สถานะ</th>
-	                                    <th>วันที่เบิก</th>
-	                                    <th>วันที่ส่ง</th>
-	                                     <th>รหัสพนักงาน</th>
-	                                    <th>ชื่อพนักงาน</th>
+	                                    <th>รหัส</th>
+	                                    	<th>สถานะ</th>
+	                                    <th>วันที่ทำ</th>
+	                                   <!--  <th>วันที่ส่ง</th> -->
+	                                     <th>รหัสผู้ทำรายการ</th>
+	                                    <th>ชื่อผู้ทำรายการ</th>
+	                                    <th>ตำแหน่ง</th>
 	                                    <th>รายละเอียด</th>
 	                             
 	                              </tr>
@@ -71,9 +75,10 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 
 		                                <tr>
 		                                    <td align=right><?=$index;?></td>
-		                                    <td align=right><?=$field->Requisition_ID;?></td>
-		                                     <td align=right>
-		                                    	<?php if ($field->Status == 0) 
+		                                    <td align=right><?=$field->ReturnOder_ID;?></td>
+		                                   <td align=right>
+		                                    	
+		                                    	   <?php if ($field->Status == 0) 
 		                                    			echo '<span class="label bg-green"><i>รอการอนุมัติ</i></span>';
 		                                    		if ($field->Status == 1) 
 		                                    			echo '<span class="label bg-blue"><b>อนุมัติ</b></span>';
@@ -83,23 +88,15 @@ $result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION
 		                                    	?>
 		                                    	
 		                                    </td>
-		                                    <td align=right><?=date('Y-m-d', strtotime($field->Requisition_Date));?></td>
-		                                   
-		                                    <td align=right> <?php 
-										date('Y-m-d', strtotime($field->DeliveryDate));
-											$date1=date('Y-m-d', strtotime($field->DeliveryDate));
-											if ($field->Status == 1) {
-												echo "$date1";
-											}
-											else{
-
-												echo "";
-											}
-											?>  </td> 
+		                                    <td align=right><?=date('Y-m-d', strtotime($field->ReturnDate));?></td>
+		                                    <!-- <td><?=date('Y-m-d', strtotime($field->DeliveryDate));?></td> -->
 		                                     <td align=right><?=$field->UserID;?></td>
 		                                    <td align=right><?=$field->Name;?></td>
+		                                  <td align=right><?=$field->Position;?></td> 
 		                                        
-		                                    <td ><a href="requisition_detail.php?id=<?=$field->Requisition_ID;?>" class="btn btn-danger select-modal">ตรวจสอบ</a></td>
+		                                    <td><a href="return_detail.php?id=<?=$field->ReturnOder_ID;?>" class="btn btn-danger select-modal">ตรวจสอบ</a></td>
+
+
 
 
 		                                   
@@ -154,7 +151,7 @@ $( document ).ready(function() {
 	$(".btn-confirm").on('click',function(){
 		var id = $(this).attr("data-id");
 		$.ajax({ 
-		    url: "../stock/action_requisition.php",
+		    url: "../stock/action_return.php",
 		    type: "POST",
 		    data: {
 		    	'method': 'update',
@@ -170,7 +167,7 @@ $( document ).ready(function() {
 	$(".btn-cancle").on('click',function(){
 		var id = $(this).attr("data-id");
 		$.ajax({ 
-		    url: "../stock/action_requisition.php",
+		    url: "../stock/action_return.php",
 		    type: "POST",
 		    data: {
 		    	'method': 'update',
@@ -183,26 +180,6 @@ $( document ).ready(function() {
 		});
 	});
 });
-
-
-// $(document).ready(function() {
-//     $('#example').DataTable( {
-//         dom: 'Bfrtip',
-//         buttons: [
-//             {
-//                 extend: 'pdfHtml5',
-//                 customize: function ( doc ) {
-//                     doc.content.splice( 1, 0, {
-//                         margin: [ 0, 0, 0, 12 ],
-//                         alignment: 'center',
-//                         image:''
-
-//                          } );
-//                 }
-//             }
-//         ]
-//     } );
-// } );
 </script>
 
 

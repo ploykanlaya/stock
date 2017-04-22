@@ -197,7 +197,7 @@ if(empty($result)){//delete empty data
 		<button class="btn btn-warning waves-effect"   data-type="confirm">ลบ</button>';}
 else{                
 	                    
-		         if($_SESSION['Position'] == "ผู้จัดการ" || $_SESSION['Position'] == "admin")
+		         if($_SESSION['Position'] == "ผู้จัดการ" || $_SESSION['Position'] == "admin"){
 
 			                                    if ($field->Status == 0) {
 			                                    	echo '<td>
@@ -211,6 +211,7 @@ else{
 			                                    if ($field->Status == 2) {
 			                                    	echo '<h3  align=right class="text-danger"><i>ไม่อนุมัติ</i></h3>';
 			                                    }
+			                                }
 		                                   
        if($_SESSION['Position'] == "พนักงาน" || $_SESSION['Position'] == "admin"){
 

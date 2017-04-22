@@ -135,17 +135,23 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                                             <thead>
                                             <tr>
                                                
-                                                <th>รหัสสินค้า</th>
-                                                <th>ชื่อสินค้า</th> 
-                                                <th>จำนวน</th>
-                                                <th>มูลค่าต่อหน่วย</th>
-                                               <th>หน่วยสินค้า</th> 
-                                                <th>ราคารวม</th>
+                                                <th class="col-md-2">รหัสสินค้า</th>
+                                                <th class="col-md-2">ชื่อสินค้า</th> 
+                                                <th class="col-md-2">จำนวน</th>
+                                                <th class="col-md-2">มูลค่าต่อหน่วย</th>
+                                               <th class="col-md-2">หน่วยสินค้า</th> 
+                                                <th class="col-md-2">ราคารวม</th>
                                             </tr>
                                             </thead>
 
                                             <tbody id="tableToModify">
                                             </tbody>
+                                            <tfoot>
+                                              <tr>
+                                                <th colspan="5" class="text-right" style="vertical-align:bottom;">ราคารวมสุทธิ</th>
+                                                <th><input id="total_cost" type="text" class="form-control" name="total_cost" readonly="true"></th>
+                                            </tr>
+                                            </tfoot>
                                         </table>  
 
                                         <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">+ เลือกสินค้า</button></div>
@@ -178,14 +184,14 @@ $product =  $database->query("SELECT * FROM product")->findAll();
               <tr>
                <th class="col-md-2">รหัสสินค้า</th>
               <th class="col-md-2">ชื่อสินค้า</th> 
-              <th class="col-md-2">จำนวน</th>
+              
               <th class="col-md-2">มูลค่าต่อหน่วย</th>
              <th class="col-md-2">หน่วยสินค้า</th> 
               <th class="col-md-2">ราคารวม</th>
                 </tr>
             </thead>
             <tbody>
-                <?php 
+                 <?php 
                     foreach ($product as $data) {
                         echo '<tr>
                        <td align=right>'.$data->Product_ID.'</td>
@@ -193,22 +199,17 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                        
                         <td align=right>'.$data->Price.'</td>
                          <td align=right>'.$data->Unit.'</td>
-                        <td align=right>'.$data->Numstock.'</td>
+                        
                         <td align=right><input type="input" class="form-control" name="amount"
                             data-id="'.$data->Product_ID.'"
                             data-name="'.$data->Product_Name.'" 
                             data-unit="'.$data->Unit.'"
                             data-price="'.$data->Price.'"></td></tr>';
                     }
-                ?>
+                ?> 
             </tbody>
-            <tfoot>
-                                              <tr>
-                                                <th colspan="5" class="text-right" style="vertical-align:bottom;">ราคารวมสุทธิ</th>
-                                                <th><input id="total_cost" type="text" class="form-control" name="total_cost" readonly="true"></th>
-                                            </tr>
-                                            </tfoot>
-          </table>
+            </table>
+          
       </div>
       <div class="modal-footer">
             <button type="button" class="btn btn-danger btn-lg btn-block" id="confirm">ยืนยัน</button>

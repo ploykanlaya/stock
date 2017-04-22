@@ -32,7 +32,7 @@ if ($_POST['status'] == 1){
 	}
 
 
-	$date1=date("Y/m/d");
+	$date1=date("Y-m-d");
 	$result2 =  $database->query("UPDATE purchaseorder SET receiveDate='".$date1."' WHERE PO_ID='".$_POST['id']."'" );
 
 

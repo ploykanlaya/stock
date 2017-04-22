@@ -171,7 +171,7 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 	                    <?php
 
 
-		            if($_SESSION['Position'] == "ผู้จัดการ")
+		            if($_SESSION['Position'] == "ผู้จัดการ"){
 
 			                                    if ($result1->Status == 0) {
 			                                    	if($count>0){
@@ -193,6 +193,7 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 			                                    if ($result1->Status == 2) {
 			                                    	echo '<h3 class="text-danger"><i>ไม่อนุมัติ</i></h3>';
 			                                    }
+			                                }
 
 
                if($_SESSION['Position'] == "พนักงาน" || $_SESSION['Position'] == "admin"){

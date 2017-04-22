@@ -122,7 +122,7 @@ if (isset($_POST["Wholesalers_ID"])) {
                                                
                                                 <th class="col-md-2">รหัสสินค้า</th>
                                                 <th class="col-md-2">ชื่อสินค้า</th> 
-                                                <th class="col-md-2">จำนวน</th>
+                                                <th class="col-md-2">จำนวนคงเหลือ</th>
                                                 <th class="col-md-2">มูลค่าต่อหน่วย</th>
                                                <th class="col-md-2">หน่วยสินค้า</th> 
                                                 <th class="col-md-2">ราคารวม</th>

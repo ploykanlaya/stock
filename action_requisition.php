@@ -14,7 +14,7 @@ foreach ($items as $field) {
 }
 
 
-	$date1=date("Y/m/d");
+	$date1=date("Y-m-d");
 	$result2 =  $database->query("UPDATE requisition SET DeliveryDate='".$date1."' WHERE Requisition_ID='".$_POST['id']."'" );
 
 }
