@@ -56,6 +56,7 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 	                                     <th>รหัสผู้ทำ</th>
 	                                    <th>ชื่อผู้ทำ</th>
 	                                    <th>รายละเอียด</th>
+	                                    
 	                             
 	                              </tr>
 	                            </thead>
@@ -103,6 +104,7 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 		                                    <td align=right><?=$field->Name;?></td>
 		                                        
 		                                    <td><a href="po_detail.php?id=<?=$field->PO_ID;?>" class="btn btn-danger select-modal">ตรวจสอบ</a></td>
+		                                    
 
 		                                </tr>
 

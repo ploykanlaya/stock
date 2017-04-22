@@ -5,13 +5,13 @@ $allPosts = $_POST['Product_ID'];
 $countPosts = count($allPosts);
 
 
-$time = strtotime($_POST["ReturnDate"]);//;วันที่
+$time=strtotime(date('Y-m-d'));//;วันที่
 
 include_once 'class/db.class.php';
 
 $database = new DB();
 
-$sql = "INSERT INTO returnoder (ReturnOder_ID,ReturnDate,UserID,Name,Status,Position) VALUES ('".$_POST["ReturnOder_ID"]."','".date('Y-m-d', $time)."','".$_SESSION['UserID']."','".$_SESSION['Name']."','"."0"."','".$_SESSION['Position']."')" ;
+$sql = "INSERT INTO returnoder (ReturnOder_ID,ReturnDate,UserID,Name,Status,Position) VALUES ('".$_POST["ReturnOder_ID"]."','".date('Y-m-d')."','".$_SESSION['UserID']."','".$_SESSION['Name']."','"."0"."','".$_SESSION['Position']."')" ;
 
 // print_r($sql); 
 

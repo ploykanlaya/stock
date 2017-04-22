@@ -15,7 +15,8 @@ $database = new DB();
  * ดึงข้อมูลที่ค้นหาเจอออกมาทั้งหมด
  ===================================================== */
 $result1 =  $database->query("SELECT * From purchaseorder where PO_ID='".$_GET['id']."'" )->find();
- // print_r($result1);exit();
+$result2 =  $database->query("SELECT * From wholesalers as w JOIN purchaseorder as p on w.Wholesalers_ID=p.Wholesalers_ID " )->find();
+ // print_r($result2);exit();
 
 
 $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID, R.PO_ID, R.PO_ID, P.Product_Name, P.Price,P.Numstock,Po.Status FROM Product AS P JOIN po_detail AS R ON P.Product_ID = R.Product_ID JOIN purchaseorder as Po on R.PO_ID=Po.PO_ID where Po.PO_ID='".$_GET['id']."'" )->findAll();
@@ -58,12 +59,81 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
 	                <div class="body">
 	                <button name="b_print" type="button" class="btn z-btn-icon btn-text z-btn-gray z-btn-dropdown dropdown-toggle height43"  onClick="printdiv('div_print');" value=" Print "><i class="glyphicon glyphicon-print"></i> พิมพ์เอกสาร</button> 
 	                 <div id="div_print">
-	                 <div class="table-responsive">
-	                	<h3 align=center>ใบสั่งซื้อ</h3> 
-	                	<h5>รายการ เลขที่ : <?=$result1->PO_ID;?></h5> 
+
+
+
+	                	<div class="row clearfix"><h3 align=center>ใบสั่งซื้อ</h3>
+	                	<div class="body">
+	                	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+	                	 
+
+	                	<h5>ชื่อร้านค้าส่ง : <?=$result2->Wholesalers_Name;?> </h5> 
+	                	<h5>ที่อยู่ : <?=$result2->Address;?> </h5> 
+	                    <h5>เบอร์โทรศัพท์ : <?=$result2->Telephone;?> </h5>
+	                    <h5>อีเมลล์ : <?=$result2->Email;?> </h5>
+	                     </div>
+	                    
+	                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+	                 
+	                    <h5>รายการ เลขที่ : <?=$result1->PO_ID;?></h5>
 	                    <h5>วันที่สั่งซื้อ : <?=$result1->PO_OutDate;?></h5>
 	                    <h5>ผู้ทำรายการ : <?=$result1->Name;?></h5>
+	                    </div> 
+	                    </div>
+	                    </div>
 
+	                 <div class="table-responsive">
+
+
+
+	                 <!-- Line Chart -->
+    <!-- <div class="row clearfix">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="card">
+                    <div class="header">
+                        <h2>ผู้ทำรายการ</h2>
+                        
+                    </div>
+                    <div class="body">
+                        <h5>รายการ เลขที่ : <?=$result1->PO_ID;?></h5> 
+	                	<h5>ร้านค้าส่ง : <?=$result2->Wholesalers_ID;?></h5> 
+	                    <h5>วันที่สั่งซื้อ : <?=$result1->PO_OutDate;?></h5>
+	                    <h5>ผู้ทำรายการ : <?=$result1->Name;?></h5>
+                    </div>
+                </div>
+            </div> -->
+      
+        
+            <!-- #END# Line Chart -->
+
+            <!-- Pie Chart -->
+            
+           <!--  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="card">
+                    <div class="header">
+                        <h2>ร้านค้าส่ง</h2>
+                       
+                        
+                    </div>
+                    <div class="body">
+                        <h5>รายการ เลขที่ : <?=$result1->PO_ID;?></h5> 
+	                	<h5>ร้านค้าส่ง : <?=$result2->Wholesalers_ID;?></h5> 
+	                    <h5>วันที่สั่งซื้อ : <?=$result1->PO_OutDate;?></h5>
+	                    <h5>ผู้ทำรายการ : <?=$result1->Name;?></h5>
+                    </div>
+                </div>
+            </div>
+            </div>
+           -->
+
+            <!-- #END# Pie Chart -->
+
+
+
+
+
+
+	               
 	                     
 	                    <div class="card">
 	                     <div class="body">
@@ -163,7 +233,7 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
              </TR>
           
 			</TABLE>
-	                        </div>
+	     </div>
 	                        <h4 align=right>สถานะการอนุมัติ<br><br>
 	                        <!-- <div class="col-md-12" > --> 
 	                     
@@ -180,23 +250,25 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
 			                                    			
 			                                    			</button>
 		                                    				<button type="button" class="btn btn-danger btn-cancle" data-id="'.$field->PO_ID.'">ยกเลิก</button>
-		                                    			</td>';
+		                                    			
+
+                                              <button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">ปรับจำนวนสั่งซื้อ</button></td>';
+
 
 			                                    }
 			                                    if ($field->Status == 1) {
-			                                    	echo '<h3 class="text-success"><b>รับสินค้าแล้ว</b></h3>';
+			                                    	echo '<h3 align=right class="text-success"><b>รับสินค้าแล้ว</b></h3>';
 
 
 			                                    }
 			                                    if ($field->Status == 2) {
-			                                    	echo '<h3 class="text-danger"><i>ยกเลิกรายการสั่งซื้อ</i></h3>';
+			                                    	echo '<h3 align=right class="text-danger"><i>ยกเลิกรายการสั่งซื้อ</i></h3>';
 			                                    }
 		                                    ?>
 		                                      
 
 
-	                       <button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">ปรับจำนวนสั่งซื้อ</button>
-
+	                       
 
 
 
@@ -210,7 +282,8 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
                                     
 
 
-	                        </h5>
+	                        </h4>
+
 	                    </div>
 	                </div>
 	            </div>
@@ -244,28 +317,27 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
               </tr>
             </thead>
             <tbody>
-                
+            <form action="update_po.php" method="POST">
                 <?php 
-
-
-                    // foreach ($result as $data) {
-                    //     echo '<form action="update_po.php" method="POST">
-                    //     	<input type="hidden" name="PO_ID" value="<?php echo $rows['PO_ID'];?>">
-                    //     <tr>
-                    //     <td align=right>'.$data->Product_ID.'</td>
-                    //     <td >'.$data->Product_Name.'</td>
+                    foreach ($result as $data) {
+                ?>
+                    <tr>
+                    <input type="hidden" name="PO_ID" value="<?php echo $rows['PO_ID'];?>">               
+                    <td align=right><?php echo $data->Product_ID; ?></td>
+                        <td ><?php echo $data->Product_Name ?></td>
                        
-                    //     <td align=right>'.number_format($data->Price, 2, '.', ',').'</td>
-                    //      <td >'.$data->Unit.'</td>
-                    //     <td align=right>'.$data->Numstock.'</td>
-                    //     <td align=right><input type="number" name="Quantity" class="form-control" value="'.$data->Quantity.'"></td>
-                    //     <td> <button type="submit" class="btn btn-primary">อัทเดท</button></td>
-	                   //      </tr></form>';
-
-
+                        <td align=right><?= number_format($data->Price, 2, '.', ',') ?></td>
+                         <td ><?=$data->Unit?></td>
+                        <td align=right><?= $data->Numstock ?></td>
+                        <td align=right><input type="number" name="Quantity" class="form-control" value="<?= $data->Quantity ?>"></td>
+                        <td> <button type="submit" class="btn btn-primary">อัทเดท</button></td> 
+               
+	                       
+                  </tr>
+                <?php
                     }
                 ?>
-
+                </form>
                 
             </tbody>
           </table>

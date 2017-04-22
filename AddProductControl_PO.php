@@ -1,5 +1,6 @@
 <?php
 session_start();
+// var_dump($_POST);die();
 $allPosts = $_POST['Product_ID'];
 $countPosts = count($allPosts);
 
@@ -10,7 +11,7 @@ include_once 'class/db.class.php';
 
 $database = new DB();
 
-$sql = "INSERT INTO purchaseorder (PO_ID,PO_OutDate,UserID,Name,Status) VALUES ('".$_POST["PO_ID"]."','".date('Y-m-d')."','".$_SESSION['UserID']."','".$_SESSION['Name']."','"."0"."')" ;
+$sql = "INSERT INTO purchaseorder (PO_ID,PO_OutDate,UserID,Name,Status,Wholesalers_ID) VALUES ('".$_POST["PO_ID"]."','".date('Y-m-d')."','".$_SESSION['UserID']."','".$_SESSION['Name']."','"."0"."','".$_POST["Wholesalers_ID"]."')" ;
 
  // print_r($sql);
 

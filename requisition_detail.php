@@ -185,7 +185,7 @@ $result =  $database->query("SELECT R.Number_Req, R.TotalPay, P.Product_ID, R.Re
 
 													}
 
-		                                    			echo	'<button type="button" class="btn btn-danger btn-cancle" data-id="'.$field->Product_ID.'">ไม่อนุมัติ</button>';
+		                                    			echo	'<button type="button" class="btn btn-danger btn-cancle" data-id="'.$field->Requisition_ID.'">ไม่อนุมัติ</button>';
 			                                    }
 			                                    if ($result1->Status == 1) {
 			                                    	echo '<h3 class="text-success"><b>อนุมัติ</b></h3>';

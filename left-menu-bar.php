@@ -68,9 +68,9 @@
                 <li>
                 <a href="po_list.php">ดูรายการสั่งซื้อ-รับสินค้า</a>
                 </li>
-                <li>
+                <!-- <li>
                 <a href="po_list.php">รับสินค้า</a>
-                </li>
+                </li> -->
                
 
 
@@ -98,7 +98,7 @@
                     <a href="return_add.php">สร้างรายการคืน</a>
                     </li>
                     <li>
-                    <a href="return_list.php">ดูรายการคืน</a>
+                    <a href="return_list.php">ดูรายการคืนของผู้จัดการ</a>
                 </li>
                 <li>
                     <a href="return_list_em.php">ดูรายการคืนของพนักงาน</a>
@@ -139,14 +139,14 @@
             </li>
             <li>
                 <a href="javascript:void(0);" class="menu-toggle">
-                <i class="fa fa-address-card-o" style="font-size:24px"></i><span>จัดการบริษัทค้าส่ง </span>
+                <i class="fa fa-address-card-o" style="font-size:24px"></i><span>ร้านค้าส่ง </span>
                 </a>
                 <ul class="ml-menu">
                 <li>
-                <a href="add_Wholesalers.php">เพิ่มบริษัทค้าส่ง </a>
+                <a href="add_Wholesalers.php">ร้านค้าส่ง </a>
                 </li>
                 <li>
-                <a href="info_wholealers.php">ลบ/แก้ไขข้อมูล</a>
+                <a href="info_wholealers.php">รายการร้านค้าส่ง</a>
                 </li>
                 
                 </ul>

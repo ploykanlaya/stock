@@ -49,7 +49,7 @@ if (isset($_POST["Wholesalers_ID"])) {
                     </div>
                     <div class="body">
                         <!-- <form id="addproduct" method="POST" action="AddRequisitionControl.php"> -->
-                        <form method="POST" action="po_add.php">
+                        
                              
                              <!--    <div class="col-md-6">
                                     <div class="form-group">
@@ -68,6 +68,8 @@ if (isset($_POST["Wholesalers_ID"])) {
                                     </div>
                                 </div>      
                                -->
+
+                               <form method="POST" action="po_add.php">
                             <div class="row clearfix">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -114,12 +116,12 @@ if (isset($_POST["Wholesalers_ID"])) {
 
                        <?php 
                             if (isset($_POST['Wholesalers_ID'])) {
-                                
                             
-
+                                  // var_dump($name[0]);
                              ?>
 
                         <form method="POST" action="AddProductControl_PO.php">
+                        <input type="hidden" name="Wholesalers_ID" value="<?php echo ($name[0]->{'Wholesalers_ID'}) ?>" >
                         <div class="row clearfix">
                                 <div class="col-md-12">
                                     <div class="form-group">
