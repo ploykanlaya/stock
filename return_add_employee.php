@@ -28,9 +28,9 @@ z
 <!-- Content -->
 <section class="content">
     <div class="container-fluid">
-    <div class="block-header">
+    <!-- <div class="block-header">
                 <h2>การคืนสินค้า</h2>
-            </div>
+            </div> -->
         <!-- Multi Column -->
         <div class="row clearfix">
             <div class="col-lg-12">
@@ -74,14 +74,14 @@ z
                                     </div>
                                 </div>      
                                -->
-                                <div class="col-md-6">                              
+                             <!--    <div class="col-md-6">                              
                                     <div class="form-group">
                                         <label class="form-label">วันทำการ</label>
                                         <div class="form-line">
                                            <input type="text" class="datepicker form-control" name="ReturnDate" placeholder="คลิกที่นี่" required>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>  
                             <div class="row clearfix">
                                 <div class="col-lg-12">
@@ -93,17 +93,23 @@ z
                                             <thead>
                                             <tr>
                                                
-                                                <th>รหัสสินค้า</th>
-                                                <th>ชื่อสินค้า</th> 
-                                                <th>จำนวน</th>
-                                                <th>มูลค่าต่อหน่วย</th>
-                                               <th>หน่วยสินค้า</th> 
-                                                <th>ราคารวม</th>
+                                               <th class="col-md-2">รหัสสินค้า</th>
+                                                <th class="col-md-2">ชื่อสินค้า</th> 
+                                                <th class="col-md-2">จำนวนคงเหลือ</th>
+                                                <th class="col-md-2">มูลค่าต่อหน่วย</th>
+                                               <th class="col-md-2">หน่วยสินค้า</th> 
+                                                <th class="col-md-2">ราคารวม</th>
                                             </tr>
                                             </thead>
 
                                             <tbody id="tableToModify">
                                             </tbody>
+                                             <tfoot>
+                                              <tr>
+                                                <th colspan="5" class="text-right" style="vertical-align:bottom;">ราคารวมสุทธิ</th>
+                                                <th><input id="total_cost" type="text" class="form-control" name="total_cost" readonly="true"></th>
+                                            </tr>
+                                            </tfoot>
                                         </table>  
 
                                         <div class="col-lg-12"><button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">+ เลือกสินค้า</button></div>
@@ -200,6 +206,7 @@ z
 
         $('#confirm').click(function(){
             var tbody= "";
+            var total_cost = 0;
             $('#product-table > tbody  > tr').each(function() {
                 var id = $(this).find('input[name="amount"]').data('id');
                 var name = $(this).find('input[name="amount"]').data("name");
@@ -215,9 +222,11 @@ z
                         '<td><input value="'+unit+'" type="text" class="form-control" name="Unit[]" readonly="true"></td>'+
                         '<td><input value="'+(price*amount)+'" type="text" class="form-control" name="TotalPay[]" readonly="true"></td>'+
                         '</tr>';
+                        total_cost+=price*amount;
                 }
             });
             $('#tableToModify').html(tbody);
+            $('#total_cost').val(total_cost);
             $("#myModal").modal("hide");
         });
 

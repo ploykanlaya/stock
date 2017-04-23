@@ -22,7 +22,7 @@ $database = new DB();
 <?php 
  if($_SESSION['Position'] == "ผู้จัดการ" || $_SESSION['Position'] == "admin"){
 
-$result =  $database->query("SELECT * FROM returnoder ORDER BY ReturnDate DESC")->findAll();
+$result =  $database->query("SELECT * FROM returnoder ORDER BY ReturnDate DESC, ReturnOder_ID ASC")->findAll();
 
 }
 if($_SESSION['Position'] == "พนักงาน" ){

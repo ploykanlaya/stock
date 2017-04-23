@@ -10,7 +10,7 @@ include_once 'class/db.class.php';
 $items =  $database->query("SELECT * FROM returnorder_detail WHERE ReturnOder_ID = ".$_POST['id'])->findAll();
 
 foreach ($items as $field) {
-	$result =  $database->query("UPDATE product SET Numstock= Numstock - ".$field->NumberReturn." WHERE Product_ID = ".$field->Product_ID);
+	$result =  $database->query("UPDATE product SET Numstock= Numstock + ".$field->NumberReturn." WHERE Product_ID = ".$field->Product_ID);
 }
 }
 

@@ -100,9 +100,9 @@
                     <li>
                     <a href="return_list.php">ดูรายการคืนของผู้จัดการ</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="return_list_em.php">ดูรายการคืนของพนักงาน</a>
-                </li>
+                </li> -->
                 </ul>
             </li>
 
