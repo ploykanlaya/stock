@@ -27,5 +27,5 @@ for ($i=0; $i < $countPosts; $i++) {
 
 
 
-header( "Location: /stock/return_list.php" );
+header( "Location: ../stock/return_list.php" );
 echo $sql2; exit;

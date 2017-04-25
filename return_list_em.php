@@ -56,9 +56,9 @@ $result =  $database->query("SELECT * FROM returnoder where UserID='".$_SESSION[
 	                                    	<th>สถานะ</th>
 	                                    <th>วันที่ทำ</th>
 	                                   <!--  <th>วันที่ส่ง</th> -->
-	                                     <!-- <th>รหัสผู้ทำรายการ</th>
+	                                     <th>รหัสผู้ทำรายการ</th>
 	                                    <th>ชื่อผู้ทำรายการ</th>
-	                                    <th>ตำแหน่ง</th> -->
+	                                    <th>ตำแหน่ง</th>
 	                                    <th>รายละเอียด</th>
 	                             
 	                              </tr>
@@ -90,9 +90,9 @@ $result =  $database->query("SELECT * FROM returnoder where UserID='".$_SESSION[
 		                                    </td>
 		                                    <td align=right><?=date('Y-m-d', strtotime($field->ReturnDate));?></td>
 		                                    <!-- <td><?=date('Y-m-d', strtotime($field->DeliveryDate));?></td> -->
-		                                    <!--  <td align=right><?=$field->UserID;?></td>
+		                                   <td align=right><?=$field->UserID;?></td>
 		                                    <td align=right><?=$field->Name;?></td>
-		                                  <td align=right><?=$field->Position;?></td>  -->
+		                                  <td align=right><?=$field->Position;?></td>  
 		                                        
 		                                    <td><a href="return_detail_em.php?id=<?=$field->ReturnOder_ID;?>" class="btn btn-danger select-modal">ตรวจสอบ</a></td>
 

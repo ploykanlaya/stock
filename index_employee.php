@@ -12,12 +12,12 @@ $return = count($result);
 ?> 
 <section class="content">
     <div class="container-fluid">
-    <div class="block-header">
+    <!-- <div class="block-header">
         <h2>ภาพรวม</h2>
-    </div>
+    </div> -->
 
     <!-- Widgets -->
-    <div class="row clearfix">
+    <!-- <div class="row clearfix">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="info-box bg-pink hover-expand-effect">
                 <div class="icon">
@@ -47,16 +47,16 @@ $return = count($result);
             </div>
         </div>
  
-        </div>
+        </div> -->
 
 
 
-        <div class="block-header">
+        <!-- <div class="block-header">
                 <h2>
-                    รายละเอียดสินค้า
+                    รายการสินค้า
                     
                 </h2>
-            </div>
+            </div> -->
             <!-- Basic Examples -->
 
      <?php

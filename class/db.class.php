@@ -10,9 +10,9 @@ class DB {
      
     public $type      = 'mysql';
     public $server    = 'localhost';
-    public $username  = 'root';
-    public $password  = '';
-    public $dbname    = 'stock';
+    public $username  = 'u560510635';
+    public $password  = '560510635';
+    public $dbname    = 'u560510635';
     public $port      = 3306;
     public $charset   = 'utf8';
      
