@@ -125,7 +125,7 @@
 
             <li>
                 <a href="javascript:void(0);" class="menu-toggle">
-                <i class="fa fa-address-card-o" style="font-size:24px"></i><span>จัดการผู้ใช้งาน</span>
+                <i class="fa fa-address-card-o" style="font-size:24px"></i><span>ผู้ใช้งาน</span>
                 </a>
                 <ul class="ml-menu">
                 <li>

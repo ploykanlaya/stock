@@ -108,7 +108,7 @@
                                 </div>
 
 
-                                <div class="col-md-12">
+                                <!-- <div class="col-md-12">
                                   
                                    
 
@@ -117,7 +117,7 @@
                                            <input type="text" class="datepicker form-control" name="ExpDate" placeholder="Please choose a date..." required >
                                             
                                     
-                                </div>
+                                </div> -->
                             </div>
 
                                    

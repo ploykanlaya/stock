@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Sign In |คลังสินค้าออนไลน์</title>
+    <title>Sign In |ระบบคลังสินค้าสำหรับร้านค้าปลีก</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -28,7 +28,7 @@
     <div class="login-box">
         <div class="logo">
             <a href="javascript:void(0);">Login<b> เข้าสู่ระบบ</b></a>
-            <small>Convenience Store’s Online Inventory Management System</small>
+            <small>Warehouse management system for retail store</small>
         </div>
         <div class="card">
             <div class="body">

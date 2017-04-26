@@ -244,7 +244,7 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
 			                                    if ($field->Status == 0) {
 			                                    	echo '<td>
 
-			                                    			<button type="button" class="btn btn-default btn-confirm" data-toggle="modal" data-target="#myModal" data-id="'.$field->PO_ID.'"
+			                                    			<button type="button" class="btn btn-default btn-confirm" data-toggle="modal" data-target="" data-id="'.$field->PO_ID.'"
 			                                    				">
 			                                    			รับสินค้า
 			                                    			
@@ -254,7 +254,7 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
 
                                               <button type="button" class="btn btn-primary waves-effect" onclick="selectModal()">ปรับจำนวนสั่งซื้อ</button>
 
-                                              </td>';
+                                              </td>'; 
 
 
 			                                    }

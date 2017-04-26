@@ -13,10 +13,15 @@ $result = $database->query("SELECT * FROM `returnoder` WHERE status=0")->findAll
 $return = count($result);
 
 $result = $database->query("SELECT * FROM `product`")->findAll();
-if($result["Numstock"] <= ["SafetyStock"])
-{
-$num = count($result);
-}
+// var_dump($result);die();
+// var_dump($result[0]);
+$num=0;
+foreach ($result as $value) {
+    if((int)$value->{"Numstock"}<= (int)$value->{"SafetyStock"}) {
+        $num++;
+        }
+    }
+
 ?>
 
 

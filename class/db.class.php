@@ -9,10 +9,10 @@ class DB {
     public $recode = array();
      
     public $type      = 'mysql';
-    public $server    = 'localhost';
-    public $username  = 'u560510635';
-    public $password  = '560510635';
-    public $dbname    = 'u560510635';
+    public $servername = "localhost";
+    public $username = "root";
+    public $password = "";
+    public $dbname    = 'stock';
     public $port      = 3306;
     public $charset   = 'utf8';
      
