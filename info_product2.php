@@ -91,6 +91,9 @@
 
                                     
                                         <td ><?php echo $rows['Unit']; ?></td>
+
+                                        
+
                                         
 
                                         <td align=right><?php echo $rows['Numstock']; ?></td>

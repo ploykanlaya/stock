@@ -26,15 +26,12 @@ $database = new DB();
         $timeshift = date_modify($timeshift, $_POST['Selectdate']);	
         
         $timeshift = date_format($timeshift, 'Y-m-d');
-        // $timeshift=strtotime(date('Y-m-d'));
         echo "<script> console.log('" . $timeshift . "');</script>";
-        // print_r($timeshift);exit();
                           
-       	$result2 = $database->query("SELECT P.Product_ID,P.Product_Name,R.Requisition_Date,P.Numstock,P.Price,P.SafetyStock FROM product AS P JOIN requisition_detail AS Rt ON P.Product_ID=Rt.Product_ID JOIN requisition as R on Rt.Requisition_ID=R.Requisition_ID WHERE R.Requisition_Date <= '".$timeshift."' GROUP BY P.Product_ID ")->findAll();
-        // print_r($result2);exit();
+       	$result2 = $database->query("SELECT P.Product_ID,P.Product_Name,R.Requisition_Date,P.Numstock,P.Price,P.SafetyStock FROM product AS P JOIN requisition_detail AS Rt ON P.Product_ID=Rt.Product_ID JOIN requisition as R on Rt.Requisition_ID=R.Requisition_ID WHERE R.Requisition_Date <= '".$timeshift."' GROUP BY P.Product_ID")->findAll();
     }else{
 
-    $result2 =$database->query("SELECT P.Product_ID,P.Product_Name,max(R.Requisition_Date),P.Numstock,P.Price,P.SafetyStock FROM product AS P JOIN requisition_detail AS Rt ON P.Product_ID=Rt.Product_ID JOIN requisition as R on Rt.Requisition_ID=R.Requisition_ID GROUP BY P.Product_ID")->findAll() ;
+    $result2 =$database->query("SELECT P.Product_ID,P.Product_Name,R.Requisition_Date,P.Numstock,P.Price,P.SafetyStock FROM product AS P JOIN requisition_detail AS Rt ON P.Product_ID=Rt.Product_ID JOIN requisition as R on Rt.Requisition_ID=R.Requisition_ID GROUP BY P.Product_ID")->findAll() ;
 	}
 
 
@@ -45,34 +42,34 @@ $database = new DB();
 <!-- Select -->
 <section class="content">
     <div class="container-fluid">
-            <div class="row clearfix">
+            <!-- <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
+                    <div class="card"> -->
+                       <!--  <div class="header">
                             <h2>
                                 เลือกช่วงเวลา ดูรายการสินค้าจม
                                
                                
                             </h2>
                         
-                        </div>
-                        <div class="body">
-                            <div class="row clearfix">
-                                <div class="col-sm-6">
+                        </div> -->
+                        <!-- <div class="body">
+                            <div class="row clearfix"> -->
+                                <!-- <div class="col-sm-6">
                                 
                                 	<form action='numberstock.php#' method='POST'>
                                     <select class="form-control show-tick" name="Selectdate">
                                         <option value>-- เลือก --</option>
                                         <option value="-7 day">สินค้าจมที่ไม่ได้เบิกมากกว่า 7 วัน</option>
-                                        <!-- <option value="-1 week">สินค้าจมที่ไม่ได้เบิกมากกว่า 1 สัปดาห์</option> -->
+                                        <option value="-1 week">สินค้าจมที่ไม่ได้เบิกมากกว่า 1 สัปดาห์</option>
                                         <option value="-1 month">สินค้าจมที่ไม่ได้เบิกมากกว่า 1 เดือน</option>
                                         <option value="-3 month">สินค้าจมที่ไม่ได้เบิกมากกว่า 3 เดือน</option>
                                         <option value="-1 year">สินค้าจมที่ไม่ได้เบิกมากกว่า 1 ปี</option>
                                     </select>
-                                </div>
-                                <button type="submit"  class="btn btn-danger select-modal" name="Search" >คกลง</button>
+                                </div> -->
+                                <!-- <button type="submit"  class="btn btn-danger select-modal" name="Search" >ตกลง</button> -->
                                <!--  <div class="col-lg-12"><input type="submit" class="btn btn-primary waves-effect" name="Search"></input></div> -->
-                                </form>
+                                <!-- </form>
                                 
                                 
 
@@ -83,7 +80,7 @@ $database = new DB();
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- #END# Select -->
 
 
@@ -141,7 +138,7 @@ $database = new DB();
 		                                    <td><?=$index;?></td>
 		                                    <td  align=right><?=$field->Product_ID;?></td>
 		                                    <td><?=$field->Product_Name;?></td>
-		                                    <td  align=right><?=date('Y-m-d', strtotime($field->Requisition_Date));?></td>
+		                                    <td  align=right><?=date('d/m/Y', strtotime($field->	Requisition_Date));?></td>
    											 <td align=right><?=number_format($field->Price, 2, '.', ',');?></td>
 		                                     <td align=right><?=$field->Numstock<=$field->SafetyStock?'<font color="red">'.$field->Numstock.'</font>':$field->Numstock;?></td>
 

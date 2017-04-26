@@ -22,12 +22,12 @@ $database = new DB();
 <?php 
  if($_SESSION['Position'] == "ผู้จัดการ" || $_SESSION['Position'] == "admin"){
 
-$result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date DESC")->findAll();
+$result =  $database->query("SELECT * FROM requisition ORDER BY Requisition_Date DESC, Requisition_ID DESC")->findAll();
 
 }
 if($_SESSION['Position'] == "พนักงาน" ){
 
-$result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION['UserID']."' ORDER BY Requisition_Date DESC ")->findAll();
+$result =  $database->query("SELECT * FROM requisition where UserID='".$_SESSION['UserID']."' ORDER BY Requisition_Date DESC, Requisition_ID DESC ")->findAll();
 
 
 }

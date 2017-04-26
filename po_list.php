@@ -22,12 +22,12 @@ $database = new DB();
 <?php 
  if($_SESSION['Position'] == "ผู้จัดการ" || $_SESSION['Position'] == "admin"){
 
-$result =  $database->query("SELECT * FROM purchaseorder ORDER BY PO_OutDate DESC")->findAll();
+$result =  $database->query("SELECT * FROM purchaseorder ORDER BY PO_OutDate DESC, PO_ID DESC")->findAll();
 
 }
 if($_SESSION['Position'] == "พนักงาน" ){
 
-$result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSION['UserID']."' ORDER BY PO_OutDate DESC ")->findAll();
+$result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSION['UserID']."' ORDER BY PO_OutDate DESC , PO_ID DESC")->findAll();
 
 
 }

@@ -10,7 +10,7 @@ if(!isset($_SESSION['Position'])){
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>คลังสินค้าออนไลน์</title>
+<title>ตัวอย่าง ระบบจัดการคลังสินค้าร้านค้าปลีก</title>
 <!-- Favicon-->
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 
