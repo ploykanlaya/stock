@@ -79,9 +79,9 @@ $result =  $database->query("SELECT * FROM returnoder where UserID='".$_SESSION[
 		                                   <td align=right>
 		                                    	
 		                                    	   <?php if ($field->Status == 0) 
-		                                    			echo '<span class="label bg-green"><i>รอการอนุมัติ</i></span>';
+		                                    			echo '<span class="label bg-blue"><i>รอการอนุมัติ</i></span>';
 		                                    		if ($field->Status == 1) 
-		                                    			echo '<span class="label bg-blue"><b>อนุมัติ</b></span>';
+		                                    			echo '<span class="label bg-green"><b>อนุมัติ</b></span>';
 		                                    		if ($field->Status == 2) 
 		                                    			echo '<span class="label bg-orange"><i>ไม่อนุมัติ</i></span>';
 
@@ -94,7 +94,7 @@ $result =  $database->query("SELECT * FROM returnoder where UserID='".$_SESSION[
 		                                    <td align=right><?=$field->Name;?></td>
 		                                  <td align=right><?=$field->Position;?></td>  
 		                                        
-		                                    <td><a href="return_detail_em.php?id=<?=$field->ReturnOder_ID;?>" class="btn btn-danger select-modal">ตรวจสอบ</a></td>
+		                                    <td><a href="return_detail_em.php?id=<?=$field->ReturnOder_ID;?>" class="btn bg-blue-grey waves-effect">ตรวจสอบ</a></td>
 
 
 

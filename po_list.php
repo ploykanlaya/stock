@@ -56,6 +56,7 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 	                                     <th>รหัสผู้ทำ</th>
 	                                    <th>ชื่อผู้ทำ</th>
 	                                    <th>รายละเอียด</th>
+	                                    <th>พิมพ์ใบสั่งซื้อ</th>
 	                                    
 	                             
 	                              </tr>
@@ -75,9 +76,9 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 		                                    <td align=right><?=$field->PO_ID;?></td>  
 		                                    <td align=right>
 		                                    <?php if ($field->Status == 0) 
-		                                    			echo '<span class="label bg-green"><i>รอรับสินค้า</i></span>';
+		                                    			echo '<span class="label bg-blue"><i>รอรับสินค้า</i></span>';
 		                                    		if ($field->Status == 1) 
-		                                    			echo '<span class="label bg-blue"><b>รับสินค้าแล้ว</b></span>';
+		                                    			echo '<span class="label bg-green"><b>รับสินค้าแล้ว</b></span>';
 		                                    		if ($field->Status == 2) 
 		                                    			echo '<span class="label bg-orange"><i>ยกเลิก</i></span>';
 
@@ -103,7 +104,8 @@ $result =  $database->query("SELECT * FROM purchaseorder where UserID='".$_SESSI
 		                                     <td align=right><?=$field->UserID;?></td>
 		                                    <td align=right><?=$field->Name;?></td>
 		                                        
-		                                    <td><a href="po_detail.php?id=<?=$field->PO_ID;?>" class="btn btn-danger select-modal">ตรวจสอบ</a></td>
+		                                    <td><a href="po_detail.php?id=<?=$field->PO_ID;?>" class="btn bg-blue-grey waves-effect">ตรวจสอบ</a></td>
+		                                    <td><a href="po_print.php?id=<?=$field->PO_ID;?>" class="btn bg-grey waves-effect">พิมพ์ใบสั่งซื้อ</a></td>
 		                                    
 
 		                                </tr>

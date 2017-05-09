@@ -24,12 +24,16 @@ $product =  $database->query("SELECT * FROM product")->findAll();
 
  if (isset($_POST['Product_ID'])) {
 	$pid="where Product.Product_ID='".$_POST['Product_ID']."'";
-	$num=$_POST['Product_ID'];
+	$num=$_POST['Product_Name'];
+
+
 }
 else{
 	$pid='';
 	$num='การเคลื่อนไหวทั้งหมด';
 }
+
+
 
  // $sort=array();
  // $n=0;
@@ -91,7 +95,8 @@ else{
             <form method="POST" action="movementproduct.php" > 
             
                   
-                  <input type="text" class="form-control" name="Product_ID" value="<?=$num;?>"><br>
+                  <input type="hidden" class="form-control" name="Product_ID" value="<?=$num;?>"><br>
+                  <input type="text" class="form-control" name="Product_Name" value="<?=$num;?>"><br>
            
 					
 					                                
@@ -288,7 +293,7 @@ else{
               <tr>
                 <th>รหัส</th>
                 <th>ชื่อสินค้า</th>
-                <th>ยี่ห้อ</th>
+                
                 <th>ราคา</th>
                 <th>คงเหลือในคลัง</th>
                 <th></th>
@@ -300,7 +305,7 @@ else{
                     echo '<tr>
                     <td>'.$data->Product_ID.'</td>
                     <td>'.$data->Product_Name.'</td>
-                    <td>'.$data->Product_Brand.'</td>
+                   
                     <td>'.$data->Price.'</td>
                     <td>'.$data->Numstock.'</td>
                     <td><button type="button" class="btn btn-danger btn-lg btn-block select-product" 
@@ -340,11 +345,11 @@ $( document ).ready(function() {
 
             $('.select-product').click(function(){
                  var id = $(this).data("id");
-                // var name = $(this).data("name");
+                 var name = $(this).data("name");
                 // var unit = $(this).data("unit");
                 // var price = $(this).data("price");
                 $(_this).parent().parent().find("input[name=Product_ID]").val(id);
-                // $(_this).parent().parent().find("input[name=Product_Name]").val(name);
+                $(_this).parent().parent().find("input[name=Product_Name]").val(name);
                 // $(_this).parent().parent().find("input[name=Unit]").val(unit);
                 // $(_this).parent().parent().find("input[name=Price]").val(price);
             });

@@ -10,8 +10,8 @@
 <?php
         require("Class.php");
         $servername = "localhost";
-        $username = "root";
-        $password = "";
+ $username = "root";
+ $password = "";
         $database = "stock";
 
         // Create connection

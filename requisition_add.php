@@ -184,10 +184,10 @@ $product =  $database->query("SELECT * FROM product")->findAll();
               <tr>
                <th class="col-md-2">รหัสสินค้า</th>
               <th class="col-md-2">ชื่อสินค้า</th> 
-              
               <th class="col-md-2">มูลค่าต่อหน่วย</th>
-             <th class="col-md-2">หน่วยสินค้า</th> 
-              <th class="col-md-2">ราคารวม</th>
+             <th class="col-md-2">หน่วยสินค้า</th>
+             <th class="col-md-2">จำนวนคงเหลือ</th>  
+              <th class="col-md-2">จำนวนที่ต้องการเบิก</th>
                 </tr>
             </thead>
             <tbody>
@@ -199,7 +199,7 @@ $product =  $database->query("SELECT * FROM product")->findAll();
                        
                         <td align=right>'.$data->Price.'</td>
                          <td align=right>'.$data->Unit.'</td>
-                        
+                        <td align=right>'.$data->Numstock.'</td>
                         <td align=right><input type="input" class="form-control" name="amount"
                             data-id="'.$data->Product_ID.'"
                             data-name="'.$data->Product_Name.'" 

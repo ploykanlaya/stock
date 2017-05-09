@@ -55,14 +55,19 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
 	        <!-- Task Info -->
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	            <div class="card">
+               <div class="header">
+                      <h2>รายละเอียดรายการเบิก เลขที่  <?=$result1->PO_ID;?></h2>
+                      
+                  
+                  </div>
    
 	                <div class="body">
-	                <button name="b_print" type="button" class="btn z-btn-icon btn-text z-btn-gray z-btn-dropdown dropdown-toggle height43"  onClick="printdiv('div_print');" value=" Print "><i class="glyphicon glyphicon-print"></i> พิมพ์เอกสาร</button> 
-	                 <div id="div_print">
+	              
+	                
 
 
 
-	                	<div class="row clearfix"><h3 align=center>ใบสั่งซื้อ</h3>
+	                	<div class="row clearfix">
 	                	<div class="body">
 	                	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 	                	 
@@ -75,7 +80,7 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
 	                    
 	                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 	                 
-	                    <h5>รายการ เลขที่ : <?=$result1->PO_ID;?></h5>
+	                   
 	                    <h5>วันที่สั่งซื้อ : <?=$result1->PO_OutDate;?></h5>
 	                    <h5>ผู้ทำรายการ : <?=$result1->Name;?></h5>
 	                    </div> 
@@ -210,30 +215,7 @@ $result =  $database->query("SELECT P.Unit,R.Quantity, R.TotalPay, P.Product_ID,
 
 	                        </div>
 
-	                        <hr>
-	                        <TABLE align=center   width="80%" height="100" >
-            
-            <TR>
-                     <TH> ผู้รับสินค้า	</TH>
-                     <TH> ผู้ส่งสินค้า</TH>
-                     <TH> ผู้รับเงิน</TH>
-                     <TH> ผู้อนุมัติ</TH>
-            </TR> 
-            <TR>
-                     <TD> .......................</TD>
-                     <TD> .......................</TD>
-                     <TD> .......................</TD>
-                     <TD> ....................... </TD>
-             </TR>
-             <TR>
-                     <TD> วันที่...............	</TD>
-                     <TD> วันที่...............</TD>
-                     <TD> วันที่...............</TD>
-                     <TD> วันที่...............	</TD>
-             </TR>
-          
-			</TABLE>
-	     </div>
+	                        
 	                        <h4 align=right>สถานะการอนุมัติ<br><br>
 	                        <!-- <div class="col-md-12" > --> 
 	                     

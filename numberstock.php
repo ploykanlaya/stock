@@ -42,20 +42,20 @@ $database = new DB();
 <!-- Select -->
 <section class="content">
     <div class="container-fluid">
-            <!-- <div class="row clearfix">
+            <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card"> -->
-                       <!--  <div class="header">
+                    <div class="card">
+                        <div class="header">
                             <h2>
                                 เลือกช่วงเวลา ดูรายการสินค้าจม
                                
                                
                             </h2>
                         
-                        </div> -->
-                        <!-- <div class="body">
-                            <div class="row clearfix"> -->
-                                <!-- <div class="col-sm-6">
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-sm-6">
                                 
                                 	<form action='numberstock.php#' method='POST'>
                                     <select class="form-control show-tick" name="Selectdate">
@@ -66,10 +66,10 @@ $database = new DB();
                                         <option value="-3 month">สินค้าจมที่ไม่ได้เบิกมากกว่า 3 เดือน</option>
                                         <option value="-1 year">สินค้าจมที่ไม่ได้เบิกมากกว่า 1 ปี</option>
                                     </select>
-                                </div> -->
-                                <!-- <button type="submit"  class="btn btn-danger select-modal" name="Search" >ตกลง</button> -->
+                                </div>
+                                <button type="submit"  class="btn btn-danger select-modal" name="Search" >ตกลง</button>
                                <!--  <div class="col-lg-12"><input type="submit" class="btn btn-primary waves-effect" name="Search"></input></div> -->
-                                <!-- </form>
+                                </form>
                                 
                                 
 
@@ -80,7 +80,7 @@ $database = new DB();
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <!-- #END# Select -->
 
 

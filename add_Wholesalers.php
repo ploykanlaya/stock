@@ -9,9 +9,9 @@
 
 <?php
         require("Class.php");
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
+$servername = "localhost";
+ $username = "root";
+ $password = "";
         $database = "stock";
 
         // Create connection
